@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated) — set GA_ID below to activate. Inactive while placeholder. -->
+<script>
+(function(){
+  var GA_ID = 'G-XXXXXXXXXX'; /* TODO: replace with your GA4 Measurement ID */
+  if (GA_ID === 'G-XXXXXXXXXX') return; /* not configured yet — zero tracking, zero requests */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__alvoGA) return; window.__alvoGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('alvo_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Proficiency Quiz — Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:       #4A7C6F;
+    --sage-light: #7AAB9B;
+    --sage-pale:  #EAF2EF;
+    --sage-dark:  #2D5246;
+    --warm:       #E8DDD0;
+    --warm-deep:  #C4A882;
+    --warm-dark:  #7A6450;
+    --ink:        #1C2B26;
+    --off-white:  #FAF8F5;
+    --white:      #FFFFFF;
+    --error:      #C0544A;
+    --success:    #4A7C6F;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: rgba(250,248,245,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(28,43,38,0.07);
+    padding: 20px 48px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo-word {
+    font-family: 'Fraunces', serif;
+    font-size: 20px; font-weight: 300;
+    color: var(--ink); letter-spacing: 0.04em;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ══════════════════════
+     INTRO SCREEN
+  ══════════════════════ */
+  .intro {
+    max-width: 720px; margin: 0 auto;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .intro-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sage-pale);
+    border: 1px solid rgba(74,124,111,0.18);
+    padding: 7px 16px; border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+    color: var(--sage-dark); letter-spacing: 0.04em;
+    margin-bottom: 32px;
+  }
+  .badge-dot { width: 6px; height: 6px; background: var(--sage); border-radius: 50%; }
+
+  .intro h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 52px; font-weight: 300;
+    line-height: 1.12; color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .intro h1 em { font-style: italic; color: var(--sage); }
+
+  .intro-sub {
+    font-size: 17px; font-weight: 300;
+    line-height: 1.65; color: rgba(28,43,38,0.6);
+    margin-bottom: 48px;
+  }
+
+  .intro-meta {
+    display: flex; justify-content: center; gap: 32px;
+    margin-bottom: 48px;
+  }
+  .meta-item {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .meta-val {
+    font-family: 'Fraunces', serif;
+    font-size: 28px; font-weight: 300; color: var(--sage);
+  }
+  .meta-lbl { font-size: 12px; color: rgba(28,43,38,0.45); }
+
+  .meta-divider { width: 1px; background: rgba(28,43,38,0.1); }
+
+  .topic-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 48px; }
+  .topic-pill {
+    background: var(--white); border: 1px solid rgba(28,43,38,0.08);
+    border-radius: 100px; padding: 6px 14px;
+    font-size: 12px; font-weight: 500; color: rgba(28,43,38,0.55);
+  }
+
+  .btn-start {
+    background: var(--sage); color: var(--white);
+    padding: 16px 36px; border-radius: 100px;
+    font-size: 16px; font-weight: 500;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-start:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  /* ══════════════════════
+     QUIZ SCREEN
+  ══════════════════════ */
+  .quiz-wrap {
+    max-width: 760px; margin: 0 auto;
+    padding: 48px 40px 80px;
+  }
+
+  /* Progress */
+  .progress-bar-wrap {
+    margin-bottom: 40px;
+  }
+  .progress-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+  }
+  .progress-label { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
+  .progress-count { font-size: 13px; color: rgba(28,43,38,0.4); }
+  .progress-track {
+    height: 4px; background: rgba(28,43,38,0.08);
+    border-radius: 100px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: var(--sage);
+    border-radius: 100px;
+    transition: width 0.4s ease;
+  }
+
+  /* Topic badge */
+  .q-topic {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--sage-pale);
+    border-radius: 100px; padding: 5px 12px;
+    font-size: 11px; font-weight: 500;
+    color: var(--sage-dark); letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+
+  /* Question */
+  .q-text {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 400;
+    line-height: 1.35; color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  /* Options */
+  .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+
+  .option {
+    background: var(--white);
+    border: 1.5px solid rgba(28,43,38,0.08);
+    border-radius: 14px; padding: 18px 22px;
+    cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    text-align: left;
+  }
+  .option:hover:not(.disabled) {
+    border-color: var(--sage);
+    background: var(--sage-pale);
+    transform: translateX(3px);
+  }
+  .option.selected { border-color: var(--sage); background: var(--sage-pale); }
+  .option.correct  { border-color: var(--success); background: #EAF2EF; }
+  .option.wrong    { border-color: var(--error); background: #FDF0EF; }
+  .option.reveal-correct { border-color: var(--success); background: #EAF2EF; }
+  .option.disabled { cursor: default; }
+
+  .option-letter {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(28,43,38,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500; color: rgba(28,43,38,0.45);
+    flex-shrink: 0; margin-top: 1px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .option.selected .option-letter,
+  .option.correct .option-letter  { background: var(--sage); color: var(--white); }
+  .option.wrong .option-letter    { background: var(--error); color: var(--white); }
+  .option.reveal-correct .option-letter { background: var(--sage); color: var(--white); }
+
+  .option-text { font-size: 15px; font-weight: 400; line-height: 1.5; color: var(--ink); }
+
+  /* Explanation */
+  .explanation {
+    background: var(--ink); border-radius: 14px;
+    padding: 20px 24px; margin-bottom: 32px;
+    display: none;
+  }
+  .explanation.show { display: block; }
+  .explanation-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--sage-light);
+    margin-bottom: 8px;
+  }
+  .explanation-text {
+    font-size: 14px; font-weight: 300; line-height: 1.65;
+    color: rgba(250,248,245,0.75);
+  }
+
+  /* Nav buttons */
+  .q-nav { display: flex; justify-content: space-between; align-items: center; }
+
+  .btn-next {
+    background: var(--sage); color: var(--white);
+    padding: 13px 28px; border-radius: 100px;
+    font-size: 14px; font-weight: 500;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s; opacity: 0.35; pointer-events: none;
+  }
+  .btn-next.enabled { opacity: 1; pointer-events: all; }
+  .btn-next.enabled:hover { background: var(--sage-dark); }
+
+  .q-skip {
+    font-size: 13px; color: rgba(28,43,38,0.35);
+    cursor: pointer; border: none; background: none;
+    transition: color 0.2s;
+  }
+  .q-skip:hover { color: rgba(28,43,38,0.6); }
+
+  /* ══════════════════════
+     RESULTS SCREEN
+  ══════════════════════ */
+  .results-wrap {
+    max-width: 800px; margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+
+  .results-hero {
+    text-align: center; margin-bottom: 60px;
+  }
+
+  .score-ring-wrap {
+    position: relative; width: 160px; height: 160px;
+    margin: 0 auto 28px;
+  }
+  .score-ring {
+    width: 160px; height: 160px;
+    transform: rotate(-90deg);
+  }
+  .ring-bg { fill: none; stroke: rgba(28,43,38,0.07); stroke-width: 8; }
+  .ring-fill {
+    fill: none; stroke: var(--sage); stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transition: stroke-dashoffset 1.2s ease;
+  }
+  .score-text-wrap {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .score-num {
+    font-family: 'Fraunces', serif;
+    font-size: 42px; font-weight: 300; color: var(--ink); line-height: 1;
+  }
+  .score-denom { font-size: 13px; color: rgba(28,43,38,0.35); }
+
+  .results-level {
+    font-family: 'Fraunces', serif;
+    font-size: 36px; font-weight: 300;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .results-level em { font-style: italic; color: var(--sage); }
+
+  .results-tagline {
+    font-size: 16px; font-weight: 300;
+    line-height: 1.65; color: rgba(28,43,38,0.55);
+    max-width: 480px; margin: 0 auto;
+  }
+
+  /* Topic breakdown */
+  .breakdown {
+    background: var(--white);
+    border-radius: 20px; padding: 36px;
+    border: 1px solid rgba(28,43,38,0.06);
+    margin-bottom: 32px;
+  }
+  .breakdown-title {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 28px;
+  }
+  .topic-row { margin-bottom: 20px; }
+  .topic-row:last-child { margin-bottom: 0; }
+  .topic-row-top {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 8px;
+  }
+  .topic-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .topic-score { font-size: 13px; color: rgba(28,43,38,0.45); }
+  .topic-track {
+    height: 6px; background: rgba(28,43,38,0.06);
+    border-radius: 100px; overflow: hidden;
+  }
+  .topic-bar {
+    height: 100%; border-radius: 100px;
+    transition: width 1s ease;
+  }
+  .bar-strong { background: var(--sage); }
+  .bar-mid    { background: var(--warm-deep); }
+  .bar-weak   { background: #C0544A; }
+
+  /* Gate section */
+  .gate {
+    background: var(--ink);
+    border-radius: 24px; padding: 48px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .gate::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,124,111,0.2) 0%, transparent 65%);
+  }
+  .gate-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--sage-light);
+    margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .gate h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 30px; font-weight: 300;
+    color: var(--off-white); margin-bottom: 12px;
+    position: relative; z-index: 1;
+  }
+  .gate h3 em { font-style: italic; color: var(--sage-light); }
+  .gate p {
+    font-size: 15px; font-weight: 300;
+    color: rgba(250,248,245,0.55); line-height: 1.65;
+    margin-bottom: 32px; max-width: 420px;
+    margin-left: auto; margin-right: auto;
+    position: relative; z-index: 1;
+  }
+
+  .gate-form { display: flex; gap: 12px; max-width: 420px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .gate-input {
+    flex: 1; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px; padding: 13px 20px;
+    font-size: 14px; color: var(--off-white);
+    font-family: 'DM Sans', sans-serif;
+    outline: none; transition: border-color 0.2s;
+  }
+  .gate-input::placeholder { color: rgba(255,255,255,0.3); }
+  .gate-input:focus { border-color: var(--sage-light); }
+
+  .btn-gate {
+    background: var(--sage); color: var(--white);
+    padding: 13px 24px; border-radius: 100px;
+    font-size: 14px; font-weight: 500;
+    border: none; cursor: pointer; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .btn-gate:hover { background: var(--sage-dark); }
+
+  .gate-note {
+    font-size: 11px; color: rgba(255,255,255,0.2);
+    margin-top: 16px; position: relative; z-index: 1;
+  }
+
+  /* Full report (revealed after gate) */
+  .full-report { display: none; margin-top: 32px; }
+  .full-report.show { display: block; }
+
+  .report-card {
+    background: var(--white); border-radius: 20px;
+    padding: 36px; border: 1px solid rgba(28,43,38,0.06);
+    margin-bottom: 20px;
+  }
+  .report-card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px; font-weight: 400; color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .report-card-body {
+    font-size: 14px; font-weight: 300;
+    line-height: 1.72; color: rgba(28,43,38,0.6);
+  }
+  .report-card-body p + p { margin-top: 12px; }
+
+  .rec-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .rec-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 14px; font-weight: 300; line-height: 1.55;
+    color: rgba(28,43,38,0.65);
+  }
+  .rec-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--sage); flex-shrink: 0; margin-top: 6px;
+  }
+
+  .cta-bottom {
+    background: var(--sage-dark); border-radius: 20px;
+    padding: 40px; text-align: center; margin-top: 32px;
+  }
+  .cta-bottom h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 300;
+    color: var(--off-white); margin-bottom: 10px;
+  }
+  .cta-bottom h3 em { font-style: italic; color: var(--sage-light); }
+  .cta-bottom p {
+    font-size: 14px; font-weight: 300;
+    color: rgba(250,248,245,0.55); margin-bottom: 24px; line-height: 1.6;
+  }
+  .btn-cta-bottom {
+    background: var(--off-white); color: var(--ink);
+    padding: 13px 28px; border-radius: 100px;
+    font-size: 14px; font-weight: 500;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-cta-bottom:hover { background: var(--warm); }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.5s ease both; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .intro { padding: 48px 24px; }
+    .intro h1 { font-size: 34px; }
+    .intro-sub { font-size: 15px; }
+    .intro-meta { gap: 20px; }
+    .meta-val { font-size: 22px; }
+    .quiz-wrap { padding: 32px 24px 60px; }
+    .q-text { font-size: 20px; }
+    .results-wrap { padding: 40px 24px 60px; }
+    .score-ring-wrap { width: 130px; height: 130px; }
+    .score-ring { width: 130px; height: 130px; }
+    .score-num { font-size: 34px; }
+    .results-level { font-size: 28px; }
+    .breakdown { padding: 24px; }
+    .gate { padding: 32px 24px; }
+    .gate-form { flex-direction: column; }
+    .gate-input, .btn-gate { width: 100%; border-radius: 12px; }
+    .report-card { padding: 24px; }
+    .cta-bottom { padding: 28px 20px; }
+    .cta-bottom h3 { font-size: 20px; }
+  }
+  @media (max-width: 480px) {
+    .intro h1 { font-size: 28px; }
+    .topic-pills { gap: 6px; }
+    .topic-pill { font-size: 11px; padding: 5px 10px; }
+    .q-text { font-size: 18px; }
+    .option { padding: 14px 16px; }
+    .option-text { font-size: 14px; }
+    .results-level { font-size: 24px; }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(250,248,245,0.93);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(28,43,38,0.07);
+  }
+  .nav-inner {
+    max-width:1140px; margin:0 auto;
+    padding:22px 60px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .nav-logo-word { font-family:'Fraunces',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
+  .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+  .nav-links a { font-size:14px; color:var(--ink); text-decoration:none; opacity:0.5; transition:opacity 0.2s; }
+  .nav-links a:hover { opacity:1; }
+  .nav-links a.active { opacity:1; font-weight:500; }
+  .btn-nav {
+    background:var(--sage); color:var(--white) !important;
+    opacity:1 !important; padding:10px 22px; border-radius:100px;
+    font-size:13px !important; font-weight:500 !important;
+    transition:background 0.2s !important;
+  }
+  .btn-nav:hover { background:var(--sage-dark) !important; }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display:none; flex-direction:column; justify-content:center;
+    gap:5px; width:36px; height:36px; cursor:pointer;
+    background:none; border:none; padding:4px;
+  }
+  .nav-hamburger span {
+    display:block; height:1.5px; width:100%;
+    background:var(--ink); border-radius:2px;
+    transition:transform 0.25s ease, opacity 0.2s ease;
+    transform-origin:center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity:0; }
+  .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .nav-drawer {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--off-white); z-index:99;
+    flex-direction:column; padding:100px 36px 48px;
+    gap:0;
+  }
+  .nav-drawer.open { display:flex; }
+  .nav-drawer a {
+    font-family:'Fraunces',serif;
+    font-size:32px; font-weight:300; color:var(--ink);
+    text-decoration:none; padding:16px 0;
+    border-bottom:1px solid rgba(28,43,38,0.07);
+    display:block; opacity:0.7;
+    transition:opacity 0.2s;
+  }
+  .nav-drawer a:hover { opacity:1; }
+  .nav-drawer a.active { opacity:1; }
+  .nav-drawer-cta {
+    margin-top:32px;
+    background:var(--sage) !important;
+    color:var(--white) !important;
+    padding:16px 28px !important;
+    border-radius:100px !important;
+    text-align:center !important;
+    font-family:'DM Sans',sans-serif !important;
+    font-size:15px !important; font-weight:500 !important;
+    border-bottom:none !important;
+    opacity:1 !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #4A7C6F;
+    color: #FAF8F5;
+  }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(250,248,245,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(250,248,245,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Watermouse">
+    <meta property="og:title" content="Performance Marketer Quiz — Watermouse">
+    <meta property="og:description" content="Test your Google Ads knowledge. 15 questions, 6 topics, instant results.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/quiz">
+    <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Performance Marketer Quiz — Watermouse">
+    <meta name="twitter:description" content="Test your Google Ads knowledge. 15 questions, 6 topics, instant results.">
+    <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Test your Google Ads knowledge. 15 questions, 6 topics, instant results.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/alvo-quiz.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" stroke="#4A7C6F" stroke-width="1.5" fill="none"/>
+        <circle cx="24" cy="24" r="6" fill="#2D5246"/>
+        <line x1="24" y1="4" x2="24" y2="14" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="24" y1="34" x2="24" y2="44" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="24" x2="14" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="34" y1="24" x2="44" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-word">watermouse</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="alvo-pricing.html">Pricing</a></li>
+      <li><a href="alvo-case-studies.html">Work</a></li>
+      <li><a href="alvo-about.html">About</a></li>
+      <li><a href="alvo-lead-assessments.html">Assessments</a></li>
+      <li><a href="alvo-book-a-call.html" class="btn-nav">Book a free audit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="index.html#services">Services</a>
+  <a href="alvo-pricing.html">Pricing</a>
+  <a href="alvo-case-studies.html">Work</a>
+  <a href="alvo-about.html">About</a>
+  <a href="alvo-lead-assessments.html">Assessments</a>
+  <a href="alvo-book-a-call.html" class="nav-drawer-cta">Book a free audit →</a>
+</div>
+
+<!-- ══ SCREEN 1: INTRO ══ -->
+<div id="screen-intro" class="screen active">
+  <div class="intro">
+    <div class="intro-badge"><span class="badge-dot"></span> Free Assessment · 5 min</div>
+    <h1>How good are your<br><em>Google Ads skills?</em></h1>
+    <p class="intro-sub">15 questions across the topics that actually matter in eCommerce performance marketing. Find out where you stand — and where to improve.</p>
+
+    <div class="intro-meta">
+      <div class="meta-item">
+        <span class="meta-val">15</span>
+        <span class="meta-lbl">Questions</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-val">5</span>
+        <span class="meta-lbl">Minutes</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-val">6</span>
+        <span class="meta-lbl">Topics</span>
+      </div>
+    </div>
+
+    <div class="topic-pills">
+      <span class="topic-pill">Google Ads Fundamentals</span>
+      <span class="topic-pill">Campaign Structure</span>
+      <span class="topic-pill">Bidding Strategies</span>
+      <span class="topic-pill">Feed Management & Shopping</span>
+      <span class="topic-pill">Performance Max</span>
+      <span class="topic-pill">Tracking & Attribution</span>
+    </div>
+
+    <button class="btn-start" onclick="startQuiz()">
+      Start the quiz
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ══ SCREEN 2: QUIZ ══ -->
+<div id="screen-quiz" class="screen">
+  <div class="quiz-wrap">
+    <div class="progress-bar-wrap">
+      <div class="progress-top">
+        <span class="progress-label" id="progress-topic">Fundamentals</span>
+        <span class="progress-count" id="progress-count">1 / 15</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <div class="q-topic" id="q-topic-badge">Fundamentals</div>
+    <div class="q-text" id="q-text">Question text</div>
+
+    <div class="options" id="options-wrap"></div>
+
+    <div class="explanation" id="explanation">
+      <div class="explanation-label">Why this matters</div>
+      <div class="explanation-text" id="explanation-text"></div>
+    </div>
+
+    <div class="q-nav">
+      <button class="q-skip" onclick="skipQuestion()">Skip question</button>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">
+        Next question
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN 3: RESULTS ══ -->
+<div id="screen-results" class="screen">
+  <div class="results-wrap">
+
+    <div class="results-hero fade-in">
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 160 160">
+          <circle class="ring-bg" cx="80" cy="80" r="70"/>
+          <circle class="ring-fill" id="ring-fill" cx="80" cy="80" r="70"/>
+        </svg>
+        <div class="score-text-wrap">
+          <div class="score-num" id="score-num">0</div>
+          <div class="score-denom">out of 15</div>
+        </div>
+      </div>
+      <div class="results-level" id="results-level">Loading...</div>
+      <p class="results-tagline" id="results-tagline"></p>
+    </div>
+
+    <!-- Topic breakdown (always visible) -->
+    <div class="breakdown fade-in">
+      <div class="breakdown-title">Your score by topic</div>
+      <div id="topic-rows"></div>
+    </div>
+
+    <!-- Gate -->
+    <div class="gate fade-in" id="gate-section">
+      <div class="gate-label">Full performance report</div>
+      <h3>Get your <em>personalised</em><br>breakdown</h3>
+      <p>Enter your email to receive a full analysis of your strengths, gaps, and specific resources to level up — based on your answers.</p>
+      <div class="gate-form">
+        <input type="email" class="gate-input" id="gate-email" placeholder="your@email.com" />
+        <button class="btn-gate" onclick="unlockReport()">Get report</button>
+      </div>
+      <p class="gate-note">No spam. One email with your full results.</p>
+    </div>
+
+    <!-- Full report (revealed after email) -->
+    <div class="full-report" id="full-report">
+
+      <div class="report-card fade-in">
+        <div class="report-card-title">Where you're strong</div>
+        <div class="report-card-body" id="report-strengths"></div>
+      </div>
+
+      <div class="report-card fade-in">
+        <div class="report-card-title">Where to focus next</div>
+        <div class="report-card-body" id="report-gaps"></div>
+        <ul class="rec-list" id="rec-list"></ul>
+      </div>
+
+      <div class="cta-bottom">
+        <h3>Want to see these principles<br><em>in action?</em></h3>
+        <p>We apply everything in this quiz — every day — for eCommerce brands across Europe. Book a free audit and see how your current setup compares.</p>
+        <button class="btn-cta-bottom">
+          Book a free audit with Watermouse
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+const questions = [
+  // ── FUNDAMENTALS ──
+  {
+    topic: "Fundamentals",
+    q: "What does a Quality Score in Google Ads primarily influence?",
+    options: [
+      "The total number of impressions your ad receives",
+      "Your Ad Rank and the cost-per-click you pay at auction",
+      "The geographic reach of your campaigns",
+      "The maximum daily budget Google will allow"
+    ],
+    correct: 1,
+    explanation: "Quality Score affects your Ad Rank — which determines ad position — and your actual CPC. A higher Quality Score means you can outrank competitors while paying less per click, making it one of the highest-leverage metrics in account management."
+  },
+  {
+    topic: "Fundamentals",
+    q: "Which match type gives you the most control over which searches trigger your ads?",
+    options: [
+      "Broad match",
+      "Phrase match",
+      "Exact match",
+      "Broad match modifier"
+    ],
+    correct: 2,
+    explanation: "Exact match gives you the tightest control — your ad only shows for searches that match the intent of your keyword closely. Broad match offers more reach but far less control, often leading to irrelevant spend if not managed carefully."
+  },
+  {
+    topic: "Fundamentals",
+    q: "An eCommerce brand has a target ROAS of 400%. They spend €10,000 and generate €30,000 in revenue. What should they do?",
+    options: [
+      "Increase budget — they're above target ROAS",
+      "Decrease budget — they're below target ROAS",
+      "Decrease budget — they're above target ROAS",
+      "The ROAS is exactly on target, no action needed"
+    ],
+    correct: 2,
+    explanation: "€30k revenue / €10k spend = 300% ROAS, which is below the 400% target. The brand is spending more than it should relative to revenue. Reducing budget or improving conversion efficiency is the right move — not increasing spend."
+  },
+
+  // ── CAMPAIGN STRUCTURE ──
+  {
+    topic: "Campaign Structure",
+    q: "What is the main advantage of using Single Keyword Ad Groups (SKAGs) in Search campaigns?",
+    options: [
+      "They reduce account complexity and save management time",
+      "They allow Google's algorithm to learn faster",
+      "They give precise control over ad relevance and Quality Score per keyword",
+      "They are required for Shopping campaigns"
+    ],
+    correct: 2,
+    explanation: "SKAGs give you granular control — each keyword gets its own ad tailored specifically to it, improving relevance and Quality Score. The trade-off is management complexity, and with modern broad match + smart bidding, SKAGs are less universally recommended than before."
+  },
+  {
+    topic: "Campaign Structure",
+    q: "When structuring a Google Shopping campaign for a large eCommerce catalogue, what is generally the best approach?",
+    options: [
+      "One campaign, one ad group, all products",
+      "Separate campaigns by product category with priority settings to control bidding",
+      "One campaign per product SKU",
+      "Duplicate campaigns by device type"
+    ],
+    correct: 1,
+    explanation: "Segmenting by category with priority settings lets you control bidding at the right level of granularity. It also allows you to apply different ROAS targets per category based on margin — a critical lever for profitable eCommerce scaling."
+  },
+
+  // ── BIDDING STRATEGIES ──
+  {
+    topic: "Bidding Strategies",
+    q: "A client has just launched a new Google Ads account with no conversion history. Which bidding strategy is most appropriate to start?",
+    options: [
+      "Target ROAS — to hit profitability from day one",
+      "Target CPA — to control cost per acquisition",
+      "Maximise Clicks or Manual CPC — to gather initial data",
+      "Target Impression Share — to build brand awareness first"
+    ],
+    correct: 2,
+    explanation: "Smart bidding strategies like tROAS and tCPA require conversion history to work effectively. Without data, the algorithm has nothing to optimise from. Starting with Maximise Clicks or Manual CPC builds the signal needed before switching to automated bidding."
+  },
+  {
+    topic: "Bidding Strategies",
+    q: "Target ROAS bidding is underperforming — conversions have dropped significantly. What is the most likely cause?",
+    options: [
+      "The ROAS target is set too low",
+      "The ROAS target is set too high, restricting auction participation",
+      "Smart bidding doesn't work for eCommerce",
+      "The campaign needs more ad extensions"
+    ],
+    correct: 1,
+    explanation: "When tROAS targets are too aggressive, Google restricts bidding to only the highest-probability auctions — drastically reducing volume. If ROAS looks good but conversion volume has dropped, the target is almost always too high. Lower it incrementally and allow 2–3 weeks to stabilise."
+  },
+
+  // ── FEED MANAGEMENT ──
+  {
+    topic: "Feed Management & Shopping",
+    q: "Which product feed attribute has the single biggest impact on Shopping campaign performance?",
+    options: [
+      "Product description",
+      "Product title",
+      "Custom labels",
+      "Product type"
+    ],
+    correct: 1,
+    explanation: "Product title is the most important attribute — Google uses it to match your products to search queries. A well-optimised title (brand + product type + key attributes) directly improves relevance and visibility. Most brands underinvest in title optimisation and leave significant performance on the table."
+  },
+  {
+    topic: "Feed Management & Shopping",
+    q: "Custom labels in a Shopping feed are best used for:",
+    options: [
+      "Replacing the product title with promotional copy",
+      "Segmenting products by margin, seasonality, or performance for bidding purposes",
+      "Improving organic search visibility",
+      "Setting maximum CPC bids at the product level"
+    ],
+    correct: 1,
+    explanation: "Custom labels let you segment your product catalogue in ways that matter to your business — high margin, bestsellers, clearance, seasonal items. This segmentation enables smarter bidding: you can apply higher tROAS to low-margin products and more aggressive bids to high-margin ones."
+  },
+
+  // ── PERFORMANCE MAX ──
+  {
+    topic: "Performance Max",
+    q: "What is the most important input that improves Performance Max campaign results?",
+    options: [
+      "Setting a very high daily budget",
+      "Providing rich audience signals and high-quality creative assets",
+      "Excluding all branded search terms",
+      "Running PMax alongside exact match campaigns only"
+    ],
+    correct: 1,
+    explanation: "PMax is only as good as what you feed it. Strong audience signals (your customer lists, remarketing audiences) and high-quality creative assets across all formats give the algorithm the best foundation to find converting users across Google's full inventory."
+  },
+  {
+    topic: "Performance Max",
+    q: "A Performance Max campaign is cannibalising your branded search terms. What should you do?",
+    options: [
+      "Pause the PMax campaign immediately",
+      "Add brand terms as negative keywords at the account level via the support team",
+      "Lower the PMax budget to reduce cannibalisation",
+      "Nothing — PMax is always more efficient than dedicated brand campaigns"
+    ],
+    correct: 1,
+    explanation: "PMax doesn't have a standard negative keyword interface — you need to contact Google support or use campaign-level negative keyword lists to exclude branded terms. Running a separate branded Search campaign with higher priority is the standard best practice to protect brand traffic."
+  },
+  {
+    topic: "Performance Max",
+    q: "Which signal should you prioritise when setting up audience signals for a PMax eCommerce campaign?",
+    options: [
+      "In-market audiences selected from Google's library",
+      "Your own customer purchase data uploaded as a customer list",
+      "Affinity audiences based on interests",
+      "Similar audiences to your competitors' pages"
+    ],
+    correct: 1,
+    explanation: "First-party data is always the strongest signal. Your existing purchaser list tells Google exactly who converts for you — it's far more precise than any third-party audience segment. This is especially important post-iOS14 as third-party signals have become less reliable."
+  },
+
+  // ── TRACKING & ATTRIBUTION ──
+  {
+    topic: "Tracking & Attribution",
+    q: "What is the key difference between last-click and data-driven attribution?",
+    options: [
+      "Last-click is more accurate for eCommerce",
+      "Data-driven distributes conversion credit across all touchpoints based on actual contribution",
+      "Data-driven attribution only works with Google Analytics 4",
+      "Last-click attribution requires a minimum of 1,000 conversions per month"
+    ],
+    correct: 1,
+    explanation: "Last-click gives 100% of credit to the final interaction before conversion — which systematically undervalues upper-funnel and assist clicks. Data-driven uses machine learning to distribute credit based on actual touchpoint contribution, leading to better bidding decisions across the full funnel."
+  },
+  {
+    topic: "Tracking & Attribution",
+    q: "A client's Google Ads conversions spike on weekends but their Shopify revenue doesn't. What is the most likely cause?",
+    options: [
+      "Shopify has a reporting delay on weekends",
+      "The conversion tracking is firing on the 'Add to Cart' event, not purchase",
+      "Weekend traffic is lower quality by nature",
+      "The attribution window needs to be extended"
+    ],
+    correct: 1,
+    explanation: "A mismatch between reported conversions and actual revenue almost always points to a tracking configuration issue. Firing on 'Add to Cart' instead of 'Purchase' is one of the most common mistakes — it makes campaigns appear to perform well while optimising for the wrong event."
+  },
+  {
+    topic: "Tracking & Attribution",
+    q: "Which of the following best describes the benefit of importing GA4 conversions into Google Ads versus using the native Google Ads tag?",
+    options: [
+      "GA4 conversions are always more accurate and should always replace the Google Ads tag",
+      "GA4 provides cross-channel visibility and session-level data, useful for analysis — but Google Ads tag captures more granular ad interaction data for bidding",
+      "There is no meaningful difference between the two",
+      "GA4 conversions are required for Smart Bidding to function"
+    ],
+    correct: 1,
+    explanation: "Both have a place. The Google Ads tag is optimised for bidding signal — it captures click-level data with better precision for Smart Bidding. GA4 provides session-level, cross-channel context useful for analysis. For robust tracking, running both and using Google Ads tag as the primary conversion source is best practice."
+  }
+];
+
+// Topic order and scoring
+const topicList = ["Fundamentals","Campaign Structure","Bidding Strategies","Feed Management & Shopping","Performance Max","Tracking & Attribution"];
+let currentQ = 0;
+let answers = new Array(15).fill(null);
+let answered = false;
+
+function startQuiz() {
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  answered = false;
+
+  // Progress
+  const pct = (currentQ / 15) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-count').textContent = `${currentQ + 1} / 15`;
+  document.getElementById('progress-topic').textContent = q.topic;
+  document.getElementById('q-topic-badge').textContent = q.topic;
+  document.getElementById('q-text').textContent = q.q;
+
+  // Options
+  const wrap = document.getElementById('options-wrap');
+  wrap.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.options.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    div.innerHTML = `<div class="option-letter">${letters[i]}</div><div class="option-text">${opt}</div>`;
+    div.onclick = () => selectOption(i, div);
+    wrap.appendChild(div);
+  });
+
+  // Reset
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('btn-next').classList.remove('enabled');
+  document.getElementById('btn-next').textContent = currentQ === 14 ? 'See my results' : 'Next question';
+  if (currentQ === 14) {
+    document.getElementById('btn-next').innerHTML = 'See my results <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  } else {
+    document.getElementById('btn-next').innerHTML = 'Next question <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+}
+
+function selectOption(i, el) {
+  if (answered) return;
+  answered = true;
+  answers[currentQ] = i;
+
+  const q = questions[currentQ];
+  const opts = document.querySelectorAll('.option');
+
+  opts.forEach((opt, idx) => {
+    opt.classList.add('disabled');
+    if (idx === q.correct) opt.classList.add('reveal-correct');
+  });
+
+  if (i === q.correct) {
+    el.classList.add('correct');
+  } else {
+    el.classList.add('wrong');
+    opts[q.correct].classList.add('reveal-correct');
+  }
+
+  // Show explanation
+  document.getElementById('explanation-text').textContent = q.explanation;
+  document.getElementById('explanation').classList.add('show');
+  document.getElementById('btn-next').classList.add('enabled');
+}
+
+function skipQuestion() {
+  answers[currentQ] = null;
+  advanceQuestion();
+}
+
+function nextQuestion() {
+  // "Next question" only advances once an answer has been selected.
+  if (!answered) return;
+  advanceQuestion();
+}
+
+function advanceQuestion() {
+  currentQ++;
+  if (currentQ >= 15) {
+    showResults();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResults() {
+  showScreen('screen-results');
+
+  // Score
+  const score = answers.filter((a, i) => a === questions[i].correct).length;
+  document.getElementById('score-num').textContent = score;
+
+  // Ring animation
+  const circumference = 2 * Math.PI * 70;
+  const offset = circumference - (score / 15) * circumference;
+  setTimeout(() => {
+    document.getElementById('ring-fill').style.strokeDashoffset = offset;
+  }, 300);
+
+  // Level
+  let level, tagline;
+  if (score <= 5) {
+    level = 'You\'re <em>getting started.</em>';
+    tagline = 'You have a foundation to build on. The good news: the biggest performance gains come from fixing the fundamentals — and that\'s very learnable.';
+  } else if (score <= 9) {
+    level = 'You\'re <em>developing.</em>';
+    tagline = 'You understand the core concepts and are building real experience. A few key areas of focus will take your performance to the next level.';
+  } else if (score <= 12) {
+    level = 'You\'re <em>proficient.</em>';
+    tagline = 'Solid knowledge across most areas. You\'re working at a level most agencies don\'t reach. Now it\'s about refining the edges.';
+  } else {
+    level = 'You\'re <em>advanced.</em>';
+    tagline = 'You think like a senior performance marketer. Your understanding of the platform goes beyond tactics into genuine strategic depth.';
+  }
+  document.getElementById('results-level').innerHTML = level;
+  document.getElementById('results-tagline').textContent = tagline;
+
+  // Topic breakdown
+  const topicScores = {};
+  const topicTotals = {};
+  topicList.forEach(t => { topicScores[t] = 0; topicTotals[t] = 0; });
+  questions.forEach((q, i) => {
+    topicTotals[q.topic]++;
+    if (answers[i] === q.correct) topicScores[q.topic]++;
+  });
+
+  const rowsWrap = document.getElementById('topic-rows');
+  rowsWrap.innerHTML = '';
+  topicList.forEach(topic => {
+    const s = topicScores[topic]; const t = topicTotals[topic];
+    const pct = Math.round((s / t) * 100);
+    const barClass = pct >= 70 ? 'bar-strong' : pct >= 40 ? 'bar-mid' : 'bar-weak';
+    rowsWrap.innerHTML += `
+      <div class="topic-row">
+        <div class="topic-row-top">
+          <span class="topic-name">${topic}</span>
+          <span class="topic-score">${s}/${t} correct</span>
+        </div>
+        <div class="topic-track">
+          <div class="topic-bar ${barClass}" style="width:0%" data-pct="${pct}"></div>
+        </div>
+      </div>`;
+  });
+
+  setTimeout(() => {
+    document.querySelectorAll('.topic-bar').forEach(b => {
+      b.style.width = b.dataset.pct + '%';
+    });
+  }, 400);
+}
+
+// Lead capture endpoint — paste your Apps Script Web App URL here (see alvo-apps-script.js)
+const SHEETS_ENDPOINT = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+function unlockReport() {
+  const email = document.getElementById('gate-email').value;
+  if (!email || !email.includes('@')) {
+    document.getElementById('gate-email').style.borderColor = '#C0544A';
+    return;
+  }
+
+  // Capture the lead (email + score) — inactive until SHEETS_ENDPOINT is set
+  if (SHEETS_ENDPOINT !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+    var _score = answers.filter(function(a, i){ return a === questions[i].correct; }).length;
+    fetch(SHEETS_ENDPOINT, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, quiz: 'Google Ads Proficiency Quiz', score_pct: Math.round(_score / questions.length * 100), source: 'quiz' })
+    }).catch(function(err){ console.warn('Lead capture failed:', err); });
+  }
+
+  // Hide gate, show full report
+  document.getElementById('gate-section').style.display = 'none';
+  document.getElementById('full-report').classList.add('show');
+
+  // Generate personalised report based on answers
+  const score = answers.filter((a, i) => a === questions[i].correct).length;
+  const topicScores = {};
+  const topicTotals = {};
+  topicList.forEach(t => { topicScores[t] = 0; topicTotals[t] = 0; });
+  questions.forEach((q, i) => {
+    topicTotals[q.topic]++;
+    if (answers[i] === q.correct) topicScores[q.topic]++;
+  });
+
+  const strong = topicList.filter(t => (topicScores[t] / topicTotals[t]) >= 0.67);
+  const weak   = topicList.filter(t => (topicScores[t] / topicTotals[t]) < 0.5);
+
+  // Strengths
+  const strengthsEl = document.getElementById('report-strengths');
+  if (strong.length) {
+    strengthsEl.innerHTML = `<p>You scored well in <strong>${strong.join(', ')}</strong>. These are areas where your knowledge is solid and you're likely making good decisions in practice.</p><p>Lean into these strengths — they're the foundation for scaling accounts confidently.</p>`;
+  } else {
+    strengthsEl.innerHTML = `<p>Your scores were fairly consistent across topics. No single area stands out as a clear weakness, which means small improvements across the board will compound quickly.</p>`;
+  }
+
+  // Gaps & recs
+  const gapsEl = document.getElementById('report-gaps');
+  const recList = document.getElementById('rec-list');
+
+  const recs = {
+    "Fundamentals": "Revisit Google's Quality Score documentation and run a match type audit on your active campaigns.",
+    "Campaign Structure": "Map out your current account structure visually — often the issues become obvious when you see the architecture clearly.",
+    "Bidding Strategies": "Before switching to smart bidding, ensure you have at least 30–50 conversions/month per campaign. Build up the signal first.",
+    "Feed Management & Shopping": "Audit your top 20 product titles for keyword relevance. Small title changes often produce measurable Shopping improvements within days.",
+    "Performance Max": "Review your asset group scores in the UI and replace 'Poor' rated assets. Audience signals are often missing or too broad.",
+    "Tracking & Attribution": "Run a conversion tag audit using Google Tag Assistant. Verify that purchase events are firing correctly and not duplicating."
+  };
+
+  if (weak.length) {
+    gapsEl.innerHTML = `<p>Your biggest opportunities for improvement are in: <strong>${weak.join(', ')}</strong>. These areas are likely costing you performance — even small improvements here have an outsized effect on results.</p>`;
+    recList.innerHTML = weak.map(t => `<li class="rec-item"><div class="rec-dot"></div>${recs[t]}</li>`).join('');
+  } else {
+    gapsEl.innerHTML = `<p>No major gaps — your knowledge is solid across the board. At this level, the gains come from depth: testing more systematically, building tighter feedback loops, and staying current on platform changes.</p>`;
+    recList.innerHTML = `<li class="rec-item"><div class="rec-dot"></div>Focus on experiment velocity — the more structured tests you run per month, the faster you improve.</li><li class="rec-item"><div class="rec-dot"></div>Invest in feed quality — even advanced practitioners often find Shopping feed improvements are the highest-ROI optimisation available.</li>`;
+  }
+
+  window.scrollTo({ top: document.getElementById('full-report').offsetTop - 40, behavior: 'smooth' });
+}
+</script>
+
+<script>
+  // Mobile nav
+  function toggleNav() {
+    const btn = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+  }
+  // Close on escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We use cookies to understand how visitors use our site and to improve it over time.
+      No data is sold to third parties. Read our
+      <a href="alvo-privacy.html">privacy policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('alvo_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('alvo_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('alvo_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="alvo-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.alvo-mcta{display:none}@media(max-width:768px){.alvo-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>

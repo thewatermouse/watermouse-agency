@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated) — set GA_ID below to activate. Inactive while placeholder. -->
+<script>
+(function(){
+  var GA_ID = 'G-XXXXXXXXXX'; /* TODO: replace with your GA4 Measurement ID */
+  if (GA_ID === 'G-XXXXXXXXXX') return; /* not configured yet — zero tracking, zero requests */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__alvoGA) return; window.__alvoGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('alvo_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:#4A7C6F; --sage-light:#7AAB9B; --sage-pale:#EAF2EF;
+    --sage-dark:#2D5246; --warm:#E8DDD0; --warm-deep:#C4A882;
+    --warm-dark:#7A6450; --ink:#1C2B26; --off-white:#FAF8F5; --white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;gap:0;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* HERO */
+  .hero{padding:88px 0 72px;position:relative;overflow:hidden;}
+  .hero-blob{position:absolute;right:-100px;top:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,var(--sage-pale) 0%,transparent 65%);pointer-events:none;}
+  .hero-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;}
+  .hero-headline{font-family:'Fraunces',serif;font-size:60px;font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:24px;}
+  .hero-headline em{font-style:italic;color:var(--sage);}
+  .hero-sub{font-size:17px;font-weight:300;line-height:1.7;color:rgba(28,43,38,0.55);max-width:560px;}
+
+  /* STATS BAR */
+  .stats-bar{background:var(--ink);padding:48px 0;}
+  .stats-inner{max-width:1060px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .stat-item{padding:0 32px;border-right:1px solid rgba(255,255,255,0.08);}
+  .stat-item:first-child{padding-left:0;}
+  .stat-item:last-child{border-right:none;}
+  .stat-val{font-family:'Fraunces',serif;font-size:42px;font-weight:300;color:var(--off-white);line-height:1;margin-bottom:6px;}
+  .stat-val em{font-style:italic;color:var(--sage-light);}
+  .stat-label{font-size:12px;font-weight:300;color:rgba(250,248,245,0.4);line-height:1.5;}
+
+  /* CASES GRID */
+  .cases{padding:80px 0 100px;}
+  .cases-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .cases-grid{display:flex;flex-direction:column;gap:32px;}
+
+  .case-card{
+    display:grid;grid-template-columns:1fr 420px;
+    background:var(--white);border-radius:24px;overflow:hidden;
+    border:1.5px solid rgba(28,43,38,0.06);
+    text-decoration:none;color:inherit;
+    transition:transform 0.25s ease,box-shadow 0.25s ease;
+  }
+  .case-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(28,43,38,0.1);}
+  .case-card.reverse{grid-template-columns:420px 1fr;}
+
+  .case-content{padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between;}
+  .case-card.reverse .case-content{order:2;}
+  .case-card.reverse .case-visual{order:1;}
+
+  .case-meta{display:flex;align-items:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+  .case-tag{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;}
+  .tag-teal{background:var(--sage-pale);color:var(--sage-dark);}
+  .tag-warm{background:var(--warm);color:var(--warm-dark);}
+  .tag-dark{background:rgba(28,43,38,0.07);color:rgba(28,43,38,0.6);}
+  .case-year{font-size:12px;color:rgba(28,43,38,0.3);margin-left:auto;}
+
+  .case-title{font-family:'Fraunces',serif;font-size:30px;font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:16px;}
+  .case-title em{font-style:italic;color:var(--sage);}
+  .case-desc{font-size:14px;font-weight:300;line-height:1.72;color:rgba(28,43,38,0.55);margin-bottom:36px;}
+
+  .case-metrics{display:flex;gap:28px;margin-bottom:36px;}
+  .metric-item{}
+  .metric-val{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--ink);line-height:1;}
+  .metric-val.positive{color:var(--sage-dark);}
+  .metric-val.negative-good{color:var(--sage-dark);}
+  .metric-label{font-size:11px;font-weight:400;color:rgba(28,43,38,0.45);margin-top:4px;}
+
+  .case-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--sage);text-decoration:none;}
+  .case-link svg{transition:transform 0.2s;}
+  .case-card:hover .case-link svg{transform:translateX(4px);}
+
+  .case-visual{position:relative;overflow:hidden;}
+  .case-visual-bg{width:100%;height:100%;min-height:320px;display:flex;align-items:center;justify-content:center;}
+  .case-visual-bg.bg-blue{background:linear-gradient(135deg,#E8F4FF 0%,#C5E0F5 100%);}
+  .case-visual-bg.bg-sage{background:linear-gradient(135deg,var(--sage-pale) 0%,#C8DDD9 100%);}
+  .case-visual-bg.bg-warm{background:linear-gradient(135deg,var(--warm) 0%,#D4C4B0 100%);}
+  .visual-pattern{position:absolute;inset:0;opacity:0.15;}
+  .brand-display{position:relative;z-index:1;text-align:center;padding:40px;}
+  .brand-name{font-family:'Fraunces',serif;font-size:36px;font-weight:300;opacity:0.6;margin-bottom:12px;}
+  .brand-sub{font-size:12px;font-weight:300;opacity:0.45;letter-spacing:0.08em;text-transform:uppercase;}
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.5);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .hero-label{animation:fadeUp 0.5s ease both;}
+  .hero-headline{animation:fadeUp 0.5s ease 0.08s both;}
+  .hero-sub{animation:fadeUp 0.5s ease 0.16s both;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:900px){
+    .case-card,.case-card.reverse{grid-template-columns:1fr;}
+    .case-card.reverse .case-content{order:1;}
+    .case-card.reverse .case-visual{order:2;}
+    .case-visual-bg{min-height:220px;}
+  }
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .hero{padding:48px 0 48px;}
+    .hero-inner{padding:0 24px;}
+    .hero-headline{font-size:36px;}
+    .stats-bar{padding:36px 0;}
+    .stats-inner{grid-template-columns:1fr 1fr;padding:0 24px;gap:24px;}
+    .stat-item{border-right:none;padding:0;}
+    .stat-val{font-size:32px;}
+    .cases{padding:48px 0 60px;}
+    .cases-inner{padding:0 24px;}
+    .case-content{padding:32px 28px;}
+    .case-title{font-size:24px;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hero-headline{font-size:28px;}
+    .stats-inner{grid-template-columns:1fr 1fr;}
+    .case-metrics{gap:16px;}
+    .metric-val{font-size:22px;}
+    .cta-headline{font-size:26px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #4A7C6F;
+    color: #FAF8F5;
+  }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(250,248,245,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(250,248,245,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Watermouse">
+    <meta property="og:title" content="Work — Watermouse">
+    <meta property="og:description" content="Real results for European eCommerce brands — TicketSwap, Artipoppe, LandLife. No vanity metrics.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/work">
+    <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Work — Watermouse">
+    <meta name="twitter:description" content="Real results for European eCommerce brands — TicketSwap, Artipoppe, LandLife. No vanity metrics.">
+    <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Real results for European eCommerce brands — TicketSwap, Artipoppe, LandLife. No vanity metrics.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/alvo-case-studies.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" stroke="#4A7C6F" stroke-width="1.5" fill="none"/>
+        <circle cx="24" cy="24" r="6" fill="#2D5246"/>
+        <line x1="24" y1="4" x2="24" y2="14" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="24" y1="34" x2="24" y2="44" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="24" x2="14" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="34" y1="24" x2="44" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-word">watermouse</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="alvo-pricing.html">Pricing</a></li>
+      <li><a href="alvo-case-studies.html" class="active">Work</a></li>
+      <li><a href="alvo-about.html">About</a></li>
+      <li><a href="alvo-lead-assessments.html">Assessments</a></li>
+      <li><a href="alvo-book-a-call.html" class="btn-nav">Book a free audit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="index.html#services">Services</a>
+  <a href="alvo-pricing.html">Pricing</a>
+  <a href="alvo-case-studies.html" class="active">Work</a>
+  <a href="alvo-about.html">About</a>
+  <a href="alvo-lead-assessments.html">Assessments</a>
+  <a href="alvo-book-a-call.html" class="nav-drawer-cta">Book a free audit →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+    <div class="hero-label">Our work</div>
+    <h1 class="hero-headline">Results that<br><em>speak plainly.</em></h1>
+    <p class="hero-sub">Three European brands. Real accounts, real numbers, real outcomes. No vanity metrics — just what actually moved the business.</p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-val"><em>3</em></div>
+      <div class="stat-label">European brands scaled</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">−79%</div>
+      <div class="stat-label">Best CAC reduction achieved</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">+60%</div>
+      <div class="stat-label">Campaign coverage increase</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val"><em>€M+</em></div>
+      <div class="stat-label">Ad budgets managed</div>
+    </div>
+  </div>
+</div>
+
+<!-- CASES -->
+<section class="cases">
+  <div class="cases-inner">
+    <div class="cases-grid">
+
+      <!-- TICKETSWAP -->
+      <a href="alvo-case-ticketswap.html" class="case-card reveal">
+        <div class="case-content">
+          <div>
+            <div class="case-meta">
+              <span class="case-tag tag-teal">Ticketing</span>
+              <span class="case-tag tag-dark">Google Ads</span>
+              <span class="case-tag tag-dark">Automation</span>
+              <span class="case-year">2022</span>
+            </div>
+            <h2 class="case-title">How TicketSwap covered <em>500,000 events</em> without a single manual campaign</h2>
+            <p class="case-desc">With a small team and half a million active listings, manual keyword and ad creation wasn't an option. We built a fully automated feed-driven system that scaled their paid coverage by 60% while cutting team time by 80%.</p>
+            <div class="case-metrics">
+              <div class="metric-item">
+                <div class="metric-val negative-good">−15%</div>
+                <div class="metric-label">Unsold inventory</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val negative-good">−10%</div>
+                <div class="metric-label">User acquisition cost</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val positive">+60%</div>
+                <div class="metric-label">Campaign coverage</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val positive">−80%</div>
+                <div class="metric-label">Time on campaign creation</div>
+              </div>
+            </div>
+          </div>
+          <span class="case-link">Read case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="case-visual">
+          <div class="case-visual-bg bg-blue">
+            <div class="brand-display">
+              <div class="brand-name" style="color:#1A5276;">ticketswap</div>
+              <div class="brand-sub" style="color:#1A5276;">Netherlands · 36 countries</div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ARTIPOPPE -->
+      <a href="alvo-case-artipoppe.html" class="case-card reverse reveal" style="transition-delay:0.1s">
+        <div class="case-visual">
+          <div class="case-visual-bg bg-warm">
+            <div class="brand-display">
+              <div class="brand-name" style="color:#5D4037;">Artipoppe</div>
+              <div class="brand-sub" style="color:#5D4037;">Netherlands · Premium babywear</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-content">
+          <div>
+            <div class="case-meta">
+              <span class="case-tag tag-warm">eCommerce</span>
+              <span class="case-tag tag-dark">Google Ads</span>
+              <span class="case-tag tag-dark">Shopping</span>
+              <span class="case-year">2023</span>
+            </div>
+            <h2 class="case-title">Scaling a premium brand <em>without diluting</em> what makes it premium</h2>
+            <p class="case-desc">Artipoppe sells high-end baby carriers to design-conscious parents across Europe. Growing paid revenue meant finding more of the right customers — not just more customers. We rebuilt their Shopping and Search structure to target quality over volume.</p>
+            <div class="case-metrics">
+              <div class="metric-item">
+                <div class="metric-val positive">Quality-led</div>
+            <div class="metric-label">High-intent buyers over volume</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val negative-good">Brand-safe</div>
+            <div class="metric-label">Scaled without discounting</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val positive">Best-margin</div>
+            <div class="metric-label">Structure built around top products</div>
+              </div>
+            </div>
+          </div>
+          <span class="case-link">Read case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <!-- LANDLIFE -->
+      <a href="alvo-case-landlife.html" class="case-card reveal" style="transition-delay:0.2s">
+        <div class="case-content">
+          <div>
+            <div class="case-meta">
+              <span class="case-tag tag-teal">eCommerce</span>
+              <span class="case-tag tag-dark">Google Ads</span>
+              <span class="case-tag tag-dark">Multi-market</span>
+              <span class="case-year">2023</span>
+            </div>
+            <h2 class="case-title">Taking LandLife's reforestation mission <em>across European markets</em></h2>
+            <p class="case-desc">LandLife sells trees and reforestation products with a strong sustainability mission. The challenge was scaling Google Ads across multiple European markets while keeping CAC sustainable and messaging aligned with the brand's values.</p>
+            <div class="case-metrics">
+              <div class="metric-item">
+                <div class="metric-val positive">Multi-market</div>
+            <div class="metric-label">Expanded across Europe</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val negative-good">Sustainable</div>
+            <div class="metric-label">CAC held while scaling</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-val positive">On-message</div>
+            <div class="metric-label">Consistent across markets</div>
+              </div>
+            </div>
+          </div>
+          <span class="case-link">Read case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="case-visual">
+          <div class="case-visual-bg bg-sage">
+            <div class="brand-display">
+              <div class="brand-name" style="color:#2D5246;">LandLife</div>
+              <div class="brand-sub" style="color:#2D5246;">Netherlands · Reforestation</div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-label">Ready to talk?</div>
+    <h2 class="cta-headline">Your account could be <em>next.</em></h2>
+    <p class="cta-sub">Book a free 30-minute audit. We'll look at your actual Google Ads account and tell you honestly what we see.</p>
+    <a href="alvo-book-a-call.html" class="btn-light">Book a free audit <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#7AAB9B" stroke-width="1.5" fill="none" opacity="0.4"/><circle cx="24" cy="24" r="6" fill="#4A7C6F" opacity="0.6"/><line x1="24" y1="4" x2="24" y2="14" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="24" y1="34" x2="24" y2="44" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="4" y1="24" x2="14" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="34" y1="24" x2="44" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links"><li><a href="index.html#services">Services</a></li><li><a href="alvo-pricing.html">Pricing</a></li><li><a href="alvo-case-studies.html">Work</a></li><li><a href="alvo-book-a-call.html">Contact</a></li><li><a href="alvo-privacy.html">Privacy</a></li><li><a href="alvo-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(){const btn=document.getElementById('nav-hamburger');const drawer=document.getElementById('nav-drawer');btn.classList.toggle('open');drawer.classList.toggle('open');document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('nav-hamburger').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');document.body.style.overflow='';}});
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We use cookies to understand how visitors use our site and to improve it over time.
+      No data is sold to third parties. Read our
+      <a href="alvo-privacy.html">privacy policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('alvo_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('alvo_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('alvo_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="alvo-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.alvo-mcta{display:none}@media(max-width:768px){.alvo-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>

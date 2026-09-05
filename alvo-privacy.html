@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated) — set GA_ID below to activate. Inactive while placeholder. -->
+<script>
+(function(){
+  var GA_ID = 'G-XXXXXXXXXX'; /* TODO: replace with your GA4 Measurement ID */
+  if (GA_ID === 'G-XXXXXXXXXX') return; /* not configured yet — zero tracking, zero requests */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__alvoGA) return; window.__alvoGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('alvo_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="Privacy Policy — Watermouse">
+<meta property="og:description" content="How Watermouse collects, uses, and protects your personal data.">
+<meta property="og:url" content="https://agency.thewatermouse.com/privacy">
+<meta name="description" content="How Watermouse collects, uses, and protects your personal data.">
+
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-right{display:flex;align-items:center;gap:24px;}
+  .nav-back{font-size:13px;color:rgba(28,43,38,0.4);text-decoration:none;transition:color 0.2s;}
+  .nav-back:hover{color:var(--ink);}
+  .btn-nav{background:var(--sage);color:var(--white);padding:10px 22px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
+  .btn-nav:hover{background:var(--sage-dark);}
+
+  /* HERO */
+  .hero{padding:72px 0 48px;border-bottom:1px solid rgba(28,43,38,0.07);}
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 60px;}
+  .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .hero-headline{font-family:'Fraunces',serif;font-size:48px;font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:20px;}
+  .hero-meta{font-size:13px;font-weight:300;color:rgba(28,43,38,0.4);line-height:1.6;}
+  .hero-meta strong{color:rgba(28,43,38,0.6);font-weight:400;}
+
+  /* CONTENT */
+  .content{max-width:760px;margin:0 auto;padding:56px 60px 100px;}
+
+  /* Section */
+  .policy-section{margin-bottom:52px;}
+  .policy-section:last-child{margin-bottom:0;}
+
+  h2{
+    font-family:'Fraunces',serif;
+    font-size:22px;font-weight:300;
+    color:var(--ink);
+    margin-bottom:14px;
+    line-height:1.25;
+    padding-top:4px;
+  }
+  p{
+    font-size:15px;font-weight:300;line-height:1.8;
+    color:rgba(28,43,38,0.65);
+    margin-bottom:14px;
+  }
+  p:last-child{margin-bottom:0;}
+  ul{
+    margin:12px 0 14px 0;
+    padding-left:20px;
+  }
+  ul li{
+    font-size:15px;font-weight:300;line-height:1.75;
+    color:rgba(28,43,38,0.65);
+    margin-bottom:6px;
+  }
+  a{color:var(--sage);text-decoration:none;border-bottom:1px solid rgba(74,124,111,0.3);}
+  a:hover{border-color:var(--sage);}
+
+  /* Divider */
+  .divider{border:none;border-top:1px solid rgba(28,43,38,0.07);margin:52px 0;}
+
+  /* Contact card */
+  .contact-card{
+    background:var(--sage-pale);
+    border:1px solid rgba(74,124,111,0.15);
+    border-radius:16px;
+    padding:28px 32px;
+    margin-top:24px;
+  }
+  .contact-card p{color:rgba(28,43,38,0.6);margin-bottom:8px;}
+  .contact-card p:last-child{margin-bottom:0;}
+  .contact-card strong{color:var(--ink);font-weight:500;}
+
+  /* Table of contents */
+  .toc{
+    background:var(--white);
+    border:1.5px solid rgba(28,43,38,0.07);
+    border-radius:16px;
+    padding:28px 32px;
+    margin-bottom:52px;
+  }
+  .toc-label{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,43,38,0.35);margin-bottom:16px;}
+  .toc ol{padding-left:18px;}
+  .toc ol li{font-size:14px;font-weight:300;line-height:1.7;color:rgba(28,43,38,0.5);margin-bottom:4px;}
+  .toc ol li a{color:var(--sage);border-bottom:none;font-weight:400;}
+  .toc ol li a:hover{border-bottom:1px solid rgba(74,124,111,0.4);}
+
+  /* Footer */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;border:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-back{display:none;}
+    .hero{padding:48px 0 36px;}
+    .hero-inner{padding:0 24px;}
+    .hero-headline{font-size:36px;}
+    .content{padding:40px 24px 72px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hero-headline{font-size:28px;}
+    .toc{padding:20px 24px;}
+    .contact-card{padding:20px 24px;}
+  }
+</style>
+    <link rel="canonical" href="https://agency.thewatermouse.com/alvo-privacy.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" stroke="#4A7C6F" stroke-width="1.5" fill="none"/>
+        <circle cx="24" cy="24" r="6" fill="#2D5246"/>
+        <line x1="24" y1="4" x2="24" y2="14" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="24" y1="34" x2="24" y2="44" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="24" x2="14" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="34" y1="24" x2="44" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-word">watermouse</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back">← Back to site</a>
+      <a href="alvo-book-a-call.html" class="btn-nav">Book a free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Legal</div>
+    <h1 class="hero-headline">Privacy Policy</h1>
+    <p class="hero-meta">
+      <strong>Last updated:</strong> June 2025 &nbsp;·&nbsp;
+      <strong>Applies to:</strong> agency.thewatermouse.com &nbsp;·&nbsp;
+      <strong>Controller:</strong> Rodrigo Kato Marketing Digital
+    </p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol>
+      <li><a href="#who-we-are">Who we are</a></li>
+      <li><a href="#what-we-collect">What data we collect</a></li>
+      <li><a href="#how-we-use">How we use your data</a></li>
+      <li><a href="#legal-basis">Legal basis for processing</a></li>
+      <li><a href="#storage">How long we keep it</a></li>
+      <li><a href="#third-parties">Third parties</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#your-rights">Your rights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="policy-section" id="who-we-are">
+    <h2>1. Who we are</h2>
+    <p>This website is operated by <strong>Rodrigo Kato Marketing Digital</strong>, trading as <strong>Watermouse</strong>. We provide Google Ads management services to European eCommerce brands.</p>
+    <p>For the purposes of the General Data Protection Regulation (GDPR), we are the data controller for personal data collected through this website. If you have any questions about how we handle your data, see <a href="#contact">Section 9</a>.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 2 -->
+  <div class="policy-section" id="what-we-collect">
+    <h2>2. What data we collect</h2>
+    <p>We only collect data that you actively provide to us. We do not collect data passively through tracking scripts beyond those described in <a href="#cookies">Section 7</a>.</p>
+    <p>Data you may provide includes:</p>
+    <ul>
+      <li><strong>Contact details</strong> — your name, email address, company name, and website URL, submitted through our booking or enquiry forms.</li>
+      <li><strong>Quiz and assessment responses</strong> — answers you submit through our free assessment tools, along with your email address if you request results.</li>
+      <li><strong>Communications</strong> — any messages you send us directly by email.</li>
+    </ul>
+    <p>We do not collect payment information. We do not collect sensitive personal data (such as health, financial, or identity information).</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 3 -->
+  <div class="policy-section" id="how-we-use">
+    <h2>3. How we use your data</h2>
+    <p>We use the data you provide only for the purposes for which you gave it:</p>
+    <ul>
+      <li><strong>To respond to enquiries</strong> — if you book a call or send us a message, we use your contact details to get back to you.</li>
+      <li><strong>To deliver assessment results</strong> — if you complete a quiz or assessment and provide your email, we use that address to send your results.</li>
+      <li><strong>To send relevant follow-up communications</strong> — with your consent, we may add your email to our mailing list to share insights, updates, or relevant offers. You can unsubscribe at any time via the link in any email we send.</li>
+      <li><strong>To manage our client relationship</strong> — if you become a client, we use your data to fulfil our service agreement.</li>
+    </ul>
+    <p>We do not use your data for automated profiling, automated decision-making, or targeted advertising. We do not sell your data to any third party, ever.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 4 -->
+  <div class="policy-section" id="legal-basis">
+    <h2>4. Legal basis for processing</h2>
+    <p>Under the GDPR, we need a legal basis to process your personal data. We rely on the following:</p>
+    <ul>
+      <li><strong>Legitimate interests</strong> — responding to enquiries you initiate and following up with prospective clients who have expressed interest in our services.</li>
+      <li><strong>Contract performance</strong> — processing data necessary to deliver services to clients under a signed agreement.</li>
+      <li><strong>Consent</strong> — for email marketing communications, analytics cookies, and sending assessment results. You can withdraw consent at any time — use the unsubscribe link in any email, adjust your cookie preferences, or contact us directly.</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 5 -->
+  <div class="policy-section" id="storage">
+    <h2>5. How long we keep your data</h2>
+    <p>We keep your data only for as long as necessary:</p>
+    <ul>
+      <li><strong>Enquiries that don't convert</strong> — we retain your contact details for up to 12 months after our last communication, then delete them.</li>
+      <li><strong>Assessment responses</strong> — retained for up to 6 months unless you become a client.</li>
+      <li><strong>Client data</strong> — retained for the duration of the engagement plus 3 years, in line with standard business record-keeping requirements.</li>
+    </ul>
+    <p>You can request deletion of your data at any time (see <a href="#your-rights">Section 8</a>).</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 6 -->
+  <div class="policy-section" id="third-parties">
+    <h2>6. Third parties</h2>
+    <p>We do not share your personal data with third parties for marketing purposes. We may share data with the following categories of service providers strictly to operate our business:</p>
+    <ul>
+      <li><strong>Email marketing platform</strong> — we use an email marketing tool (such as Mailchimp or ActiveCampaign) to manage our mailing list and send follow-up communications. Your email and name may be stored in this platform if you opt in. You can unsubscribe at any time.</li>
+      <li><strong>Internal records</strong> — lead and client data may be stored in Google Drive for business administration. Google processes this data on our behalf under their data processing terms.</li>
+      <li><strong>Analytics</strong> — we use Google Analytics to understand how visitors use our site. Google Analytics collects anonymised usage data (pages visited, time on site, approximate location) via cookies. No personally identifiable information is shared. You can opt out via your cookie preferences or using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out browser add-on</a>.</li>
+      <li><strong>Hosting</strong> — this website is hosted on Netlify. Netlify may process technical data (such as IP addresses) as part of serving the site. See <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify's privacy policy</a>.</li>
+    </ul>
+    <p>We do not sell your data to any third party. If we introduce additional tools that process personal data, we will update this policy before doing so.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 7 -->
+  <div class="policy-section" id="cookies">
+    <h2>7. Cookies</h2>
+    <p>We use the following cookies on this site:</p>
+    <ul>
+      <li><strong>Cookie consent preference</strong> — stores whether you have accepted or declined our cookie notice. This is a functional cookie and does not track you.</li>
+      <li><strong>Google Analytics</strong> — if you accept cookies, we use Google Analytics to collect anonymised data about how visitors use our site (pages visited, session duration, approximate location by country). These are analytics cookies set by Google. No personally identifiable information is included. You can decline analytics cookies using the cookie banner when you first visit the site.</li>
+    </ul>
+    <p>You can change your cookie preferences at any time by clearing your browser cookies and revisiting the site. You can also use the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out browser add-on</a> to prevent analytics tracking across all sites.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 8 -->
+  <div class="policy-section" id="your-rights">
+    <h2>8. Your rights</h2>
+    <p>Under the GDPR, you have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Access</strong> — you can request a copy of the personal data we hold about you.</li>
+      <li><strong>Rectification</strong> — you can ask us to correct inaccurate or incomplete data.</li>
+      <li><strong>Erasure</strong> — you can ask us to delete your data, subject to any legal obligations we have to retain it.</li>
+      <li><strong>Restriction</strong> — you can ask us to restrict how we use your data while a complaint is being resolved.</li>
+      <li><strong>Portability</strong> — you can request your data in a structured, machine-readable format.</li>
+      <li><strong>Objection</strong> — you can object to processing based on legitimate interests.</li>
+      <li><strong>Withdraw consent</strong> — where processing is based on consent, you can withdraw it at any time without affecting the lawfulness of prior processing.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@agency.thewatermouse.com">privacy@agency.thewatermouse.com</a>. We will respond within 30 days.</p>
+    <p>If you believe we have not handled your data correctly, you have the right to lodge a complaint with your national data protection authority. In the Netherlands, this is the <a href="https://autoriteitpersoonsgegevens.nl/en" target="_blank" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 9 -->
+  <div class="policy-section" id="contact">
+    <h2>9. Contact</h2>
+    <p>For any questions about this policy or how we handle your data:</p>
+    <div class="contact-card">
+      <p><strong>Rodrigo Kato Marketing Digital</strong><br>Trading as Watermouse</p>
+      <p>Email: <a href="mailto:privacy@agency.thewatermouse.com">privacy@agency.thewatermouse.com</a></p>
+      <p style="margin-top:12px;font-size:13px;color:rgba(28,43,38,0.4);">We aim to respond to all privacy-related requests within 30 days.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#7AAB9B" stroke-width="1.5" fill="none" opacity="0.4"/><circle cx="24" cy="24" r="6" fill="#4A7C6F" opacity="0.6"/><line x1="24" y1="4" x2="24" y2="14" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="24" y1="34" x2="24" y2="44" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="4" y1="24" x2="14" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="34" y1="24" x2="44" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="alvo-pricing.html">Pricing</a></li>
+      <li><a href="alvo-case-studies.html">Work</a></li>
+      <li><a href="alvo-about.html">About</a></li>
+      <li><a href="alvo-book-a-call.html">Contact</a></li>
+    <li><a href="alvo-privacy.html">Privacy</a></li><li><a href="alvo-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+
+
+<!-- Sticky mobile CTA -->
+<a href="alvo-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.alvo-mcta{display:none}@media(max-width:768px){.alvo-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated) — set GA_ID below to activate. Inactive while placeholder. -->
+<script>
+(function(){
+  var GA_ID = 'G-XXXXXXXXXX'; /* TODO: replace with your GA4 Measurement ID */
+  if (GA_ID === 'G-XXXXXXXXXX') return; /* not configured yet — zero tracking, zero requests */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__alvoGA) return; window.__alvoGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('alvo_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--ink);
+    color:var(--off-white);
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+
+  /* NAV */
+  nav{padding:24px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:rgba(250,248,245,0.6);letter-spacing:0.04em;}
+  .nav-cta{background:rgba(255,255,255,0.08);color:rgba(250,248,245,0.7);padding:10px 22px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
+  .nav-cta:hover{background:rgba(255,255,255,0.14);}
+
+  /* MAIN */
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 24px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* Background crosshair — large, faint */
+  .bg-target{
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:500px;height:500px;
+    opacity:0.04;
+    pointer-events:none;
+  }
+
+  .error-label{
+    font-size:11px;font-weight:500;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--sage-light);
+    opacity:0.6;margin-bottom:24px;
+    animation:fadeUp 0.5s ease both;
+  }
+  .error-code{
+    font-family:'Fraunces',serif;
+    font-size:140px;font-weight:300;line-height:1;
+    color:rgba(250,248,245,0.06);
+    letter-spacing:-0.02em;
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-58%);
+    user-select:none;
+    pointer-events:none;
+  }
+  .error-headline{
+    font-family:'Fraunces',serif;
+    font-size:52px;font-weight:300;line-height:1.1;
+    color:var(--off-white);
+    margin-bottom:16px;
+    position:relative;z-index:1;
+    animation:fadeUp 0.5s ease 0.06s both;
+  }
+  .error-headline em{font-style:italic;color:var(--sage-light);}
+  .error-sub{
+    font-size:16px;font-weight:300;line-height:1.7;
+    color:rgba(250,248,245,0.4);
+    max-width:420px;
+    margin-bottom:48px;
+    position:relative;z-index:1;
+    animation:fadeUp 0.5s ease 0.12s both;
+  }
+
+  .error-links{
+    display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+    position:relative;z-index:1;
+    animation:fadeUp 0.5s ease 0.18s both;
+  }
+  .btn-primary{
+    background:var(--sage);color:var(--off-white);
+    padding:14px 28px;border-radius:100px;
+    font-size:14px;font-weight:500;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background 0.2s;
+  }
+  .btn-primary:hover{background:var(--sage-dark);}
+  .btn-ghost{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    color:rgba(250,248,245,0.6);
+    padding:14px 28px;border-radius:100px;
+    font-size:14px;font-weight:400;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background 0.2s,color 0.2s;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);color:rgba(250,248,245,0.9);}
+
+  /* Quick nav */
+  .quick-nav{
+    margin-top:64px;
+    padding-top:40px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    display:flex;gap:32px;flex-wrap:wrap;justify-content:center;
+    position:relative;z-index:1;
+    animation:fadeUp 0.5s ease 0.24s both;
+  }
+  .quick-nav a{
+    font-size:13px;font-weight:300;
+    color:rgba(250,248,245,0.28);
+    text-decoration:none;
+    transition:color 0.2s;
+  }
+  .quick-nav a:hover{color:rgba(250,248,245,0.7);}
+
+  /* Footer */
+  footer{
+    padding:24px 60px;
+    text-align:center;
+    font-size:12px;
+    color:rgba(250,248,245,0.15);
+    border-top:1px solid rgba(255,255,255,0.04);
+  }
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  @media(max-width:600px){
+    nav{padding:20px 24px;}
+    .error-headline{font-size:36px;}
+    .error-code{font-size:100px;}
+    .error-links{flex-direction:column;align-items:center;}
+    .btn-primary,.btn-ghost{width:100%;max-width:280px;justify-content:center;}
+    footer{padding:20px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="22" stroke="#4A7C6F" stroke-width="1.5" fill="none"/>
+      <circle cx="24" cy="24" r="6" fill="#2D5246"/>
+      <line x1="24" y1="4" x2="24" y2="14" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="24" y1="34" x2="24" y2="44" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="4" y1="24" x2="14" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="34" y1="24" x2="44" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-word">watermouse</span>
+  </a>
+  <a href="alvo-book-a-call.html" class="nav-cta">Book a free audit</a>
+</nav>
+
+<main>
+  <!-- Large faint 404 behind everything -->
+  <div class="error-code">404</div>
+
+  <!-- Background crosshair -->
+  <svg class="bg-target" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="220" stroke="white" stroke-width="1.5"/>
+    <circle cx="250" cy="250" r="120" stroke="white" stroke-width="1"/>
+    <circle cx="250" cy="250" r="30" stroke="white" stroke-width="1.5"/>
+    <line x1="250" y1="0" x2="250" y2="220" stroke="white" stroke-width="1.5"/>
+    <line x1="250" y1="280" x2="250" y2="500" stroke="white" stroke-width="1.5"/>
+    <line x1="0" y1="250" x2="220" y2="250" stroke="white" stroke-width="1.5"/>
+    <line x1="280" y1="250" x2="500" y2="250" stroke="white" stroke-width="1.5"/>
+  </svg>
+
+  <div class="error-label">Page not found</div>
+  <h1 class="error-headline">Missed the <em>target.</em></h1>
+  <p class="error-sub">This page doesn't exist or may have moved. Let's get you back on track.</p>
+
+  <div class="error-links">
+    <a href="index.html" class="btn-primary">
+      Back to home
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="alvo-book-a-call.html" class="btn-ghost">Book a free audit</a>
+  </div>
+
+  <div class="quick-nav">
+    <a href="index.html#services">Services</a>
+    <a href="alvo-pricing.html">Pricing</a>
+    <a href="alvo-case-studies.html">Work</a>
+    <a href="alvo-about.html">About</a>
+    <a href="alvo-lead-assessments.html">Assessments</a>
+  </div>
+</main>
+
+<footer>© 2026 Watermouse. All rights reserved.</footer>
+
+
+<!-- Sticky mobile CTA -->
+<a href="alvo-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.alvo-mcta{display:none}@media(max-width:768px){.alvo-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated) — set GA_ID below to activate. Inactive while placeholder. -->
+<script>
+(function(){
+  var GA_ID = 'G-XXXXXXXXXX'; /* TODO: replace with your GA4 Measurement ID */
+  if (GA_ID === 'G-XXXXXXXXXX') return; /* not configured yet — zero tracking, zero requests */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__alvoGA) return; window.__alvoGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('alvo_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="Terms of Service — Watermouse">
+<meta property="og:description" content="The terms that govern use of the Watermouse website and services.">
+<meta property="og:url" content="https://agency.thewatermouse.com/terms">
+<meta name="description" content="The terms that govern use of the Watermouse website and services.">
+
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-right{display:flex;align-items:center;gap:24px;}
+  .nav-back{font-size:13px;color:rgba(28,43,38,0.4);text-decoration:none;transition:color 0.2s;}
+  .nav-back:hover{color:var(--ink);}
+  .btn-nav{background:var(--sage);color:var(--white);padding:10px 22px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
+  .btn-nav:hover{background:var(--sage-dark);}
+
+  /* HERO */
+  .hero{padding:72px 0 48px;border-bottom:1px solid rgba(28,43,38,0.07);}
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 60px;}
+  .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .hero-headline{font-family:'Fraunces',serif;font-size:48px;font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:20px;}
+  .hero-meta{font-size:13px;font-weight:300;color:rgba(28,43,38,0.4);line-height:1.6;}
+  .hero-meta strong{color:rgba(28,43,38,0.6);font-weight:400;}
+
+  /* CONTENT */
+  .content{max-width:760px;margin:0 auto;padding:56px 60px 100px;}
+  .policy-section{margin-bottom:52px;}
+  .policy-section:last-child{margin-bottom:0;}
+  h2{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);margin-bottom:14px;line-height:1.25;padding-top:4px;}
+  p{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.65);margin-bottom:14px;}
+  p:last-child{margin-bottom:0;}
+  ul{margin:12px 0 14px 0;padding-left:20px;}
+  ul li{font-size:15px;font-weight:300;line-height:1.75;color:rgba(28,43,38,0.65);margin-bottom:6px;}
+  a{color:var(--sage);text-decoration:none;border-bottom:1px solid rgba(74,124,111,0.3);}
+  a:hover{border-color:var(--sage);}
+  .divider{border:none;border-top:1px solid rgba(28,43,38,0.07);margin:52px 0;}
+
+  .callout{background:var(--sage-pale);border:1px solid rgba(74,124,111,0.15);border-radius:16px;padding:24px 28px;margin:20px 0;}
+  .callout p{color:rgba(28,43,38,0.7);margin-bottom:0;font-size:14px;}
+
+  .contact-card{background:var(--sage-pale);border:1px solid rgba(74,124,111,0.15);border-radius:16px;padding:28px 32px;margin-top:24px;}
+  .contact-card p{color:rgba(28,43,38,0.6);margin-bottom:8px;}
+  .contact-card p:last-child{margin-bottom:0;}
+  .contact-card strong{color:var(--ink);font-weight:500;}
+
+  .toc{background:var(--white);border:1.5px solid rgba(28,43,38,0.07);border-radius:16px;padding:28px 32px;margin-bottom:52px;}
+  .toc-label{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,43,38,0.35);margin-bottom:16px;}
+  .toc ol{padding-left:18px;}
+  .toc ol li{font-size:14px;font-weight:300;line-height:1.7;color:rgba(28,43,38,0.5);margin-bottom:4px;}
+  .toc ol li a{color:var(--sage);border-bottom:none;font-weight:400;}
+  .toc ol li a:hover{border-bottom:1px solid rgba(74,124,111,0.4);}
+
+  /* Footer */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;border:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-back{display:none;}
+    .hero{padding:48px 0 36px;}
+    .hero-inner{padding:0 24px;}
+    .hero-headline{font-size:36px;}
+    .content{padding:40px 24px 72px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hero-headline{font-size:28px;}
+    .toc{padding:20px 24px;}
+    .contact-card{padding:20px 24px;}
+  }
+</style>
+    <link rel="canonical" href="https://agency.thewatermouse.com/alvo-terms.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" stroke="#4A7C6F" stroke-width="1.5" fill="none"/>
+        <circle cx="24" cy="24" r="6" fill="#2D5246"/>
+        <line x1="24" y1="4" x2="24" y2="14" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="24" y1="34" x2="24" y2="44" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="24" x2="14" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="34" y1="24" x2="44" y2="24" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-word">watermouse</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back">← Back to site</a>
+      <a href="alvo-book-a-call.html" class="btn-nav">Book a free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Legal</div>
+    <h1 class="hero-headline">Terms of Service</h1>
+    <p class="hero-meta">
+      <strong>Last updated:</strong> August 2026 &nbsp;·&nbsp;
+      <strong>Applies to:</strong> agency.thewatermouse.com &nbsp;·&nbsp;
+      <strong>Provider:</strong> Rodrigo Kato Marketing Digital
+    </p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol>
+      <li><a href="#agreement">Agreement to these terms</a></li>
+      <li><a href="#who">Who we are</a></li>
+      <li><a href="#services">Our services</a></li>
+      <li><a href="#engagements">Engagements &amp; payment</a></li>
+      <li><a href="#client">Client responsibilities</a></li>
+      <li><a href="#ip">Ownership &amp; intellectual property</a></li>
+      <li><a href="#confidentiality">Confidentiality</a></li>
+      <li><a href="#results">No guarantee of results &amp; liability</a></li>
+      <li><a href="#website">Use of this website</a></li>
+      <li><a href="#changes">Changes to these terms</a></li>
+      <li><a href="#law">Governing law</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <div class="policy-section" id="agreement">
+    <h2>1. Agreement to these terms</h2>
+    <p>These Terms of Service ("Terms") govern your use of the Watermouse website and any services provided by Rodrigo Kato Marketing Digital, trading as Watermouse ("Watermouse", "we", "us"). By using this website, booking a call, or engaging our services, you agree to these Terms.</p>
+    <div class="callout"><p>These are general terms. When you become a client, a separate written service agreement governs the specifics of your engagement (scope, fees, term). Where that agreement conflicts with these Terms, the signed agreement prevails.</p></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="who">
+    <h2>2. Who we are</h2>
+    <p>Watermouse is the trading name of <strong>Rodrigo Kato Marketing Digital</strong>, an independent performance-marketing practice providing Google Ads management to European eCommerce brands. Watermouse is operated by a senior operator directly — not a multi-layer agency.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="services">
+    <h2>3. Our services</h2>
+    <p>We provide Google Ads strategy, account structuring, campaign management, ongoing optimisation, and reporting, as described on this website and detailed in your service agreement. The free audit, quiz, and assessment tools on this site are provided for information only and do not create a client relationship or any obligation on either side.</p>
+    <p>Advertising spend (the budget paid to Google) is separate from our management fees and is paid by you directly to Google. We manage that spend; we do not fund it.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="engagements">
+    <h2>4. Engagements &amp; payment</h2>
+    <ul>
+      <li>Management fees, plan inclusions, and spend ceilings are as set out on our <a href="alvo-pricing.html">pricing page</a> and confirmed in your service agreement.</li>
+      <li>Engagements have a minimum initial term of 3 months. After that, either party may end the engagement with 30 days' written notice.</li>
+      <li>Fees are invoiced in advance and are due per the terms stated on the invoice. Fees exclude any applicable taxes.</li>
+      <li>Late or missed payment may result in services being paused until the account is brought current.</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="client">
+    <h2>5. Client responsibilities</h2>
+    <p>To deliver our services, we rely on you to provide timely access to the relevant accounts (Google Ads, Google Analytics, Google Merchant Center, and your store or feed where needed), accurate business and margin information, and reasonably prompt approvals. Delays in providing these may affect timelines and results.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="ip">
+    <h2>6. Ownership &amp; intellectual property</h2>
+    <p>Your ad accounts, campaigns, data, and creative assets remain <strong>your property</strong>. We work within accounts you own and claim no ownership over them. On the end of an engagement, we hand over access and any Watermouse-created assets held within your accounts.</p>
+    <p>The content, design, and code of this website remain the property of Watermouse. You may not copy, reproduce, or reuse them without permission.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="confidentiality">
+    <h2>7. Confidentiality</h2>
+    <p>Each party will keep the other's non-public information confidential during and after the engagement. We will reference an engagement, or publish specific or anonymised results as a case study, only with the client's permission.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="results">
+    <h2>8. No guarantee of results &amp; limitation of liability</h2>
+    <p>We apply professional skill and care, but we do <strong>not</strong> guarantee specific results. Paid-media performance depends on factors outside our control — auction dynamics, market conditions, your website, products, pricing, and budget.</p>
+    <p>To the fullest extent permitted by law, our total liability arising from the services is limited to the fees paid in the three months preceding the claim. Neither party is liable for indirect or consequential loss. Nothing in these Terms limits liability that cannot be limited by law.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="website">
+    <h2>9. Use of this website</h2>
+    <p>You may use this website for lawful purposes only. You agree not to misuse it, attempt to disrupt it, or use its tools to submit false information or the data of others without their consent. The information on this site is provided in good faith for general information and may be updated at any time.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="changes">
+    <h2>10. Changes to these terms</h2>
+    <p>We may update these Terms from time to time. The "last updated" date at the top reflects the current version. Continued use of the website or services after a change means you accept the updated Terms.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="law">
+    <h2>11. Governing law</h2>
+    <p>These Terms are governed by the laws applicable to Rodrigo Kato Marketing Digital's place of establishment, without regard to conflict-of-law principles. The specific governing law and jurisdiction for a client engagement are set out in the service agreement.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="policy-section" id="contact">
+    <h2>12. Contact</h2>
+    <p>Questions about these Terms?</p>
+    <div class="contact-card">
+      <p><strong>Rodrigo Kato Marketing Digital</strong><br>Trading as Watermouse</p>
+      <p>Email: <a href="mailto:digo@thewatermouse.com">digo@thewatermouse.com</a></p>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:rgba(28,43,38,0.4);">See also our <a href="alvo-privacy.html">Privacy Policy</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#7AAB9B" stroke-width="1.5" fill="none" opacity="0.4"/><circle cx="24" cy="24" r="6" fill="#4A7C6F" opacity="0.6"/><line x1="24" y1="4" x2="24" y2="14" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="24" y1="34" x2="24" y2="44" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="4" y1="24" x2="14" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="34" y1="24" x2="44" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="alvo-pricing.html">Pricing</a></li>
+      <li><a href="alvo-case-studies.html">Work</a></li>
+      <li><a href="alvo-about.html">About</a></li>
+      <li><a href="alvo-book-a-call.html">Contact</a></li>
+      <li><a href="alvo-privacy.html">Privacy</a></li>
+      <li><a href="alvo-terms.html">Terms</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+
+
+<!-- Sticky mobile CTA -->
+<a href="alvo-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.alvo-mcta{display:none}@media(max-width:768px){.alvo-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
