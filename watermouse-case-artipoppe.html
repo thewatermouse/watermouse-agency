@@ -25,10 +25,10 @@
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TicketSwap — Watermouse</title>
+<title>Artipoppe — Watermouse</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;--sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;--warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;--brand:#1A5276;--brand-pale:#E8F4FF;}
+  :root{--sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;--sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;--warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;}
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
   nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
@@ -37,8 +37,7 @@
   .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
   .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
   .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
-  .nav-links a:hover,.nav-links a.active{opacity:1;}
-  .nav-links a.active{font-weight:500;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;font-weight:500;}
   .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;}
   .btn-nav:hover{background:var(--sage-dark)!important;}
   .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
@@ -51,9 +50,7 @@
   .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;}
   .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
   .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
-
-  /* HERO */
-  .hero{background:var(--brand);padding:80px 0 0;position:relative;overflow:hidden;}
+  .hero{background:linear-gradient(135deg,#5D4037,#8D6E63);padding:80px 0 0;position:relative;overflow:hidden;}
   .hero-pattern{position:absolute;inset:0;opacity:0.05;background-image:radial-gradient(circle,white 1px,transparent 1px);background-size:32px 32px;}
   .hero-inner{max-width:1060px;margin:0 auto;padding:0 60px;position:relative;z-index:1;}
   .back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:40px;transition:color 0.2s;}
@@ -63,25 +60,20 @@
   .hero-headline{font-family:'Fraunces',serif;font-size:52px;font-weight:300;line-height:1.1;color:white;margin-bottom:24px;max-width:720px;}
   .hero-headline em{font-style:italic;color:rgba(255,255,255,0.65);}
   .hero-sub{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.55);max-width:580px;margin-bottom:56px;}
-  .hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:16px 16px 0 0;overflow:hidden;}
+  .hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:16px 16px 0 0;overflow:hidden;}
   .hero-metric{background:rgba(255,255,255,0.06);padding:28px 24px;text-align:center;}
   .hero-metric-val{font-family:'Fraunces',serif;font-size:36px;font-weight:300;color:white;line-height:1;margin-bottom:6px;}
   .hero-metric-label{font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);letter-spacing:0.06em;}
-
-  /* CONTENT */
+  .hero-metric-note{font-size:10px;color:rgba(255,255,255,0.22);margin-top:4px;font-style:italic;}
   .content{max-width:1060px;margin:0 auto;padding:80px 60px 100px;}
   .content-grid{display:grid;grid-template-columns:1fr 280px;gap:80px;align-items:start;}
-
-  /* MAIN */
+  .placeholder-banner{background:var(--warm);border:1px solid var(--warm-deep);border-radius:12px;padding:14px 18px;margin-bottom:40px;font-size:13px;color:var(--warm-dark);display:flex;align-items:center;gap:10px;}
   .section-label{font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
   .section-headline{font-family:'Fraunces',serif;font-size:32px;font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:16px;}
   .section-headline em{font-style:italic;color:var(--sage);}
   .body-text{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.65);}
   .body-text p+p{margin-top:16px;}
-
   .content-section{margin-bottom:64px;}
-
-  /* Problem/Solution cards */
   .ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
   .ps-card{border-radius:16px;padding:28px;}
   .ps-card.problem{background:#FDF0EF;border:1px solid rgba(192,84,74,0.12);}
@@ -90,24 +82,18 @@
   .ps-card.problem .ps-card-label{color:#C0544A;}
   .ps-card.solution .ps-card-label{color:var(--sage-dark);}
   .ps-card-text{font-size:14px;font-weight:300;line-height:1.72;color:rgba(28,43,38,0.7);}
-
-  /* Process steps */
   .process-steps{display:flex;flex-direction:column;gap:0;margin-top:24px;}
   .process-step{display:grid;grid-template-columns:40px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid rgba(28,43,38,0.06);}
   .process-step:last-child{border-bottom:none;}
   .step-num{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:var(--sage);opacity:0.5;line-height:1.4;}
   .step-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px;}
   .step-body{font-size:13px;font-weight:300;line-height:1.65;color:rgba(28,43,38,0.55);}
-
-  /* Results */
-  .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+  .fill-in{background:var(--warm);border-radius:6px;padding:2px 8px;font-size:12px;color:var(--warm-dark);font-style:italic;}
+  .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
   .result-card{background:var(--white);border:1.5px solid rgba(28,43,38,0.07);border-radius:16px;padding:24px;text-align:center;}
-  .result-val{font-family:'Fraunces',serif;font-size:40px;font-weight:300;line-height:1;margin-bottom:6px;}
-  .result-val.green{color:var(--sage-dark);}
-  .result-val.green-neg{color:var(--sage-dark);}
+  .result-val{font-family:'Fraunces',serif;font-size:40px;font-weight:300;line-height:1;margin-bottom:6px;color:var(--sage-dark);}
   .result-label{font-size:12px;font-weight:300;color:rgba(28,43,38,0.5);line-height:1.4;}
-
-  /* Sidebar */
+  .result-note{font-size:10px;color:var(--warm-deep);margin-top:4px;font-style:italic;}
   .sidebar{position:sticky;top:100px;}
   .sidebar-card{background:var(--white);border:1.5px solid rgba(28,43,38,0.07);border-radius:18px;padding:28px;margin-bottom:20px;}
   .sidebar-label{font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,43,38,0.35);margin-bottom:16px;}
@@ -115,22 +101,18 @@
   .sidebar-row:last-child{border-bottom:none;}
   .sidebar-key{color:rgba(28,43,38,0.45);font-weight:300;}
   .sidebar-val{color:var(--ink);font-weight:500;text-align:right;max-width:55%;}
-
   .sidebar-cta{background:var(--sage-dark);border-radius:18px;padding:28px;text-align:center;}
   .sidebar-cta-text{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:var(--off-white);margin-bottom:8px;line-height:1.3;}
   .sidebar-cta-sub{font-size:12px;color:rgba(250,248,245,0.45);margin-bottom:20px;line-height:1.5;}
   .btn-cta-small{display:block;background:var(--off-white);color:var(--ink);padding:12px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
   .btn-cta-small:hover{background:var(--warm);}
-
-  /* NEXT CASE */
   .next-case{background:var(--ink);padding:80px 0;}
   .next-inner{max-width:1060px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
   .next-label{font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(250,248,245,0.3);margin-bottom:10px;}
   .next-title{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--off-white);line-height:1.2;}
   .next-title em{font-style:italic;color:var(--sage-light);}
-  .btn-next{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--off-white);padding:14px 24px;border-radius:100px;font-size:14px;font-weight:400;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background 0.2s;}
+  .btn-next{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--off-white);padding:14px 24px;border-radius:100px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background 0.2s;}
   .btn-next:hover{background:rgba(255,255,255,0.12);}
-
   footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
   .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
   .footer-logo{display:flex;align-items:center;gap:10px;}
@@ -138,26 +120,12 @@
   .footer-links{display:flex;gap:28px;list-style:none;}
   .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
   .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
-
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-  .hero-headline{animation:fadeUp 0.5s ease both;}
-  .hero-sub{animation:fadeUp 0.5s ease 0.1s both;}
-  .hero-metrics{animation:fadeUp 0.5s ease 0.2s both;}
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
-  .reveal.visible{opacity:1;transform:none;}
-
-  @media(max-width:900px){.content-grid{grid-template-columns:1fr;}.sidebar{position:static;}.ps-grid{grid-template-columns:1fr;}}
-  @media(max-width:768px){
-    .nav-inner{padding:16px 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}
-    .hero{padding:48px 0 0;}.hero-inner{padding:0 24px;}.hero-headline{font-size:32px;}.hero-sub{font-size:15px;}
-    .hero-metrics{grid-template-columns:1fr 1fr;}.hero-metric-val{font-size:28px;}
-    .content{padding:48px 24px 60px;}
-    .results-grid{grid-template-columns:1fr 1fr;}
-    .next-inner{padding:0 24px;flex-direction:column;align-items:flex-start;gap:24px;}
-    footer{padding:32px 0;}.footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
-    .footer-links{flex-wrap:wrap;justify-content:center;}
-  }
-  @media(max-width:480px){.hero-headline{font-size:26px;}.hero-metrics{grid-template-columns:1fr 1fr;gap:1px;}.result-val{font-size:32px;}}
+  .hero-headline{animation:fadeUp 0.5s ease both;}.hero-sub{animation:fadeUp 0.5s ease 0.1s both;}.hero-metrics{animation:fadeUp 0.5s ease 0.2s both;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}.reveal.visible{opacity:1;transform:none;}
+  @media(max-width:900px){.content-grid{grid-template-columns:1fr;}.sidebar{position:static;}.ps-grid{grid-template-columns:1fr;}.results-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:768px){.nav-inner{padding:16px 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}.hero{padding:48px 0 0;}.hero-inner{padding:0 24px;}.hero-headline{font-size:32px;}.hero-sub{font-size:15px;}.hero-metrics{grid-template-columns:1fr 1fr;}.hero-metric-val{font-size:28px;}.content{padding:48px 24px 60px;}.next-inner{padding:0 24px;flex-direction:column;align-items:flex-start;gap:24px;}footer{padding:32px 0;}.footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+  @media(max-width:480px){.hero-headline{font-size:26px;}.results-grid{grid-template-columns:1fr;}.result-val{font-size:32px;}}
 
   /* ── Cookie Consent Banner ── */
   #cookie-banner {
@@ -238,26 +206,25 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Watermouse">
-    <meta property="og:title" content="TicketSwap Case Study — Watermouse">
-    <meta property="og:description" content="How TicketSwap covered 500,000 events without a single manual campaign. −15% unsold inventory, +60% campaign coverage.">
-    <meta property="og:url" content="https://agency.thewatermouse.com/work/ticketswap">
+    <meta property="og:title" content="Artipoppe Case Study — Watermouse">
+    <meta property="og:description" content="How Watermouse helped Artipoppe scale Google Ads without diluting what makes it a premium brand.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/work/artipoppe">
     <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TicketSwap Case Study — Watermouse">
-    <meta name="twitter:description" content="How TicketSwap covered 500,000 events without a single manual campaign. −15% unsold inventory, +60% campaign coverage.">
+    <meta name="twitter:title" content="Artipoppe Case Study — Watermouse">
+    <meta name="twitter:description" content="How Watermouse helped Artipoppe scale Google Ads without diluting what makes it a premium brand.">
     <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
 
     <!-- SEO -->
-    <meta name="description" content="How TicketSwap covered 500,000 events without a single manual campaign. −15% unsold inventory, +60% campaign coverage.">
-    <link rel="canonical" href="https://agency.thewatermouse.com/alvo-case-ticketswap.html">
+    <meta name="description" content="How Watermouse helped Artipoppe scale Google Ads without diluting what makes it a premium brand.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-case-artipoppe.html">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -266,185 +233,120 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html#services">Services</a></li>
-      <li><a href="alvo-pricing.html">Pricing</a></li>
-      <li><a href="alvo-case-studies.html" class="active">Work</a></li>
-      <li><a href="alvo-about.html">About</a></li>
-      <li><a href="alvo-lead-assessments.html">Assessments</a></li>
-      <li><a href="alvo-book-a-call.html" class="btn-nav">Book a free audit</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html" class="active">Work</a></li>
+      <li><a href="watermouse-about.html">About</a></li>
+      <li><a href="watermouse-lead-assessments.html">Assessments</a></li>
+      <li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer">
-  <a href="index.html#services">Services</a>
-  <a href="alvo-pricing.html">Pricing</a>
-  <a href="alvo-case-studies.html" class="active">Work</a>
-  <a href="alvo-about.html">About</a>
-  <a href="alvo-lead-assessments.html">Assessments</a>
-  <a href="alvo-book-a-call.html" class="nav-drawer-cta">Book a free audit →</a>
+  <a href="index.html#services">Services</a><a href="watermouse-pricing.html">Pricing</a><a href="watermouse-case-studies.html" class="active">Work</a><a href="watermouse-about.html">About</a><a href="watermouse-lead-assessments.html">Assessments</a>
+  <a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit →</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-inner">
-    <a href="alvo-case-studies.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      All case studies
-    </a>
+    <a href="watermouse-case-studies.html" class="back-link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> All case studies</a>
     <div class="hero-meta">
-      <span class="hero-tag">Ticketing</span>
-      <span class="hero-tag">Google Ads</span>
-      <span class="hero-tag">Feed Automation</span>
-      <span class="hero-tag">Netherlands · 2022</span>
+      <span class="hero-tag">eCommerce</span><span class="hero-tag">Google Ads</span><span class="hero-tag">Shopping</span><span class="hero-tag">Netherlands · 2023</span>
     </div>
-    <h1 class="hero-headline">How TicketSwap covered 500,000 events <em>without a single manual campaign.</em></h1>
-    <p class="hero-sub">A fully automated, feed-driven paid media system that scaled coverage by 60%, cut team time by 80%, and reduced unsold inventory across 36 markets.</p>
+    <h1 class="hero-headline">Scaling a premium brand <em>without diluting what makes it premium.</em></h1>
+    <p class="hero-sub">Artipoppe sells high-end baby carriers to design-conscious parents across Europe. Growing paid revenue meant finding more of the right customers — not just more customers.</p>
     <div class="hero-metrics">
-      <div class="hero-metric"><div class="hero-metric-val">−15%</div><div class="hero-metric-label">Unsold inventory</div></div>
-      <div class="hero-metric"><div class="hero-metric-val">−10%</div><div class="hero-metric-label">User acquisition cost</div></div>
-      <div class="hero-metric"><div class="hero-metric-val">+60%</div><div class="hero-metric-label">Campaign coverage</div></div>
-      <div class="hero-metric"><div class="hero-metric-val">−80%</div><div class="hero-metric-label">Time on campaign creation</div></div>
+      <div class="hero-metric"><div class="hero-metric-val">Quality-led</div><div class="hero-metric-label">High-intent buyers over volume</div></div>
+      <div class="hero-metric"><div class="hero-metric-val">Brand-safe</div><div class="hero-metric-label">Scaled without discounting</div></div>
+      <div class="hero-metric"><div class="hero-metric-val">Best-margin</div><div class="hero-metric-label">Structure built around top products</div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTENT -->
 <div class="content">
   <div class="content-grid">
     <div class="main-content">
-
-      <!-- CONTEXT -->
       <div class="content-section reveal">
         <div class="section-label">Context</div>
-        <h2 class="section-headline">The biggest secondary ticketing marketplace in Europe — with a scale problem.</h2>
+        <h2 class="section-headline">A luxury product with a deliberately narrow audience.</h2>
         <div class="body-text">
-          <p>TicketSwap is the Netherlands' largest secondary ticketing platform, operating across 36 countries with over 8 million fans. Their model is built on fairness — a maximum 120% price cap protects buyers, and their reputation depends on moving inventory efficiently.</p>
-          <p>In 2022, they had 500,000 active events on the platform at any given time. For each event, tickets expire the moment the show ends. Unsold inventory isn't a missed opportunity — it's a fundamental failure of the platform's core promise.</p>
-          <p>With a small performance marketing team, the challenge wasn't budget or strategy. It was scale.</p>
+          <p>Artipoppe is a Dutch premium baby carrier brand known for its design-led aesthetic and high-quality materials. Their products sit at the top end of the market — customers are deliberate, research-driven buyers who care as much about brand identity as product quality.</p>
+          <p>This isn't a brand you scale by casting a wide net. Reaching the wrong audience wastes budget and risks positioning damage. Every euro of paid spend needed to reach buyers who were genuinely ready to invest in a premium product.</p>
         </div>
       </div>
 
-      <!-- PROBLEM / SOLUTION -->
       <div class="content-section reveal">
         <div class="section-label">The challenge</div>
-        <h2 class="section-headline">500,000 events. <em>One small team.</em></h2>
-        <div class="body-text"><p>Manual campaign creation — writing keywords, ad copy, and targeting for each event — was impossible at this volume. But without highly specific, intent-matched ads, paid media campaigns were too generic to convert. Generic ads for generic events performed poorly and wasted budget.</p></div>
+        <h2 class="section-headline">Growth that couldn't come at the cost of the brand.</h2>
+        <div class="body-text"><p>Premium brands live and die by perception. Paid needed to grow revenue without leaning on the discounting and broad-reach tactics that quietly erode a luxury position — and without pouring budget into audiences that would never convert at a premium price point.</p></div>
         <div class="ps-grid">
           <div class="ps-card problem">
             <div class="ps-card-label">The problem</div>
-            <p class="ps-card-text">500,000 active events across 36 markets. Each one unique — different artist, venue, city, date. Building targeted campaigns manually was impossible. Existing generic campaigns were underperforming and leaving inventory unsold.</p>
+            <p class="ps-card-text">Paid coverage was reaching too broad an audience — spending against low-intent traffic and treating every product the same, regardless of margin or genuine demand.</p>
           </div>
           <div class="ps-card solution">
             <div class="ps-card-label">The solution</div>
-            <p class="ps-card-text">A fully automated feed-driven system using Channable that pulled event data (artist, venue, location, date) and generated highly specific ad groups and keywords for every active event — dynamically, at scale, across all markets.</p>
+            <p class="ps-card-text">A rebuild of the Shopping and Search structure around the best-margin, highest-intent products — tighter targeting, cleaner feed segmentation, and bidding aligned to profitable conversions rather than raw volume.</p>
           </div>
         </div>
       </div>
 
-      <!-- PROCESS -->
       <div class="content-section reveal">
         <div class="section-label">How we did it</div>
-        <h2 class="section-headline">Automation built on <em>clean architecture.</em></h2>
+        <h2 class="section-headline">Precision over reach.</h2>
         <div class="process-steps">
-          <div class="process-step">
-            <div class="step-num">01</div>
-            <div>
-              <div class="step-title">Feed architecture</div>
-              <p class="step-body">We structured a dynamic event feed containing all relevant fields — event name, artist, venue, city, country, date, ticket availability, and category. The feed became the single source of truth for all campaign creation.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-num">02</div>
-            <div>
-              <div class="step-title">Automated ad and keyword generation</div>
-              <p class="step-body">Using Channable, we built templates that generated ad groups, headlines, descriptions, and keywords for every event dynamically. An event for Coldplay at the Amsterdam Arena produced ads specific to Coldplay, Amsterdam, and the exact date — not a generic "buy tickets" ad.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-num">03</div>
-            <div>
-              <div class="step-title">Multi-market deployment</div>
-              <p class="step-body">The system was language and market-aware. UK, Netherlands, Germany, Belgium — each market got localised ad copy pulled from the feed, without duplicating manual effort.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-num">04</div>
-            <div>
-              <div class="step-title">Inventory-based bidding logic</div>
-              <p class="step-body">Campaigns were tied to live availability. Events with more tickets available received proportionally higher bids, ensuring budget concentrated on inventory that most needed to move — automatically adjusting as events sold out.</p>
-            </div>
-          </div>
+          <div class="process-step"><div class="step-num">01</div><div><div class="step-title">Audit &amp; feed cleanup</div><p class="step-body">Reviewed account structure, search terms, and the product feed — cutting wasted spend and fixing the data Google actually bids on.</p></div></div>
+          <div class="process-step"><div class="step-num">02</div><div><div class="step-title">Rebuild around intent &amp; margin</div><p class="step-body">Restructured Shopping and Search to prioritise the products and queries that attract genuine premium buyers — not bargain hunters.</p></div></div>
+          <div class="process-step"><div class="step-num">03</div><div><div class="step-title">Optimise for profitable growth</div><p class="step-body">Aligned bidding to profitable ROAS, tested audiences and creative, and scaled only what held margin as spend grew.</p></div></div>
         </div>
       </div>
 
-      <!-- RESULTS -->
       <div class="content-section reveal">
         <div class="section-label">Results</div>
-        <h2 class="section-headline">More coverage. Less work. <em>Better outcomes.</em></h2>
-        <div class="body-text"><p>The system launched in the Dutch market first. After proving impact within the first month, it was rolled out across all active TicketSwap markets. The results were consistent across the board.</p></div>
+        <h2 class="section-headline">More of the right customers — not just more customers.</h2>
+        <div class="body-text"><p>Paid became a reliable channel for reaching high-intent premium buyers, with a structure built to scale without diluting the brand. <em>Specific performance figures available on request.</em></p></div>
         <div class="results-grid" style="margin-top:28px;">
-          <div class="result-card">
-            <div class="result-val green-neg">−15%</div>
-            <div class="result-label">Reduction in unsold ticket inventory — the core business metric</div>
-          </div>
-          <div class="result-card">
-            <div class="result-val green-neg">−10%</div>
-            <div class="result-label">User acquisition cost — same budget, more buyers</div>
-          </div>
-          <div class="result-card">
-            <div class="result-val green">+60%</div>
-            <div class="result-label">Coverage increase across paid media campaigns</div>
-          </div>
-          <div class="result-card">
-            <div class="result-val green-neg">−80%</div>
-            <div class="result-label">Team time spent on campaign creation — freed for strategy</div>
-          </div>
+          <div class="result-card"><div class="result-val">Quality-led</div><div class="result-label">High-intent buyers over volume</div></div>
+          <div class="result-card"><div class="result-val">Brand-safe</div><div class="result-label">Scaled without discounting</div></div>
+          <div class="result-card"><div class="result-val">Best-margin</div><div class="result-label">Structure built around top products</div></div>
         </div>
       </div>
-
     </div>
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
       <div class="sidebar-card">
         <div class="sidebar-label">Project details</div>
-        <div class="sidebar-row"><span class="sidebar-key">Client</span><span class="sidebar-val">TicketSwap</span></div>
-        <div class="sidebar-row"><span class="sidebar-key">Year</span><span class="sidebar-val">2022</span></div>
-        <div class="sidebar-row"><span class="sidebar-key">Industry</span><span class="sidebar-val">Secondary ticketing</span></div>
-        <div class="sidebar-row"><span class="sidebar-key">Markets</span><span class="sidebar-val">Netherlands + 36 countries</span></div>
-        <div class="sidebar-row"><span class="sidebar-key">Channels</span><span class="sidebar-val">Google Search Ads</span></div>
-        <div class="sidebar-row"><span class="sidebar-key">Tools</span><span class="sidebar-val">Channable, Google Ads</span></div>
-        <div class="sidebar-row"><span class="sidebar-key">Scope</span><span class="sidebar-val">In-house Performance Marketing Manager</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Client</span><span class="sidebar-val">Artipoppe</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Year</span><span class="sidebar-val">2023</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Industry</span><span class="sidebar-val">Premium baby carriers</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Markets</span><span class="sidebar-val">Netherlands + EU</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Channels</span><span class="sidebar-val">Google Shopping, Search, PMax</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Scope</span><span class="sidebar-val">Independent Paid Media Specialist</span></div>
       </div>
       <div class="sidebar-cta">
         <div class="sidebar-cta-text">Want results like this for your brand?</div>
-        <div class="sidebar-cta-sub">Book a free audit call — we'll review your account and tell you what's possible.</div>
-        <a href="alvo-book-a-call.html" class="btn-cta-small">Book a free audit →</a>
+        <div class="sidebar-cta-sub">Book a free audit — we'll review your account and tell you what's possible.</div>
+        <a href="watermouse-book-a-call.html" class="btn-cta-small">Book a free audit →</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- NEXT CASE -->
 <div class="next-case">
   <div class="next-inner">
-    <div>
-      <div class="next-label">Next case study</div>
-      <div class="next-title">Scaling a premium brand <em>without diluting it.</em></div>
-    </div>
-    <a href="alvo-case-artipoppe.html" class="btn-next">Artipoppe → <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div><div class="next-label">Next case study</div><div class="next-title">Multi-market expansion <em>done sustainably.</em></div></div>
+    <a href="watermouse-case-landlife.html" class="btn-next">LandLife <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-logo"><svg width="20" height="20" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#7AAB9B" stroke-width="1.5" fill="none" opacity="0.4"/><circle cx="24" cy="24" r="6" fill="#4A7C6F" opacity="0.6"/><line x1="24" y1="4" x2="24" y2="14" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="24" y1="34" x2="24" y2="44" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="4" y1="24" x2="14" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="34" y1="24" x2="44" y2="24" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg><span class="footer-logo-word">watermouse</span></div>
-    <ul class="footer-links"><li><a href="index.html#services">Services</a></li><li><a href="alvo-pricing.html">Pricing</a></li><li><a href="alvo-case-studies.html">Work</a></li><li><a href="alvo-book-a-call.html">Contact</a></li><li><a href="alvo-privacy.html">Privacy</a></li><li><a href="alvo-terms.html">Terms</a></li></ul>
+    <ul class="footer-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-book-a-call.html">Contact</a></li><li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
     <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
   </div>
 </footer>
-
 <script>
   function toggleNav(){const btn=document.getElementById('nav-hamburger');const drawer=document.getElementById('nav-drawer');btn.classList.toggle('open');drawer.classList.toggle('open');document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('nav-hamburger').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');document.body.style.overflow='';}});
@@ -458,7 +360,7 @@
     <p class="cookie-text">
       We use cookies to understand how visitors use our site and to improve it over time.
       No data is sold to third parties. Read our
-      <a href="alvo-privacy.html">privacy policy</a>.
+      <a href="watermouse-privacy.html">privacy policy</a>.
     </p>
     <div class="cookie-actions">
       <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
@@ -497,7 +399,7 @@
 
 
 <!-- Sticky mobile CTA -->
-<a href="alvo-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<a href="watermouse-book-a-call.html" class="alvo-mcta" aria-label="Book a free audit">Book a free audit →</a>
 <style>.alvo-mcta{display:none}@media(max-width:768px){.alvo-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
 </body>
 </html>
