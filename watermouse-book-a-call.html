@@ -10,7 +10,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   window.loadWatermouseGA = function(){
-    if (window.__alvoGA) return; window.__alvoGA = true;
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
     var s = document.createElement('script'); s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
@@ -18,7 +18,7 @@
     gtag('config', GA_ID, { anonymize_ip: true });
   };
   document.addEventListener('DOMContentLoaded', function(){
-    if (localStorage.getItem('alvo_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
     var orig = window.cookieAccept;
     if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
   });
@@ -751,7 +751,7 @@
 
   <script>
     (function() {
-      var consent = localStorage.getItem('alvo_cookie_consent');
+      var consent = localStorage.getItem('wm_cookie_consent');
       if (!consent) {
         var banner = document.getElementById('cookie-banner');
         if (banner) {
@@ -761,11 +761,11 @@
       }
     })();
     function cookieAccept() {
-      localStorage.setItem('alvo_cookie_consent', 'accepted');
+      localStorage.setItem('wm_cookie_consent', 'accepted');
       hideCookieBanner();
     }
     function cookieDecline() {
-      localStorage.setItem('alvo_cookie_consent', 'declined');
+      localStorage.setItem('wm_cookie_consent', 'declined');
       hideCookieBanner();
     }
     function hideCookieBanner() {
