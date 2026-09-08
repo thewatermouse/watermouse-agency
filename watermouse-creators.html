@@ -104,7 +104,12 @@
   .aud-section{background:var(--ink);color:var(--off-white);}
   .aud-section .label{color:var(--sage-light);}
   .aud-section .h2{color:var(--off-white);}
-  .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;}
+  .perf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px;}
+  .perf-card{background:rgba(122,171,155,0.09);border:1px solid rgba(122,171,155,0.22);border-radius:16px;padding:30px 26px;}
+  .perf-v{font-family:'Fraunces',serif;font-size:42px;font-weight:300;color:var(--off-white);line-height:1.05;}
+  .perf-v .fill{color:var(--sage-light);border-bottom:2px dotted var(--sage-light);}
+  .perf-sub{margin-top:8px;font-size:13px;color:rgba(250,248,245,0.45);}
+  .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
   .aud-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px 24px;}
   .aud-k{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,248,245,0.4);margin-bottom:12px;}
   .aud-v{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--off-white);line-height:1.2;}
@@ -148,6 +153,7 @@
     .pillars{grid-template-columns:1fr 1fr;}
     .split{grid-template-columns:1fr;}
     .deliv-grid{grid-template-columns:1fr;gap:0 0;}
+    .perf-grid{grid-template-columns:1fr;}
     .aud-grid{grid-template-columns:1fr;}
     .price-card{padding:28px 24px;}
     .price-row{flex-direction:column;align-items:flex-start;gap:6px;}
@@ -180,7 +186,7 @@
   <div class="wrap hero-inner">
     <div class="eyebrow"><span class="eyebrow-dot"></span>Criadora de conteúdo · São Paulo</div>
     <h1 class="hero-name">Paola Pax</h1>
-    <div class="hero-handle">@apaolapax · TikTok · Instagram · YouTube</div>
+    <div class="hero-handle">@apaolapax · TikTok · Instagram</div>
     <p class="hero-headline">Conteúdo que as marcas querem fazer parte.</p>
     <p class="hero-sub">Lifestyle, viagem, livros e o melhor de São Paulo — com curadoria, sem cara de propaganda. Faço parcerias com marcas pra criar conteúdo que tem a minha cara e engaja de verdade.</p>
     <div class="hero-actions">
@@ -265,7 +271,7 @@
       <div class="format-card influencer">
         <div class="format-tag">Conteúdo de influência</div>
         <div class="format-h">Publicado nos meus canais</div>
-        <p class="format-p">Reels, TikToks, Stories e YouTube com a marca — publicados pro meu público, na minha voz. Você alcança quem já confia nas minhas indicações.</p>
+        <p class="format-p">Reels, TikToks e Stories com a marca — publicados pro meu público, na minha voz. Você alcança quem já confia nas minhas indicações.</p>
       </div>
       <div class="format-card ugc">
         <div class="format-tag">UGC</div>
@@ -300,6 +306,10 @@
   <div class="wrap">
     <div class="label">Quem me acompanha</div>
     <h2 class="h2">O público que você <em>alcança.</em></h2>
+    <div class="perf-grid">
+      <div class="perf-card"><div class="aud-k">Engajamento médio</div><div class="perf-v"><span class="fill">0%</span></div><div class="perf-sub">Curtidas + comentários ÷ seguidores</div></div>
+      <div class="perf-card"><div class="aud-k">Média de views / Reel</div><div class="perf-v"><span class="fill">0K</span></div><div class="perf-sub">Média dos últimos posts</div></div>
+    </div>
     <div class="aud-grid">
       <div class="aud-card"><div class="aud-k">Faixa etária</div><div class="aud-v"><span class="fill">00–00</span></div></div>
       <div class="aud-card"><div class="aud-k">Gênero</div><div class="aud-v"><span class="fill">00% / 00%</span></div></div>
