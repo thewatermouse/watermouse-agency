@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+(function(){
+  var GA_ID = 'G-XXXXXXXXXX';
+  if (GA_ID === 'G-XXXXXXXXXX') return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Consultant for eCommerce — United Kingdom | Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* HERO */
+  .hero{padding:88px 0 0;position:relative;overflow:hidden;}
+  .hero-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;}
+  .hero-headline{font-family:'Fraunces',serif;font-size:64px;font-weight:300;line-height:1.0;color:var(--ink);margin-bottom:0;}
+  .hero-headline em{font-style:italic;color:var(--sage);}
+
+  /* SPLIT INTRO */
+  .intro{padding:64px 0 80px;}
+  .intro-inner{max-width:1060px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .intro-left{}
+  .intro-right{}
+  .intro-large{font-family:'Fraunces',serif;font-size:26px;font-weight:300;line-height:1.45;color:var(--ink);margin-bottom:32px;}
+  .intro-large em{font-style:italic;color:var(--sage);}
+  .intro-body{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.6);}
+  .intro-body p+p{margin-top:16px;}
+
+  .origin-card{background:var(--ink);border-radius:24px;padding:40px;color:var(--off-white);}
+  .origin-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.6;margin-bottom:20px;}
+  .origin-text{font-family:'Fraunces',serif;font-size:22px;font-weight:300;line-height:1.55;color:var(--off-white);}
+  .origin-text em{font-style:italic;color:var(--sage-light);}
+  .origin-foot{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;font-weight:300;color:rgba(250,248,245,0.35);line-height:1.6;}
+
+  /* BELIEFS */
+  .beliefs{background:var(--sage-dark);padding:96px 0;}
+  .beliefs-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .beliefs-header{margin-bottom:56px;}
+  .beliefs-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.6;margin-bottom:16px;}
+  .beliefs-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--off-white);}
+  .beliefs-headline em{font-style:italic;color:var(--sage-light);}
+  .beliefs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .belief-item{background:rgba(255,255,255,0.04);padding:40px;transition:background 0.2s;}
+  .belief-item:hover{background:rgba(255,255,255,0.07);}
+  .belief-num{font-family:'Fraunces',serif;font-size:13px;font-weight:300;color:var(--sage-light);opacity:0.4;margin-bottom:16px;}
+  .belief-title{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--off-white);margin-bottom:12px;line-height:1.25;}
+  .belief-body{font-size:14px;font-weight:300;line-height:1.75;color:rgba(250,248,245,0.42);}
+
+  /* HOW WE WORK */
+  .how{padding:96px 0;}
+  .how-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .how-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:64px;align-items:end;}
+  .how-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .how-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);}
+  .how-headline em{font-style:italic;color:var(--sage);}
+  .how-intro{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.55);align-self:end;}
+  .how-steps{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(28,43,38,0.07);}
+  .how-step{display:grid;grid-template-columns:80px 1fr 1fr;gap:40px;padding:40px 0;border-bottom:1px solid rgba(28,43,38,0.07);align-items:start;}
+  .how-step-num{font-family:'Fraunces',serif;font-size:36px;font-weight:300;color:var(--sage);opacity:0.25;line-height:1;}
+  .how-step-title{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:var(--ink);line-height:1.3;padding-top:6px;}
+  .how-step-body{font-size:14px;font-weight:300;line-height:1.75;color:rgba(28,43,38,0.55);padding-top:6px;}
+
+  /* RODRIGO */
+  .founder{padding:0 0 96px;}
+  .founder-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .founder-card{display:grid;grid-template-columns:1fr 360px;background:var(--warm);border-radius:28px;overflow:hidden;}
+  .founder-content{padding:52px;}
+  .founder-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-dark);opacity:0.6;margin-bottom:20px;}
+  .founder-name{font-family:'Fraunces',serif;font-size:36px;font-weight:300;color:var(--ink);margin-bottom:6px;}
+  .founder-role{font-size:13px;font-weight:300;color:rgba(28,43,38,0.45);margin-bottom:28px;letter-spacing:0.04em;}
+  .founder-bio{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.65);}
+  .founder-bio p+p{margin-top:14px;}
+  .founder-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+  .founder-tag{font-size:11px;font-weight:400;padding:6px 14px;border-radius:100px;background:rgba(28,43,38,0.07);color:rgba(28,43,38,0.55);}
+  .founder-visual{background:linear-gradient(160deg,var(--warm-deep) 0%,var(--warm-dark) 100%);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden;}
+  .founder-visual-pattern{position:absolute;inset:0;opacity:0.08;background-image:radial-gradient(circle,rgba(28,43,38,0.8) 1px,transparent 1px);background-size:24px 24px;}
+  .founder-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .founder-linkedin{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:13px;font-weight:500;color:var(--sage);text-decoration:none;transition:opacity .2s;}
+  .founder-linkedin:hover{opacity:0.7;}
+  .founder-linkedin svg{width:16px;height:16px;}
+
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .hero-label{animation:fadeUp 0.5s ease both;}
+  .hero-headline{animation:fadeUp 0.5s ease 0.07s both;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  .reveal-delay-1{transition-delay:0.08s;}
+  .reveal-delay-2{transition-delay:0.16s;}
+
+  @media(max-width:900px){
+    .intro-inner{grid-template-columns:1fr;}
+    .how-header{grid-template-columns:1fr;}
+    .how-step{grid-template-columns:48px 1fr;gap:24px;}
+    .how-step-body{grid-column:2;}
+    .founder-card{grid-template-columns:1fr;}
+    .founder-visual{min-height:200px;}
+    .beliefs-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .hero{padding:52px 0 0;}
+    .hero-inner{padding:0 24px;}
+    .hero-headline{font-size:40px;}
+    .intro{padding:40px 0 56px;}
+    .intro-inner{padding:0 24px;gap:40px;}
+    .intro-large{font-size:22px;}
+    .beliefs{padding:64px 0;}
+    .beliefs-inner{padding:0 24px;}
+    .beliefs-headline{font-size:32px;}
+    .belief-item{padding:28px 24px;}
+    .how{padding:64px 0;}
+    .how-inner{padding:0 24px;}
+    .how-headline{font-size:32px;}
+    .how-step{grid-template-columns:40px 1fr;gap:16px;padding:28px 0;}
+    .founder{padding:0 0 64px;}
+    .founder-inner{padding:0 24px;}
+    .founder-content{padding:32px;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hero-headline{font-size:32px;}
+    .beliefs-headline{font-size:26px;}
+    .how-headline{font-size:26px;}
+    .cta-headline{font-size:26px;}
+    .founder-name{font-size:28px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #4A7C6F;
+    color: #FAF8F5;
+  }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(250,248,245,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(250,248,245,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+<style>
+.lp-faq{padding:96px 0;background:var(--off-white);}
+.lp-faq-inner{max-width:820px;margin:0 auto;padding:0 60px;}
+.lp-faq-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+.lp-faq-headline{font-family:'Fraunces',serif;font-size:40px;font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:44px;}
+.lp-faq-headline em{font-style:italic;color:var(--sage);}
+.lp-faq-item{border-top:1px solid rgba(28,43,38,.08);padding:26px 0;}
+.lp-faq-item:last-child{border-bottom:1px solid rgba(28,43,38,.08);}
+.lp-faq-q{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:10px;line-height:1.3;}
+.lp-faq-a{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,.62);}
+.lp-related{background:var(--off-white);padding:0 0 96px;}
+.lp-related-inner{max-width:1060px;margin:0 auto;padding:40px 60px 0;border-top:1px solid rgba(28,43,38,.08);}
+.lp-related-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:22px;}
+.lp-related-grid{display:flex;flex-wrap:wrap;gap:12px;}
+.lp-related-grid a{font-size:14px;font-weight:400;color:var(--ink);text-decoration:none;padding:11px 20px;border:1px solid rgba(28,43,38,.14);border-radius:100px;transition:border-color .2s,color .2s;}
+.lp-related-grid a:hover{border-color:var(--sage);color:var(--sage-dark);}
+@media(max-width:768px){.lp-faq{padding:64px 0;}.lp-faq-inner{padding:0 24px;}.lp-faq-headline{font-size:30px;}.lp-related-inner{padding:32px 24px 0;}}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="Google Ads Consultant for eCommerce — United Kingdom | Watermouse">
+<meta property="og:description" content="Senior Google Ads management for UK eCommerce brands. High-competition market expertise — GBP, Shopping-led demand, Black Friday to Boxing Day — one senior operator, no agency bloat.">
+<meta property="og:url" content="https://agency.thewatermouse.com/watermouse-google-ads-uk.html">
+<meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Ads Consultant for eCommerce — United Kingdom | Watermouse">
+<meta name="twitter:description" content="Senior Google Ads management for UK eCommerce brands. High-competition market expertise — GBP, Shopping-led demand, Black Friday to Boxing Day — one senior operator, no agency bloat.">
+<meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta name="description" content="Senior Google Ads management for UK eCommerce brands. High-competition market expertise — GBP, Shopping-led demand, Black Friday to Boxing Day — one senior operator, no agency bloat.">
+<link rel="canonical" href="https://agency.thewatermouse.com/watermouse-google-ads-uk.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Google Ads management for UK eCommerce",
+      "serviceType": "Google Ads management",
+      "url": "https://agency.thewatermouse.com/watermouse-google-ads-uk.html",
+      "areaServed": "United Kingdom",
+      "provider": {
+        "@type": "Organization",
+        "name": "Watermouse",
+        "url": "https://agency.thewatermouse.com/"
+      },
+      "description": "Senior Google Ads management for UK eCommerce brands. High-competition market expertise — GBP, Shopping-led demand, Black Friday to Boxing Day — one senior operator, no agency bloat."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why are UK Google Ads so competitive and expensive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The UK is Europe's largest eCommerce market with a mature, well-funded set of advertisers, which pushes CPCs up and makes the auction crowded. That means efficiency — clean feeds, tight structure, disciplined negatives and sharp measurement — matters more in the UK than almost anywhere else, because waste is immediately expensive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a big budget to compete in UK Google Ads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. Budget helps, but the brands that win the UK auction usually do it on execution — better feed quality, tighter account structure and faster iteration than the competitor bidding on the same query. A senior operator focused on efficiency can out-perform a bigger, sloppier spend."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How important is Google Shopping for UK eCommerce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very. UK product search is heavily Shopping-led, so for most eCommerce brands the majority of profitable volume runs through Shopping and Performance Max. A well-optimised product feed and deliberate Shopping structure are among the highest-impact things you can get right in the UK market."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you manage UK campaigns without being UK-based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. What matters is understanding the UK market and running the account with senior discipline — both of which we do, on European hours. The lean, direct setup also keeps overhead out of your budget, which is an advantage in a market where every pound of spend is under margin pressure."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="nav-logo-word">watermouse</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html">Work</a></li>
+      <li><a href="watermouse-about.html">About</a></li>
+      <li><a href="watermouse-lead-assessments.html">Assessments</a></li>
+      <li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="index.html#services">Services</a>
+  <a href="watermouse-pricing.html">Pricing</a>
+  <a href="watermouse-case-studies.html">Work</a>
+  <a href="watermouse-about.html">About</a>
+  <a href="watermouse-lead-assessments.html">Assessments</a>
+  <a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit &rarr;</a>
+</div>
+<section class="hero"><div class="hero-inner"><div class="hero-label">Google Ads · United Kingdom</div><h1 class="hero-headline">Google Ads for UK eCommerce, <em>where every click is contested.</em></h1></div></section>
+<section class="intro"><div class="intro-inner"><div class="intro-left reveal"><p class="intro-large">The UK is the largest, most competitive eCommerce market in Europe. CPCs are high and the auction is crowded — so <em>efficiency is the whole game.</em></p><div class="intro-body"><p>In the UK you're not fighting for attention, you're fighting for margin. High CPCs, sophisticated competitors and Shopping-dominant demand mean small structural advantages compound into real profit — and small mistakes get expensive fast. Wasted spend that a cheaper market would absorb quietly shows up straight away on a UK P&L.</p><p>That makes the UK a market that rewards senior, hands-on management over set-and-forget automation. The brands that win aren't outspending everyone — they have cleaner feeds, tighter structure and sharper measurement than the competitor bidding on the same query.</p></div></div><div class="intro-right reveal reveal-delay-1"><div class="origin-card"><div class="origin-label">The short version</div><p class="origin-text">In a high-CPC market, the edge is operational: a clean feed, disciplined structure and honest measurement, managed weekly by a senior operator — not a junior on a template.</p><div class="origin-foot">A lean, direct setup means your budget goes into media and management, not agency overhead — which matters most in a market where every pound of spend is under pressure.</div></div></div></div></section>
+<section class="beliefs"><div class="beliefs-inner"><div class="beliefs-header reveal"><div class="beliefs-label">For UK brands</div><h2 class="beliefs-headline">What winning the <em>UK auction</em> takes.</h2></div><div class="beliefs-grid"><div class="belief-item reveal"><div class="belief-num">01</div><div class="belief-title">Efficiency as the priority</div><p class="belief-body">With high CPCs, waste is the enemy. We attack it at the source — search-term hygiene, negative strategy, feed quality and structure — so more of your budget reaches queries that actually convert.</p></div><div class="belief-item reveal reveal-delay-1"><div class="belief-num">02</div><div class="belief-title">Shopping-led demand</div><p class="belief-body">UK product search leans heavily on Google Shopping. A well-optimised feed and a deliberate Shopping/PMax structure aren't optional here — they're where most of the profitable volume is won or lost.</p></div><div class="belief-item reveal"><div class="belief-num">03</div><div class="belief-title">A sophisticated competitive set</div><p class="belief-body">You're up against brands with real budgets and good teams. We compete on structure, measurement and speed of iteration, not on outspending — the levers that don't require the biggest budget in the auction.</p></div><div class="belief-item reveal reveal-delay-1"><div class="belief-num">04</div><div class="belief-title">Peak-season execution</div><p class="belief-body">Black Friday through Boxing Day and the January sales are make-or-break for UK retail. We plan budget, bidding and inventory priority around that curve so you're sharp when the volume actually lands.</p></div></div></div></section>
+<section class="how"><div class="how-inner"><div class="how-header reveal"><div><div class="how-label">How we work</div><h2 class="how-headline">How we start with <em>a UK account.</em></h2></div><p class="how-intro">A market this competitive rewards discipline. We bring it from day one.</p></div><div class="how-steps"><div class="how-step reveal"><div class="how-step-num">01</div><div class="how-step-title">Audit for wasted spend</div><div class="how-step-body">A forensic review of where budget is leaking — irrelevant search terms, weak feed, overlapping campaigns, brand cannibalisation — because in a high-CPC market that waste is the fastest win.</div></div><div class="how-step reveal"><div class="how-step-num">02</div><div class="how-step-title">Tighten feed and structure</div><div class="how-step-body">Shopping feed optimisation and account structure rebuilt so budget concentrates on profitable, high-intent demand instead of spreading thin across the auction.</div></div><div class="how-step reveal"><div class="how-step-num">03</div><div class="how-step-title">Sharpen measurement</div><div class="how-step-body">GA4 and conversion tracking set up so ROAS and CAC are trustworthy — essential when margins are tight and every decision has to be made on real numbers.</div></div><div class="how-step reveal"><div class="how-step-num">04</div><div class="how-step-title">Optimise and plan for peak</div><div class="how-step-body">Continuous optimisation against margin-based targets, plus a deliberate plan for Black Friday, Boxing Day and the January sales.</div></div></div></div></section>
+<section class="lp-faq"><div class="lp-faq-inner"><div class="lp-faq-label reveal">FAQ</div><h2 class="lp-faq-headline reveal">Google Ads in the UK, <em>answered.</em></h2><div class="lp-faq-item"><div class="lp-faq-q">Why are UK Google Ads so competitive and expensive?</div><p class="lp-faq-a">The UK is Europe's largest eCommerce market with a mature, well-funded set of advertisers, which pushes CPCs up and makes the auction crowded. That means efficiency — clean feeds, tight structure, disciplined negatives and sharp measurement — matters more in the UK than almost anywhere else, because waste is immediately expensive.</p></div><div class="lp-faq-item"><div class="lp-faq-q">Do I need a big budget to compete in UK Google Ads?</div><p class="lp-faq-a">Not necessarily. Budget helps, but the brands that win the UK auction usually do it on execution — better feed quality, tighter account structure and faster iteration than the competitor bidding on the same query. A senior operator focused on efficiency can out-perform a bigger, sloppier spend.</p></div><div class="lp-faq-item"><div class="lp-faq-q">How important is Google Shopping for UK eCommerce?</div><p class="lp-faq-a">Very. UK product search is heavily Shopping-led, so for most eCommerce brands the majority of profitable volume runs through Shopping and Performance Max. A well-optimised product feed and deliberate Shopping structure are among the highest-impact things you can get right in the UK market.</p></div><div class="lp-faq-item"><div class="lp-faq-q">Can you manage UK campaigns without being UK-based?</div><p class="lp-faq-a">Yes. What matters is understanding the UK market and running the account with senior discipline — both of which we do, on European hours. The lean, direct setup also keeps overhead out of your budget, which is an advantage in a market where every pound of spend is under margin pressure.</p></div></div></section>
+<section class="lp-related"><div class="lp-related-inner"><div class="lp-related-label">Explore more</div><div class="lp-related-grid"><a href="watermouse-google-ads-netherlands.html">Google Ads — Netherlands</a><a href="watermouse-google-ads-germany.html">Google Ads — Germany & DACH</a><a href="watermouse-case-studies.html">Case studies</a><a href="watermouse-book-a-call.html">Book a free audit</a></div></div></section>
+<section class="cta-section"><div class="cta-inner reveal"><div class="cta-label">Work with us</div><h2 class="cta-headline">Compete harder on <em>UK Google Ads.</em></h2><p class="cta-sub">A free 30-minute audit of your UK account — we find the wasted spend, the feed gaps and the structural leaks costing you margin in a high-CPC market.</p><a href="watermouse-book-a-call.html" class="btn-light">Book a free audit<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html">Work</a></li>
+      <li><a href="watermouse-book-a-call.html">Contact</a></li>
+      <li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">&copy; 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');
+    const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+  },{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">We use cookies to understand how visitors use our site and to improve it over time. No data is sold to third parties. Read our <a href="watermouse-privacy.html">privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) { var banner = document.getElementById('cookie-banner'); if (banner) { setTimeout(function(){ banner.classList.add('visible'); }, 600); } }
+    })();
+    function cookieAccept(){ localStorage.setItem('wm_cookie_consent','accepted'); hideCookieBanner(); }
+    function cookieDecline(){ localStorage.setItem('wm_cookie_consent','declined'); hideCookieBanner(); }
+    function hideCookieBanner(){ var b=document.getElementById('cookie-banner'); if(b){ b.classList.remove('visible'); setTimeout(function(){ b.style.display='none'; }, 450); } }
+  </script>
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit &rarr;</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
