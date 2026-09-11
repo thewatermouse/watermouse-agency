@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated) — loads only after cookie consent. -->
+<script>
+(function(){
+  var GA_ID = 'G-RSR83B38QN';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much Does Google Ads Management Cost for eCommerce? (Europe, 2026) — Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* HERO */
+  .hero{padding:88px 0 0;position:relative;overflow:hidden;}
+  .hero-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;}
+  .hero-headline{font-family:'Fraunces',serif;font-size:64px;font-weight:300;line-height:1.0;color:var(--ink);margin-bottom:0;}
+  .hero-headline em{font-style:italic;color:var(--sage);}
+
+  /* SPLIT INTRO */
+  .intro{padding:64px 0 80px;}
+  .intro-inner{max-width:1060px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .intro-left{}
+  .intro-right{}
+  .intro-large{font-family:'Fraunces',serif;font-size:26px;font-weight:300;line-height:1.45;color:var(--ink);margin-bottom:32px;}
+  .intro-large em{font-style:italic;color:var(--sage);}
+  .intro-body{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.6);}
+  .intro-body p+p{margin-top:16px;}
+
+  .origin-card{background:var(--ink);border-radius:24px;padding:40px;color:var(--off-white);}
+  .origin-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.6;margin-bottom:20px;}
+  .origin-text{font-family:'Fraunces',serif;font-size:22px;font-weight:300;line-height:1.55;color:var(--off-white);}
+  .origin-text em{font-style:italic;color:var(--sage-light);}
+  .origin-foot{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;font-weight:300;color:rgba(250,248,245,0.35);line-height:1.6;}
+
+  /* BELIEFS */
+  .beliefs{background:var(--sage-dark);padding:96px 0;}
+  .beliefs-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .beliefs-header{margin-bottom:56px;}
+  .beliefs-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.6;margin-bottom:16px;}
+  .beliefs-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--off-white);}
+  .beliefs-headline em{font-style:italic;color:var(--sage-light);}
+  .beliefs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .belief-item{background:rgba(255,255,255,0.04);padding:40px;transition:background 0.2s;}
+  .belief-item:hover{background:rgba(255,255,255,0.07);}
+  .belief-num{font-family:'Fraunces',serif;font-size:13px;font-weight:300;color:var(--sage-light);opacity:0.4;margin-bottom:16px;}
+  .belief-title{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--off-white);margin-bottom:12px;line-height:1.25;}
+  .belief-body{font-size:14px;font-weight:300;line-height:1.75;color:rgba(250,248,245,0.42);}
+
+  /* HOW WE WORK */
+  .how{padding:96px 0;}
+  .how-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .how-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:64px;align-items:end;}
+  .how-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .how-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);}
+  .how-headline em{font-style:italic;color:var(--sage);}
+  .how-intro{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.55);align-self:end;}
+  .how-steps{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(28,43,38,0.07);}
+  .how-step{display:grid;grid-template-columns:80px 1fr 1fr;gap:40px;padding:40px 0;border-bottom:1px solid rgba(28,43,38,0.07);align-items:start;}
+  .how-step-num{font-family:'Fraunces',serif;font-size:36px;font-weight:300;color:var(--sage);opacity:0.25;line-height:1;}
+  .how-step-title{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:var(--ink);line-height:1.3;padding-top:6px;}
+  .how-step-body{font-size:14px;font-weight:300;line-height:1.75;color:rgba(28,43,38,0.55);padding-top:6px;}
+
+  /* RODRIGO */
+  .founder{padding:0 0 96px;}
+  .founder-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .founder-card{display:grid;grid-template-columns:1fr 360px;background:var(--warm);border-radius:28px;overflow:hidden;}
+  .founder-content{padding:52px;}
+  .founder-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-dark);opacity:0.6;margin-bottom:20px;}
+  .founder-name{font-family:'Fraunces',serif;font-size:36px;font-weight:300;color:var(--ink);margin-bottom:6px;}
+  .founder-role{font-size:13px;font-weight:300;color:rgba(28,43,38,0.45);margin-bottom:28px;letter-spacing:0.04em;}
+  .founder-bio{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.65);}
+  .founder-bio p+p{margin-top:14px;}
+  .founder-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+  .founder-tag{font-size:11px;font-weight:400;padding:6px 14px;border-radius:100px;background:rgba(28,43,38,0.07);color:rgba(28,43,38,0.55);}
+  .founder-visual{background:linear-gradient(160deg,var(--warm-deep) 0%,var(--warm-dark) 100%);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden;}
+  .founder-visual-pattern{position:absolute;inset:0;opacity:0.08;background-image:radial-gradient(circle,rgba(28,43,38,0.8) 1px,transparent 1px);background-size:24px 24px;}
+  .founder-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .founder-linkedin{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:13px;font-weight:500;color:var(--sage);text-decoration:none;transition:opacity .2s;}
+  .founder-linkedin:hover{opacity:0.7;}
+  .founder-linkedin svg{width:16px;height:16px;}
+
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .hero-label{animation:fadeUp 0.5s ease both;}
+  .hero-headline{animation:fadeUp 0.5s ease 0.07s both;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  .reveal-delay-1{transition-delay:0.08s;}
+  .reveal-delay-2{transition-delay:0.16s;}
+
+  @media(max-width:900px){
+    .intro-inner{grid-template-columns:1fr;}
+    .how-header{grid-template-columns:1fr;}
+    .how-step{grid-template-columns:48px 1fr;gap:24px;}
+    .how-step-body{grid-column:2;}
+    .founder-card{grid-template-columns:1fr;}
+    .founder-visual{min-height:200px;}
+    .beliefs-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .hero{padding:52px 0 0;}
+    .hero-inner{padding:0 24px;}
+    .hero-headline{font-size:40px;}
+    .intro{padding:40px 0 56px;}
+    .intro-inner{padding:0 24px;gap:40px;}
+    .intro-large{font-size:22px;}
+    .beliefs{padding:64px 0;}
+    .beliefs-inner{padding:0 24px;}
+    .beliefs-headline{font-size:32px;}
+    .belief-item{padding:28px 24px;}
+    .how{padding:64px 0;}
+    .how-inner{padding:0 24px;}
+    .how-headline{font-size:32px;}
+    .how-step{grid-template-columns:40px 1fr;gap:16px;padding:28px 0;}
+    .founder{padding:0 0 64px;}
+    .founder-inner{padding:0 24px;}
+    .founder-content{padding:32px;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hero-headline{font-size:32px;}
+    .beliefs-headline{font-size:26px;}
+    .how-headline{font-size:26px;}
+    .cta-headline{font-size:26px;}
+    .founder-name{font-size:28px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #4A7C6F;
+    color: #FAF8F5;
+  }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(250,248,245,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(250,248,245,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+<style>
+.ahero{padding:80px 0 0;background:var(--off-white);}
+.ahero-inner{max-width:760px;margin:0 auto;padding:0 32px;}
+.acrumb{font-size:13px;color:var(--sage);margin-bottom:22px;display:inline-flex;gap:8px;align-items:center;}
+.acrumb a{color:var(--sage);text-decoration:none;}
+.aeyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--warm-dark);margin-bottom:16px;}
+.atitle{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:22px;}
+.atitle em{font-style:italic;color:var(--sage);}
+.ameta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:rgba(28,43,38,.5);padding-bottom:8px;border-bottom:1px solid rgba(28,43,38,.09);}
+.ameta b{color:var(--ink);font-weight:500;}
+.abody{max-width:760px;margin:0 auto;padding:0 32px 20px;}
+.tldr{background:var(--sage-pale);border:1px solid rgba(74,124,111,.2);border-radius:16px;padding:24px 26px;margin:40px 0;}
+.tldr-l{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;}
+.tldr p{font-size:16px;font-weight:400;line-height:1.7;color:var(--ink);margin:0;}
+.abody h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1.2;margin:48px 0 16px;}
+.abody h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink);margin:32px 0 12px;}
+.abody p{font-size:16.5px;font-weight:300;line-height:1.8;color:rgba(28,43,38,.82);margin:0 0 18px;}
+.abody a{color:var(--sage-dark);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(74,124,111,.35);}
+.abody a:hover{text-decoration-color:var(--sage);}
+.abody strong{font-weight:600;color:var(--ink);}
+.abody ul,.abody ol{margin:0 0 20px;padding-left:22px;}
+.abody li{font-size:16.5px;font-weight:300;line-height:1.7;color:rgba(28,43,38,.82);margin-bottom:9px;}
+.abody li strong{font-weight:600;}
+.atable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:14.5px;}
+.atable th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--warm-dark);padding:12px 14px;border-bottom:2px solid rgba(28,43,38,.12);vertical-align:bottom;}
+.atable td{padding:13px 14px;border-bottom:1px solid rgba(28,43,38,.08);vertical-align:top;font-weight:300;color:rgba(28,43,38,.82);line-height:1.6;}
+.atable td:first-child{font-weight:500;color:var(--ink);}
+.atable-wrap{overflow-x:auto;}
+.keybox{border-left:3px solid var(--sage);background:var(--warm-pale);border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:15.5px;font-weight:400;color:var(--ink);line-height:1.65;}
+.keybox b{color:var(--sage-dark);}
+.afaq{max-width:760px;margin:0 auto;padding:20px 32px;}
+.afaq h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);margin:40px 0 20px;}
+.afaq-item{border-top:1px solid rgba(28,43,38,.08);padding:22px 0;}
+.afaq-item:last-child{border-bottom:1px solid rgba(28,43,38,.08);}
+.afaq-q{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:9px;}
+.afaq-a{font-size:15.5px;font-weight:300;line-height:1.75;color:rgba(28,43,38,.7);}
+.author{max-width:760px;margin:44px auto 0;padding:0 32px;}
+.author-card{display:flex;gap:20px;align-items:center;background:var(--warm);border-radius:20px;padding:26px 28px;}
+.author-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;background:var(--warm-deep);}
+.author-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:3px;}
+.author-role{font-size:13px;color:rgba(28,43,38,.5);margin-bottom:8px;}
+.author-bio{font-size:14px;font-weight:300;line-height:1.6;color:rgba(28,43,38,.7);}
+.author-bio a{color:var(--sage-dark);}
+.arel{max-width:760px;margin:0 auto;padding:36px 32px 0;}
+.arel-l{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;}
+.arel-grid{display:flex;flex-wrap:wrap;gap:12px;}
+.arel-grid a{font-size:14px;color:var(--ink);text-decoration:none;padding:11px 20px;border:1px solid rgba(28,43,38,.14);border-radius:100px;transition:border-color .2s,color .2s;}
+.arel-grid a:hover{border-color:var(--sage);color:var(--sage-dark);}
+/* hub */
+.hub{max-width:900px;margin:0 auto;padding:8px 32px 20px;}
+.hub-grid{display:flex;flex-direction:column;gap:16px;margin-top:8px;}
+.hub-card{display:block;background:var(--white);border:1.5px solid rgba(28,43,38,.08);border-radius:18px;padding:28px 30px;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.hub-card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(28,43,38,.09);border-color:rgba(74,124,111,.3);}
+.hub-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--warm-dark);margin-bottom:12px;}
+.hub-title{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--ink);line-height:1.25;margin-bottom:10px;}
+.hub-desc{font-size:15px;font-weight:300;line-height:1.65;color:rgba(28,43,38,.6);margin-bottom:14px;}
+.hub-more{font-size:13px;font-weight:500;color:var(--sage);}
+.hub-soon{opacity:.62;}
+.hub-soon .hub-title{color:rgba(28,43,38,.6);}
+@media(max-width:768px){
+  .ahero{padding:52px 0 0;}.atitle{font-size:32px;}
+  .abody h2,.afaq h2{font-size:24px;}
+  .author-card{flex-direction:column;text-align:center;}
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="How Much Does Google Ads Management Cost for eCommerce? (Europe, 2026) — Watermouse">
+<meta property="og:description" content="What Google Ads management really costs for European eCommerce brands — % of spend vs flat fee vs in-house, what drives the price, and how to sanity-check any quote.">
+<meta property="og:url" content="https://agency.thewatermouse.com/watermouse-guide-google-ads-cost.html">
+<meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Much Does Google Ads Management Cost for eCommerce? (Europe, 2026) — Watermouse">
+<meta name="twitter:description" content="What Google Ads management really costs for European eCommerce brands — % of spend vs flat fee vs in-house, what drives the price, and how to sanity-check any quote.">
+<meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta name="description" content="What Google Ads management really costs for European eCommerce brands — % of spend vs flat fee vs in-house, what drives the price, and how to sanity-check any quote.">
+<link rel="canonical" href="https://agency.thewatermouse.com/watermouse-guide-google-ads-cost.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://agency.thewatermouse.com/watermouse-guide-google-ads-cost.html#article",
+      "headline": "How much does Google Ads management cost for eCommerce?",
+      "description": "What Google Ads management really costs for European eCommerce brands — % of spend vs flat fee vs in-house, what drives the price, and how to sanity-check any quote.",
+      "url": "https://agency.thewatermouse.com/watermouse-guide-google-ads-cost.html",
+      "mainEntityOfPage": "https://agency.thewatermouse.com/watermouse-guide-google-ads-cost.html",
+      "datePublished": "2026-09-11",
+      "dateModified": "2026-09-11",
+      "image": "https://agency.thewatermouse.com/og-image.png",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo Sanematsu Kato",
+        "url": "https://agency.thewatermouse.com/watermouse-about.html",
+        "jobTitle": "Senior Google Ads Consultant",
+        "sameAs": [
+          "https://www.linkedin.com/in/rodrigo-sanematsu-kato/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watermouse",
+        "url": "https://agency.thewatermouse.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://agency.thewatermouse.com/og-image.png"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does Google Ads management cost for eCommerce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Europe, management is usually priced as a percentage of ad spend (typically 10–20%), a flat monthly fee (commonly around €1,000–€5,000+ depending on account size and scope), or the fully-loaded cost of an in-house hire (€60k–€90k+ per year). Watermouse uses a flat fee of €1,500–€4,000/mo. The right number depends on your spend, number of markets, feed complexity and channel mix — not on the size of the agency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a percentage of spend or a flat fee better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A flat fee is usually better aligned with your interests. Percentage-of-spend pays the agency more when you spend more, which creates little incentive to cut waste or tell you when you are over-invested. A flat fee stays the same whether the right move is to scale up or pull back, so the advice you get is about your profit rather than the agency's revenue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I budget for management versus ad spend?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set your ad spend first, then treat management as a layer on top. As a share of spend, a good flat fee should shrink as you grow — a €1,500 fee is around 15% of €10k/mo spend but only about 3% of €50k/mo. Be wary of any model where the management cut never falls as your account gets larger and more efficient."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a freelancer cheaper than an agency for Google Ads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes — a senior freelancer or solo operator carries far less overhead than a traditional agency, so more of your fee goes into actual account work rather than layers of management. The trade-off is capacity and redundancy. We cover this in detail in our guide on choosing between an agency, a freelancer and hiring in-house."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg><span class="nav-logo-word">watermouse</span></a><ul class="nav-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-about.html">About</a></li><li><a href="watermouse-lead-assessments.html">Assessments</a></li><li><a href="watermouse-guides.html" class="active">Guides</a></li><li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li></ul><button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button></div></nav><div class="nav-drawer" id="nav-drawer"><a href="index.html#services">Services</a><a href="watermouse-pricing.html">Pricing</a><a href="watermouse-case-studies.html">Work</a><a href="watermouse-about.html">About</a><a href="watermouse-lead-assessments.html">Assessments</a><a href="watermouse-guides.html" class="active">Guides</a><a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit &rarr;</a></div><section class="ahero"><div class="ahero-inner"><div class="acrumb"><a href="watermouse-guides.html">Guides</a> <span>→</span> Google Ads for eCommerce</div><div class="aeyebrow">Guide · Pricing</div><h1 class="atitle">How much does Google Ads management <em>cost</em> for eCommerce?</h1><div class="ameta"><span>By <b>Rodrigo Kato</b></span><span>8 min read</span><span>Updated <b>September 2026</b></span></div></div></section>
+<article class="abody"><div class="tldr"><div class="tldr-l">The short answer</div><p>Most European eCommerce brands pay for Google Ads management one of three ways: a percentage of ad spend (typically 10–20%), a flat monthly fee (commonly ~€1,000–€5,000+ depending on account size), or an in-house hire (€60k–€90k+/yr fully loaded). The percentage model pays the agency more when you spend more — which is why a flat fee is usually better aligned with your profit.</p></div>
+
+<p>If you are a European eCommerce brand trying to work out what Google Ads management <em>should</em> cost, the honest answer is: it depends far less on the size of the agency and far more on <strong>the pricing model</strong> and <strong>who actually does the work</strong>. Below is how the three common models really compare, what drives the number, and how to sanity-check any quote you are given.</p>
+
+<h2>The three ways you'll be charged</h2>
+<p>Almost every quote you receive will fall into one of these three structures. Each changes the incentives behind your account, not just the invoice.</p>
+<div class="atable-wrap"><table class="atable">
+<thead><tr><th>Model</th><th>Typical cost (EU)</th><th>The catch</th></tr></thead>
+<tbody>
+<tr><td>% of ad spend</td><td>10–20% of monthly spend</td><td>The agency earns more when you spend more — not when you profit more.</td></tr>
+<tr><td>Flat monthly fee</td><td>~€1,000–€5,000+/mo by scope &amp; account size</td><td>Predictable, incentive-aligned — but you must check who is actually on the account.</td></tr>
+<tr><td>In-house hire</td><td>€60k–€90k+/yr fully loaded</td><td>Dedicated and close to the business, but expensive and hard to hire senior.</td></tr>
+</tbody></table></div>
+<p>For reference, <a href="watermouse-pricing.html">Watermouse charges a flat fee</a> (€1,500–€4,000/mo) precisely to avoid the percentage-of-spend conflict — more on why below.</p>
+
+<h2>What actually drives the price</h2>
+<p>Two accounts spending the same amount can justify very different fees. The real cost drivers are:</p>
+<ul>
+<li><strong>Account size and spend</strong> — more budget means more testing, more structure, and more risk to manage.</li>
+<li><strong>Number of markets and languages</strong> — running NL, UK and DE well is three markets' worth of work, not one.</li>
+<li><strong>Feed and catalogue complexity</strong> — a 5,000-SKU Shopping feed needs far more attention than a 30-product range.</li>
+<li><strong>Channel mix</strong> — Search-only is lighter than a full Search + <a href="watermouse-google-shopping-feed.html">Shopping</a> + <a href="watermouse-pmax-ecommerce.html">Performance Max</a> + YouTube build.</li>
+<li><strong>Reporting and involvement</strong> — weekly senior oversight and honest analysis cost more than an automated monthly dashboard.</li>
+</ul>
+
+<h2>Why percentage-of-spend quietly works against you</h2>
+<p>The percentage model is the industry default, and it contains a structural conflict: your agency is paid more precisely when it spends more of your money. There is rarely a strong incentive to <em>cut</em> wasted spend, consolidate, or tell you that you are over-invested in a channel — because doing so lowers their own fee.</p>
+<p>A flat fee removes that conflict. Whether the right move this month is to scale up or to pull back, the fee is the same, so the advice you get is about your profit, not the agency's revenue.</p>
+<div class="keybox"><b>Rule of thumb:</b> management fees should <em>fall</em> as a share of spend as you grow. A €1,500 flat fee is ~15% of €10k/mo spend, but only ~3% of €50k/mo. A percentage model keeps taking the same cut no matter how large — and how efficient — your account becomes.</div>
+
+<h2>What you should actually be paying for</h2>
+<p>Price is only meaningful against what is delivered. The things worth paying for are:</p>
+<ul>
+<li><strong>Senior time on the account</strong> — the person making daily decisions should have run accounts like yours before.</li>
+<li><strong>Honest reporting</strong> — revenue, ROAS and CAC, with an explanation of <em>why</em> they moved — not impressions and clicks.</li>
+<li><strong>Structural work</strong> — feed quality, account architecture, bidding logic. The unglamorous work that compounds.</li>
+</ul>
+<p>What you should <em>not</em> be paying senior rates for: a junior learning on your budget while a senior name appears only on the contract and the quarterly call.</p>
+
+<h2>Red flags in a pricing conversation</h2>
+<ul>
+<li><strong>&ldquo;You'll have a team&rdquo;</strong> — often means a junior does the work and you rarely speak to the senior you were sold.</li>
+<li><strong>Long lock-ins</strong> — a 12-month contract with heavy exit penalties protects the agency, not your results.</li>
+<li><strong>Reporting built on vanity metrics</strong> — if the proposal leads with impressions and CTR, that is what they will optimise for.</li>
+<li><strong>A fee that scales with spend but not with value</strong> — see above.</li>
+</ul>
+
+<h2>So what should you budget?</h2>
+<p>A sensible way to frame it: decide your monthly ad spend first, then treat management as a layer on top that should be a reasonable share of that spend at your size. At smaller spends a flat fee will look like a larger percentage; as you scale, that same fee becomes a smaller and smaller share — which is exactly the direction the maths should run. If a quote does the opposite (taking a fixed percentage that never shrinks), you are paying more for the privilege of growing.</p>
+<p>Not sure whether your current setup or quote is fair? A <a href="watermouse-book-a-call.html">free audit</a> will tell you what your account actually needs — and whether you are over- or under-paying for it.</p>
+</article>
+<section class="afaq"><h2>Frequently asked</h2><div class="afaq-item"><div class="afaq-q">How much does Google Ads management cost for eCommerce?</div><p class="afaq-a">In Europe, management is usually priced as a percentage of ad spend (typically 10–20%), a flat monthly fee (commonly around €1,000–€5,000+ depending on account size and scope), or the fully-loaded cost of an in-house hire (€60k–€90k+ per year). Watermouse uses a flat fee of €1,500–€4,000/mo. The right number depends on your spend, number of markets, feed complexity and channel mix — not on the size of the agency.</p></div><div class="afaq-item"><div class="afaq-q">Is a percentage of spend or a flat fee better?</div><p class="afaq-a">A flat fee is usually better aligned with your interests. Percentage-of-spend pays the agency more when you spend more, which creates little incentive to cut waste or tell you when you are over-invested. A flat fee stays the same whether the right move is to scale up or pull back, so the advice you get is about your profit rather than the agency's revenue.</p></div><div class="afaq-item"><div class="afaq-q">How much should I budget for management versus ad spend?</div><p class="afaq-a">Set your ad spend first, then treat management as a layer on top. As a share of spend, a good flat fee should shrink as you grow — a €1,500 fee is around 15% of €10k/mo spend but only about 3% of €50k/mo. Be wary of any model where the management cut never falls as your account gets larger and more efficient.</p></div><div class="afaq-item"><div class="afaq-q">Is a freelancer cheaper than an agency for Google Ads?</div><p class="afaq-a">Often, yes — a senior freelancer or solo operator carries far less overhead than a traditional agency, so more of your fee goes into actual account work rather than layers of management. The trade-off is capacity and redundancy. We cover this in detail in our guide on choosing between an agency, a freelancer and hiring in-house.</p></div></section>
+<div class="author"><div class="author-card"><img class="author-photo" src="media/rodrigo-kato.jpg" alt="Rodrigo Kato" onerror="this.style.display='none'"><div><div class="author-name">Rodrigo Kato</div><div class="author-role">Senior Google Ads Consultant · Watermouse</div><div class="author-bio">Senior Google Ads operator for European eCommerce brands (NL, UK, DE and beyond) — one person on the account, no junior handoffs. <a href="watermouse-about.html">More about Watermouse →</a></div></div></div></div>
+<section class="arel"><div class="arel-l">Keep reading</div><div class="arel-grid"><a href="watermouse-guide-agency-vs-freelancer.html">Agency vs freelancer vs in-house</a><a href="watermouse-pricing.html">See our pricing</a><a href="watermouse-book-a-call.html">Book a free audit</a></div></section>
+<section class="cta-section" style="margin-top:64px;"><div class="cta-inner reveal"><div class="cta-label">Work with us</div><h2 class="cta-headline">Start with a <em>free audit.</em></h2><p class="cta-sub">30 minutes on your actual Google Ads account — honest feedback on what is working, what is not, and what we would change. No pitch until you ask for one.</p><a href="watermouse-book-a-call.html" class="btn-light">Book a free audit<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html">Work</a></li>
+      <li><a href="watermouse-book-a-call.html">Contact</a></li>
+    <li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');
+    const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We use cookies to understand how visitors use our site and to improve it over time.
+      No data is sold to third parties. Read our
+      <a href="watermouse-privacy.html">privacy policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
