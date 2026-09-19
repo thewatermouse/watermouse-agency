@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated), loads only after cookie consent. -->
+<script>
+(function(){
+  var GA_ID = 'G-RSR83B38QN';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Is My Google Ads ROAS Dropping? A Diagnostic Checklist (2026), Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .cta-headline{font-size:26px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible { transform: translateY(0); }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept { background: #4A7C6F; color: #FAF8F5; }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline { background: rgba(255,255,255,0.06); color: rgba(250,248,245,0.5); }
+  .cookie-btn-decline:hover { background: rgba(255,255,255,0.1); color: rgba(250,248,245,0.8); }
+  @media (max-width: 680px) {
+    #cookie-banner { flex-direction: column; align-items: flex-start; padding: 20px 24px 24px; gap: 16px; }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+</style>
+<style>
+.ahero{padding:80px 0 0;background:var(--off-white);}
+.ahero-inner{max-width:760px;margin:0 auto;padding:0 32px;}
+.acrumb{font-size:13px;color:var(--sage);margin-bottom:22px;display:inline-flex;gap:8px;align-items:center;}
+.acrumb a{color:var(--sage);text-decoration:none;}
+.aeyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--warm-dark);margin-bottom:16px;}
+.atitle{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:22px;}
+.atitle em{font-style:italic;color:var(--sage);}
+.ameta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:rgba(28,43,38,.5);padding-bottom:8px;border-bottom:1px solid rgba(28,43,38,.09);}
+.ameta b{color:var(--ink);font-weight:500;}
+.abody{max-width:760px;margin:0 auto;padding:0 32px 20px;}
+.tldr{background:var(--sage-pale);border:1px solid rgba(74,124,111,.2);border-radius:16px;padding:24px 26px;margin:40px 0;}
+.tldr-l{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;}
+.tldr p{font-size:16px;font-weight:400;line-height:1.7;color:var(--ink);margin:0;}
+.abody h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1.2;margin:48px 0 16px;}
+.abody h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink);margin:32px 0 12px;}
+.abody p{font-size:16.5px;font-weight:300;line-height:1.8;color:rgba(28,43,38,.82);margin:0 0 18px;}
+.abody a{color:var(--sage-dark);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(74,124,111,.35);}
+.abody a:hover{text-decoration-color:var(--sage);}
+.abody strong{font-weight:600;color:var(--ink);}
+.abody ul,.abody ol{margin:0 0 20px;padding-left:22px;}
+.abody li{font-size:16.5px;font-weight:300;line-height:1.7;color:rgba(28,43,38,.82);margin-bottom:9px;}
+.abody li strong{font-weight:600;}
+.atable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:14.5px;}
+.atable th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--warm-dark);padding:12px 14px;border-bottom:2px solid rgba(28,43,38,.12);vertical-align:bottom;}
+.atable td{padding:13px 14px;border-bottom:1px solid rgba(28,43,38,.08);vertical-align:top;font-weight:300;color:rgba(28,43,38,.82);line-height:1.6;}
+.atable td:first-child{font-weight:500;color:var(--ink);}
+.atable-wrap{overflow-x:auto;}
+.keybox{border-left:3px solid var(--sage);background:var(--warm-pale);border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:15.5px;font-weight:400;color:var(--ink);line-height:1.65;}
+.keybox b{color:var(--sage-dark);}
+.afaq{max-width:760px;margin:0 auto;padding:20px 32px;}
+.afaq h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);margin:40px 0 20px;}
+.afaq-item{border-top:1px solid rgba(28,43,38,.08);padding:22px 0;}
+.afaq-item:last-child{border-bottom:1px solid rgba(28,43,38,.08);}
+.afaq-q{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:9px;}
+.afaq-a{font-size:15.5px;font-weight:300;line-height:1.75;color:rgba(28,43,38,.7);}
+.author{max-width:760px;margin:44px auto 0;padding:0 32px;}
+.author-card{display:flex;gap:20px;align-items:center;background:var(--warm);border-radius:20px;padding:26px 28px;}
+.author-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;background:var(--warm-deep);}
+.author-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:3px;}
+.author-role{font-size:13px;color:rgba(28,43,38,.5);margin-bottom:8px;}
+.author-bio{font-size:14px;font-weight:300;line-height:1.6;color:rgba(28,43,38,.7);}
+.author-bio a{color:var(--sage-dark);}
+.arel{max-width:760px;margin:0 auto;padding:36px 32px 0;}
+.arel-l{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;}
+.arel-grid{display:flex;flex-wrap:wrap;gap:12px;}
+.arel-grid a{font-size:14px;color:var(--ink);text-decoration:none;padding:11px 20px;border:1px solid rgba(28,43,38,.14);border-radius:100px;transition:border-color .2s,color .2s;}
+.arel-grid a:hover{border-color:var(--sage);color:var(--sage-dark);}
+@media(max-width:768px){
+  .ahero{padding:52px 0 0;}.atitle{font-size:32px;}
+  .abody h2,.afaq h2{font-size:24px;}
+  .author-card{flex-direction:column;text-align:center;}
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="Why Is My Google Ads ROAS Dropping? A Diagnostic Checklist (2026), Watermouse">
+<meta property="og:description" content="A calm, ordered checklist for a falling Google Ads ROAS: is the drop even real, or is it tracking? Then demand, competition, feed, Performance Max, bidding and your own site.">
+<meta property="og:url" content="https://agency.thewatermouse.com/watermouse-guide-roas-dropping.html">
+<meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Is My Google Ads ROAS Dropping? A Diagnostic Checklist (2026), Watermouse">
+<meta name="twitter:description" content="A calm, ordered checklist for a falling Google Ads ROAS: is the drop even real, or is it tracking? Then demand, competition, feed, Performance Max, bidding and your own site.">
+<meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta name="description" content="A calm, ordered checklist for a falling Google Ads ROAS: is the drop even real, or is it tracking? Then demand, competition, feed, Performance Max, bidding and your own site.">
+<link rel="canonical" href="https://agency.thewatermouse.com/watermouse-guide-roas-dropping.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://agency.thewatermouse.com/watermouse-guide-roas-dropping.html#article",
+      "headline": "Why is my Google Ads ROAS dropping? A diagnostic checklist",
+      "description": "A calm, ordered checklist for a falling Google Ads ROAS: is the drop even real, or is it tracking? Then demand, competition, feed, Performance Max, bidding and your own site.",
+      "url": "https://agency.thewatermouse.com/watermouse-guide-roas-dropping.html",
+      "mainEntityOfPage": "https://agency.thewatermouse.com/watermouse-guide-roas-dropping.html",
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "image": "https://agency.thewatermouse.com/og-image.png",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo Sanematsu Kato",
+        "url": "https://agency.thewatermouse.com/watermouse-about.html",
+        "jobTitle": "Senior Google Ads Consultant",
+        "sameAs": [
+          "https://www.linkedin.com/in/rodrigo-sanematsu-kato/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watermouse",
+        "url": "https://agency.thewatermouse.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://agency.thewatermouse.com/og-image.png"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why did my Google Ads ROAS suddenly drop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common cause of a sudden ROAS drop is not the ads at all, it is tracking. A consent banner change, a site migration, a broken conversion tag or an attribution shift can make sales stop being recorded while they are still happening. After ruling that out, the usual real causes are seasonality and softer demand, rising competition and CPCs, product feed or Merchant Center problems, Performance Max drifting to cheaper placements, an over-aggressive bidding target, or a change on your own site such as a price rise or an out-of-stock bestseller."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a dropping ROAS always a problem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A lower ROAS at higher spend and higher total profit is often a good trade, that is what scaling looks like. ROAS almost always falls as you push beyond your cheapest branded demand into new customers. The question is not whether ROAS fell, but whether it is still above your break-even ROAS and whether total profit went up or down."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can tracking problems cause a fake ROAS drop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is the first thing to check. If a conversion tag breaks, consent mode changes, or a site migration drops the tracking, Google keeps spending but stops seeing the sales, so recorded ROAS collapses even though the business is fine. Compare Google Ads conversions against your Shopify or GA4 sales for the same period before touching any campaign."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should I wait before reacting to a ROAS drop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Look at a rolling 7 to 14 day window and compare like for like, ideally year on year rather than to last week, since demand swings by day and season. Avoid reacting to a single bad day or making big bid and budget changes daily, which resets the algorithm's learning and can make things worse. Diagnose first, then change one thing at a time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Performance Max lower ROAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can, in two ways. Performance Max often absorbs your branded and shopping traffic and reports it as its own, which flatters PMax and can mask weakness elsewhere; and without guardrails it can drift toward cheaper, lower-intent placements. Check whether PMax is claiming brand searches and whether its spend has shifted, before blaming the wider account."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg><span class="nav-logo-word">watermouse</span></a><ul class="nav-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-about.html">About</a></li><li><a href="watermouse-lead-assessments.html">Assessments</a></li><li><a href="watermouse-guides.html" class="active">Guides</a></li><li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li></ul><button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button></div></nav><div class="nav-drawer" id="nav-drawer"><a href="index.html#services">Services</a><a href="watermouse-pricing.html">Pricing</a><a href="watermouse-case-studies.html">Work</a><a href="watermouse-about.html">About</a><a href="watermouse-lead-assessments.html">Assessments</a><a href="watermouse-guides.html" class="active">Guides</a><a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit &rarr;</a></div><section class="ahero"><div class="ahero-inner"><div class="acrumb"><a href="watermouse-guides.html">Guides</a> <span>→</span> Google Ads for eCommerce</div><div class="aeyebrow">Guide · Diagnostics</div><h1 class="atitle">Why is my Google Ads ROAS <em>dropping?</em></h1><div class="ameta"><span>By <b>Rodrigo Kato</b></span><span>8 min read</span><span>Updated <b>September 2026</b></span></div></div></section>
+<article class="abody"><div class="tldr"><div class="tldr-l">The short answer</div><p>Before you change anything, ask one question: <strong>is the drop even real, or is it tracking?</strong> Most &ldquo;sudden ROAS drops&rdquo; are broken conversions, not broken campaigns. Once the number is trustworthy, work through the causes in order: demand and seasonality, competition and CPCs, the product feed, Performance Max drift, bidding and learning resets, and finally your own site and prices. Diagnose first, change one thing at a time.</p></div>
+
+<p>A falling ROAS triggers the same reflex in almost everyone: start pulling levers. Pause campaigns, cut budgets, raise the target. That reflex is usually what turns a small dip into a real problem. This is the calm, ordered checklist we run on a client account before touching anything, from &ldquo;is this real?&rdquo; to &ldquo;what actually changed?&rdquo;</p>
+
+<h2>Step 0: Is the drop real, or is it tracking?</h2>
+<p>This is the single most common cause of a scary overnight ROAS drop, and the one people check last. If a conversion tag breaks, a consent banner changes what it collects, or a site migration quietly drops your tracking, Google keeps spending but stops <em>seeing</em> the sales. Revenue looks fine in your store; ROAS falls off a cliff in Google Ads.</p>
+<div class="keybox"><b>Do this first:</b> compare Google Ads conversions and revenue against your <a href="watermouse-google-shopping-feed.html">Shopify or GA4</a> numbers for the same days. If the store is selling but Google Ads is not recording it, you have a tracking problem, not a performance problem. Fixing a campaign here would only make things worse.</div>
+<p>Common culprits: a recent site or theme change, a new cookie or consent setup (very common in the EU), Consent Mode misconfigured, a duplicated or missing conversion tag, or a change to the attribution window or model.</p>
+
+<h2>Step 1: Did demand or seasonality shift?</h2>
+<p>ROAS moves with the market, not just your account. A post-peak lull, the end of a sale season, or a general dip in category demand will pull ROAS down no matter how well the account is run. Check <strong>year on year, not week on week</strong>, in Google Trends and in your own historical data. If last September looked the same, the &ldquo;drop&rdquo; may just be the calendar.</p>
+
+<h2>Step 2: Did competition and CPCs rise?</h2>
+<p>If more advertisers are bidding, or a competitor launched a sale, your cost per click rises and the same budget buys fewer, pricier clicks, so ROAS falls. Look at your average CPC trend and at <strong>Auction Insights</strong> and <strong>impression share</strong>. Rising CPCs and a new name in Auction Insights point outward, to the market, rather than to a mistake in your account.</p>
+
+<h2>Step 3: Check the product feed and Merchant Center</h2>
+<p>For eCommerce, the feed is the engine, and feed problems show up as ROAS drops. Run through:</p>
+<ul>
+<li><strong>Disapprovals.</strong> A batch of disapproved products silently removes your best sellers from Shopping and Performance Max.</li>
+<li><strong>Out of stock.</strong> If your hero products went out of stock, spend shifts to weaker products at a worse ROAS.</li>
+<li><strong>Price and availability mismatches.</strong> If the feed price no longer matches the landing page, Google throttles or disapproves those items.</li>
+</ul>
+<p>A clean <a href="watermouse-google-shopping-feed.html">Shopping feed</a> is quietly responsible for most of your Shopping and PMax performance, so it is worth ruling out early.</p>
+
+<h2>Step 4: Is Performance Max drifting or cannibalizing?</h2>
+<p>Performance Max is the most common hidden cause of a &ldquo;mysterious&rdquo; ROAS change, for two reasons. First, it tends to <strong>absorb your branded and Shopping traffic</strong> and report those cheap, high-intent sales as its own, which flatters PMax and can mask weakness elsewhere. Second, without guardrails it can <strong>drift toward cheaper, lower-intent placements</strong> that convert worse over time.</p>
+<p>Check whether PMax is claiming your brand searches, and whether its spend or placement mix shifted right before the drop. Our guide on <a href="watermouse-pmax-ecommerce.html">Performance Max for eCommerce</a> covers the guardrails that keep it honest.</p>
+
+<h2>Step 5: Did bidding or learning get disrupted?</h2>
+<p>Smart bidding needs stability. The usual self-inflicted causes:</p>
+<ul>
+<li><strong>Target ROAS set too high.</strong> Push tROAS up too far and the algorithm stops bidding on all but the safest conversions, volume collapses, and blended results can worsen.</li>
+<li><strong>Big, frequent changes.</strong> Large budget or target swings, or restructuring campaigns, reset the learning period. Expect a wobble for a week or two after any major change.</li>
+<li><strong>Recent changes stacking up.</strong> If several edits landed at once, you cannot tell which one hurt. Change one thing at a time.</li>
+</ul>
+
+<h2>Step 6: Did something change on your own site?</h2>
+<p>The ads can be perfect while conversion rate quietly falls off-platform. Ask what changed on your side:</p>
+<ul>
+<li>Did you <strong>raise prices</strong> or end a promotion? Same clicks, fewer sales, lower ROAS.</li>
+<li>Is the <strong>site slower</strong>, or did a redesign change the product or checkout page?</li>
+<li>Is <strong>checkout broken</strong> on any device, browser or payment method?</li>
+<li>Did a <strong>bestseller sell out</strong>, pushing traffic to lower-converting products?</li>
+</ul>
+
+<h2>The order that saves you</h2>
+<p>Almost every real diagnosis follows the same path: confirm the number is real, rule out the market, then rule out the feed and Performance Max, then look at bidding and your own site. Resisting the urge to yank budgets on day one is most of the skill.</p>
+<div class="keybox"><b>One rule above all:</b> diagnose before you touch anything, then change one variable at a time. A ROAS drop with three simultaneous &ldquo;fixes&rdquo; on top of it is impossible to read, and usually deeper in the hole than where it started.</div>
+<p>If you have been through the list and still cannot see the cause, that is exactly what an outside audit is for. A <a href="watermouse-book-a-call.html">free audit</a> looks at the whole account, tracking, feed, PMax and bidding, and tells you where the ROAS actually went.</p>
+</article>
+<section class="afaq"><h2>Frequently asked</h2><div class="afaq-item"><div class="afaq-q">Why did my Google Ads ROAS suddenly drop?</div><p class="afaq-a">The most common cause of a sudden ROAS drop is not the ads at all, it is tracking. A consent banner change, a site migration, a broken conversion tag or an attribution shift can make sales stop being recorded while they are still happening. After ruling that out, the usual real causes are seasonality and softer demand, rising competition and CPCs, product feed or Merchant Center problems, Performance Max drifting to cheaper placements, an over-aggressive bidding target, or a change on your own site such as a price rise or an out-of-stock bestseller.</p></div><div class="afaq-item"><div class="afaq-q">Is a dropping ROAS always a problem?</div><p class="afaq-a">No. A lower ROAS at higher spend and higher total profit is often a good trade, that is what scaling looks like. ROAS almost always falls as you push beyond your cheapest branded demand into new customers. The question is not whether ROAS fell, but whether it is still above your break-even ROAS and whether total profit went up or down.</p></div><div class="afaq-item"><div class="afaq-q">Can tracking problems cause a fake ROAS drop?</div><p class="afaq-a">Yes, and it is the first thing to check. If a conversion tag breaks, consent mode changes, or a site migration drops the tracking, Google keeps spending but stops seeing the sales, so recorded ROAS collapses even though the business is fine. Compare Google Ads conversions against your Shopify or GA4 sales for the same period before touching any campaign.</p></div><div class="afaq-item"><div class="afaq-q">How long should I wait before reacting to a ROAS drop?</div><p class="afaq-a">Look at a rolling 7 to 14 day window and compare like for like, ideally year on year rather than to last week, since demand swings by day and season. Avoid reacting to a single bad day or making big bid and budget changes daily, which resets the algorithm's learning and can make things worse. Diagnose first, then change one thing at a time.</p></div><div class="afaq-item"><div class="afaq-q">Does Performance Max lower ROAS?</div><p class="afaq-a">It can, in two ways. Performance Max often absorbs your branded and shopping traffic and reports it as its own, which flatters PMax and can mask weakness elsewhere; and without guardrails it can drift toward cheaper, lower-intent placements. Check whether PMax is claiming brand searches and whether its spend has shifted, before blaming the wider account.</p></div></section>
+<div class="author"><div class="author-card"><img class="author-photo" src="media/rodrigo-kato.jpg" alt="Rodrigo Kato" onerror="this.style.display='none'"><div><div class="author-name">Rodrigo Kato</div><div class="author-role">Senior Google Ads Consultant · Watermouse</div><div class="author-bio">Senior Google Ads operator for European eCommerce brands (NL, UK, DE and beyond), one person on the account, no junior handoffs. <a href="watermouse-about.html">More about Watermouse →</a></div></div></div></div>
+<section class="arel"><div class="arel-l">Keep reading</div><div class="arel-grid"><a href="watermouse-guide-roas-ecommerce.html">What is a good ROAS?</a><a href="watermouse-pmax-ecommerce.html">Performance Max for eCommerce</a><a href="watermouse-book-a-call.html">Book a free audit</a></div></section>
+<section class="cta-section" style="margin-top:64px;"><div class="cta-inner reveal"><div class="cta-label">Work with us</div><h2 class="cta-headline">Can't find where the <em>ROAS went?</em></h2><p class="cta-sub">30 minutes on your actual Google Ads account, tracking, feed, Performance Max and bidding. Honest feedback on what is dragging the number down. No pitch until you ask for one.</p><a href="watermouse-book-a-call.html" class="btn-light">Book a free audit<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html">Work</a></li>
+      <li><a href="watermouse-book-a-call.html">Contact</a></li>
+    <li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');
+    const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We use cookies to understand how visitors use our site and to improve it over time.
+      No data is sold to third parties. Read our
+      <a href="watermouse-privacy.html">privacy policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
