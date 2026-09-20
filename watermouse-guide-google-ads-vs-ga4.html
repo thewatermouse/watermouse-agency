@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated), loads only after cookie consent. -->
+<script>
+(function(){
+  var GA_ID = 'G-RSR83B38QN';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads vs GA4: Why Don't the Numbers Match? (2026), Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .cta-headline{font-size:26px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible { transform: translateY(0); }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept { background: #4A7C6F; color: #FAF8F5; }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline { background: rgba(255,255,255,0.06); color: rgba(250,248,245,0.5); }
+  .cookie-btn-decline:hover { background: rgba(255,255,255,0.1); color: rgba(250,248,245,0.8); }
+  @media (max-width: 680px) {
+    #cookie-banner { flex-direction: column; align-items: flex-start; padding: 20px 24px 24px; gap: 16px; }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+</style>
+<style>
+.ahero{padding:80px 0 0;background:var(--off-white);}
+.ahero-inner{max-width:760px;margin:0 auto;padding:0 32px;}
+.acrumb{font-size:13px;color:var(--sage);margin-bottom:22px;display:inline-flex;gap:8px;align-items:center;}
+.acrumb a{color:var(--sage);text-decoration:none;}
+.aeyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--warm-dark);margin-bottom:16px;}
+.atitle{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:22px;}
+.atitle em{font-style:italic;color:var(--sage);}
+.ameta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:rgba(28,43,38,.5);padding-bottom:8px;border-bottom:1px solid rgba(28,43,38,.09);}
+.ameta b{color:var(--ink);font-weight:500;}
+.abody{max-width:760px;margin:0 auto;padding:0 32px 20px;}
+.tldr{background:var(--sage-pale);border:1px solid rgba(74,124,111,.2);border-radius:16px;padding:24px 26px;margin:40px 0;}
+.tldr-l{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;}
+.tldr p{font-size:16px;font-weight:400;line-height:1.7;color:var(--ink);margin:0;}
+.abody h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1.2;margin:48px 0 16px;}
+.abody h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink);margin:32px 0 12px;}
+.abody p{font-size:16.5px;font-weight:300;line-height:1.8;color:rgba(28,43,38,.82);margin:0 0 18px;}
+.abody a{color:var(--sage-dark);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(74,124,111,.35);}
+.abody a:hover{text-decoration-color:var(--sage);}
+.abody strong{font-weight:600;color:var(--ink);}
+.abody ul,.abody ol{margin:0 0 20px;padding-left:22px;}
+.abody li{font-size:16.5px;font-weight:300;line-height:1.7;color:rgba(28,43,38,.82);margin-bottom:9px;}
+.abody li strong{font-weight:600;}
+.atable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:14.5px;}
+.atable th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--warm-dark);padding:12px 14px;border-bottom:2px solid rgba(28,43,38,.12);vertical-align:bottom;}
+.atable td{padding:13px 14px;border-bottom:1px solid rgba(28,43,38,.08);vertical-align:top;font-weight:300;color:rgba(28,43,38,.82);line-height:1.6;}
+.atable td:first-child{font-weight:500;color:var(--ink);}
+.atable-wrap{overflow-x:auto;}
+.keybox{border-left:3px solid var(--sage);background:var(--warm-pale);border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:15.5px;font-weight:400;color:var(--ink);line-height:1.65;}
+.keybox b{color:var(--sage-dark);}
+.afaq{max-width:760px;margin:0 auto;padding:20px 32px;}
+.afaq h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);margin:40px 0 20px;}
+.afaq-item{border-top:1px solid rgba(28,43,38,.08);padding:22px 0;}
+.afaq-item:last-child{border-bottom:1px solid rgba(28,43,38,.08);}
+.afaq-q{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:9px;}
+.afaq-a{font-size:15.5px;font-weight:300;line-height:1.75;color:rgba(28,43,38,.7);}
+.author{max-width:760px;margin:44px auto 0;padding:0 32px;}
+.author-card{display:flex;gap:20px;align-items:center;background:var(--warm);border-radius:20px;padding:26px 28px;}
+.author-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;background:var(--warm-deep);}
+.author-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:3px;}
+.author-role{font-size:13px;color:rgba(28,43,38,.5);margin-bottom:8px;}
+.author-bio{font-size:14px;font-weight:300;line-height:1.6;color:rgba(28,43,38,.7);}
+.author-bio a{color:var(--sage-dark);}
+.arel{max-width:760px;margin:0 auto;padding:36px 32px 0;}
+.arel-l{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;}
+.arel-grid{display:flex;flex-wrap:wrap;gap:12px;}
+.arel-grid a{font-size:14px;color:var(--ink);text-decoration:none;padding:11px 20px;border:1px solid rgba(28,43,38,.14);border-radius:100px;transition:border-color .2s,color .2s;}
+.arel-grid a:hover{border-color:var(--sage);color:var(--sage-dark);}
+@media(max-width:768px){
+  .ahero{padding:52px 0 0;}.atitle{font-size:32px;}
+  .abody h2,.afaq h2{font-size:24px;}
+  .author-card{flex-direction:column;text-align:center;}
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="Google Ads vs GA4: Why Don't the Numbers Match? (2026), Watermouse">
+<meta property="og:description" content="Google Ads and GA4 almost never agree, and that is normal. The real reasons: different attribution, conversion timing, time zones, windows and consent, plus which number to trust for what.">
+<meta property="og:url" content="https://agency.thewatermouse.com/watermouse-guide-google-ads-vs-ga4.html">
+<meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Ads vs GA4: Why Don't the Numbers Match? (2026), Watermouse">
+<meta name="twitter:description" content="Google Ads and GA4 almost never agree, and that is normal. The real reasons, plus which number to trust for what.">
+<meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta name="description" content="Google Ads and GA4 almost never agree, and that is normal. The real reasons: different attribution, conversion timing, time zones, windows and consent, plus which number to trust for what.">
+<link rel="canonical" href="https://agency.thewatermouse.com/watermouse-guide-google-ads-vs-ga4.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://agency.thewatermouse.com/watermouse-guide-google-ads-vs-ga4.html#article",
+      "headline": "Google Ads vs GA4: why don't the numbers match?",
+      "description": "Google Ads and GA4 almost never agree, and that is normal. The real reasons: different attribution, conversion timing, time zones, windows and consent, plus which number to trust for what.",
+      "url": "https://agency.thewatermouse.com/watermouse-guide-google-ads-vs-ga4.html",
+      "mainEntityOfPage": "https://agency.thewatermouse.com/watermouse-guide-google-ads-vs-ga4.html",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "image": "https://agency.thewatermouse.com/og-image.png",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo Sanematsu Kato",
+        "url": "https://agency.thewatermouse.com/watermouse-about.html",
+        "jobTitle": "Senior Google Ads Consultant",
+        "sameAs": [
+          "https://www.linkedin.com/in/rodrigo-sanematsu-kato/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watermouse",
+        "url": "https://agency.thewatermouse.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://agency.thewatermouse.com/og-image.png"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why don't Google Ads and GA4 conversions match?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because they measure conversions differently. Google Ads uses its own last-Google-Ads-click attribution and, crucially, back-dates each conversion to the day of the ad click, while GA4 credits the conversion to the session in which it happened and uses a different attribution model. Add different conversion windows, time zones, and how each handles consent and cross-device journeys, and the two will almost never show the same number. A gap is normal, not a bug."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is more accurate, Google Ads or GA4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neither is simply right. Google Ads is the most useful number for optimising and bidding inside Google Ads, because that is the data its algorithms learn from. GA4 gives a cross-channel view of how Google Ads compares to your other traffic. For actual revenue, your store's back-end (Shopify and your accounts) is the source of truth. Use each for what it is good at, rather than expecting one to win."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How big a gap between Google Ads and GA4 is normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no fixed figure, but a difference of tens of percent is common and usually explained by attribution and timing rather than a fault. What matters is that the gap is stable and explainable. A sudden change in the size of the gap is the real warning sign, because it often points to a tracking or consent problem rather than a genuine performance shift."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which number should I use to judge ROAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pick one source of truth per decision and stick to it. For steering the Google Ads account and its bidding, use Google Ads' own ROAS. For judging the channel against the rest of your marketing, use GA4 or a blended view. For the profit-and-loss reality of the business, reconcile against your store's actual revenue. Problems start when people mix sources within a single decision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I make Google Ads and GA4 match exactly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not exactly, and chasing a perfect match is a waste of time. You can narrow the gap and make it stable by aligning conversion windows and time zones, using consistent conversion definitions, and setting Consent Mode up properly. But because the two tools attribute and time conversions differently by design, some difference will always remain."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg><span class="nav-logo-word">watermouse</span></a><ul class="nav-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-about.html">About</a></li><li><a href="watermouse-lead-assessments.html">Assessments</a></li><li><a href="watermouse-guides.html" class="active">Guides</a></li><li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li></ul><button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button></div></nav><div class="nav-drawer" id="nav-drawer"><a href="index.html#services">Services</a><a href="watermouse-pricing.html">Pricing</a><a href="watermouse-case-studies.html">Work</a><a href="watermouse-about.html">About</a><a href="watermouse-lead-assessments.html">Assessments</a><a href="watermouse-guides.html" class="active">Guides</a><a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit &rarr;</a></div><section class="ahero"><div class="ahero-inner"><div class="acrumb"><a href="watermouse-guides.html">Guides</a> <span>→</span> Google Ads for eCommerce</div><div class="aeyebrow">Guide · Measurement</div><h1 class="atitle">Google Ads vs GA4: why don't the <em>numbers match?</em></h1><div class="ameta"><span>By <b>Rodrigo Kato</b></span><span>7 min read</span><span>Updated <b>September 2026</b></span></div></div></section>
+<article class="abody"><div class="tldr"><div class="tldr-l">The short answer</div><p>They almost never match, and that is completely normal. Google Ads and GA4 <strong>count and credit conversions differently by design</strong>: different attribution models, different timing (Google Ads back-dates a sale to the click; GA4 records it when it happens), plus different windows, time zones and consent handling. Do not chase a perfect match. Pick one source of truth per decision, and watch the <em>size</em> of the gap, not the gap itself.</p></div>
+
+<p>Almost every store owner hits this: Google Ads says 100 conversions, GA4 says 80, Shopify says something else again. It feels like one of them must be lying. In reality they are three instruments measuring slightly different things, and expecting them to agree to the decimal is the mistake. Here is why they differ, and how to stop it from driving you mad.</p>
+
+<h2>They are not measuring the same thing</h2>
+<p>Google Ads exists to optimise Google Ads. Its conversion number is built to feed its own bidding algorithms, so it uses <strong>its own attribution</strong> and its own timing. GA4 exists to describe your whole site across every traffic source, so it credits conversions with a different model and a different clock. Your store's back-end just counts orders. Three purposes, three numbers.</p>
+
+<h2>The main reasons the numbers differ</h2>
+<div class="atable-wrap"><table class="atable">
+<thead><tr><th>Difference</th><th>What it does to the numbers</th></tr></thead>
+<tbody>
+<tr><td>Attribution model</td><td>Google Ads credits the last Google Ads click; GA4 uses its own (often data-driven) model across all channels. The same sale gets assigned differently.</td></tr>
+<tr><td>Conversion timing</td><td>Google Ads back-dates a conversion to the day of the <em>click</em>; GA4 records it on the day the <em>purchase</em> happened. Around month-ends and campaign changes, this alone creates gaps.</td></tr>
+<tr><td>Conversion window</td><td>If the two tools count conversions over different look-back windows, they include different sales.</td></tr>
+<tr><td>Time zone &amp; currency</td><td>Different account time zones or currencies shift and rescale the totals.</td></tr>
+<tr><td>Consent &amp; modeling</td><td>Google Ads fills consent gaps with modeled conversions; GA4 handles consent and thresholds differently, so counts diverge.</td></tr>
+<tr><td>Cross-device</td><td>The two stitch cross-device journeys differently, so a phone-then-laptop purchase can land in different buckets.</td></tr>
+</tbody></table></div>
+
+<h2>The one that catches everyone: click-date vs event-date</h2>
+<p>This is worth its own line, because it explains most of the &ldquo;my numbers are off&rdquo; panics. Google Ads takes a sale that happened today from a click three days ago and <strong>reports it against that earlier click date</strong>. GA4 reports it today. So on any given day, comparing the two like-for-like is comparing apples to a slightly time-shifted orange. Over a long, stable period the totals get closer; on a single day or right after a change, they will not.</p>
+
+<h2>Which number should you trust, and for what?</h2>
+<p>Stop asking which tool is &ldquo;right&rdquo; and start assigning each a job:</p>
+<ul>
+<li><strong>Google Ads' own numbers</strong>, for steering and bidding inside Google Ads. That is the data its automation learns from, so that is what you optimise against.</li>
+<li><strong>GA4</strong>, for comparing Google Ads to your other channels and seeing the wider journey.</li>
+<li><strong>Your store's back-end (Shopify and your accounts)</strong>, for the truth about revenue and profit. This is what the business actually banked.</li>
+</ul>
+<div class="keybox"><b>The rule that saves your sanity:</b> pick one source of truth per decision and do not mix sources within it. Judge bidding by Google Ads, judge channel mix by GA4 or a blended view, and reconcile profit against your real revenue. Most reporting chaos comes from switching tools mid-argument.</div>
+
+<h2>Watch the gap, not the match</h2>
+<p>Because a difference is normal, the useful signal is not the gap itself but <strong>whether the gap is stable</strong>. A consistent, explainable difference of tens of percent is fine. A gap that suddenly changes size is the real alarm, and usually means a tracking or consent problem, exactly the kind of thing that also shows up as a mysterious <a href="watermouse-guide-roas-dropping.html">ROAS drop</a>. If the numbers suddenly diverge more than usual, check tracking before you touch a campaign.</p>
+
+<h2>Can you close the gap?</h2>
+<p>You can narrow it and make it stable, but never eliminate it. Align the conversion windows and time zones, use consistent conversion definitions across both tools, and set up Consent Mode properly for your EU traffic. That gets you a smaller, predictable gap you can reason about, which is the actual goal. A perfect match is neither achievable nor necessary.</p>
+<p>If your two dashboards disagree so much that you cannot tell what is working, that is a tracking and measurement audit waiting to happen. A <a href="watermouse-book-a-call.html">free audit</a> includes checking that your conversions, consent and revenue values are set up so the numbers you steer by are trustworthy.</p>
+</article>
+<section class="afaq"><h2>Frequently asked</h2><div class="afaq-item"><div class="afaq-q">Why don't Google Ads and GA4 conversions match?</div><p class="afaq-a">Because they measure conversions differently. Google Ads uses its own last-Google-Ads-click attribution and back-dates each conversion to the day of the ad click, while GA4 credits the conversion to the session in which it happened and uses a different attribution model. Add different conversion windows, time zones, and how each handles consent and cross-device journeys, and the two will almost never show the same number. A gap is normal, not a bug.</p></div><div class="afaq-item"><div class="afaq-q">Which is more accurate, Google Ads or GA4?</div><p class="afaq-a">Neither is simply right. Google Ads is the most useful number for optimising and bidding inside Google Ads, because that is the data its algorithms learn from. GA4 gives a cross-channel view of how Google Ads compares to your other traffic. For actual revenue, your store's back-end (Shopify and your accounts) is the source of truth. Use each for what it is good at.</p></div><div class="afaq-item"><div class="afaq-q">How big a gap between Google Ads and GA4 is normal?</div><p class="afaq-a">There is no fixed figure, but a difference of tens of percent is common and usually explained by attribution and timing rather than a fault. What matters is that the gap is stable and explainable. A sudden change in the size of the gap is the real warning sign, because it often points to a tracking or consent problem rather than a genuine performance shift.</p></div><div class="afaq-item"><div class="afaq-q">Which number should I use to judge ROAS?</div><p class="afaq-a">Pick one source of truth per decision and stick to it. For steering the Google Ads account and its bidding, use Google Ads' own ROAS. For judging the channel against the rest of your marketing, use GA4 or a blended view. For the profit-and-loss reality of the business, reconcile against your store's actual revenue. Problems start when people mix sources within a single decision.</p></div><div class="afaq-item"><div class="afaq-q">Can I make Google Ads and GA4 match exactly?</div><p class="afaq-a">Not exactly, and chasing a perfect match is a waste of time. You can narrow the gap and make it stable by aligning conversion windows and time zones, using consistent conversion definitions, and setting Consent Mode up properly. But because the two tools attribute and time conversions differently by design, some difference will always remain.</p></div></section>
+<div class="author"><div class="author-card"><img class="author-photo" src="media/rodrigo-kato.jpg" alt="Rodrigo Kato" onerror="this.style.display='none'"><div><div class="author-name">Rodrigo Kato</div><div class="author-role">Senior Google Ads Consultant · Watermouse</div><div class="author-bio">Senior Google Ads operator for European eCommerce brands (NL, UK, DE and beyond), one person on the account, no junior handoffs. <a href="watermouse-about.html">More about Watermouse →</a></div></div></div></div>
+<section class="arel"><div class="arel-l">Keep reading</div><div class="arel-grid"><a href="watermouse-guide-roas-dropping.html">Why is my ROAS dropping?</a><a href="watermouse-guide-roas-ecommerce.html">What is a good ROAS?</a><a href="watermouse-book-a-call.html">Book a free audit</a></div></section>
+<section class="cta-section" style="margin-top:64px;"><div class="cta-inner reveal"><div class="cta-label">Work with us</div><h2 class="cta-headline">Two dashboards, <em>zero clarity?</em></h2><p class="cta-sub">30 minutes on your actual account. We check that your conversions, consent and revenue values are set up so the numbers you steer by are trustworthy. No pitch until you ask for one.</p><a href="watermouse-book-a-call.html" class="btn-light">Book a free audit<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html">Work</a></li>
+      <li><a href="watermouse-book-a-call.html">Contact</a></li>
+    <li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');
+    const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We use cookies to understand how visitors use our site and to improve it over time.
+      No data is sold to third parties. Read our
+      <a href="watermouse-privacy.html">privacy policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
