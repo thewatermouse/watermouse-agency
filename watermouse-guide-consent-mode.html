@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated), loads only after cookie consent. -->
+<script>
+(function(){
+  var GA_ID = 'G-RSR83B38QN';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consent Mode and GDPR: The Minimum an eCommerce Store Needs (2026), Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --warm-dark:#7A6450;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .cta-headline{font-size:26px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #1C2B26;
+    border-top: 1px solid rgba(74,124,111,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible { transform: translateY(0); }
+  .cookie-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(250,248,245,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #7AAB9B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,171,155,0.3);
+  }
+  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept { background: #4A7C6F; color: #FAF8F5; }
+  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-decline { background: rgba(255,255,255,0.06); color: rgba(250,248,245,0.5); }
+  .cookie-btn-decline:hover { background: rgba(255,255,255,0.1); color: rgba(250,248,245,0.8); }
+  @media (max-width: 680px) {
+    #cookie-banner { flex-direction: column; align-items: flex-start; padding: 20px 24px 24px; gap: 16px; }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+</style>
+<style>
+.ahero{padding:80px 0 0;background:var(--off-white);}
+.ahero-inner{max-width:760px;margin:0 auto;padding:0 32px;}
+.acrumb{font-size:13px;color:var(--sage);margin-bottom:22px;display:inline-flex;gap:8px;align-items:center;}
+.acrumb a{color:var(--sage);text-decoration:none;}
+.aeyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--warm-dark);margin-bottom:16px;}
+.atitle{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:22px;}
+.atitle em{font-style:italic;color:var(--sage);}
+.ameta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:rgba(28,43,38,.5);padding-bottom:8px;border-bottom:1px solid rgba(28,43,38,.09);}
+.ameta b{color:var(--ink);font-weight:500;}
+.abody{max-width:760px;margin:0 auto;padding:0 32px 20px;}
+.tldr{background:var(--sage-pale);border:1px solid rgba(74,124,111,.2);border-radius:16px;padding:24px 26px;margin:40px 0;}
+.tldr-l{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;}
+.tldr p{font-size:16px;font-weight:400;line-height:1.7;color:var(--ink);margin:0;}
+.abody h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1.2;margin:48px 0 16px;}
+.abody h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink);margin:32px 0 12px;}
+.abody p{font-size:16.5px;font-weight:300;line-height:1.8;color:rgba(28,43,38,.82);margin:0 0 18px;}
+.abody a{color:var(--sage-dark);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(74,124,111,.35);}
+.abody a:hover{text-decoration-color:var(--sage);}
+.abody strong{font-weight:600;color:var(--ink);}
+.abody ul,.abody ol{margin:0 0 20px;padding-left:22px;}
+.abody li{font-size:16.5px;font-weight:300;line-height:1.7;color:rgba(28,43,38,.82);margin-bottom:9px;}
+.abody li strong{font-weight:600;}
+.atable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:14.5px;}
+.atable th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--warm-dark);padding:12px 14px;border-bottom:2px solid rgba(28,43,38,.12);vertical-align:bottom;}
+.atable td{padding:13px 14px;border-bottom:1px solid rgba(28,43,38,.08);vertical-align:top;font-weight:300;color:rgba(28,43,38,.82);line-height:1.6;}
+.atable td:first-child{font-weight:500;color:var(--ink);}
+.atable-wrap{overflow-x:auto;}
+.keybox{border-left:3px solid var(--sage);background:var(--warm-pale);border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:15.5px;font-weight:400;color:var(--ink);line-height:1.65;}
+.keybox b{color:var(--sage-dark);}
+.afaq{max-width:760px;margin:0 auto;padding:20px 32px;}
+.afaq h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);margin:40px 0 20px;}
+.afaq-item{border-top:1px solid rgba(28,43,38,.08);padding:22px 0;}
+.afaq-item:last-child{border-bottom:1px solid rgba(28,43,38,.08);}
+.afaq-q{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:9px;}
+.afaq-a{font-size:15.5px;font-weight:300;line-height:1.75;color:rgba(28,43,38,.7);}
+.author{max-width:760px;margin:44px auto 0;padding:0 32px;}
+.author-card{display:flex;gap:20px;align-items:center;background:var(--warm);border-radius:20px;padding:26px 28px;}
+.author-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;background:var(--warm-deep);}
+.author-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:3px;}
+.author-role{font-size:13px;color:rgba(28,43,38,.5);margin-bottom:8px;}
+.author-bio{font-size:14px;font-weight:300;line-height:1.6;color:rgba(28,43,38,.7);}
+.author-bio a{color:var(--sage-dark);}
+.arel{max-width:760px;margin:0 auto;padding:36px 32px 0;}
+.arel-l{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;}
+.arel-grid{display:flex;flex-wrap:wrap;gap:12px;}
+.arel-grid a{font-size:14px;color:var(--ink);text-decoration:none;padding:11px 20px;border:1px solid rgba(28,43,38,.14);border-radius:100px;transition:border-color .2s,color .2s;}
+.arel-grid a:hover{border-color:var(--sage);color:var(--sage-dark);}
+@media(max-width:768px){
+  .ahero{padding:52px 0 0;}.atitle{font-size:32px;}
+  .abody h2,.afaq h2{font-size:24px;}
+  .author-card{flex-direction:column;text-align:center;}
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="Consent Mode and GDPR: The Minimum an eCommerce Store Needs (2026), Watermouse">
+<meta property="og:description" content="For EU eCommerce, consent is not optional. What Consent Mode v2 does, the minimum setup (CMP banner, gated tags, consent signals), and why getting it wrong quietly wrecks your conversion tracking.">
+<meta property="og:url" content="https://agency.thewatermouse.com/watermouse-guide-consent-mode.html">
+<meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Consent Mode and GDPR: The Minimum an eCommerce Store Needs (2026), Watermouse">
+<meta name="twitter:description" content="What Consent Mode v2 does, the minimum setup, and why getting it wrong quietly wrecks your conversion tracking.">
+<meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta name="description" content="For EU eCommerce, consent is not optional. What Consent Mode v2 does, the minimum setup (CMP banner, gated tags, consent signals), and why getting it wrong quietly wrecks your conversion tracking.">
+<link rel="canonical" href="https://agency.thewatermouse.com/watermouse-guide-consent-mode.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://agency.thewatermouse.com/watermouse-guide-consent-mode.html#article",
+      "headline": "Consent Mode and GDPR: the minimum an eCommerce store needs",
+      "description": "For EU eCommerce, consent is not optional. What Consent Mode v2 does, the minimum setup (CMP banner, gated tags, consent signals), and why getting it wrong quietly wrecks your conversion tracking.",
+      "url": "https://agency.thewatermouse.com/watermouse-guide-consent-mode.html",
+      "mainEntityOfPage": "https://agency.thewatermouse.com/watermouse-guide-consent-mode.html",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "image": "https://agency.thewatermouse.com/og-image.png",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo Sanematsu Kato",
+        "url": "https://agency.thewatermouse.com/watermouse-about.html",
+        "jobTitle": "Senior Google Ads Consultant",
+        "sameAs": [
+          "https://www.linkedin.com/in/rodrigo-sanematsu-kato/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watermouse",
+        "url": "https://agency.thewatermouse.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://agency.thewatermouse.com/og-image.png"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need Consent Mode for Google Ads in the EU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In practice, yes. If you have users in the European Economic Area or UK, EU rules require consent before you set analytics or advertising cookies, and Google requires Consent Mode v2 for its ads personalisation and measurement features to keep working properly for that traffic. Without it, you risk both non-compliance and degraded conversion data. It is effectively a requirement for any store advertising to EU shoppers, not an optional extra."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Consent Mode v2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consent Mode is a Google framework that lets your tags adjust their behaviour based on whether the visitor granted consent. Your consent banner tells Google's tags the user's choice through consent signals; when a user declines, the tags send anonymous, cookieless pings instead of full data, and Google uses modelling to estimate the conversions it can no longer directly observe. Version 2 (v2) added the specific consent signals Google now requires for ads features in the EEA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will a cookie consent banner hurt my conversion tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It reduces the conversions you can directly observe, because some users decline, but done correctly it does not have to wreck your data. With Consent Mode set up, Google models the conversions from users who declined, recovering much of the lost signal. The real damage comes from a broken setup, tags that fire before consent (non-compliant) or a banner that blocks everything with no Consent Mode behind it (collapsed data). Correct consent plus Consent Mode is the balance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need Consent Mode if my store is outside the EU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on who your customers are, not where you are. If you advertise to or have users in the EEA or UK, you must follow EU consent rules regardless of where the business is based, so a Brazilian or US store selling into Europe still needs a compliant consent setup and Consent Mode for that traffic. Brazil's own LGPD is similar in spirit, so a clean consent setup serves you at home too."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum consent setup for an eCommerce store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three things: a proper consent banner (a Consent Management Platform, ideally a Google-certified CMP) that captures the user's choice; tags that do not fire analytics or ads cookies until consent is given; and Consent Mode v2 wired so Google receives the consent signals and can model the gaps. Add a clear privacy policy. That combination keeps you compliant while preserving as much measurement as the rules allow."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg><span class="nav-logo-word">watermouse</span></a><ul class="nav-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-about.html">About</a></li><li><a href="watermouse-lead-assessments.html">Assessments</a></li><li><a href="watermouse-guides.html" class="active">Guides</a></li><li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li></ul><button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button></div></nav><div class="nav-drawer" id="nav-drawer"><a href="index.html#services">Services</a><a href="watermouse-pricing.html">Pricing</a><a href="watermouse-case-studies.html">Work</a><a href="watermouse-about.html">About</a><a href="watermouse-lead-assessments.html">Assessments</a><a href="watermouse-guides.html" class="active">Guides</a><a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit &rarr;</a></div><section class="ahero"><div class="ahero-inner"><div class="acrumb"><a href="watermouse-guides.html">Guides</a> <span>→</span> Google Ads for eCommerce</div><div class="aeyebrow">Guide · Measurement</div><h1 class="atitle">Consent Mode and GDPR: the minimum an <em>eCommerce store needs</em></h1><div class="ameta"><span>By <b>Rodrigo Kato</b></span><span>7 min read</span><span>Updated <b>September 2026</b></span></div></div></section>
+<article class="abody"><div class="tldr"><div class="tldr-l">The short answer</div><p>If you advertise to EU shoppers, consent is not optional. The minimum: a proper <strong>consent banner (a CMP)</strong> that blocks analytics and ads cookies until the user agrees, <strong>Consent Mode v2</strong> wired so Google receives the consent signals and can model the gaps, and tags that <strong>do not fire before consent</strong>. Get it wrong and you are either non-compliant or your conversion data quietly collapses, a classic hidden cause of a falling <a href="watermouse-guide-roas-dropping.html">ROAS</a>. This guide is a plain overview, not legal advice.</p></div>
+
+<p>Consent Mode sounds like a compliance chore, and it is, but for an eCommerce store it is also a measurement issue with real money attached. Set up badly, it either exposes you to legal risk or silently breaks the conversion data your bidding depends on. Set up well, it keeps you compliant while preserving as much of your tracking as the rules allow. Here is the minimum you need to understand.</p>
+
+<h2>Why this matters (three reasons at once)</h2>
+<ul>
+<li><strong>The law.</strong> Under EU rules (GDPR and the ePrivacy directive), you must get a user's consent <em>before</em> placing analytics or advertising cookies. A banner that drops cookies on load, or assumes consent, is not compliant.</li>
+<li><strong>Google requires it.</strong> Google now requires <strong>Consent Mode v2</strong> for its ads personalisation and measurement features to keep working for EEA and UK traffic. No consent signals, degraded features.</li>
+<li><strong>Your data quality.</strong> This is the part people miss. How you handle consent directly decides how many conversions Google can see and model, which flows straight into your ROAS and your <a href="watermouse-guide-bidding-strategies.html">Smart Bidding</a>.</li>
+</ul>
+
+<h2>What Consent Mode actually does</h2>
+<p>Consent Mode is the bridge between your consent banner and Google's tags. Instead of tags being simply on or off, they <strong>adjust their behaviour</strong> to the user's choice:</p>
+<ul>
+<li>When a user <strong>accepts</strong>, tags behave normally and record the full conversion.</li>
+<li>When a user <strong>declines</strong>, tags send anonymous, cookieless pings rather than personal data, and Google uses <strong>modelling</strong> to estimate the conversions it can no longer directly observe.</li>
+</ul>
+<p>Version 2 added the specific consent signals (for ad storage, analytics storage, and ads user data and personalisation) that Google now needs for its EEA ads features. The practical upshot: with Consent Mode wired up, declining users are not simply lost, a good chunk of that signal is recovered through modelling.</p>
+
+<h2>The minimum setup</h2>
+<div class="atable-wrap"><table class="atable">
+<thead><tr><th>Piece</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>A consent banner (CMP)</td><td>Captures the user's choice. Ideally a Google-certified Consent Management Platform, so it speaks Google's consent signals natively.</td></tr>
+<tr><td>Gated tags</td><td>Analytics and ads tags must not set cookies or fire until consent is given. No firing before the click.</td></tr>
+<tr><td>Consent Mode v2</td><td>Passes the consent state to Google's tags so they adjust behaviour and Google can model the declined conversions.</td></tr>
+<tr><td>A clear privacy policy</td><td>Explains what you collect and why, linked from the banner.</td></tr>
+</tbody></table></div>
+<p>That is the baseline for a store advertising into the EU. The exact implementation (CMP choice, tag manager wiring) varies, but those four pieces are the non-negotiables.</p>
+
+<h2>The two ways it goes wrong</h2>
+<p>Almost every bad consent setup fails in one of two opposite directions:</p>
+<div class="keybox"><b>Failure 1, non-compliant:</b> tags fire before consent, so you are recording data you were not allowed to collect. Legal risk, and increasingly, rejected by browsers and Google anyway. <b>Failure 2, collapsed tracking:</b> the banner blocks everything with no Consent Mode behind it, so every declining user vanishes from your data, conversions crater, ROAS looks broken, and Smart Bidding starts optimising on a fraction of the truth.</div>
+<p>The goal is to sit between them: block until consent (compliant) <em>and</em> run Consent Mode so the declined users are modelled rather than erased. This is also why a consent change is one of the first things to check behind a sudden <a href="watermouse-guide-roas-dropping.html">ROAS drop</a>, or a widening gap between <a href="watermouse-guide-google-ads-vs-ga4.html">Google Ads and GA4</a>.</p>
+
+<h2>What about Brazil and the rest of the world?</h2>
+<p>The rule follows your <strong>customers</strong>, not your address. If you advertise to or have users in the EEA or UK, you must meet EU consent rules regardless of where the business sits, so a Brazilian or US store selling into Europe still needs a compliant setup and Consent Mode for that traffic. And Brazil's own <strong>LGPD</strong> runs on a similar logic, so a clean consent setup serves you at home as well as abroad.</p>
+<p>One honest caveat: this is a plain-English overview to help you get the setup right, not legal advice, check the specifics with a professional for your situation.</p>
+<p>Not sure whether your consent setup is compliant, or whether it is quietly starving your conversion data? A <a href="watermouse-book-a-call.html">free audit</a> checks that your banner, tags and Consent Mode are set up so you stay compliant without wrecking the numbers you bid on.</p>
+</article>
+<section class="afaq"><h2>Frequently asked</h2><div class="afaq-item"><div class="afaq-q">Do I need Consent Mode for Google Ads in the EU?</div><p class="afaq-a">In practice, yes. If you have users in the European Economic Area or UK, EU rules require consent before you set analytics or advertising cookies, and Google requires Consent Mode v2 for its ads personalisation and measurement features to keep working properly for that traffic. Without it, you risk both non-compliance and degraded conversion data. It is effectively a requirement for any store advertising to EU shoppers, not an optional extra.</p></div><div class="afaq-item"><div class="afaq-q">What is Consent Mode v2?</div><p class="afaq-a">Consent Mode is a Google framework that lets your tags adjust their behaviour based on whether the visitor granted consent. Your consent banner tells Google's tags the user's choice through consent signals; when a user declines, the tags send anonymous, cookieless pings instead of full data, and Google uses modelling to estimate the conversions it can no longer directly observe. Version 2 (v2) added the specific consent signals Google now requires for ads features in the EEA.</p></div><div class="afaq-item"><div class="afaq-q">Will a cookie consent banner hurt my conversion tracking?</div><p class="afaq-a">It reduces the conversions you can directly observe, because some users decline, but done correctly it does not have to wreck your data. With Consent Mode set up, Google models the conversions from users who declined, recovering much of the lost signal. The real damage comes from a broken setup, tags that fire before consent (non-compliant) or a banner that blocks everything with no Consent Mode behind it (collapsed data). Correct consent plus Consent Mode is the balance.</p></div><div class="afaq-item"><div class="afaq-q">Do I need Consent Mode if my store is outside the EU?</div><p class="afaq-a">It depends on who your customers are, not where you are. If you advertise to or have users in the EEA or UK, you must follow EU consent rules regardless of where the business is based, so a Brazilian or US store selling into Europe still needs a compliant consent setup and Consent Mode for that traffic. Brazil's own LGPD is similar in spirit, so a clean consent setup serves you at home too.</p></div><div class="afaq-item"><div class="afaq-q">What is the minimum consent setup for an eCommerce store?</div><p class="afaq-a">Three things: a proper consent banner (a Consent Management Platform, ideally a Google-certified CMP) that captures the user's choice; tags that do not fire analytics or ads cookies until consent is given; and Consent Mode v2 wired so Google receives the consent signals and can model the gaps. Add a clear privacy policy. That combination keeps you compliant while preserving as much measurement as the rules allow.</p></div></section>
+<div class="author"><div class="author-card"><img class="author-photo" src="media/rodrigo-kato.jpg" alt="Rodrigo Kato" onerror="this.style.display='none'"><div><div class="author-name">Rodrigo Kato</div><div class="author-role">Senior Google Ads Consultant · Watermouse</div><div class="author-bio">Senior Google Ads operator for European eCommerce brands (NL, UK, DE and beyond), one person on the account, no junior handoffs. <a href="watermouse-about.html">More about Watermouse →</a></div></div></div></div>
+<section class="arel"><div class="arel-l">Keep reading</div><div class="arel-grid"><a href="watermouse-guide-google-ads-vs-ga4.html">Google Ads vs GA4</a><a href="watermouse-guide-roas-dropping.html">Why is my ROAS dropping?</a><a href="watermouse-book-a-call.html">Book a free audit</a></div></section>
+<section class="cta-section" style="margin-top:64px;"><div class="cta-inner reveal"><div class="cta-label">Work with us</div><h2 class="cta-headline">Compliant, or just <em>losing data?</em></h2><p class="cta-sub">30 minutes on your actual account. We check that your banner, tags and Consent Mode keep you compliant without wrecking the numbers you bid on. No pitch until you ask for one.</p><a href="watermouse-book-a-call.html" class="btn-light">Book a free audit<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="footer-logo-word">watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="watermouse-pricing.html">Pricing</a></li>
+      <li><a href="watermouse-case-studies.html">Work</a></li>
+      <li><a href="watermouse-book-a-call.html">Contact</a></li>
+    <li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');
+    const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We use cookies to understand how visitors use our site and to improve it over time.
+      No data is sold to third parties. Read our
+      <a href="watermouse-privacy.html">privacy policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
