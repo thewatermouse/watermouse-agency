@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics 4 (consent-gated), loads only after cookie consent. -->
+<script>
+(function(){
+  var GA_ID = 'G-RSR83B38QN';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    if (localStorage.getItem('wm_cookie_consent') === 'accepted') window.loadWatermouseGA();
+    var orig = window.cookieAccept;
+    if (typeof orig === 'function') { window.cookieAccept = function(){ orig.apply(this, arguments); window.loadWatermouseGA(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Optimize Your Google Shopping Feed (eCommerce Guide, 2026), Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
+    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
+    --warm-dark:#7A6450;--warm-pale:#F3EEE6;--ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Fraunces',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(28,43,38,0.07);display:block;opacity:0.7;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,124,111,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(250,248,245,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  .ahero{padding:80px 0 0;background:var(--off-white);}
+  .ahero-inner{max-width:760px;margin:0 auto;padding:0 32px;}
+  .acrumb{font-size:13px;color:var(--sage);margin-bottom:22px;display:inline-flex;gap:8px;align-items:center;}
+  .acrumb a{color:var(--sage);text-decoration:none;}
+  .aeyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--warm-dark);margin-bottom:16px;}
+  .atitle{font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:22px;}
+  .atitle em{font-style:italic;color:var(--sage);}
+  .ameta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:rgba(28,43,38,.5);padding-bottom:8px;border-bottom:1px solid rgba(28,43,38,.09);}
+  .ameta b{color:var(--ink);font-weight:500;}
+  .abody{max-width:760px;margin:0 auto;padding:0 32px 20px;}
+  .tldr{background:var(--sage-pale);border:1px solid rgba(74,124,111,.2);border-radius:16px;padding:24px 26px;margin:40px 0;}
+  .tldr-l{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;}
+  .tldr p{font-size:16px;font-weight:400;line-height:1.7;color:var(--ink);margin:0;}
+  .abody h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);line-height:1.2;margin:48px 0 16px;}
+  .abody h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink);margin:32px 0 12px;}
+  .abody p{font-size:16.5px;font-weight:300;line-height:1.8;color:rgba(28,43,38,.82);margin:0 0 18px;}
+  .abody a{color:var(--sage-dark);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(74,124,111,.35);}
+  .abody a:hover{text-decoration-color:var(--sage);}
+  .abody strong{font-weight:600;color:var(--ink);}
+  .abody ul,.abody ol{margin:0 0 20px;padding-left:22px;}
+  .abody li{font-size:16.5px;font-weight:300;line-height:1.7;color:rgba(28,43,38,.82);margin-bottom:9px;}
+  .abody li strong{font-weight:600;}
+  .keybox{border-left:3px solid var(--sage);background:var(--warm-pale);border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:15.5px;font-weight:400;color:var(--ink);line-height:1.65;}
+  .keybox b{color:var(--sage-dark);}
+  .afaq{max-width:760px;margin:0 auto;padding:20px 32px;}
+  .afaq h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;color:var(--ink);margin:40px 0 20px;}
+  .afaq-item{border-top:1px solid rgba(28,43,38,.08);padding:22px 0;}
+  .afaq-item:last-child{border-bottom:1px solid rgba(28,43,38,.08);}
+  .afaq-q{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:9px;}
+  .afaq-a{font-size:15.5px;font-weight:300;line-height:1.75;color:rgba(28,43,38,.7);}
+  .author{max-width:760px;margin:44px auto 0;padding:0 32px;}
+  .author-card{display:flex;gap:20px;align-items:center;background:var(--warm);border-radius:20px;padding:26px 28px;}
+  .author-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;background:var(--warm-deep);}
+  .author-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:3px;}
+  .author-role{font-size:13px;color:rgba(28,43,38,.5);margin-bottom:8px;}
+  .author-bio{font-size:14px;font-weight:300;line-height:1.6;color:rgba(28,43,38,.7);}
+  .author-bio a{color:var(--sage-dark);}
+  .arel{max-width:760px;margin:0 auto;padding:36px 32px 0;}
+  .arel-l{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;}
+  .arel-grid{display:flex;flex-wrap:wrap;gap:12px;}
+  .arel-grid a{font-size:14px;color:var(--ink);text-decoration:none;padding:11px 20px;border:1px solid rgba(28,43,38,.14);border-radius:100px;transition:border-color .2s,color .2s;}
+  .arel-grid a:hover{border-color:var(--sage);color:var(--sage-dark);}
+
+  @media(max-width:900px){.nav-inner{padding:16px 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}}
+  @media(max-width:768px){
+    .ahero{padding:52px 0 0;}.atitle{font-size:32px;}.abody h2,.afaq h2{font-size:24px;}
+    .author-card{flex-direction:column;text-align:center;}
+    .cta-section{padding:72px 0;}.cta-inner{padding:0 24px;}.cta-headline{font-size:32px;}
+    footer{padding:32px 0;}.footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){.atitle{font-size:28px;}.cta-headline{font-size:26px;}}
+
+  #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1C2B26;border-top:1px solid rgba(74,124,111,0.25);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+  #cookie-banner.visible{transform:translateY(0);}
+  .cookie-text{font-size:13px;font-weight:300;color:rgba(250,248,245,0.55);line-height:1.6;max-width:640px;}
+  .cookie-text a{color:#7AAB9B;text-decoration:none;border-bottom:1px solid rgba(122,171,155,0.3);}
+  .cookie-actions{display:flex;gap:10px;flex-shrink:0;}
+  .cookie-btn{font-size:13px;font-weight:500;padding:10px 20px;border-radius:100px;cursor:pointer;border:none;white-space:nowrap;}
+  .cookie-btn-accept{background:#4A7C6F;color:#FAF8F5;}
+  .cookie-btn-decline{background:rgba(255,255,255,0.06);color:rgba(250,248,245,0.5);}
+  @media (max-width: 680px){#cookie-banner{flex-direction:column;align-items:flex-start;padding:20px 24px 24px;gap:16px;}.cookie-actions{width:100%;}.cookie-btn{flex:1;text-align:center;}}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Watermouse">
+<meta property="og:title" content="How to Optimize Your Google Shopping Feed (eCommerce Guide, 2026)">
+<meta property="og:description" content="The product feed, not the bids, is the real lever in Google Shopping and Performance Max. Here is what to fix first: titles, product types, identifiers, images and custom labels.">
+<meta property="og:url" content="https://agency.thewatermouse.com/watermouse-guide-shopping-feed-optimization.html">
+<meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Optimize Your Google Shopping Feed (eCommerce Guide, 2026)">
+<meta name="twitter:description" content="The product feed is the real lever in Shopping and Performance Max. What to fix first: titles, product types, identifiers, images and custom labels.">
+<meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+<meta name="description" content="A practical guide to optimizing your Google Shopping feed for eCommerce: why the feed matters more than bids, and how to fix titles, product types, identifiers, images, attributes and custom labels.">
+<link rel="canonical" href="https://agency.thewatermouse.com/watermouse-guide-shopping-feed-optimization.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://agency.thewatermouse.com/watermouse-guide-shopping-feed-optimization.html#article",
+      "headline": "How to optimize your Google Shopping feed for eCommerce",
+      "description": "Why the product feed matters more than bids in Shopping and Performance Max, and how to fix titles, product types, identifiers, images, attributes and custom labels.",
+      "url": "https://agency.thewatermouse.com/watermouse-guide-shopping-feed-optimization.html",
+      "mainEntityOfPage": "https://agency.thewatermouse.com/watermouse-guide-shopping-feed-optimization.html",
+      "datePublished": "2026-10-02",
+      "dateModified": "2026-10-02",
+      "image": "https://agency.thewatermouse.com/og-image.png",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Rodrigo Sanematsu Kato",
+        "url": "https://agency.thewatermouse.com/watermouse-about.html",
+        "jobTitle": "Senior Google Ads Consultant",
+        "sameAs": ["https://www.linkedin.com/in/rodrigo-sanematsu-kato/"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Watermouse",
+        "url": "https://agency.thewatermouse.com/",
+        "logo": {"@type": "ImageObject", "url": "https://agency.thewatermouse.com/og-image.png"}
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does the Google Shopping feed matter more than bids?",
+          "acceptedAnswer": {"@type": "Answer", "text": "In Shopping and Performance Max you do not choose keywords. Google decides which searches to show your products on by reading your feed, so the data in your titles, product types, attributes and images is what actually controls your reach and relevance. A clean, well-structured feed can match you to better, cheaper searches that no bid adjustment could reach, which is why feed work usually beats bid tinkering."}
+        },
+        {
+          "@type": "Question",
+          "name": "What is the most important field in a Shopping feed?",
+          "acceptedAnswer": {"@type": "Answer", "text": "The product title. It carries the most weight for matching queries, so front-load it with the words shoppers actually search: brand, product type, and the key attributes like colour, size, material or model. A title written for a human browsing a shelf usually beats the raw name pulled from your catalogue."}
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need GTINs in my Google Shopping feed?",
+          "acceptedAnswer": {"@type": "Answer", "text": "For branded, manufactured products, yes, correct GTINs help Google understand exactly what you are selling and can qualify you for richer placements and price benchmarking. For genuinely custom or own-made products without a GTIN, set the identifier-exists attribute to no. Wrong or invented GTINs are worse than none and can cause disapprovals."}
+        },
+        {
+          "@type": "Question",
+          "name": "What are custom labels used for in a Shopping feed?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Custom labels are your own tags on products, such as margin band, bestseller, seasonal or clearance. They do not affect how Google matches your products, but they let you segment reporting and bidding, for example bidding more aggressively on high-margin lines or capping spend on low-margin ones. They are one of the few ways to inject business logic into otherwise automated campaigns."}
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg><span class="nav-logo-word">watermouse</span></a><ul class="nav-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-about.html">About</a></li><li><a href="watermouse-lead-assessments.html">Assessments</a></li><li><a href="watermouse-guides.html" class="active">Guides</a></li><li><a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a></li></ul><button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button></div></nav><div class="nav-drawer" id="nav-drawer"><a href="index.html#services">Services</a><a href="watermouse-pricing.html">Pricing</a><a href="watermouse-case-studies.html">Work</a><a href="watermouse-about.html">About</a><a href="watermouse-lead-assessments.html">Assessments</a><a href="watermouse-guides.html">Guides</a><a href="watermouse-book-a-call.html" class="nav-drawer-cta">Book a free audit &rarr;</a></div>
+
+<section class="ahero"><div class="ahero-inner"><div class="acrumb"><a href="watermouse-guides.html">Guides</a> <span>→</span> Shopping feed</div><div class="aeyebrow">Guide · Fundamentals</div><h1 class="atitle">How to optimize your <em>Google Shopping feed</em></h1><div class="ameta"><span>By <b>Rodrigo Kato</b></span><span>8 min read</span><span>Updated <b>October 2026</b></span></div></div></section>
+
+<article class="abody">
+<div class="tldr"><div class="tldr-l">The short answer</div><p>In Shopping and Performance Max you don't pick keywords, Google reads your product feed and decides which searches to show you on. So the feed <em>is</em> the campaign. Fix these in order: product <strong>titles</strong>, <strong>product type &amp; Google category</strong>, correct <strong>GTINs/identifiers</strong>, strong <strong>images</strong>, complete <strong>attributes</strong>, and <strong>custom labels</strong> for bidding. Feed work almost always beats bid tinkering.</p></div>
+
+<p>Most underperforming Shopping and <a href="watermouse-pmax-ecommerce.html">Performance Max</a> accounts don't have a bidding problem, they have a feed problem. Because you never choose keywords, the data you send to Merchant Center is the only way to tell Google what you sell and who should see it. Here is what actually moves results, in the order we'd fix it.</p>
+
+<h2>1. Rewrite your product titles</h2>
+<p>The title is the single most important field in the feed. It carries the most weight for matching queries, and it's the first thing a shopper reads. The raw product name from your catalogue is rarely the best version.</p>
+<p>Front-load the words people actually search, in a sensible order: <strong>brand → product type → key attributes</strong> (colour, size, material, model, quantity). A title like <em>"Bship Merino Wool Base Layer, Men's, Long Sleeve, Navy, L"</em> will reach far more relevant searches than <em>"Base Layer Navy"</em>. Match the attribute order to how your category searches, and keep the most important words within the first 70 characters, which is roughly what shows before truncation.</p>
+
+<h2>2. Fix product type and Google product category</h2>
+<p>Two different fields, both worth getting right:</p>
+<ul>
+<li><strong>Google product category</strong> is Google's own taxonomy. Set it as specifically as possible, the deeper and more accurate it is, the better Google understands the product.</li>
+<li><strong>Product type</strong> is <em>your</em> category path (e.g. <em>Apparel &gt; Base layers &gt; Merino</em>). Google uses it as a strong signal, and it's invaluable for structuring campaigns and reporting.</li>
+</ul>
+
+<h2>3. Get identifiers right (GTIN, brand, MPN)</h2>
+<p>For branded, manufactured goods, correct <strong>GTINs</strong> help Google match your product to the exact item, unlock price benchmarking, and qualify you for richer placements. Rules that save pain:</p>
+<ul>
+<li>Use real GTINs. Invented or wrong ones are worse than none and trigger disapprovals.</li>
+<li>For genuinely custom or own-made products with no GTIN, set <strong>identifier exists = no</strong> rather than faking one.</li>
+<li>Always populate <strong>brand</strong>. Missing brand is a common, quiet cause of weak matching.</li>
+</ul>
+
+<h2>4. Treat images as a conversion lever</h2>
+<p>Your image is your ad creative in Shopping. Use the highest-resolution shot, on a clean background, that clearly shows the product. Avoid watermarks, promotional text or logos burned into the image, Google can disapprove these. Where your category rewards it, a lifestyle variant can lift click-through, but the main image should be clean and unambiguous.</p>
+
+<h2>5. Fill in every attribute you can</h2>
+<p>A sparse feed is an underperforming feed. The more accurate attributes you supply, the more ways Google can match and qualify your products:</p>
+<ul>
+<li><strong>Availability and price</strong>, kept in sync with your site to avoid disapprovals and mismatches.</li>
+<li><strong>Colour, size, material, pattern, gender, age group</strong>, essential for apparel and strongly recommended elsewhere.</li>
+<li><strong>Sale price</strong>, which can surface price-drop annotations.</li>
+<li><strong>Shipping and tax</strong> where relevant to your markets.</li>
+</ul>
+<div class="keybox"><b>Rule of thumb:</b> if a shopper could reasonably filter or search by an attribute, it belongs in your feed. Every blank field is a search you can't appear for.</div>
+
+<h2>6. Add custom labels for bidding control</h2>
+<p>Custom labels are your own tags, invisible to Google's matching but powerful for <em>your</em> control. They're one of the few ways to inject business logic into otherwise automated campaigns. Common, high-value labels:</p>
+<ul>
+<li><strong>Margin band</strong> (high / medium / low), so you can bid harder on profitable lines and cap the thin ones.</li>
+<li><strong>Bestseller</strong> or <strong>new</strong>, to prioritise proven or launch products.</li>
+<li><strong>Seasonal</strong> or <strong>clearance</strong>, to ring-fence budget when it matters.</li>
+</ul>
+<p>Pair these with your <a href="watermouse-roas-calculator.html">break-even ROAS</a> by margin band and you can stop treating every product as if it were equally worth the spend.</p>
+
+<h2>7. Exclude the products that shouldn't be advertised</h2>
+<p>Not every SKU deserves budget. Out-of-stock lines, near-zero-margin items, and products with weak data drag down account efficiency. Use supplemental feeds or rules to exclude or deprioritise them, a smaller, cleaner feed of products you actually want to sell usually outperforms a bloated one.</p>
+
+<h2>The order that matters</h2>
+<p>If you only do three things: rewrite titles, fix categories and identifiers, and clean up images and availability. Those alone resolve most disapprovals and unlock most of the matching upside. Custom labels and exclusions are the layer that turns a <em>working</em> feed into a <em>profitable</em> one.</p>
+<p>Not sure where your feed is leaking? A <a href="watermouse-book-a-call.html">free audit</a> includes a look at your Merchant Center diagnostics and feed quality, and what to fix first.</p>
+</article>
+
+<section class="afaq"><h2>Frequently asked</h2>
+<div class="afaq-item"><div class="afaq-q">Why does the feed matter more than bids?</div><p class="afaq-a">Because you don't choose keywords in Shopping or Performance Max, Google reads your feed to decide which searches to show your products on. Your titles, types, attributes and images control your reach and relevance in a way no bid adjustment can.</p></div>
+<div class="afaq-item"><div class="afaq-q">What is the most important field in a Shopping feed?</div><p class="afaq-a">The product title. It carries the most weight for matching queries, so front-load it with the words shoppers search: brand, product type, then key attributes like colour, size, material or model.</p></div>
+<div class="afaq-item"><div class="afaq-q">Do I need GTINs?</div><p class="afaq-a">For branded, manufactured products, yes, they help Google match the exact item and unlock richer placements. For genuinely custom products without one, set identifier exists to no. Wrong or invented GTINs are worse than none.</p></div>
+<div class="afaq-item"><div class="afaq-q">What are custom labels for?</div><p class="afaq-a">They're your own tags (margin band, bestseller, seasonal, clearance). They don't affect matching, but they let you segment bidding and reporting, for example bidding harder on high-margin lines, one of the few ways to add business logic to automated campaigns.</p></div>
+</section>
+
+<div class="author"><div class="author-card"><img class="author-photo" src="media/rodrigo-kato.jpg" alt="Rodrigo Kato" onerror="this.style.display='none'"><div><div class="author-name">Rodrigo Kato</div><div class="author-role">Senior Google Ads Consultant · Watermouse</div><div class="author-bio">Senior Google Ads operator for European eCommerce brands (NL, UK, DE and beyond), one person on the account, no junior handoffs. <a href="watermouse-about.html">More about Watermouse →</a></div></div></div></div>
+
+<section class="arel"><div class="arel-l">Keep reading</div><div class="arel-grid"><a href="watermouse-google-shopping-feed.html">Shopping feed management</a><a href="watermouse-guide-what-is-pmax.html">What is Performance Max?</a><a href="watermouse-roas-calculator.html">Break-even ROAS calculator</a><a href="watermouse-book-a-call.html">Book a free audit</a></div></section>
+
+<section class="cta-section" style="margin-top:64px;"><div class="cta-inner"><div class="cta-label">Work with us</div><h2 class="cta-headline">Start with a <em>free audit.</em></h2><p class="cta-sub">30 minutes on your actual account and Merchant Center, honest feedback on where your feed is leaking and what to fix first. No pitch until you ask for one.</p><a href="watermouse-book-a-call.html" class="btn-light">Book a free audit<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg><span class="footer-logo-word">watermouse</span></div>
+    <ul class="footer-links"><li><a href="index.html#services">Services</a></li><li><a href="watermouse-pricing.html">Pricing</a></li><li><a href="watermouse-case-studies.html">Work</a></li><li><a href="watermouse-book-a-call.html">Contact</a></li><li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Terms</a></li></ul>
+    <span class="footer-copy">© 2026 Watermouse. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('nav-hamburger').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');document.body.style.overflow='';}});
+</script>
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">We use cookies to understand how visitors use our site and to improve it over time. No data is sold to third parties. Read our <a href="watermouse-privacy.html">privacy policy</a>.</p>
+    <div class="cookie-actions"><button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button><button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button></div>
+  </div>
+  <script>
+    (function(){var consent=localStorage.getItem('wm_cookie_consent');if(!consent){var banner=document.getElementById('cookie-banner');if(banner){setTimeout(function(){banner.classList.add('visible');},600);}}})();
+    function cookieAccept(){localStorage.setItem('wm_cookie_consent','accepted');hideCookieBanner();}
+    function cookieDecline(){localStorage.setItem('wm_cookie_consent','declined');hideCookieBanner();}
+    function hideCookieBanner(){var banner=document.getElementById('cookie-banner');if(banner){banner.classList.remove('visible');setTimeout(function(){banner.style.display='none';},450);}}
+  </script>
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+</body>
+</html>
