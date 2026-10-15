@@ -25,27 +25,27 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google Ads Proficiency Quiz, Watermouse</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage:       #4A7C6F;
-    --sage-light: #7AAB9B;
-    --sage-pale:  #EAF2EF;
-    --sage-dark:  #2D5246;
-    --warm:       #E8DDD0;
-    --warm-deep:  #C4A882;
-    --warm-dark:  #7A6450;
-    --ink:        #1C2B26;
-    --off-white:  #FAF8F5;
+    --sage:       #1E3A5F;
+    --sage-light: #C9A55C;
+    --sage-pale:  #E6E9EE;
+    --sage-dark:  #16283D;
+    --warm:       #E3DED3;
+    --warm-deep:  #A9823A;
+    --warm-dark:  #5A6878;
+    --ink:        #0F1C2B;
+    --off-white:  #F1EFEA;
     --white:      #FFFFFF;
     --error:      #C0544A;
-    --success:    #4A7C6F;
+    --success:    #1E3A5F;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     background: var(--off-white);
     color: var(--ink);
     min-height: 100vh;
@@ -54,14 +54,14 @@
 
   /* ── NAV ── */
   nav {
-    background: rgba(250,248,245,0.95);
+    background: rgba(241,239,234,0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(28,43,38,0.07);
+    border-bottom: 1px solid rgba(15,28,43,0.07);
     padding: 20px 48px;
     display: flex; align-items: center; gap: 10px;
   }
   .nav-logo-word {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 20px; font-weight: 300;
     color: var(--ink); letter-spacing: 0.04em;
   }
@@ -82,7 +82,7 @@
   .intro-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--sage-pale);
-    border: 1px solid rgba(74,124,111,0.18);
+    border: 1px solid rgba(30,58,95,0.18);
     padding: 7px 16px; border-radius: 100px;
     font-size: 12px; font-weight: 500;
     color: var(--sage-dark); letter-spacing: 0.04em;
@@ -91,7 +91,7 @@
   .badge-dot { width: 6px; height: 6px; background: var(--sage); border-radius: 50%; }
 
   .intro h1 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 52px; font-weight: 300;
     line-height: 1.12; color: var(--ink);
     margin-bottom: 20px;
@@ -100,7 +100,7 @@
 
   .intro-sub {
     font-size: 17px; font-weight: 300;
-    line-height: 1.65; color: rgba(28,43,38,0.6);
+    line-height: 1.65; color: rgba(15,28,43,0.6);
     margin-bottom: 48px;
   }
 
@@ -112,18 +112,18 @@
     display: flex; flex-direction: column; align-items: center; gap: 4px;
   }
   .meta-val {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 28px; font-weight: 300; color: var(--sage);
   }
-  .meta-lbl { font-size: 12px; color: rgba(28,43,38,0.45); }
+  .meta-lbl { font-size: 12px; color: rgba(15,28,43,0.45); }
 
-  .meta-divider { width: 1px; background: rgba(28,43,38,0.1); }
+  .meta-divider { width: 1px; background: rgba(15,28,43,0.1); }
 
   .topic-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 48px; }
   .topic-pill {
-    background: var(--white); border: 1px solid rgba(28,43,38,0.08);
+    background: var(--white); border: 1px solid rgba(15,28,43,0.08);
     border-radius: 100px; padding: 6px 14px;
-    font-size: 12px; font-weight: 500; color: rgba(28,43,38,0.55);
+    font-size: 12px; font-weight: 500; color: rgba(15,28,43,0.55);
   }
 
   .btn-start {
@@ -153,9 +153,9 @@
     margin-bottom: 10px;
   }
   .progress-label { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
-  .progress-count { font-size: 13px; color: rgba(28,43,38,0.4); }
+  .progress-count { font-size: 13px; color: rgba(15,28,43,0.4); }
   .progress-track {
-    height: 4px; background: rgba(28,43,38,0.08);
+    height: 4px; background: rgba(15,28,43,0.08);
     border-radius: 100px; overflow: hidden;
   }
   .progress-fill {
@@ -176,7 +176,7 @@
 
   /* Question */
   .q-text {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 26px; font-weight: 400;
     line-height: 1.35; color: var(--ink);
     margin-bottom: 32px;
@@ -187,7 +187,7 @@
 
   .option {
     background: var(--white);
-    border: 1.5px solid rgba(28,43,38,0.08);
+    border: 1.5px solid rgba(15,28,43,0.08);
     border-radius: 14px; padding: 18px 22px;
     cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
     transition: border-color 0.15s, background 0.15s, transform 0.1s;
@@ -199,16 +199,16 @@
     transform: translateX(3px);
   }
   .option.selected { border-color: var(--sage); background: var(--sage-pale); }
-  .option.correct  { border-color: var(--success); background: #EAF2EF; }
+  .option.correct  { border-color: var(--success); background: #E6E9EE; }
   .option.wrong    { border-color: var(--error); background: #FDF0EF; }
-  .option.reveal-correct { border-color: var(--success); background: #EAF2EF; }
+  .option.reveal-correct { border-color: var(--success); background: #E6E9EE; }
   .option.disabled { cursor: default; }
 
   .option-letter {
     width: 28px; height: 28px; border-radius: 8px;
-    background: rgba(28,43,38,0.06);
+    background: rgba(15,28,43,0.06);
     display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 500; color: rgba(28,43,38,0.45);
+    font-size: 12px; font-weight: 500; color: rgba(15,28,43,0.45);
     flex-shrink: 0; margin-top: 1px;
     transition: background 0.15s, color 0.15s;
   }
@@ -233,7 +233,7 @@
   }
   .explanation-text {
     font-size: 14px; font-weight: 300; line-height: 1.65;
-    color: rgba(250,248,245,0.75);
+    color: rgba(241,239,234,0.75);
   }
 
   /* Nav buttons */
@@ -251,11 +251,11 @@
   .btn-next.enabled:hover { background: var(--sage-dark); }
 
   .q-skip {
-    font-size: 13px; color: rgba(28,43,38,0.35);
+    font-size: 13px; color: rgba(15,28,43,0.35);
     cursor: pointer; border: none; background: none;
     transition: color 0.2s;
   }
-  .q-skip:hover { color: rgba(28,43,38,0.6); }
+  .q-skip:hover { color: rgba(15,28,43,0.6); }
 
   /* ══════════════════════
      RESULTS SCREEN
@@ -277,7 +277,7 @@
     width: 160px; height: 160px;
     transform: rotate(-90deg);
   }
-  .ring-bg { fill: none; stroke: rgba(28,43,38,0.07); stroke-width: 8; }
+  .ring-bg { fill: none; stroke: rgba(15,28,43,0.07); stroke-width: 8; }
   .ring-fill {
     fill: none; stroke: var(--sage); stroke-width: 8;
     stroke-linecap: round;
@@ -291,13 +291,13 @@
     text-align: center;
   }
   .score-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 42px; font-weight: 300; color: var(--ink); line-height: 1;
   }
-  .score-denom { font-size: 13px; color: rgba(28,43,38,0.35); }
+  .score-denom { font-size: 13px; color: rgba(15,28,43,0.35); }
 
   .results-level {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 36px; font-weight: 300;
     color: var(--ink); margin-bottom: 12px;
   }
@@ -305,7 +305,7 @@
 
   .results-tagline {
     font-size: 16px; font-weight: 300;
-    line-height: 1.65; color: rgba(28,43,38,0.55);
+    line-height: 1.65; color: rgba(15,28,43,0.55);
     max-width: 480px; margin: 0 auto;
   }
 
@@ -313,7 +313,7 @@
   .breakdown {
     background: var(--white);
     border-radius: 20px; padding: 36px;
-    border: 1px solid rgba(28,43,38,0.06);
+    border: 1px solid rgba(15,28,43,0.06);
     margin-bottom: 32px;
   }
   .breakdown-title {
@@ -328,9 +328,9 @@
     align-items: center; margin-bottom: 8px;
   }
   .topic-name { font-size: 14px; font-weight: 500; color: var(--ink); }
-  .topic-score { font-size: 13px; color: rgba(28,43,38,0.45); }
+  .topic-score { font-size: 13px; color: rgba(15,28,43,0.45); }
   .topic-track {
-    height: 6px; background: rgba(28,43,38,0.06);
+    height: 6px; background: rgba(15,28,43,0.06);
     border-radius: 100px; overflow: hidden;
   }
   .topic-bar {
@@ -351,7 +351,7 @@
     content: '';
     position: absolute; top: -100px; right: -100px;
     width: 300px; height: 300px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(74,124,111,0.2) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(30,58,95,0.2) 0%, transparent 65%);
   }
   .gate-label {
     font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
@@ -359,7 +359,7 @@
     margin-bottom: 16px; position: relative; z-index: 1;
   }
   .gate h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 30px; font-weight: 300;
     color: var(--off-white); margin-bottom: 12px;
     position: relative; z-index: 1;
@@ -367,7 +367,7 @@
   .gate h3 em { font-style: italic; color: var(--sage-light); }
   .gate p {
     font-size: 15px; font-weight: 300;
-    color: rgba(250,248,245,0.55); line-height: 1.65;
+    color: rgba(241,239,234,0.55); line-height: 1.65;
     margin-bottom: 32px; max-width: 420px;
     margin-left: auto; margin-right: auto;
     position: relative; z-index: 1;
@@ -380,7 +380,7 @@
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 100px; padding: 13px 20px;
     font-size: 14px; color: var(--off-white);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     outline: none; transition: border-color 0.2s;
   }
   .gate-input::placeholder { color: rgba(255,255,255,0.3); }
@@ -406,17 +406,17 @@
 
   .report-card {
     background: var(--white); border-radius: 20px;
-    padding: 36px; border: 1px solid rgba(28,43,38,0.06);
+    padding: 36px; border: 1px solid rgba(15,28,43,0.06);
     margin-bottom: 20px;
   }
   .report-card-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 20px; font-weight: 400; color: var(--ink);
     margin-bottom: 16px;
   }
   .report-card-body {
     font-size: 14px; font-weight: 300;
-    line-height: 1.72; color: rgba(28,43,38,0.6);
+    line-height: 1.72; color: rgba(15,28,43,0.6);
   }
   .report-card-body p + p { margin-top: 12px; }
 
@@ -424,7 +424,7 @@
   .rec-item {
     display: flex; gap: 12px; align-items: flex-start;
     font-size: 14px; font-weight: 300; line-height: 1.55;
-    color: rgba(28,43,38,0.65);
+    color: rgba(15,28,43,0.65);
   }
   .rec-dot {
     width: 6px; height: 6px; border-radius: 50%;
@@ -436,14 +436,14 @@
     padding: 40px; text-align: center; margin-top: 32px;
   }
   .cta-bottom h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Instrument Sans', serif;
     font-size: 26px; font-weight: 300;
     color: var(--off-white); margin-bottom: 10px;
   }
   .cta-bottom h3 em { font-style: italic; color: var(--sage-light); }
   .cta-bottom p {
     font-size: 14px; font-weight: 300;
-    color: rgba(250,248,245,0.55); margin-bottom: 24px; line-height: 1.6;
+    color: rgba(241,239,234,0.55); margin-bottom: 24px; line-height: 1.6;
   }
   .btn-cta-bottom {
     background: var(--off-white); color: var(--ink);
@@ -497,9 +497,9 @@
   /* ── NAV ── */
   nav {
     position:sticky; top:0; z-index:100;
-    background:rgba(250,248,245,0.93);
+    background:rgba(241,239,234,0.93);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(28,43,38,0.07);
+    border-bottom:1px solid rgba(15,28,43,0.07);
   }
   .nav-inner {
     max-width:1140px; margin:0 auto;
@@ -507,7 +507,7 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-  .nav-logo-word { font-family:'Fraunces',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
+  .nav-logo-word { font-family:'Instrument Sans',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
   .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
   .nav-links a { font-size:14px; color:var(--ink); text-decoration:none; opacity:0.5; transition:opacity 0.2s; }
   .nav-links a:hover { opacity:1; }
@@ -545,10 +545,10 @@
   }
   .nav-drawer.open { display:flex; }
   .nav-drawer a {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:32px; font-weight:300; color:var(--ink);
     text-decoration:none; padding:16px 0;
-    border-bottom:1px solid rgba(28,43,38,0.07);
+    border-bottom:1px solid rgba(15,28,43,0.07);
     display:block; opacity:0.7;
     transition:opacity 0.2s;
   }
@@ -561,7 +561,7 @@
     padding:16px 28px !important;
     border-radius:100px !important;
     text-align:center !important;
-    font-family:'DM Sans',sans-serif !important;
+    font-family:'Instrument Sans',sans-serif !important;
     font-size:15px !important; font-weight:500 !important;
     border-bottom:none !important;
     opacity:1 !important;
@@ -579,8 +579,8 @@
     position: fixed;
     bottom: 0; left: 0; right: 0;
     z-index: 9999;
-    background: #1C2B26;
-    border-top: 1px solid rgba(74,124,111,0.25);
+    background: #0F1C2B;
+    border-top: 1px solid rgba(30,58,95,0.25);
     padding: 20px 40px;
     display: flex;
     align-items: center;
@@ -593,26 +593,26 @@
     transform: translateY(0);
   }
   .cookie-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
     font-weight: 300;
-    color: rgba(250,248,245,0.55);
+    color: rgba(241,239,234,0.55);
     line-height: 1.6;
     max-width: 640px;
   }
   .cookie-text a {
-    color: #7AAB9B;
+    color: #C9A55C;
     text-decoration: none;
-    border-bottom: 1px solid rgba(122,171,155,0.3);
+    border-bottom: 1px solid rgba(201,165,92,0.3);
   }
-  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-text a:hover { border-color: #C9A55C; }
   .cookie-actions {
     display: flex;
     gap: 10px;
     flex-shrink: 0;
   }
   .cookie-btn {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
     font-weight: 500;
     padding: 10px 20px;
@@ -623,17 +623,17 @@
     white-space: nowrap;
   }
   .cookie-btn-accept {
-    background: #4A7C6F;
-    color: #FAF8F5;
+    background: #1E3A5F;
+    color: #F1EFEA;
   }
-  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-accept:hover { background: #16283D; }
   .cookie-btn-decline {
     background: rgba(255,255,255,0.06);
-    color: rgba(250,248,245,0.5);
+    color: rgba(241,239,234,0.5);
   }
   .cookie-btn-decline:hover {
     background: rgba(255,255,255,0.1);
-    color: rgba(250,248,245,0.8);
+    color: rgba(241,239,234,0.8);
   }
   @media (max-width: 680px) {
     #cookie-banner {
@@ -670,16 +670,28 @@
     <meta name="description" content="Test your Google Ads knowledge. 15 questions, 6 topics, instant results.">
     <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-quiz.html">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg>
-      <span class="nav-logo-word">watermouse</span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
     <ul class="nav-links">
       <li><a href="index.html#services">Services</a></li>
       <li><a href="watermouse-pricing.html">Pricing</a></li>
@@ -834,7 +846,7 @@
         <p>We apply everything in this quiz, every day, for eCommerce brands across Europe. Book a free audit and see how your current setup compares.</p>
         <button class="btn-cta-bottom">
           Book a free audit with Watermouse
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
 
@@ -1336,6 +1348,6 @@ function unlockReport() {
 
 <!-- Sticky mobile CTA -->
 <a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
-<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
 </body>
 </html>

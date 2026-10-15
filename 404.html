@@ -25,17 +25,17 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page Not Found, Watermouse</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
-    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
-    --ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+    --sage:#1E3A5F;--sage-light:#C9A55C;--sage-pale:#E6E9EE;
+    --sage-dark:#16283D;--warm:#E3DED3;--warm-deep:#A9823A;
+    --ink:#0F1C2B;--off-white:#F1EFEA;--white:#FFFFFF;
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
   html,body{height:100%;}
   body{
-    font-family:'DM Sans',sans-serif;
+    font-family:'Instrument Sans',sans-serif;
     background:var(--ink);
     color:var(--off-white);
     -webkit-font-smoothing:antialiased;
@@ -47,8 +47,8 @@
   /* NAV */
   nav{padding:24px 60px;display:flex;align-items:center;justify-content:space-between;}
   .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:rgba(250,248,245,0.6);letter-spacing:0.04em;}
-  .nav-cta{background:rgba(255,255,255,0.08);color:rgba(250,248,245,0.7);padding:10px 22px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
+  .nav-logo-word{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;color:rgba(241,239,234,0.6);letter-spacing:0.04em;}
+  .nav-cta{background:rgba(255,255,255,0.08);color:rgba(241,239,234,0.7);padding:10px 22px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
   .nav-cta:hover{background:rgba(255,255,255,0.14);}
 
   /* MAIN */
@@ -81,9 +81,9 @@
     animation:fadeUp 0.5s ease both;
   }
   .error-code{
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:140px;font-weight:300;line-height:1;
-    color:rgba(250,248,245,0.06);
+    color:rgba(241,239,234,0.06);
     letter-spacing:-0.02em;
     position:absolute;
     top:50%;left:50%;
@@ -92,7 +92,7 @@
     pointer-events:none;
   }
   .error-headline{
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:52px;font-weight:300;line-height:1.1;
     color:var(--off-white);
     margin-bottom:16px;
@@ -102,7 +102,7 @@
   .error-headline em{font-style:italic;color:var(--sage-light);}
   .error-sub{
     font-size:16px;font-weight:300;line-height:1.7;
-    color:rgba(250,248,245,0.4);
+    color:rgba(241,239,234,0.4);
     max-width:420px;
     margin-bottom:48px;
     position:relative;z-index:1;
@@ -125,13 +125,13 @@
   .btn-ghost{
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.1);
-    color:rgba(250,248,245,0.6);
+    color:rgba(241,239,234,0.6);
     padding:14px 28px;border-radius:100px;
     font-size:14px;font-weight:400;text-decoration:none;
     display:inline-flex;align-items:center;gap:8px;
     transition:background 0.2s,color 0.2s;
   }
-  .btn-ghost:hover{background:rgba(255,255,255,0.1);color:rgba(250,248,245,0.9);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);color:rgba(241,239,234,0.9);}
 
   /* Quick nav */
   .quick-nav{
@@ -144,18 +144,18 @@
   }
   .quick-nav a{
     font-size:13px;font-weight:300;
-    color:rgba(250,248,245,0.28);
+    color:rgba(241,239,234,0.28);
     text-decoration:none;
     transition:color 0.2s;
   }
-  .quick-nav a:hover{color:rgba(250,248,245,0.7);}
+  .quick-nav a:hover{color:rgba(241,239,234,0.7);}
 
   /* Footer */
   footer{
     padding:24px 60px;
     text-align:center;
     font-size:12px;
-    color:rgba(250,248,245,0.15);
+    color:rgba(241,239,234,0.15);
     border-top:1px solid rgba(255,255,255,0.04);
   }
 
@@ -170,14 +170,26 @@
     footer{padding:20px 24px;}
   }
 </style>
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg>
-    <span class="nav-logo-word">watermouse</span>
-  </a>
+  <a href="index.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
   <a href="watermouse-book-a-call.html" class="nav-cta">Book a free audit</a>
 </nav>
 
@@ -222,6 +234,6 @@
 
 <!-- Sticky mobile CTA -->
 <a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
-<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
 </body>
 </html>

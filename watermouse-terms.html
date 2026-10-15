@@ -25,7 +25,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service, Watermouse</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -40,69 +40,69 @@
 
 <style>
   :root{
-    --sage:#4A7C6F;--sage-light:#7AAB9B;--sage-pale:#EAF2EF;
-    --sage-dark:#2D5246;--warm:#E8DDD0;--warm-deep:#C4A882;
-    --ink:#1C2B26;--off-white:#FAF8F5;--white:#FFFFFF;
+    --sage:#1E3A5F;--sage-light:#C9A55C;--sage-pale:#E6E9EE;
+    --sage-dark:#16283D;--warm:#E3DED3;--warm-deep:#A9823A;
+    --ink:#0F1C2B;--off-white:#F1EFEA;--white:#FFFFFF;
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{font-family:'DM Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  body{font-family:'Instrument Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,43,38,0.07);}
+  nav{position:sticky;top:0;z-index:100;background:rgba(241,239,234,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(15,28,43,0.07);}
   .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
   .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-  .nav-logo-word{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-logo-word{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
   .nav-right{display:flex;align-items:center;gap:24px;}
-  .nav-back{font-size:13px;color:rgba(28,43,38,0.4);text-decoration:none;transition:color 0.2s;}
+  .nav-back{font-size:13px;color:rgba(15,28,43,0.4);text-decoration:none;transition:color 0.2s;}
   .nav-back:hover{color:var(--ink);}
   .btn-nav{background:var(--sage);color:var(--white);padding:10px 22px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
   .btn-nav:hover{background:var(--sage-dark);}
 
   /* HERO */
-  .hero{padding:72px 0 48px;border-bottom:1px solid rgba(28,43,38,0.07);}
+  .hero{padding:72px 0 48px;border-bottom:1px solid rgba(15,28,43,0.07);}
   .hero-inner{max-width:760px;margin:0 auto;padding:0 60px;}
   .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
-  .hero-headline{font-family:'Fraunces',serif;font-size:48px;font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:20px;}
-  .hero-meta{font-size:13px;font-weight:300;color:rgba(28,43,38,0.4);line-height:1.6;}
-  .hero-meta strong{color:rgba(28,43,38,0.6);font-weight:400;}
+  .hero-headline{font-family:'Instrument Sans',serif;font-size:48px;font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:20px;}
+  .hero-meta{font-size:13px;font-weight:300;color:rgba(15,28,43,0.4);line-height:1.6;}
+  .hero-meta strong{color:rgba(15,28,43,0.6);font-weight:400;}
 
   /* CONTENT */
   .content{max-width:760px;margin:0 auto;padding:56px 60px 100px;}
   .policy-section{margin-bottom:52px;}
   .policy-section:last-child{margin-bottom:0;}
-  h2{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);margin-bottom:14px;line-height:1.25;padding-top:4px;}
-  p{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,43,38,0.65);margin-bottom:14px;}
+  h2{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;color:var(--ink);margin-bottom:14px;line-height:1.25;padding-top:4px;}
+  p{font-size:15px;font-weight:300;line-height:1.8;color:rgba(15,28,43,0.65);margin-bottom:14px;}
   p:last-child{margin-bottom:0;}
   ul{margin:12px 0 14px 0;padding-left:20px;}
-  ul li{font-size:15px;font-weight:300;line-height:1.75;color:rgba(28,43,38,0.65);margin-bottom:6px;}
-  a{color:var(--sage);text-decoration:none;border-bottom:1px solid rgba(74,124,111,0.3);}
+  ul li{font-size:15px;font-weight:300;line-height:1.75;color:rgba(15,28,43,0.65);margin-bottom:6px;}
+  a{color:var(--sage);text-decoration:none;border-bottom:1px solid rgba(30,58,95,0.3);}
   a:hover{border-color:var(--sage);}
-  .divider{border:none;border-top:1px solid rgba(28,43,38,0.07);margin:52px 0;}
+  .divider{border:none;border-top:1px solid rgba(15,28,43,0.07);margin:52px 0;}
 
-  .callout{background:var(--sage-pale);border:1px solid rgba(74,124,111,0.15);border-radius:16px;padding:24px 28px;margin:20px 0;}
-  .callout p{color:rgba(28,43,38,0.7);margin-bottom:0;font-size:14px;}
+  .callout{background:var(--sage-pale);border:1px solid rgba(30,58,95,0.15);border-radius:16px;padding:24px 28px;margin:20px 0;}
+  .callout p{color:rgba(15,28,43,0.7);margin-bottom:0;font-size:14px;}
 
-  .contact-card{background:var(--sage-pale);border:1px solid rgba(74,124,111,0.15);border-radius:16px;padding:28px 32px;margin-top:24px;}
-  .contact-card p{color:rgba(28,43,38,0.6);margin-bottom:8px;}
+  .contact-card{background:var(--sage-pale);border:1px solid rgba(30,58,95,0.15);border-radius:16px;padding:28px 32px;margin-top:24px;}
+  .contact-card p{color:rgba(15,28,43,0.6);margin-bottom:8px;}
   .contact-card p:last-child{margin-bottom:0;}
   .contact-card strong{color:var(--ink);font-weight:500;}
 
-  .toc{background:var(--white);border:1.5px solid rgba(28,43,38,0.07);border-radius:16px;padding:28px 32px;margin-bottom:52px;}
-  .toc-label{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(28,43,38,0.35);margin-bottom:16px;}
+  .toc{background:var(--white);border:1.5px solid rgba(15,28,43,0.07);border-radius:16px;padding:28px 32px;margin-bottom:52px;}
+  .toc-label{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(15,28,43,0.35);margin-bottom:16px;}
   .toc ol{padding-left:18px;}
-  .toc ol li{font-size:14px;font-weight:300;line-height:1.7;color:rgba(28,43,38,0.5);margin-bottom:4px;}
+  .toc ol li{font-size:14px;font-weight:300;line-height:1.7;color:rgba(15,28,43,0.5);margin-bottom:4px;}
   .toc ol li a{color:var(--sage);border-bottom:none;font-weight:400;}
-  .toc ol li a:hover{border-bottom:1px solid rgba(74,124,111,0.4);}
+  .toc ol li a:hover{border-bottom:1px solid rgba(30,58,95,0.4);}
 
   /* Footer */
   footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
   .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
   .footer-logo{display:flex;align-items:center;gap:10px;}
-  .footer-logo-word{font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:rgba(250,248,245,0.45);}
+  .footer-logo-word{font-family:'Instrument Sans',serif;font-size:18px;font-weight:300;color:rgba(241,239,234,0.45);}
   .footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap;}
-  .footer-links a{font-size:12px;color:rgba(250,248,245,0.3);text-decoration:none;border:none;}
-  .footer-copy{font-size:12px;color:rgba(250,248,245,0.18);}
+  .footer-links a{font-size:12px;color:rgba(241,239,234,0.3);text-decoration:none;border:none;}
+  .footer-copy{font-size:12px;color:rgba(241,239,234,0.18);}
 
   @media(max-width:768px){
     .nav-inner{padding:16px 24px;}
@@ -123,15 +123,27 @@
 </style>
     <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-terms.html">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg>
-      <span class="nav-logo-word">watermouse</span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
     <div class="nav-right">
       <a href="index.html" class="nav-back">← Back to site</a>
       <a href="watermouse-book-a-call.html" class="btn-nav">Book a free audit</a>
@@ -266,16 +278,14 @@
       <p><strong>Rodrigo Kato Marketing Digital</strong><br>Trading as Watermouse</p>
       <p>Email: <a href="mailto:digo@thewatermouse.com">digo@thewatermouse.com</a></p>
     </div>
-    <p style="margin-top:16px;font-size:13px;color:rgba(28,43,38,0.4);">See also our <a href="watermouse-privacy.html">Privacy Policy</a>.</p>
+    <p style="margin-top:16px;font-size:13px;color:rgba(15,28,43,0.4);">See also our <a href="watermouse-privacy.html">Privacy Policy</a>.</p>
   </div>
 
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
-      <span class="footer-logo-word">watermouse</span>
+    <div class="footer-logo"><svg class="wm-mark" width="28" height="28" viewBox="10 20 80 80" aria-hidden="true"><rect x="11" y="21" width="78" height="78" rx="9" fill="none" stroke="rgba(241,239,234,0.35)" stroke-width="2"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#C9A55C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="footer-logo-word">Watermouse</span>
     </div>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
@@ -293,6 +303,6 @@
 
 <!-- Sticky mobile CTA -->
 <a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
-<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
 </body>
 </html>

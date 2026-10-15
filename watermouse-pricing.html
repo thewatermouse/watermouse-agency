@@ -25,24 +25,24 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google Ads Management Pricing for eCommerce, Watermouse</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage:       #4A7C6F;
-    --sage-light: #7AAB9B;
-    --sage-pale:  #EAF2EF;
-    --sage-dark:  #2D5246;
-    --warm:       #E8DDD0;
-    --warm-deep:  #C4A882;
-    --warm-dark:  #7A6450;
-    --ink:        #1C2B26;
-    --off-white:  #FAF8F5;
+    --sage:       #1E3A5F;
+    --sage-light: #C9A55C;
+    --sage-pale:  #E6E9EE;
+    --sage-dark:  #16283D;
+    --warm:       #E3DED3;
+    --warm-deep:  #A9823A;
+    --warm-dark:  #5A6878;
+    --ink:        #0F1C2B;
+    --off-white:  #F1EFEA;
     --white:      #FFFFFF;
   }
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
   body {
-    font-family:'DM Sans',sans-serif;
+    font-family:'Instrument Sans',sans-serif;
     background:var(--off-white);
     color:var(--ink);
     -webkit-font-smoothing:antialiased;
@@ -67,21 +67,21 @@
   .hero-inner { max-width:680px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
   .hero-eyebrow {
     display:inline-flex; align-items:center; gap:8px;
-    background:var(--sage-pale); border:1px solid rgba(74,124,111,0.18);
+    background:var(--sage-pale); border:1px solid rgba(30,58,95,0.18);
     padding:7px 16px; border-radius:100px;
     font-size:12px; font-weight:500; color:var(--sage-dark);
     letter-spacing:0.04em; margin-bottom:28px;
   }
   .eyebrow-dot { width:6px; height:6px; background:var(--sage); border-radius:50%; }
   .hero-headline {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:52px; font-weight:300; line-height:1.1;
     color:var(--ink); margin-bottom:20px;
   }
   .hero-headline em { font-style:italic; color:var(--sage); }
   .hero-sub {
     font-size:17px; font-weight:300; line-height:1.65;
-    color:rgba(28,43,38,0.55); margin-bottom:0;
+    color:rgba(15,28,43,0.55); margin-bottom:0;
   }
 
   /* ── PLANS ── */
@@ -100,12 +100,12 @@
 
   .plan-card {
     background:var(--white);
-    border:1.5px solid rgba(28,43,38,0.07);
+    border:1.5px solid rgba(15,28,43,0.07);
     border-radius:24px; padding:36px 32px;
     position:relative; overflow:hidden;
     transition:transform 0.2s, box-shadow 0.2s;
   }
-  .plan-card:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(28,43,38,0.09); }
+  .plan-card:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(15,28,43,0.09); }
 
   .plan-card.featured {
     background:var(--sage-dark);
@@ -118,7 +118,7 @@
     content:'';
     position:absolute; top:-80px; right:-80px;
     width:220px; height:220px; border-radius:50%;
-    background:radial-gradient(circle, rgba(122,171,155,0.2) 0%, transparent 65%);
+    background:radial-gradient(circle, rgba(201,165,92,0.2) 0%, transparent 65%);
   }
 
   .plan-badge {
@@ -136,17 +136,17 @@
   .plan-card.featured .plan-name { color:var(--sage-light); }
 
   .plan-price {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:44px; font-weight:300;
     color:var(--ink); line-height:1; margin-bottom:4px;
   }
   .plan-card.featured .plan-price { color:var(--off-white); }
 
   .plan-period {
-    font-size:13px; color:rgba(28,43,38,0.4);
+    font-size:13px; color:rgba(15,28,43,0.4);
     margin-bottom:6px;
   }
-  .plan-card.featured .plan-period { color:rgba(250,248,245,0.45); }
+  .plan-card.featured .plan-period { color:rgba(241,239,234,0.45); }
 
   .plan-spend {
     display:inline-flex; align-items:center; gap:6px;
@@ -154,27 +154,27 @@
     padding:4px 10px; font-size:11px; font-weight:500;
     color:var(--sage-dark); margin-bottom:24px;
   }
-  .plan-card.featured .plan-spend { background:rgba(255,255,255,0.1); color:rgba(250,248,245,0.7); }
+  .plan-card.featured .plan-spend { background:rgba(255,255,255,0.1); color:rgba(241,239,234,0.7); }
 
   .plan-divider {
-    height:1px; background:rgba(28,43,38,0.06);
+    height:1px; background:rgba(15,28,43,0.06);
     margin-bottom:20px;
   }
   .plan-card.featured .plan-divider { background:rgba(255,255,255,0.08); }
 
   .plan-desc {
     font-size:13px; font-weight:300; line-height:1.6;
-    color:rgba(28,43,38,0.55); margin-bottom:20px;
+    color:rgba(15,28,43,0.55); margin-bottom:20px;
   }
-  .plan-card.featured .plan-desc { color:rgba(250,248,245,0.55); }
+  .plan-card.featured .plan-desc { color:rgba(241,239,234,0.55); }
 
   .plan-features { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
   .plan-feature {
     display:flex; align-items:flex-start; gap:10px;
     font-size:13.5px; font-weight:300; line-height:1.4;
-    color:rgba(28,43,38,0.75);
+    color:rgba(15,28,43,0.75);
   }
-  .plan-card.featured .plan-feature { color:rgba(250,248,245,0.75); }
+  .plan-card.featured .plan-feature { color:rgba(241,239,234,0.75); }
 
   .check {
     width:18px; height:18px; border-radius:6px;
@@ -194,7 +194,7 @@
   }
   .btn-plan-outline {
     background:transparent;
-    border:1.5px solid rgba(28,43,38,0.15);
+    border:1.5px solid rgba(15,28,43,0.15);
     color:var(--ink);
   }
   .btn-plan-outline:hover { border-color:var(--sage); color:var(--sage); }
@@ -212,7 +212,7 @@
   .included::before {
     content:''; position:absolute; top:-180px; right:-100px;
     width:500px; height:500px; border-radius:50%;
-    background:radial-gradient(circle, rgba(74,124,111,0.15) 0%, transparent 65%);
+    background:radial-gradient(circle, rgba(30,58,95,0.15) 0%, transparent 65%);
   }
   .included-inner {
     max-width:1060px; margin:0 auto; padding:0 40px;
@@ -224,7 +224,7 @@
     text-transform:uppercase; color:var(--sage-light); margin-bottom:14px;
   }
   .included-headline {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:42px; font-weight:300; line-height:1.15;
     color:var(--off-white); max-width:480px;
   }
@@ -245,17 +245,17 @@
   .included-icon {
     font-size:24px; margin-bottom:16px;
     width:44px; height:44px; border-radius:12px;
-    background:rgba(74,124,111,0.15);
+    background:rgba(30,58,95,0.15);
     display:flex; align-items:center; justify-content:center;
   }
   .included-title {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:17px; font-weight:400; color:var(--off-white);
     margin-bottom:8px;
   }
   .included-body {
     font-size:13px; font-weight:300; line-height:1.65;
-    color:rgba(250,248,245,0.45);
+    color:rgba(241,239,234,0.45);
   }
 
   /* ── PERFORMANCE MODEL ── */
@@ -269,21 +269,21 @@
   }
   .perf-label { font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--warm-dark); margin-bottom:14px; }
   .perf-headline {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:40px; font-weight:300; line-height:1.15; color:var(--ink);
     margin-bottom:20px;
   }
   .perf-headline em { font-style:italic; color:var(--warm-dark); }
   .perf-body {
     font-size:15px; font-weight:300; line-height:1.72;
-    color:rgba(28,43,38,0.6);
+    color:rgba(15,28,43,0.6);
   }
   .perf-body p + p { margin-top:16px; }
 
   .perf-card {
     background:var(--white);
     border-radius:20px; padding:36px;
-    box-shadow:0 8px 32px rgba(28,43,38,0.08);
+    box-shadow:0 8px 32px rgba(15,28,43,0.08);
   }
   .perf-card-label { font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm-dark); margin-bottom:20px; }
   .perf-formula {
@@ -293,10 +293,10 @@
     display:flex; align-items:center; justify-content:space-between;
     background:var(--off-white); border-radius:12px; padding:14px 16px;
   }
-  .formula-label { font-size:13px; font-weight:400; color:rgba(28,43,38,0.6); }
-  .formula-val { font-family:'Fraunces',serif; font-size:18px; font-weight:400; color:var(--ink); }
+  .formula-label { font-size:13px; font-weight:400; color:rgba(15,28,43,0.6); }
+  .formula-val { font-family:'Instrument Sans',serif; font-size:18px; font-weight:400; color:var(--ink); }
   .formula-op {
-    text-align:center; font-size:18px; color:rgba(28,43,38,0.2);
+    text-align:center; font-size:18px; color:rgba(15,28,43,0.2);
     padding:0 4px;
   }
   .formula-total {
@@ -305,11 +305,11 @@
     display:flex; justify-content:space-between; align-items:center;
   }
   .formula-total-label { font-size:13px; font-weight:500; color:var(--sage-dark); }
-  .formula-total-val { font-family:'Fraunces',serif; font-size:22px; font-weight:400; color:var(--sage-dark); }
+  .formula-total-val { font-family:'Instrument Sans',serif; font-size:22px; font-weight:400; color:var(--sage-dark); }
 
   .perf-note {
-    font-size:12px; font-weight:300; color:rgba(28,43,38,0.4);
-    line-height:1.6; border-top:1px solid rgba(28,43,38,0.06);
+    font-size:12px; font-weight:300; color:rgba(15,28,43,0.4);
+    line-height:1.6; border-top:1px solid rgba(15,28,43,0.06);
     padding-top:16px; margin-top:4px;
   }
 
@@ -323,7 +323,7 @@
   }
   .faq-header { text-align:center; margin-bottom:56px; }
   .faq-headline {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:40px; font-weight:300; line-height:1.15; color:var(--ink);
     margin-top:14px;
   }
@@ -331,15 +331,15 @@
 
   .faq-list { display:flex; flex-direction:column; gap:0; }
   .faq-item {
-    border-bottom:1px solid rgba(28,43,38,0.07);
+    border-bottom:1px solid rgba(15,28,43,0.07);
     padding:24px 0; cursor:pointer;
   }
-  .faq-item:first-child { border-top:1px solid rgba(28,43,38,0.07); }
+  .faq-item:first-child { border-top:1px solid rgba(15,28,43,0.07); }
   .faq-q {
     display:flex; align-items:center; justify-content:space-between; gap:20px;
   }
   .faq-q-text {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:17px; font-weight:400; color:var(--ink); line-height:1.3;
   }
   .faq-icon {
@@ -352,7 +352,7 @@
   .faq-item.open .faq-icon svg path { stroke:white; }
   .faq-a {
     font-size:14px; font-weight:300; line-height:1.72;
-    color:rgba(28,43,38,0.6); max-height:0; overflow:hidden;
+    color:rgba(15,28,43,0.6); max-height:0; overflow:hidden;
     transition:max-height 0.35s ease, padding-top 0.2s;
   }
   .faq-item.open .faq-a { max-height:300px; padding-top:14px; }
@@ -367,7 +367,7 @@
     content:''; position:absolute;
     top:50%; left:50%; transform:translate(-50%,-50%);
     width:600px; height:600px; border-radius:50%;
-    background:radial-gradient(circle, rgba(74,124,111,0.2) 0%, transparent 65%);
+    background:radial-gradient(circle, rgba(30,58,95,0.2) 0%, transparent 65%);
   }
   .cta-inner {
     max-width:640px; margin:0 auto; padding:0 40px;
@@ -375,14 +375,14 @@
   }
   .cta-label { font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage-light); margin-bottom:14px; }
   .cta-headline {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:44px; font-weight:300; line-height:1.15;
     color:var(--off-white); margin-bottom:16px;
   }
   .cta-headline em { font-style:italic; color:var(--sage-light); }
   .cta-sub {
     font-size:16px; font-weight:300; line-height:1.65;
-    color:rgba(250,248,245,0.5); margin-bottom:40px;
+    color:rgba(241,239,234,0.5); margin-bottom:40px;
   }
   .cta-actions { display:flex; align-items:center; justify-content:center; gap:20px; }
   .btn-light {
@@ -394,11 +394,11 @@
   }
   .btn-light:hover { background:var(--warm); }
   .btn-ghost-light {
-    font-size:14px; color:rgba(250,248,245,0.45);
+    font-size:14px; color:rgba(241,239,234,0.45);
     text-decoration:none; transition:color 0.2s;
   }
   .btn-ghost-light:hover { color:var(--off-white); }
-  .cta-note { margin-top:24px; font-size:12px; color:rgba(250,248,245,0.25); }
+  .cta-note { margin-top:24px; font-size:12px; color:rgba(241,239,234,0.25); }
 
   /* ── FOOTER ── */
   footer {
@@ -410,10 +410,10 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .footer-logo { display:flex; align-items:center; gap:10px; }
-  .footer-logo-word { font-family:'Fraunces',serif; font-size:18px; font-weight:300; color:rgba(250,248,245,0.5); }
+  .footer-logo-word { font-family:'Instrument Sans',serif; font-size:18px; font-weight:300; color:rgba(241,239,234,0.5); }
   .footer-links { display:flex; gap:28px; list-style:none; }
-  .footer-links a { font-size:12px; color:rgba(250,248,245,0.3); text-decoration:none; }
-  .footer-copy { font-size:12px; color:rgba(250,248,245,0.18); }
+  .footer-links a { font-size:12px; color:rgba(241,239,234,0.3); text-decoration:none; }
+  .footer-copy { font-size:12px; color:rgba(241,239,234,0.18); }
 
   /* Animations */
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
@@ -431,32 +431,32 @@
   .compare {
     background: var(--off-white);
     padding: 100px 0;
-    border-top: 1px solid rgba(28,43,38,0.06);
+    border-top: 1px solid rgba(15,28,43,0.06);
   }
   .compare-inner { max-width:1060px; margin:0 auto; padding:0 40px; }
   .compare-header { margin-bottom: 48px; }
   .compare-headline {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:40px; font-weight:300; line-height:1.15; color:var(--ink);
     margin-top:14px; max-width:520px;
   }
   .compare-headline em { font-style:italic; color:var(--sage); }
   .compare-sub {
     font-size:15px; font-weight:300; line-height:1.65;
-    color:rgba(28,43,38,0.55); max-width:560px; margin-top:14px;
+    color:rgba(15,28,43,0.55); max-width:560px; margin-top:14px;
   }
 
   .compare-table { width:100%; border-collapse:collapse; margin-bottom:32px; }
   .compare-table th {
     font-size:11px; font-weight:500; letter-spacing:0.12em;
-    text-transform:uppercase; color:rgba(28,43,38,0.4);
+    text-transform:uppercase; color:rgba(15,28,43,0.4);
     padding:12px 16px; text-align:left;
-    border-bottom:2px solid rgba(28,43,38,0.08);
+    border-bottom:2px solid rgba(15,28,43,0.08);
   }
   .compare-table th:not(:first-child) { text-align:center; }
   .compare-table td {
     padding:16px; font-size:14px; font-weight:300; color:var(--ink);
-    border-bottom:1px solid rgba(28,43,38,0.06); vertical-align:middle;
+    border-bottom:1px solid rgba(15,28,43,0.06); vertical-align:middle;
   }
   .compare-table td:not(:first-child) { text-align:center; }
   .compare-table tr:last-child td { border-bottom:none; }
@@ -475,19 +475,19 @@
   .type-label {
     font-weight:500; color:var(--ink); display:block; margin-bottom:2px;
   }
-  .type-sub { font-size:12px; color:rgba(28,43,38,0.4); }
+  .type-sub { font-size:12px; color:rgba(15,28,43,0.4); }
 
   .range-pill {
     display:inline-flex; padding:4px 10px; border-radius:100px;
     font-size:12px; font-weight:500;
   }
   .pill-red   { background:#FDF0EF; color:#C0544A; }
-  .pill-amber { background:#FBF5ED; color:var(--warm-dark); }
+  .pill-amber { background:#F7F5F0; color:var(--warm-dark); }
   .pill-green { background:var(--sage-pale); color:var(--sage-dark); }
   .pill-mira  { background:var(--sage); color:white; }
 
   .check-cell { color:var(--sage); font-size:16px; }
-  .cross-cell { color:#C4A882; font-size:16px; }
+  .cross-cell { color:#A9823A; font-size:16px; }
   .part-cell  { color:var(--warm-deep); font-size:13px; }
 
   .compare-note {
@@ -497,7 +497,7 @@
   .compare-note-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
   .compare-note-text {
     font-size:14px; font-weight:300; line-height:1.65;
-    color:rgba(250,248,245,0.65);
+    color:rgba(241,239,234,0.65);
   }
   .compare-note-text strong { color:var(--off-white); font-weight:500; }
 
@@ -561,9 +561,9 @@
   /* ── NAV ── */
   nav {
     position:sticky; top:0; z-index:100;
-    background:rgba(250,248,245,0.93);
+    background:rgba(241,239,234,0.93);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(28,43,38,0.07);
+    border-bottom:1px solid rgba(15,28,43,0.07);
   }
   .nav-inner {
     max-width:1140px; margin:0 auto;
@@ -571,7 +571,7 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-  .nav-logo-word { font-family:'Fraunces',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
+  .nav-logo-word { font-family:'Instrument Sans',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
   .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
   .nav-links a { font-size:14px; color:var(--ink); text-decoration:none; opacity:0.5; transition:opacity 0.2s; }
   .nav-links a:hover { opacity:1; }
@@ -609,10 +609,10 @@
   }
   .nav-drawer.open { display:flex; }
   .nav-drawer a {
-    font-family:'Fraunces',serif;
+    font-family:'Instrument Sans',serif;
     font-size:32px; font-weight:300; color:var(--ink);
     text-decoration:none; padding:16px 0;
-    border-bottom:1px solid rgba(28,43,38,0.07);
+    border-bottom:1px solid rgba(15,28,43,0.07);
     display:block; opacity:0.7;
     transition:opacity 0.2s;
   }
@@ -625,7 +625,7 @@
     padding:16px 28px !important;
     border-radius:100px !important;
     text-align:center !important;
-    font-family:'DM Sans',sans-serif !important;
+    font-family:'Instrument Sans',sans-serif !important;
     font-size:15px !important; font-weight:500 !important;
     border-bottom:none !important;
     opacity:1 !important;
@@ -643,8 +643,8 @@
     position: fixed;
     bottom: 0; left: 0; right: 0;
     z-index: 9999;
-    background: #1C2B26;
-    border-top: 1px solid rgba(74,124,111,0.25);
+    background: #0F1C2B;
+    border-top: 1px solid rgba(30,58,95,0.25);
     padding: 20px 40px;
     display: flex;
     align-items: center;
@@ -657,26 +657,26 @@
     transform: translateY(0);
   }
   .cookie-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
     font-weight: 300;
-    color: rgba(250,248,245,0.55);
+    color: rgba(241,239,234,0.55);
     line-height: 1.6;
     max-width: 640px;
   }
   .cookie-text a {
-    color: #7AAB9B;
+    color: #C9A55C;
     text-decoration: none;
-    border-bottom: 1px solid rgba(122,171,155,0.3);
+    border-bottom: 1px solid rgba(201,165,92,0.3);
   }
-  .cookie-text a:hover { border-color: #7AAB9B; }
+  .cookie-text a:hover { border-color: #C9A55C; }
   .cookie-actions {
     display: flex;
     gap: 10px;
     flex-shrink: 0;
   }
   .cookie-btn {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
     font-weight: 500;
     padding: 10px 20px;
@@ -687,17 +687,17 @@
     white-space: nowrap;
   }
   .cookie-btn-accept {
-    background: #4A7C6F;
-    color: #FAF8F5;
+    background: #1E3A5F;
+    color: #F1EFEA;
   }
-  .cookie-btn-accept:hover { background: #2D5246; }
+  .cookie-btn-accept:hover { background: #16283D; }
   .cookie-btn-decline {
     background: rgba(255,255,255,0.06);
-    color: rgba(250,248,245,0.5);
+    color: rgba(241,239,234,0.5);
   }
   .cookie-btn-decline:hover {
     background: rgba(255,255,255,0.1);
-    color: rgba(250,248,245,0.8);
+    color: rgba(241,239,234,0.8);
   }
   @media (max-width: 680px) {
     #cookie-banner {
@@ -798,16 +798,28 @@
   ]
 }
 </script>
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <svg width="24" height="24" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#4A7C6F"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-linecap="round"/></svg>
-      <span class="nav-logo-word">watermouse</span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
     <ul class="nav-links">
       <li><a href="index.html#services">Services</a></li>
       <li><a href="watermouse-pricing.html" class="active">Pricing</a></li>
@@ -858,27 +870,27 @@
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Every campaign type, Search, Shopping, PMax, YouTube &amp; Demand Gen
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Full account audit on onboarding
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Ongoing optimisation &amp; testing
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Monthly strategy call
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Monthly performance report
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Direct Slack access
           </li>
         </ul>
@@ -896,23 +908,23 @@
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Everything in Starter
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Bi-weekly strategy call
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Live performance dashboard
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Competitor &amp; market insights
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7AAB9B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Higher-velocity testing &amp; optimisation
           </li>
         </ul>
@@ -929,19 +941,19 @@
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Everything in Growth
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Multi-market campaigns (2+ markets)
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             CRO recommendations
           </li>
           <li class="plan-feature">
-            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             Quarterly business review
           </li>
         </ul>
@@ -952,7 +964,7 @@
 
     <!-- Commitment note -->
     <div style="text-align:center; margin-top:32px;">
-      <p style="font-size:13px; color:rgba(28,43,38,0.38); font-weight:300;">
+      <p style="font-size:13px; color:rgba(15,28,43,0.38); font-weight:300;">
         All plans require a 3-month minimum. This isn't a lock-in, it's the minimum time needed to build, test, and optimise properly. · No setup fees.
       </p>
     </div>
@@ -968,32 +980,32 @@
     </div>
     <div class="included-grid">
       <div class="included-item reveal">
-        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><line x1="15" y1="15" x2="20.5" y2="20.5"/></svg></div>
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><line x1="15" y1="15" x2="20.5" y2="20.5"/></svg></div>
         <div class="included-title">Full account audit</div>
         <p class="included-body">We start by diagnosing what's working, what's wasting budget, and where the real opportunities are. Every engagement starts here.</p>
       </div>
       <div class="included-item reveal" style="transition-delay:0.08s">
-        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l8 4-8 4-8-4 8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/></svg></div>
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l8 4-8 4-8-4 8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/></svg></div>
         <div class="included-title">Structural build or rebuild</div>
         <p class="included-body">Clean account architecture, proper feed management, accurate tracking and attribution. The foundations most agencies skip.</p>
       </div>
       <div class="included-item reveal" style="transition-delay:0.16s">
-        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,16.5 9,11.5 13,14.5 20,7"/><polyline points="15,7 20,7 20,12"/></svg></div>
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,16.5 9,11.5 13,14.5 20,7"/><polyline points="15,7 20,7 20,12"/></svg></div>
         <div class="included-title">Continuous optimisation</div>
         <p class="included-body">Bids, budgets, audiences, creatives, feed. We optimise every week, not once a month after the report goes out.</p>
       </div>
       <div class="included-item reveal" style="transition-delay:0.08s">
-        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4.5" width="12" height="16" rx="2"/><rect x="9" y="2.8" width="6" height="3.4" rx="1"/><line x1="9.5" y1="11" x2="14.5" y2="11"/><line x1="9.5" y1="15" x2="13.5" y2="15"/></svg></div>
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4.5" width="12" height="16" rx="2"/><rect x="9" y="2.8" width="6" height="3.4" rx="1"/><line x1="9.5" y1="11" x2="14.5" y2="11"/><line x1="9.5" y1="15" x2="13.5" y2="15"/></svg></div>
         <div class="included-title">Honest reporting</div>
         <p class="included-body">Revenue, ROAS, CAC. No vanity metrics, no slides designed to look good. If something isn't working, you'll hear it from us first.</p>
       </div>
       <div class="included-item reveal" style="transition-delay:0.16s">
-        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.3"/><circle cx="12" cy="12" r="1.1" fill="#4A7C6F" stroke="none"/></svg></div>
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.3"/><circle cx="12" cy="12" r="1.1" fill="#1E3A5F" stroke="none"/></svg></div>
         <div class="included-title">Senior oversight</div>
         <p class="included-body">A senior strategist owns your account end-to-end. They're in your calls, in the platform, and responsible for the results.</p>
       </div>
       <div class="included-item reveal" style="transition-delay:0.24s">
-        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><ellipse cx="12" cy="12" rx="3.5" ry="8.2"/><line x1="3.8" y1="12" x2="20.2" y2="12"/></svg></div>
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><ellipse cx="12" cy="12" rx="3.5" ry="8.2"/><line x1="3.8" y1="12" x2="20.2" y2="12"/></svg></div>
         <div class="included-title">Cross-market knowledge</div>
         <p class="included-body">We understand how European markets differ, UK, NL, DE, and beyond. We build campaigns that reflect local behaviour, not one-size-fits-all.</p>
       </div>
@@ -1117,7 +1129,7 @@
     </div>
 
     <div class="compare-note reveal">
-      <div class="compare-note-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15.5a5 5 0 1 1 6 0c-.8.6-1 1.3-1 2.2H10c0-.9-.2-1.6-1-2.2z"/><line x1="10" y1="20.5" x2="14" y2="20.5"/></svg></div>
+      <div class="compare-note-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15.5a5 5 0 1 1 6 0c-.8.6-1 1.3-1 2.2H10c0-.9-.2-1.6-1-2.2z"/><line x1="10" y1="20.5" x2="14" y2="20.5"/></svg></div>
       <div class="compare-note-text">
         <strong>What about cheaper offshore agencies?</strong> They exist, and some European brands use them. But the real gap isn't price, it's knowing how European shoppers actually buy, how mature each ad platform is here, and who picks up the phone when something breaks. A €400/month agency running €30k/month of ad spend is a €30k risk to save €400. Watermouse is a different category: senior expertise, real EU market experience, and a cost structure that reflects where we work, not where our clients are.
       </div>
@@ -1136,49 +1148,49 @@
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">How much does Google Ads management cost?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">Watermouse charges a flat monthly fee, not a percentage of your ad spend, so the cost is predictable and our incentives stay tied to your results, not your budget. Plans are €1,500/mo (Starter, up to €15k ad spend), €2,500/mo (Growth, up to €50k), and €4,000/mo (Scale, €50k+), with a 3-month minimum and no long-term lock-in. That's typically a fraction of a senior in-house hire or a traditional agency retainer.</div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">Why a 3-month minimum? Is that a lock-in?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">The 3-month minimum exists for one reason: that's how long it takes to build, test, and let optimisation compound. Month one is audit and rebuild, month two is testing, month three is when results start stacking. Asking for results in week four is like planting a seed and digging it up two weeks later. After that, cancel any time with 30 days' notice.</div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">What do you need from us to get started?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">Access to your Google Ads account, Google Analytics 4, and Google Merchant Center (for Shopping). A 60-minute onboarding call to align on goals, targets, margins, and messaging. That's it, we take it from there.</div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">Do you handle ad creative and copy?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">Ad copy is included in every plan, we write, test, and iterate on it. For display and YouTube, we provide creative direction and briefs. Final asset production (video, imagery) sits with your creative team or a partner, but we'll tell you exactly what to make and why.</div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">We're already working with an agency. Can you take over?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">Yes, and this is actually common. We do a full audit of the existing account first, identify what to keep and what to fix, and manage the transition carefully to avoid performance gaps. We've done this many times and know how to do it cleanly.</div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">What eCommerce platforms do you work with?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">Shopify, WooCommerce, Magento, and most other major platforms. As long as you have a product feed and a Google Merchant Center account, we can work with you. If your setup is more custom, we'll assess it on the audit call.</div>
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
           <span class="faq-q-text">Can I upgrade or downgrade my plan?</span>
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#4A7C6F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </div>
         <div class="faq-a">Yes, at the end of any monthly cycle. We'll also proactively recommend a plan change if we think it makes sense for your growth stage. We'd rather have you on the right plan than the most expensive one.</div>
       </div>
@@ -1195,7 +1207,7 @@
     <div class="cta-actions">
       <a href="https://calendar.app.google/bPKUfMpjKY8YGBr79" target="_blank" class="btn-light">
         Book your free audit
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1C2B26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="watermouse-case-studies.html" class="btn-ghost-light">See our work →</a>
     </div>
@@ -1206,9 +1218,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <svg width="20" height="20" viewBox="0 0 48 48"><path d="M23 7C31 19 34 28 24 37C15 30 15 20 23 7Z" fill="#7AAB9B"/><path d="M24 36c2 3 7 4 10 1 2.5-2.5 0-6-3-4" fill="none" stroke="#7AAB9B" stroke-width="2.4" stroke-linecap="round"/></svg>
-      <span class="footer-logo-word">watermouse</span>
+    <div class="footer-logo"><svg class="wm-mark" width="28" height="28" viewBox="10 20 80 80" aria-hidden="true"><rect x="11" y="21" width="78" height="78" rx="9" fill="none" stroke="rgba(241,239,234,0.35)" stroke-width="2"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#C9A55C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="footer-logo-word">Watermouse</span>
     </div>
     <ul class="footer-links">
       <li><a href="index.html#services">Services</a></li>
@@ -1300,6 +1310,6 @@
 
 <!-- Sticky mobile CTA -->
 <a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Book a free audit →</a>
-<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#4A7C6F;color:#fff!important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(28,43,38,.28);border:none}}</style>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
 </body>
 </html>
