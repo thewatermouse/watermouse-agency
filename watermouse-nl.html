@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager com Consent Mode v2: consentimento NEGADO por padrao, sem cookies ate o aceite. GA4 e eventos ficam no container GTM. -->
+<script>
+(function(){
+  var GTM_ID = 'GTM-T665625S';
+  var ADVANCED = true; // true: GTM carrega sempre, com tudo negado (pings sem cookies); false: so depois do aceite
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var ok = false;
+  try { ok = localStorage.getItem('wm_cookie_consent') === 'accepted'; } catch(e){}
+  var g = ok ? 'granted' : 'denied';
+  gtag('consent', 'default', {ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g, wait_for_update: 500});
+  gtag('set', 'ads_data_redaction', true);
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(s);
+  };
+  window.wmConsentGrant = function(){
+    gtag('consent', 'update', {ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'});
+    window.loadWatermouseGA();
+  };
+  if (ADVANCED || ok) window.loadWatermouseGA();
+  document.addEventListener('DOMContentLoaded', function(){
+    var o1 = window.wmCookie;
+    if (typeof o1 === 'function') { window.wmCookie = function(a){ o1.apply(this, arguments); if (a) window.wmConsentGrant(); }; }
+    var o2 = window.cookieAccept;
+    if (typeof o2 === 'function') { window.cookieAccept = function(){ o2.apply(this, arguments); window.wmConsentGrant(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watermouse: Google Ads-bureau voor Europese webshops</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:       #1E3A5F;
+    --sage-light: #C9A55C;
+    --sage-pale:  #E6E9EE;
+    --sage-dark:  #16283D;
+    --warm:       #E3DED3;
+    --warm-deep:  #A9823A;
+    --warm-dark:  #5A6878;
+    --ink:        #0F1C2B;
+    --off-white:  #F1EFEA;
+    --white:      #FFFFFF;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--ink);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── UTILITIES ── */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 60px; }
+  .label {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage);
+  }
+  .label-light { color: var(--sage-light); }
+
+  /* ════════════════════════════
+     NAV
+  ════════════════════════════ */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(241,239,234,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15,28,43,0.07);
+  }
+
+  .nav-inner {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 22px 60px;
+    max-width: 1140px; margin: 0 auto;
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-word {
+    font-family: 'Instrument Sans', serif;
+    font-size: 22px; font-weight: 300;
+    color: var(--ink); letter-spacing: 0.04em;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 14px; font-weight: 400;
+    color: var(--ink); text-decoration: none;
+    opacity: 0.55; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  .btn-nav {
+    background: var(--sage); color: var(--white) !important;
+    opacity: 1 !important; padding: 10px 22px;
+    border-radius: 100px; font-size: 13px !important;
+    font-weight: 500 !important; transition: background 0.2s !important;
+  }
+  .btn-nav:hover { background: var(--sage-dark) !important; }
+
+  /* ════════════════════════════
+     HERO, LIGHT
+  ════════════════════════════ */
+  .hero {
+    background: var(--off-white);
+    padding: 90px 0 0;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-blob {
+    position: absolute; right: -100px; top: -80px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, var(--sage-pale) 0%, transparent 65%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-blob-2 {
+    position: absolute; left: -80px; bottom: 0;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, #F7F5F0 0%, transparent 65%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 60px;
+    display: grid; grid-template-columns: 1fr 400px;
+    gap: 60px; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sage-pale);
+    border: 1px solid rgba(30,58,95,0.18);
+    padding: 7px 16px; border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+    color: var(--sage-dark); letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+  .eyebrow-dot { width: 6px; height: 6px; background: var(--sage); border-radius: 50%; }
+
+  .hero-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 58px; font-weight: 300;
+    line-height: 1.1; color: var(--ink);
+    margin-bottom: 24px; max-width: 580px;
+  }
+  .hero-headline em { font-style: italic; color: var(--sage); }
+
+  .hero-sub {
+    font-size: 17px; font-weight: 300;
+    line-height: 1.68; color: rgba(15,28,43,0.62);
+    max-width: 460px; margin-bottom: 44px;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 24px; }
+
+  .btn-primary {
+    background: var(--sage); color: var(--white);
+    padding: 15px 30px; border-radius: 100px;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  .btn-ghost {
+    font-size: 14px; font-weight: 400;
+    color: var(--ink); text-decoration: none;
+    opacity: 0.55; display: flex; align-items: center; gap: 6px;
+    transition: opacity 0.2s;
+  }
+  .btn-ghost:hover { opacity: 1; }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--white);
+    border-radius: 24px; padding: 32px;
+    box-shadow: 0 12px 48px rgba(15,28,43,0.09), 0 2px 8px rgba(15,28,43,0.04);
+    position: relative;
+  }
+
+  .hero-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; }
+
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+
+  .metric {
+    border-radius: 14px; padding: 18px 16px;
+  }
+  .metric-sage { background: var(--sage-pale); }
+  .metric-warm { background: #F7F5F0; }
+
+  .metric-val {
+    font-family: 'Instrument Sans', serif;
+    font-size: 30px; font-weight: 400;
+    line-height: 1; margin-bottom: 4px;
+  }
+  .metric-sage .metric-val { color: var(--sage-dark); }
+  .metric-warm .metric-val { color: var(--warm-dark); }
+
+  .metric-lbl { font-size: 12px; color: rgba(15,28,43,0.5); }
+
+  .card-hr { height: 1px; background: rgba(15,28,43,0.06); margin-bottom: 20px; }
+
+  .card-clients-lbl { font-size: 11px; color: rgba(15,28,43,0.38); margin-bottom: 12px; }
+
+  .card-logos { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .logo-pill {
+    background: var(--off-white);
+    border: 1px solid rgba(15,28,43,0.08);
+    border-radius: 100px; padding: 5px 12px;
+    font-size: 12px; font-weight: 500;
+    color: rgba(15,28,43,0.45);
+  }
+
+  /* Hero bottom scroll hint */
+  .hero-scroll {
+    max-width: 1140px; margin: 0 auto; padding: 40px 60px 0;
+    display: flex; align-items: center; gap: 12px;
+    opacity: 0.35;
+  }
+  .hero-scroll-line { flex: 1; height: 1px; background: var(--ink); max-width: 48px; }
+  .hero-scroll span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* ════════════════════════════
+     PROOF BAR, WARM
+  ════════════════════════════ */
+  .proof-bar {
+    background: var(--warm);
+    padding: 20px 0;
+  }
+  .proof-bar-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 60px;
+    display: flex; align-items: center; gap: 40px;
+  }
+  .proof-lbl {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--warm-dark); white-space: nowrap;
+  }
+  .proof-divider { width: 1px; height: 18px; background: rgba(90,104,120,0.3); }
+  .proof-logos { display: flex; gap: 36px; align-items: center; }
+  .proof-logo {
+    font-size: 13px; font-weight: 500;
+    color: var(--warm-dark); opacity: 0.65;
+    letter-spacing: 0.04em;
+  }
+
+  /* ════════════════════════════
+     PROBLEM, DARK
+  ════════════════════════════ */
+  .problem {
+    background: var(--ink);
+    padding: 120px 0;
+    position: relative; overflow: hidden;
+  }
+  .problem::before {
+    content: '';
+    position: absolute; top: -160px; right: -160px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,58,95,0.18) 0%, transparent 65%);
+  }
+  .problem::after {
+    content: '';
+    position: absolute; bottom: -100px; left: 100px;
+    width: 340px; height: 340px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(169,130,58,0.1) 0%, transparent 65%);
+  }
+
+  .problem-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 60px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .problem-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 46px; font-weight: 300;
+    line-height: 1.15; color: var(--off-white);
+  }
+  .problem-headline em { font-style: italic; color: var(--sage-light); }
+
+  .problem-body {
+    font-size: 17px; font-weight: 300;
+    line-height: 1.72; color: rgba(241,239,234,0.6);
+  }
+  .problem-body p + p { margin-top: 20px; }
+
+  /* ════════════════════════════
+     WHY WATERMOUSE, LIGHT
+  ════════════════════════════ */
+  .why {
+    background: var(--off-white);
+    padding: 120px 0;
+  }
+
+  .why-inner { max-width: 1140px; margin: 0 auto; padding: 0 60px; }
+
+  .why-header {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+  }
+
+  .why-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 46px; font-weight: 300;
+    line-height: 1.15; color: var(--ink);
+    max-width: 400px;
+  }
+  .why-headline em { font-style: italic; color: var(--sage); }
+
+  .why-intro {
+    font-size: 16px; font-weight: 300;
+    line-height: 1.65; color: rgba(15,28,43,0.55);
+    max-width: 340px;
+  }
+
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+
+  .why-card {
+    background: var(--white);
+    border-radius: 20px; padding: 36px 32px;
+    border: 1px solid rgba(15,28,43,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .why-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,28,43,0.08); }
+
+  .why-icon {
+    width: 48px; height: 48px;
+    background: var(--sage-pale);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    font-size: 22px;
+  }
+
+  .why-card-title {
+    font-family: 'Instrument Sans', serif;
+    font-size: 20px; font-weight: 400;
+    color: var(--ink); margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .why-card-body {
+    font-size: 14px; font-weight: 300;
+    line-height: 1.7; color: rgba(15,28,43,0.58);
+  }
+
+  /* ════════════════════════════
+     SERVICES OVERVIEW, DARK
+  ════════════════════════════ */
+  .services {
+    background: var(--sage-dark);
+    padding: 120px 0;
+    position: relative; overflow: hidden;
+  }
+  .services::before {
+    content: '';
+    position: absolute; top: -200px; left: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,165,92,0.12) 0%, transparent 65%);
+  }
+
+  .services-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 60px;
+    position: relative; z-index: 1;
+  }
+
+  .services-header { margin-bottom: 64px; }
+
+  .services-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 46px; font-weight: 300;
+    line-height: 1.15; color: var(--off-white);
+    max-width: 520px; margin-top: 16px;
+  }
+  .services-headline em { font-style: italic; color: var(--sage-light); }
+
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+
+  .service-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px; padding: 32px;
+    transition: background 0.2s;
+  }
+  .service-item:hover { background: rgba(255,255,255,0.08); }
+
+  .service-num {
+    font-family: 'Instrument Sans', serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--sage-light); opacity: 0.5;
+    margin-bottom: 16px;
+  }
+
+  .service-title {
+    font-family: 'Instrument Sans', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--off-white); margin-bottom: 10px;
+  }
+
+  .service-body {
+    font-size: 14px; font-weight: 300;
+    line-height: 1.65; color: rgba(241,239,234,0.5);
+  }
+
+  .services-cta {
+    display: flex; align-items: center; gap: 24px;
+  }
+
+  .btn-light {
+    background: var(--off-white); color: var(--ink);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-light:hover { background: var(--warm); }
+
+  .btn-ghost-light {
+    font-size: 14px; color: rgba(241,239,234,0.55);
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .btn-ghost-light:hover { color: var(--off-white); }
+
+  /* ════════════════════════════
+     PROCESS, LIGHT
+  ════════════════════════════ */
+  .process {
+    background: var(--off-white);
+    padding: 120px 0;
+  }
+
+  .process-inner { max-width: 1140px; margin: 0 auto; padding: 0 60px; }
+
+  .process-header { margin-bottom: 64px; }
+
+  .process-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 46px; font-weight: 300;
+    line-height: 1.15; color: var(--ink);
+    max-width: 480px; margin-top: 16px;
+  }
+  .process-headline em { font-style: italic; color: var(--sage); }
+
+  .process-steps { display: flex; flex-direction: column; gap: 0; }
+
+  .process-step {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 40px; padding: 40px 0;
+    border-bottom: 1px solid rgba(15,28,43,0.07);
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .process-step:first-child { border-top: 1px solid rgba(15,28,43,0.07); }
+
+  .step-num {
+    font-family: 'Instrument Sans', serif;
+    font-size: 42px; font-weight: 300;
+    color: var(--sage); opacity: 0.3;
+    line-height: 1;
+  }
+
+  .step-content { padding-top: 4px; }
+
+  .step-title {
+    font-family: 'Instrument Sans', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--ink); margin-bottom: 10px;
+  }
+
+  .step-body {
+    font-size: 15px; font-weight: 300;
+    line-height: 1.65; color: rgba(15,28,43,0.55);
+    max-width: 560px;
+  }
+
+  .step-tag {
+    display: inline-flex; margin-top: 14px;
+    background: var(--sage-pale);
+    border-radius: 100px; padding: 5px 12px;
+    font-size: 11px; font-weight: 500;
+    color: var(--sage-dark); letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ════════════════════════════
+     CTA, DARK (warm)
+  ════════════════════════════ */
+  .cta-section {
+    background: var(--ink);
+    padding: 120px 0;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,58,95,0.15) 0%, transparent 65%);
+  }
+
+  .cta-inner {
+    max-width: 700px; margin: 0 auto; padding: 0 60px;
+    text-align: center; position: relative; z-index: 1;
+  }
+
+  .cta-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 50px; font-weight: 300;
+    line-height: 1.15; color: var(--off-white);
+    margin: 16px 0 24px;
+  }
+  .cta-headline em { font-style: italic; color: var(--sage-light); }
+
+  .cta-sub {
+    font-size: 17px; font-weight: 300;
+    line-height: 1.65; color: rgba(241,239,234,0.55);
+    margin-bottom: 44px;
+  }
+
+  .cta-actions { display: flex; align-items: center; justify-content: center; gap: 24px; }
+
+  .cta-note {
+    margin-top: 24px;
+    font-size: 12px; color: rgba(241,239,234,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ════════════════════════════
+     FOOTER
+  ════════════════════════════ */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 48px 0;
+  }
+
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-word {
+    font-family: 'Instrument Sans', serif;
+    font-size: 20px; font-weight: 300;
+    color: var(--off-white); letter-spacing: 0.04em;
+    opacity: 0.7;
+  }
+
+  .footer-links { display: flex; gap: 32px; list-style: none; }
+  .footer-links a {
+    font-size: 13px; color: rgba(241,239,234,0.35);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(241,239,234,0.7); }
+
+  .footer-copy {
+    font-size: 12px; color: rgba(241,239,234,0.2);
+  }
+
+  /* ════════════════════════════
+     ANIMATIONS
+  ════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow  { animation: fadeUp 0.6s ease 0.0s both; }
+  .hero-headline { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-sub      { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-actions  { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-card     { animation: fadeUp 0.7s ease 0.2s both; }
+
+  /* Intersection reveal */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+
+  /* ════════════════════════════
+     MOBILE RESPONSIVENESS
+  ════════════════════════════ */
+  @media (max-width: 768px) {
+
+    .hero { padding: 48px 0 0; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding: 0 24px;
+      gap: 36px;
+    }
+    .hero-headline { font-size: 36px; }
+    .hero-sub { font-size: 15px; }
+    .hero-blob, .hero-blob-2 { display: none; }
+    .hero-card { margin-bottom: 24px; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .hero-scroll { display: none; }
+
+    .proof-bar-inner { padding: 0 24px; gap: 20px; flex-wrap: wrap; }
+    .proof-logos { gap: 20px; flex-wrap: wrap; }
+
+    .problem-inner {
+      grid-template-columns: 1fr;
+      padding: 0 24px;
+      gap: 32px;
+    }
+    .problem { padding: 72px 0; }
+    .problem-headline { font-size: 32px; }
+    .problem-body { font-size: 15px; }
+
+    .why { padding: 72px 0; }
+    .why-inner { padding: 0 24px; }
+    .why-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .why-headline { font-size: 32px; }
+    .why-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .services { padding: 72px 0; }
+    .services-inner { padding: 0 24px; }
+    .services-headline { font-size: 32px; }
+    .services-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    .process { padding: 72px 0; }
+    .process-inner { padding: 0 24px; }
+    .process-headline { font-size: 32px; }
+    .process-step { grid-template-columns: 48px 1fr; gap: 16px; padding: 28px 0; }
+    .step-num { font-size: 28px; }
+
+    .cta-section { padding: 72px 0; }
+    .cta-inner { padding: 0 24px; }
+    .cta-headline { font-size: 34px; }
+    .cta-actions { flex-direction: column; align-items: center; gap: 14px; }
+
+    footer { padding: 32px 0; }
+    .footer-inner { padding: 0 24px; flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 30px; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .metric-val { font-size: 24px; }
+    .btn-primary { padding: 13px 22px; font-size: 14px; }
+    .problem-headline { font-size: 28px; }
+    .why-headline { font-size: 28px; }
+    .services-headline { font-size: 28px; }
+    .process-headline { font-size: 28px; }
+    .cta-headline { font-size: 28px; }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(241,239,234,0.93);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(15,28,43,0.07);
+  }
+  .nav-inner {
+    max-width:1140px; margin:0 auto;
+    padding:22px 60px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .nav-logo-word { font-family:'Instrument Sans',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
+  .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+  .nav-links a { font-size:14px; color:var(--ink); text-decoration:none; opacity:0.5; transition:opacity 0.2s; }
+  .nav-links a:hover { opacity:1; }
+  .nav-links a.active { opacity:1; font-weight:500; }
+  .btn-nav {
+    background:var(--sage); color:var(--white) !important;
+    opacity:1 !important; padding:10px 22px; border-radius:100px;
+    font-size:13px !important; font-weight:500 !important;
+    transition:background 0.2s !important;
+  }
+  .btn-nav:hover { background:var(--sage-dark) !important; }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display:none; flex-direction:column; justify-content:center;
+    gap:5px; width:36px; height:36px; cursor:pointer;
+    background:none; border:none; padding:4px;
+  }
+  .nav-hamburger span {
+    display:block; height:1.5px; width:100%;
+    background:var(--ink); border-radius:2px;
+    transition:transform 0.25s ease, opacity 0.2s ease;
+    transform-origin:center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity:0; }
+  .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .nav-drawer {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--off-white); z-index:99;
+    flex-direction:column; padding:100px 36px 48px;
+    gap:0;
+  }
+  .nav-drawer.open { display:flex; }
+  .nav-drawer a {
+    font-family:'Instrument Sans',serif;
+    font-size:32px; font-weight:300; color:var(--ink);
+    text-decoration:none; padding:16px 0;
+    border-bottom:1px solid rgba(15,28,43,0.07);
+    display:block; opacity:0.7;
+    transition:opacity 0.2s;
+  }
+  .nav-drawer a:hover { opacity:1; }
+  .nav-drawer a.active { opacity:1; }
+  .nav-drawer-cta {
+    margin-top:32px;
+    background:var(--sage) !important;
+    color:var(--white) !important;
+    padding:16px 28px !important;
+    border-radius:100px !important;
+    text-align:center !important;
+    font-family:'Instrument Sans',sans-serif !important;
+    font-size:15px !important; font-weight:500 !important;
+    border-bottom:none !important;
+    opacity:1 !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #0F1C2B;
+    border-top: 1px solid rgba(30,58,95,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(241,239,234,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #C9A55C;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,165,92,0.3);
+  }
+  .cookie-text a:hover { border-color: #C9A55C; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #1E3A5F;
+    color: #F1EFEA;
+  }
+  .cookie-btn-accept:hover { background: #16283D; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(241,239,234,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(241,239,234,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+
+  /* ── Featured Results ── */
+  .results-section {
+    padding: 96px 0;
+    background: var(--off-white);
+  }
+  .results-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+  .results-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 24px;
+  }
+  .results-header-left .label { margin-bottom: 12px; }
+  .results-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .results-headline em { font-style: italic; color: var(--sage); }
+  .results-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sage);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(30,58,95,0.3);
+    transition: border-color 0.2s;
+  }
+  .results-link:hover { border-color: var(--sage); }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .result-card {
+    background: var(--white);
+    border: 1.5px solid rgba(15,28,43,0.07);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(15,28,43,0.09);
+  }
+  .result-card-top {
+    padding: 28px 28px 0;
+  }
+  .result-card-brand {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(15,28,43,0.35);
+    margin-bottom: 10px;
+  }
+  .result-card-headline {
+    font-family: 'Instrument Sans', serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .result-card-headline em { font-style: italic; color: var(--sage); }
+  .result-metrics {
+    display: flex;
+    gap: 16px;
+    padding: 20px 28px;
+    border-top: 1px solid rgba(15,28,43,0.05);
+    margin-top: auto;
+  }
+  .result-metric {}
+  .result-metric-val {
+    font-family: 'Instrument Sans', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--sage-dark);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .result-metric-lbl {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(15,28,43,0.4);
+  }
+  .result-card-footer {
+    padding: 14px 28px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sage);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  @media (max-width: 860px) {
+    .results-grid { grid-template-columns: 1fr; }
+    .results-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 768px) {
+    .results-section { padding: 64px 0; }
+    .results-inner { padding: 0 24px; }
+    .results-headline { font-size: 30px; }
+  }
+
+</style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Watermouse">
+    <meta property="og:title" content="Watermouse: Google Ads-bureau voor Europese webshops">
+    <meta property="og:description" content="Senior Google Ads-expertise voor Europese webshops, zonder de bureau-overhead. Geen juniors. Geen overdrachten. Alleen resultaat.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/watermouse-nl.html">
+    <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Watermouse: Google Ads-bureau voor Europese webshops">
+    <meta name="twitter:description" content="Senior Google Ads-expertise voor Europese webshops, zonder de bureau-overhead. Geen juniors. Geen overdrachten. Alleen resultaat.">
+    <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Senior Google Ads-expertise voor Europese webshops, zonder de bureau-overhead. Geen juniors. Geen overdrachten. Alleen resultaat.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-nl.html">
+<link rel="alternate" hreflang="en" href="https://agency.thewatermouse.com/">
+<link rel="alternate" hreflang="nl-NL" href="https://agency.thewatermouse.com/watermouse-nl.html">
+<link rel="alternate" hreflang="de-DE" href="https://agency.thewatermouse.com/watermouse-de.html">
+<link rel="alternate" hreflang="x-default" href="https://agency.thewatermouse.com/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Watermouse",
+  "alternateName": "Watermouse Agency",
+  "description": "Senior Google Ads management for European eCommerce brands, without the agency bloat.",
+  "url": "https://agency.thewatermouse.com",
+  "email": "digo@thewatermouse.com",
+  "image": "https://agency.thewatermouse.com/og-image.png",
+  "logo": "https://agency.thewatermouse.com/favicon.svg",
+  "founder": {
+    "@type": "Person",
+    "name": "Rodrigo Kato",
+    "jobTitle": "Founder & Senior Performance Marketer"
+  },
+  "areaServed": [
+    "Netherlands",
+    "United Kingdom",
+    "Germany",
+    "Europe"
+  ],
+  "serviceType": "Google Ads management for eCommerce",
+  "knowsAbout": [
+    "Google Ads",
+    "Google Shopping",
+    "Performance Max",
+    "eCommerce paid media",
+    "product feed management",
+    "multi-market campaigns",
+    "ROAS optimisation"
+  ],
+  "priceRange": "€1,500–€4,000/mo",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "price": "1500",
+      "priceCurrency": "EUR",
+      "description": "Search + Shopping, up to €15k ad spend"
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth",
+      "price": "2500",
+      "priceCurrency": "EUR",
+      "description": "Full funnel, up to €50k ad spend"
+    },
+    {
+      "@type": "Offer",
+      "name": "Scale",
+      "price": "4000",
+      "priceCurrency": "EUR",
+      "description": "Multi-market, up to €150k ad spend"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Watermouse",
+  "url": "https://agency.thewatermouse.com"
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does a Google Ads agency cost for eCommerce?","acceptedAnswer":{"@type":"Answer","text":"Watermouse charges a flat monthly retainer: Starter €1,500 (up to €15k ad spend), Growth €2,500 (up to €50k) and Scale €4,000 (up to €150k). No percentage of spend, no setup fees, 3-month minimum. Gebouwd voor Europese e-commerce brands spending €5,000+/month on Google Ads."}},
+{"@type":"Question","name":"Which European markets does Watermouse work with?","acceptedAnswer":{"@type":"Answer","text":"We manage Google Ads for eCommerce brands across Europe, including multi-market campaigns on the Scale plan. Past work spans the Netherlands and 36+ countries."}},
+{"@type":"Question","name":"Does Watermouse have proven results?","acceptedAnswer":{"@type":"Answer","text":"Yes. Case studies include TicketSwap (+60% campaign coverage, −80% time on campaign creation, −10% user acquisition cost), Artipoppe (scaled Google from ~15% to ~50% of paid budget) and LandLife. Best CAC reduction achieved: −79%."}},
+{"@type":"Question","name":"What makes Watermouse different from other Google Ads agencies?","acceptedAnswer":{"@type":"Answer","text":"Senior, hands-on Google Ads expertise at a flat fee, no junior hand-offs, no bloated retainers, no long lock-ins. Every campaign type: Search, Shopping, Performance Max, YouTube and Demand Gen."}}
+]}
+</script>
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
+<style>.btn-nav,.nav-drawer-cta{white-space:nowrap}@media(max-width:1100px){.nav-links{gap:14px}}</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="watermouse-nl.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
+    <ul class="nav-links">
+      <li><a href="watermouse-nl.html#services">Diensten</a></li>
+      <li><a href="watermouse-tarieven.html">Tarieven</a></li>
+      <li><a href="watermouse-case-studies.html">Cases</a></li>
+      <li><a href="watermouse-about.html">Over ons</a></li>
+      <li><a href="watermouse-lead-assessments.html">Scans</a></li><li><a href="watermouse-guides.html">Gidsen</a></li>
+      <li><a href="watermouse-book-a-call.html" class="btn-nav">Plan een gratis audit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="watermouse-nl.html#services">Diensten</a>
+  <a href="watermouse-tarieven.html">Tarieven</a>
+  <a href="watermouse-case-studies.html">Cases</a>
+  <a href="watermouse-about.html">Over ons</a>
+  <a href="watermouse-lead-assessments.html">Scans</a>
+  <a href="watermouse-guides.html">Gidsen</a>
+  <a href="watermouse-book-a-call.html" class="nav-drawer-cta">Plan een gratis audit →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Google Ads · Europese webshops
+      </div>
+      <h1 class="hero-headline">
+        Senior Google Ads-expertise.<br>
+        <em>Zonder de bureau-overhead.</em>
+      </h1>
+      <p class="hero-sub">
+        Senior Google Ads-beheer met Europese ervaring voor Europese webshops, voor een fractie van wat bureaus en vaste medewerkers kosten. Geen overdracht aan juniors, geen opgeblazen retainer, niemand die op jouw budget leert.
+      </p>
+      <div class="hero-actions">
+        <a href="watermouse-book-a-call.html" class="btn-primary">
+          Plan een gratis audit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="watermouse-case-studies.html" class="btn-ghost">
+          Bekijk onze cases
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-label">Resultaten in één oogopslag</div>
+      <div class="metrics-grid">
+        <div class="metric metric-sage">
+          <div class="metric-val">4,8×</div>
+          <div class="metric-lbl">ROAS (gem.)</div>
+        </div>
+        <div class="metric metric-warm">
+          <div class="metric-val">−38%</div>
+          <div class="metric-lbl">Lagere CAC</div>
+        </div>
+        <div class="metric metric-warm">
+          <div class="metric-val">3×</div>
+          <div class="metric-lbl">Omzetgroei</div>
+        </div>
+        <div class="metric metric-sage">
+          <div class="metric-val">90 d</div>
+          <div class="metric-lbl">Gem. tijd tot resultaat</div>
+        </div>
+      </div>
+      <div class="card-hr"></div>
+      <div class="card-clients-lbl">Merken waarmee we werkten</div>
+      <div class="card-logos">
+        <span class="logo-pill">TicketSwap</span>
+        <span class="logo-pill">Artipoppe</span>
+        <span class="logo-pill">LandLife</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll om te ontdekken</span>
+  </div>
+</section>
+
+<!-- ══ PROOF BAR ══ -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <span class="proof-lbl">Vertrouwd door</span>
+    <div class="proof-divider"></div>
+    <div class="proof-logos">
+      <span class="proof-logo">TicketSwap</span>
+      <span class="proof-logo">Artipoppe</span>
+      <span class="proof-logo">LandLife</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROBLEM, DARK ══ -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="reveal">
+      <div class="label label-light" style="margin-bottom:16px;">Het probleem</div>
+      <h2 class="problem-headline">
+        De meeste bureaus nemen<br>
+        je budget aan. Weinig bureaus<br>
+        nemen <em>verantwoordelijkheid</em><br>
+        voor de resultaten.
+      </h2>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s">
+      <div class="problem-body">
+        <p>Google Ads voor e-commerce opschalen betekent je marges, je markt en je klant begrijpen, niet alleen campagnes draaien.</p>
+        <p>De meeste bureaus geven je account aan een junior, rapporteren over ijdelheidscijfers en noemen het een maand. Vertoningen. Klikken. CTR. Cijfers die goed ogen op een dia en niets betekenen voor je resultaat.</p>
+        <p>Wij werken niet zo. We beginnen bij je bedrijfsdoelen en bouwen van daaruit terug: campagnes die zijn opgezet om te schalen, onvermoeibaar worden geoptimaliseerd en eerlijk worden gerapporteerd.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY WATERMOUSE, LIGHT ══ -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-header reveal">
+      <div>
+        <div class="label" style="margin-bottom:16px;">Wat ons anders maakt</div>
+        <h2 class="why-headline">
+          Het werk maakt<br>
+          <em>het verschil.</em>
+        </h2>
+      </div>
+      <p class="why-intro">
+        Watermouse is bewust één senior specialist, geen team van juniors. Zo blijft elk account gefocust, verantwoordelijk en echt gekoesterd.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.3"/><circle cx="12" cy="12" r="1.1" fill="#1E3A5F" stroke="none"/></svg></div>
+        <div class="why-card-title">Altijd senior toezicht</div>
+        <p class="why-card-body">We werken slank. Senior toezicht op elk account, elke week, niet alleen bij de start en in kwartaalreviews.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><ellipse cx="12" cy="12" rx="3.5" ry="8.2"/><line x1="3.8" y1="12" x2="20.2" y2="12"/></svg></div>
+        <div class="why-card-title">Gebouwd voor Europese e-commerce</div>
+        <p class="why-card-body">We werkten in Nederland, het VK, Duitsland en daarbuiten. We begrijpen hoe markten verschillen in gedrag, seizoenspatronen en concurrentie, en hoe je campagnes bouwt die dat weerspiegelen.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><line x1="8" y1="20" x2="8" y2="13"/><line x1="12" y1="20" x2="12" y2="7"/><line x1="16" y1="20" x2="16" y2="16"/></svg></div>
+        <div class="why-card-title">Resultaat, geen activiteit</div>
+        <p class="why-card-body">We rapporteren over omzet, ROAS en CAC, de cijfers die je bedrijf vooruit helpen. Geen vertoningen, geen uitgaven. Als iets niet werkt, hoor je dat eerst van ons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES, DARK ══ -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="label label-light">Wat we doen</div>
+      <h2 class="services-headline">
+        Google Ads, goed<br>
+        <em>gedaan.</em>
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item reveal">
+        <div class="service-num">01</div>
+        <div class="service-title">Search en Shopping</div>
+        <p class="service-body">Vang vraag op in elke fase van de funnel, van merktermen tot brede commerciële intentie. We bouwen en beheren Search- en Shopping-campagnes die winstgevende omzet opleveren, niet alleen verkeer.</p>
+        <a href="watermouse-google-shopping-feed.html" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:500;color:#C9A55C;text-decoration:none;">Google Shopping en feedbeheer (Engels) →</a>
+      </div>
+      <div class="service-item reveal" style="transition-delay:0.1s">
+        <div class="service-num">02</div>
+        <div class="service-title">Performance Max</div>
+        <p class="service-body">PMax goed doen vraagt om sterk feedbeheer, duidelijke audience signals en voortdurende optimalisatie. We weten wat nodig is om het voor e-commerce te laten werken, niet alleen om het budget uit te geven.</p>
+        <a href="watermouse-performance-max-webshops.html" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:500;color:#C9A55C;text-decoration:none;">Performance Max voor webshops →</a>
+      </div>
+      <div class="service-item reveal" style="transition-delay:0.15s">
+        <div class="service-num">03</div>
+        <div class="service-title">YouTube en Display</div>
+        <p class="service-body">Campagnes bovenin de funnel die bekendheid opbouwen en bezoekers met hoge intentie retargeten. Geïntegreerd in je volledige funnelstrategie, niet er achteraf aan vastgeplakt.</p>
+      </div>
+      <div class="service-item reveal" style="transition-delay:0.2s">
+        <div class="service-num">04</div>
+        <div class="service-title">Uitbreiding naar meerdere markten</div>
+        <p class="service-body">Opschalen over Europese markten is een andere uitdaging. We hebben het gedaan, over talen, valuta en consumentengedrag heen. We helpen je uitbreiden zonder efficiëntie te verliezen.</p>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;font-weight:500;">
+          <a href="watermouse-google-ads-bureau-webshops.html" style="color:#C9A55C;text-decoration:none;">Nederland →</a>
+          <a href="watermouse-google-ads-uk.html" style="color:#C9A55C;text-decoration:none;">Verenigd Koninkrijk (Engels) →</a>
+          <a href="watermouse-google-ads-agentur-onlineshops.html" style="color:#C9A55C;text-decoration:none;">Duitsland en DACH (Duits) →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-cta reveal">
+      <a href="watermouse-tarieven.html" class="btn-light">
+        Bekijk onze pakketten en tarieven
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="watermouse-case-studies.html" class="btn-ghost-light">Bekijk cases (Engels) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS, LIGHT ══ -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <div class="label">Zo werken we</div>
+      <h2 class="process-headline">
+        Sterke fundamenten,<br>
+        dan <em>schalen.</em>
+      </h2>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Audit en diagnose</div>
+          <p class="step-body">Voordat we iets aanraken, begrijpen we je bedrijf, je marges, je beste producten, je huidige accountstructuur en je attributie. We vinden wat werkt, wat budget verspilt en waar de grootste kansen liggen.</p>
+          <span class="step-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Fundament bouwen</div>
+          <p class="step-body">We herstructureren of herbouwen je account vanaf de grond. Schone structuur, goed feedbeheer, nauwkeurige tracking en attributie. Dit is het werk dat de meeste bureaus overslaan, en het maakt al het andere mogelijk.</p>
+          <span class="step-tag">Week 2–3</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Testen en optimaliseren</div>
+          <p class="step-body">We draaien gestructureerde tests op biedingen, doelgroepen, creatives en matchtypes en optimaliseren op wat de data laat zien. Geen onderbuikgevoel. Geen instellen en vergeten. Elke week doorlopende, bewuste verbetering.</p>
+          <span class="step-tag">Maand 1–2</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Schalen wat werkt</div>
+          <p class="step-body">Zodra we weten wat winstgevend converteert, schalen we dat bewust op: meer budget, nieuwe markten, uitgebreide campagnes. Groei die zich opstapelt, geen pieken die verdwijnen.</p>
+          <span class="step-tag">Maand 3+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FEATURED RESULTS ══ -->
+<section class="results-section" id="work">
+  <div class="results-inner">
+    <div class="results-header reveal">
+      <div class="results-header-left">
+        <div class="label">Resultaten</div>
+        <h2 class="results-headline">Hoe goed er <em>in de praktijk uitziet.</em></h2>
+      </div>
+      <a href="watermouse-case-studies.html" class="results-link">
+        Alle cases (Engels)
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="results-grid">
+
+      <!-- TicketSwap -->
+      <a href="watermouse-case-ticketswap.html" class="result-card reveal">
+        <div class="result-card-top">
+          <div class="result-card-brand">TicketSwap · Nederland</div>
+          <div class="result-card-headline">500.000 evenementen gedekt met <em>nul handmatige campagnes</em></div>
+        </div>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-val">−15%</div>
+            <div class="result-metric-lbl">Onverkochte voorraad</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-val">+60%</div>
+            <div class="result-metric-lbl">Campagnedekking</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-val">−80%</div>
+            <div class="result-metric-lbl">Teamtijd</div>
+          </div>
+        </div>
+        <div class="result-card-footer">
+          Lees de case (Engels)
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <!-- Artipoppe -->
+      <a href="watermouse-case-artipoppe.html" class="result-card reveal" style="transition-delay:0.08s">
+        <div class="result-card-top">
+          <div class="result-card-brand">Artipoppe · Nederland</div>
+          <div class="result-card-headline">Van een Meta-zware opzet naar <em>Google voor het halve budget</em></div>
+        </div>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-val">15→50%</div>
+            <div class="result-metric-lbl">Aandeel van Google in het betaalde budget</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-val">Shopping + PMax</div>
+            <div class="result-metric-lbl">Opgeschaald over campagnetypen</div>
+          </div>
+        </div>
+        <div class="result-card-footer">
+          Lees de case (Engels)
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <!-- LandLife -->
+      <a href="watermouse-case-landlife.html" class="result-card reveal" style="transition-delay:0.16s">
+        <div class="result-card-top">
+          <div class="result-card-brand">LandLife · Nederland</div>
+          <div class="result-card-headline">Een B2B-pipeline herbouwen <em>toen de leads opdroogden</em></div>
+        </div>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <div class="result-metric-val">Multichannel</div>
+            <div class="result-metric-lbl">Google Ads + LinkedIn + outbound</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-metric-val">Leads van landeigenaren</div>
+            <div class="result-metric-lbl">Veel gekwalificeerde leads (Spanje)</div>
+          </div>
+        </div>
+        <div class="result-card-footer">
+          Lees de case (Engels)
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SWITCHING FROM YOUR CURRENT AGENCY ══ -->
+<section id="switching" style="background:var(--sage-pale); padding:88px 0;">
+  <div style="max-width:1140px; margin:0 auto; padding:0 60px;">
+    <div style="max-width:760px; margin-bottom:44px;">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--sage); margin-bottom:16px;">Te veel betaald?</div>
+      <h2 style="font-family:'Instrument Sans',serif; font-size:40px; font-weight:300; color:var(--ink); line-height:1.15; margin:0 0 20px;">Overstappen van je huidige bureau of freelancer?</h2>
+      <p style="font-size:17px; font-weight:300; line-height:1.7; color:rgba(15,28,43,0.62); margin:0;">De meeste Europese webshops betalen te veel voor Google Ads: €3.000–€8.000 per maand aan een groot bureau waar in werkelijkheid een junior het account beheert, of een vaste medewerker van €60k+ per jaar. Watermouse is een goedkoper alternatief voor een traditioneel Google Ads-bureau, zonder naar offshore te gaan en zonder te beknibbelen. Je krijgt rechtstreeks senior beheer met Europese ervaring, met een lagere kostenstructuur: doorgaans een fractie van wat een Europees bureau rekent. Dezelfde senioriteit, zonder de overhead.</p>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px;">
+      <div style="flex:1; min-width:250px; background:var(--white); border-radius:18px; padding:28px;">
+        <div style="font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--warm-dark); margin-bottom:14px;">Wat je waarschijnlijk nu betaalt</div>
+        <ul style="list-style:none; padding:0; margin:0; font-size:14px; font-weight:300; line-height:1.5; color:rgba(15,28,43,0.7);">
+          <li style="margin-bottom:10px;">€3k–€8k p/m aan een groot Europees bureau</li>
+          <li style="margin-bottom:10px;">Een junior op het account; de senior met wie je tekende laat zich elk kwartaal zien</li>
+          <li style="margin-bottom:0;">Rapporten vol vertoningen en klikken, niet omzet</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:250px; background:var(--ink); border-radius:18px; padding:28px;">
+        <div style="font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage-light); margin-bottom:14px;">Met Watermouse</div>
+        <ul style="list-style:none; padding:0; margin:0; font-size:14px; font-weight:300; line-height:1.5; color:rgba(241,239,234,0.75);">
+          <li style="margin-bottom:10px;">€1.500–€4.000 p/m, vaak ongeveer de helft van de kosten</li>
+          <li style="margin-bottom:10px;">Eén senior specialist rechtstreeks op je account, elke week</li>
+          <li style="margin-bottom:0;">Rapportage over omzet, ROAS en CAC, de cijfers die ertoe doen</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:250px; background:var(--white); border-radius:18px; padding:28px;">
+        <div style="font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage); margin-bottom:14px;">Overstappen verloopt netjes</div>
+        <ul style="list-style:none; padding:0; margin:0; font-size:14px; font-weight:300; line-height:1.5; color:rgba(15,28,43,0.7);">
+          <li style="margin-bottom:10px;">Eerst een volledige audit van je bestaande account</li>
+          <li style="margin-bottom:10px;">We houden wat werkt en repareren wat niet werkt</li>
+          <li style="margin-bottom:0;">Begeleide overgang, geen prestatiedip, geen verloren historie</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <a href="watermouse-book-a-call.html" class="btn-primary">
+        Plan een gratis audit en zie waar je te veel voor betaalt
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA, DARK ══ -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="label label-light">Laten we praten</div>
+    <h2 class="cta-headline">
+      Niet zeker of wij<br>
+      <em>bij je passen?</em>
+    </h2>
+    <p class="cta-sub">
+      Plan een gratis auditgesprek van 30 minuten. We bekijken je huidige Google Ads-opzet en geven eerlijke, bruikbare feedback, zonder verkooppraatje en zonder verplichtingen.
+    </p>
+    <div class="cta-actions">
+      <a href="watermouse-book-a-call.html" class="btn-light">
+        Plan je gratis audit
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="watermouse-tarieven.html" class="btn-ghost-light">Bekijk de tarieven →</a>
+    </div>
+    <p class="cta-note">Minimaal 3 maanden · Geen opstartkosten · Opzeggen met 30 dagen opzegtermijn</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><svg class="wm-mark" width="28" height="28" viewBox="10 20 80 80" aria-hidden="true"><rect x="11" y="21" width="78" height="78" rx="9" fill="none" stroke="rgba(241,239,234,0.35)" stroke-width="2"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#C9A55C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="footer-logo-word">Watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#services">Diensten</a></li>
+      <li><a href="watermouse-case-studies.html">Cases</a></li>
+      <li><a href="watermouse-about.html">Over ons</a></li>
+      <li><a href="watermouse-book-a-call.html">Contact</a></li>
+    <li><a href="watermouse-privacy.html">Privacy</a></li><li><a href="watermouse-terms.html">Voorwaarden</a></li><li class="lang-sw"><a href="index.html" hreflang="en">English</a></li><li class="lang-sw"><a href="watermouse-de.html" hreflang="de">Deutsch</a></li></ul>
+    <span class="footer-copy">&copy; 2026 Watermouse. Alle rechten voorbehouden.</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+<script>
+  // Mobile nav
+  function toggleNav() {
+    const btn = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+  }
+  // Close on escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      We gebruiken cookies om te begrijpen hoe bezoekers onze site gebruiken en om de site te verbeteren. Er worden geen gegevens aan derden verkocht. Lees ons
+      <a href="watermouse-privacy.html">privacybeleid</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Weigeren</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accepteren</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Plan een gratis audit →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
+</body>
+</html>

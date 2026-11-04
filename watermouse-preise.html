@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager com Consent Mode v2: consentimento NEGADO por padrao, sem cookies ate o aceite. GA4 e eventos ficam no container GTM. -->
+<script>
+(function(){
+  var GTM_ID = 'GTM-T665625S';
+  var ADVANCED = true; // true: GTM carrega sempre, com tudo negado (pings sem cookies); false: so depois do aceite
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var ok = false;
+  try { ok = localStorage.getItem('wm_cookie_consent') === 'accepted'; } catch(e){}
+  var g = ok ? 'granted' : 'denied';
+  gtag('consent', 'default', {ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g, wait_for_update: 500});
+  gtag('set', 'ads_data_redaction', true);
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(s);
+  };
+  window.wmConsentGrant = function(){
+    gtag('consent', 'update', {ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'});
+    window.loadWatermouseGA();
+  };
+  if (ADVANCED || ok) window.loadWatermouseGA();
+  document.addEventListener('DOMContentLoaded', function(){
+    var o1 = window.wmCookie;
+    if (typeof o1 === 'function') { window.wmCookie = function(a){ o1.apply(this, arguments); if (a) window.wmConsentGrant(); }; }
+    var o2 = window.cookieAccept;
+    if (typeof o2 === 'function') { window.cookieAccept = function(){ o2.apply(this, arguments); window.wmConsentGrant(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preise für Google-Ads-Betreuung von Onlineshops | Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:       #1E3A5F;
+    --sage-light: #C9A55C;
+    --sage-pale:  #E6E9EE;
+    --sage-dark:  #16283D;
+    --warm:       #E3DED3;
+    --warm-deep:  #A9823A;
+    --warm-dark:  #5A6878;
+    --ink:        #0F1C2B;
+    --off-white:  #F1EFEA;
+    --white:      #FFFFFF;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'Instrument Sans',sans-serif;
+    background:var(--off-white);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  
+
+  /* ── HERO ── */
+  .hero {
+    background:var(--off-white);
+    padding:80px 0 64px;
+    text-align:center;
+    position:relative; overflow:hidden;
+  }
+  .hero-blob {
+    position:absolute; left:50%; top:-100px;
+    transform:translateX(-50%);
+    width:700px; height:400px; border-radius:50%;
+    background:radial-gradient(ellipse, var(--sage-pale) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .hero-inner { max-width:680px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
+  .hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--sage-pale); border:1px solid rgba(30,58,95,0.18);
+    padding:7px 16px; border-radius:100px;
+    font-size:12px; font-weight:500; color:var(--sage-dark);
+    letter-spacing:0.04em; margin-bottom:28px;
+  }
+  .eyebrow-dot { width:6px; height:6px; background:var(--sage); border-radius:50%; }
+  .hero-headline {
+    font-family:'Instrument Sans',serif;
+    font-size:52px; font-weight:300; line-height:1.1;
+    color:var(--ink); margin-bottom:20px;
+  }
+  .hero-headline em { font-style:italic; color:var(--sage); }
+  .hero-sub {
+    font-size:17px; font-weight:300; line-height:1.65;
+    color:rgba(15,28,43,0.55); margin-bottom:0;
+  }
+
+  /* ── PLANS ── */
+  .plans {
+    padding:64px 0 80px;
+    background:var(--off-white);
+  }
+  .plans-inner {
+    max-width:1060px; margin:0 auto; padding:0 40px;
+  }
+
+  .plans-grid {
+    display:grid; grid-template-columns:1fr 1fr 1fr;
+    gap:20px; align-items:start;
+  }
+
+  .plan-card {
+    background:var(--white);
+    border:1.5px solid rgba(15,28,43,0.07);
+    border-radius:24px; padding:36px 32px;
+    position:relative; overflow:hidden;
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .plan-card:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(15,28,43,0.09); }
+
+  .plan-card.featured {
+    background:var(--sage-dark);
+    border-color:transparent;
+    transform:scale(1.03);
+  }
+  .plan-card.featured:hover { transform:scale(1.03) translateY(-4px); }
+
+  .plan-card.featured::before {
+    content:'';
+    position:absolute; top:-80px; right:-80px;
+    width:220px; height:220px; border-radius:50%;
+    background:radial-gradient(circle, rgba(201,165,92,0.2) 0%, transparent 65%);
+  }
+
+  .plan-badge {
+    position:absolute; top:20px; right:20px;
+    background:var(--warm-deep); color:var(--white);
+    font-size:10px; font-weight:500; letter-spacing:0.1em;
+    text-transform:uppercase; padding:4px 10px; border-radius:100px;
+  }
+
+  .plan-name {
+    font-size:11px; font-weight:500; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--sage);
+    margin-bottom:6px;
+  }
+  .plan-card.featured .plan-name { color:var(--sage-light); }
+
+  .plan-price {
+    font-family:'Instrument Sans',serif;
+    font-size:44px; font-weight:300;
+    color:var(--ink); line-height:1; margin-bottom:4px;
+  }
+  .plan-card.featured .plan-price { color:var(--off-white); }
+
+  .plan-period {
+    font-size:13px; color:rgba(15,28,43,0.4);
+    margin-bottom:6px;
+  }
+  .plan-card.featured .plan-period { color:rgba(241,239,234,0.45); }
+
+  .plan-spend {
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--sage-pale); border-radius:100px;
+    padding:4px 10px; font-size:11px; font-weight:500;
+    color:var(--sage-dark); margin-bottom:24px;
+  }
+  .plan-card.featured .plan-spend { background:rgba(255,255,255,0.1); color:rgba(241,239,234,0.7); }
+
+  .plan-divider {
+    height:1px; background:rgba(15,28,43,0.06);
+    margin-bottom:20px;
+  }
+  .plan-card.featured .plan-divider { background:rgba(255,255,255,0.08); }
+
+  .plan-desc {
+    font-size:13px; font-weight:300; line-height:1.6;
+    color:rgba(15,28,43,0.55); margin-bottom:20px;
+  }
+  .plan-card.featured .plan-desc { color:rgba(241,239,234,0.55); }
+
+  .plan-features { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+  .plan-feature {
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:13.5px; font-weight:300; line-height:1.4;
+    color:rgba(15,28,43,0.75);
+  }
+  .plan-card.featured .plan-feature { color:rgba(241,239,234,0.75); }
+
+  .check {
+    width:18px; height:18px; border-radius:6px;
+    background:var(--sage-pale); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    margin-top:1px;
+  }
+  .check svg { width:10px; height:10px; }
+  .plan-card.featured .check { background:rgba(255,255,255,0.12); }
+
+  .btn-plan {
+    width:100%; padding:14px;
+    border-radius:100px; font-size:14px; font-weight:500;
+    border:none; cursor:pointer; display:flex;
+    align-items:center; justify-content:center; gap:8px;
+    transition:background 0.2s, transform 0.1s; text-decoration:none;
+  }
+  .btn-plan-outline {
+    background:transparent;
+    border:1.5px solid rgba(15,28,43,0.15);
+    color:var(--ink);
+  }
+  .btn-plan-outline:hover { border-color:var(--sage); color:var(--sage); }
+  .btn-plan-solid {
+    background:var(--off-white); color:var(--ink);
+  }
+  .btn-plan-solid:hover { background:var(--warm); }
+
+  /* ── WHAT'S INCLUDED ── */
+  .included {
+    background:var(--ink);
+    padding:100px 0;
+    position:relative; overflow:hidden;
+  }
+  .included::before {
+    content:''; position:absolute; top:-180px; right:-100px;
+    width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle, rgba(30,58,95,0.15) 0%, transparent 65%);
+  }
+  .included-inner {
+    max-width:1060px; margin:0 auto; padding:0 40px;
+    position:relative; z-index:1;
+  }
+  .included-header { margin-bottom:56px; }
+  .section-label {
+    font-size:11px; font-weight:500; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--sage-light); margin-bottom:14px;
+  }
+  .included-headline {
+    font-family:'Instrument Sans',serif;
+    font-size:42px; font-weight:300; line-height:1.15;
+    color:var(--off-white); max-width:480px;
+  }
+  .included-headline em { font-style:italic; color:var(--sage-light); }
+
+  .included-grid {
+    display:grid; grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+  }
+  .included-item {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:18px; padding:28px 24px;
+    transition:background 0.2s;
+  }
+  .included-item:hover { background:rgba(255,255,255,0.07); }
+
+  .included-icon {
+    font-size:24px; margin-bottom:16px;
+    width:44px; height:44px; border-radius:12px;
+    background:rgba(30,58,95,0.15);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .included-title {
+    font-family:'Instrument Sans',serif;
+    font-size:17px; font-weight:400; color:var(--off-white);
+    margin-bottom:8px;
+  }
+  .included-body {
+    font-size:13px; font-weight:300; line-height:1.65;
+    color:rgba(241,239,234,0.45);
+  }
+
+  /* ── PERFORMANCE MODEL ── */
+  .perf {
+    background:var(--warm);
+    padding:100px 0;
+  }
+  .perf-inner {
+    max-width:1060px; margin:0 auto; padding:0 40px;
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+  }
+  .perf-label { font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--warm-dark); margin-bottom:14px; }
+  .perf-headline {
+    font-family:'Instrument Sans',serif;
+    font-size:40px; font-weight:300; line-height:1.15; color:var(--ink);
+    margin-bottom:20px;
+  }
+  .perf-headline em { font-style:italic; color:var(--warm-dark); }
+  .perf-body {
+    font-size:15px; font-weight:300; line-height:1.72;
+    color:rgba(15,28,43,0.6);
+  }
+  .perf-body p + p { margin-top:16px; }
+
+  .perf-card {
+    background:var(--white);
+    border-radius:20px; padding:36px;
+    box-shadow:0 8px 32px rgba(15,28,43,0.08);
+  }
+  .perf-card-label { font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm-dark); margin-bottom:20px; }
+  .perf-formula {
+    display:flex; flex-direction:column; gap:12px; margin-bottom:24px;
+  }
+  .formula-row {
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--off-white); border-radius:12px; padding:14px 16px;
+  }
+  .formula-label { font-size:13px; font-weight:400; color:rgba(15,28,43,0.6); }
+  .formula-val { font-family:'Instrument Sans',serif; font-size:18px; font-weight:400; color:var(--ink); }
+  .formula-op {
+    text-align:center; font-size:18px; color:rgba(15,28,43,0.2);
+    padding:0 4px;
+  }
+  .formula-total {
+    background:var(--sage-pale);
+    border-radius:12px; padding:16px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .formula-total-label { font-size:13px; font-weight:500; color:var(--sage-dark); }
+  .formula-total-val { font-family:'Instrument Sans',serif; font-size:22px; font-weight:400; color:var(--sage-dark); }
+
+  .perf-note {
+    font-size:12px; font-weight:300; color:rgba(15,28,43,0.4);
+    line-height:1.6; border-top:1px solid rgba(15,28,43,0.06);
+    padding-top:16px; margin-top:4px;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    background:var(--off-white);
+    padding:100px 0;
+  }
+  .faq-inner {
+    max-width:760px; margin:0 auto; padding:0 40px;
+  }
+  .faq-header { text-align:center; margin-bottom:56px; }
+  .faq-headline {
+    font-family:'Instrument Sans',serif;
+    font-size:40px; font-weight:300; line-height:1.15; color:var(--ink);
+    margin-top:14px;
+  }
+  .faq-headline em { font-style:italic; color:var(--sage); }
+
+  .faq-list { display:flex; flex-direction:column; gap:0; }
+  .faq-item {
+    border-bottom:1px solid rgba(15,28,43,0.07);
+    padding:24px 0; cursor:pointer;
+  }
+  .faq-item:first-child { border-top:1px solid rgba(15,28,43,0.07); }
+  .faq-q {
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .faq-q-text {
+    font-family:'Instrument Sans',serif;
+    font-size:17px; font-weight:400; color:var(--ink); line-height:1.3;
+  }
+  .faq-icon {
+    width:28px; height:28px; border-radius:50%;
+    background:var(--sage-pale); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    transition:background 0.2s, transform 0.2s;
+  }
+  .faq-item.open .faq-icon { background:var(--sage); transform:rotate(45deg); }
+  .faq-item.open .faq-icon svg path { stroke:white; }
+  .faq-a {
+    font-size:14px; font-weight:300; line-height:1.72;
+    color:rgba(15,28,43,0.6); max-height:0; overflow:hidden;
+    transition:max-height 0.35s ease, padding-top 0.2s;
+  }
+  .faq-item.open .faq-a { max-height:300px; padding-top:14px; }
+
+  /* ── CTA ── */
+  .cta {
+    background:var(--sage-dark);
+    padding:100px 0;
+    position:relative; overflow:hidden;
+  }
+  .cta::before {
+    content:''; position:absolute;
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(circle, rgba(30,58,95,0.2) 0%, transparent 65%);
+  }
+  .cta-inner {
+    max-width:640px; margin:0 auto; padding:0 40px;
+    text-align:center; position:relative; z-index:1;
+  }
+  .cta-label { font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage-light); margin-bottom:14px; }
+  .cta-headline {
+    font-family:'Instrument Sans',serif;
+    font-size:44px; font-weight:300; line-height:1.15;
+    color:var(--off-white); margin-bottom:16px;
+  }
+  .cta-headline em { font-style:italic; color:var(--sage-light); }
+  .cta-sub {
+    font-size:16px; font-weight:300; line-height:1.65;
+    color:rgba(241,239,234,0.5); margin-bottom:40px;
+  }
+  .cta-actions { display:flex; align-items:center; justify-content:center; gap:20px; }
+  .btn-light {
+    background:var(--off-white); color:var(--ink);
+    padding:15px 30px; border-radius:100px;
+    font-size:15px; font-weight:500; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:background 0.2s;
+  }
+  .btn-light:hover { background:var(--warm); }
+  .btn-ghost-light {
+    font-size:14px; color:rgba(241,239,234,0.45);
+    text-decoration:none; transition:color 0.2s;
+  }
+  .btn-ghost-light:hover { color:var(--off-white); }
+  .cta-note { margin-top:24px; font-size:12px; color:rgba(241,239,234,0.25); }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--ink); border-top:1px solid rgba(255,255,255,0.05);
+    padding:40px 0;
+  }
+  .footer-inner {
+    max-width:1140px; margin:0 auto; padding:0 60px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .footer-logo { display:flex; align-items:center; gap:10px; }
+  .footer-logo-word { font-family:'Instrument Sans',serif; font-size:18px; font-weight:300; color:rgba(241,239,234,0.5); }
+  .footer-links { display:flex; gap:28px; list-style:none; }
+  .footer-links a { font-size:12px; color:rgba(241,239,234,0.3); text-decoration:none; }
+  .footer-copy { font-size:12px; color:rgba(241,239,234,0.18); }
+
+  /* Animations */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+  .hero-eyebrow { animation:fadeUp 0.5s ease both; }
+  .hero-headline { animation:fadeUp 0.5s ease 0.08s both; }
+  .hero-sub { animation:fadeUp 0.5s ease 0.16s both; }
+  .plans-grid { animation:fadeUp 0.6s ease 0.1s both; }
+
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  /* ════════════════════════════
+     COMPETITOR TABLE
+  ════════════════════════════ */
+  .compare {
+    background: var(--off-white);
+    padding: 100px 0;
+    border-top: 1px solid rgba(15,28,43,0.06);
+  }
+  .compare-inner { max-width:1060px; margin:0 auto; padding:0 40px; }
+  .compare-header { margin-bottom: 48px; }
+  .compare-headline {
+    font-family:'Instrument Sans',serif;
+    font-size:40px; font-weight:300; line-height:1.15; color:var(--ink);
+    margin-top:14px; max-width:520px;
+  }
+  .compare-headline em { font-style:italic; color:var(--sage); }
+  .compare-sub {
+    font-size:15px; font-weight:300; line-height:1.65;
+    color:rgba(15,28,43,0.55); max-width:560px; margin-top:14px;
+  }
+
+  .compare-table { width:100%; border-collapse:collapse; margin-bottom:32px; }
+  .compare-table th {
+    font-size:11px; font-weight:500; letter-spacing:0.12em;
+    text-transform:uppercase; color:rgba(15,28,43,0.4);
+    padding:12px 16px; text-align:left;
+    border-bottom:2px solid rgba(15,28,43,0.08);
+  }
+  .compare-table th:not(:first-child) { text-align:center; }
+  .compare-table td {
+    padding:16px; font-size:14px; font-weight:300; color:var(--ink);
+    border-bottom:1px solid rgba(15,28,43,0.06); vertical-align:middle;
+  }
+  .compare-table td:not(:first-child) { text-align:center; }
+  .compare-table tr:last-child td { border-bottom:none; }
+
+  .compare-table tr.mira-row td {
+    background:var(--sage-pale);
+    font-weight:500;
+  }
+  .compare-table tr.mira-row td:first-child {
+    border-radius:12px 0 0 12px;
+  }
+  .compare-table tr.mira-row td:last-child {
+    border-radius:0 12px 12px 0;
+  }
+
+  .type-label {
+    font-weight:500; color:var(--ink); display:block; margin-bottom:2px;
+  }
+  .type-sub { font-size:12px; color:rgba(15,28,43,0.4); }
+
+  .range-pill {
+    display:inline-flex; padding:4px 10px; border-radius:100px;
+    font-size:12px; font-weight:500;
+  }
+  .pill-red   { background:#FDF0EF; color:#C0544A; }
+  .pill-amber { background:#F7F5F0; color:var(--warm-dark); }
+  .pill-green { background:var(--sage-pale); color:var(--sage-dark); }
+  .pill-mira  { background:var(--sage); color:white; }
+
+  .check-cell { color:var(--sage); font-size:16px; }
+  .cross-cell { color:#A9823A; font-size:16px; }
+  .part-cell  { color:var(--warm-deep); font-size:13px; }
+
+  .compare-note {
+    background:var(--ink); border-radius:16px; padding:24px 28px;
+    display:flex; align-items:flex-start; gap:16px;
+  }
+  .compare-note-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+  .compare-note-text {
+    font-size:14px; font-weight:300; line-height:1.65;
+    color:rgba(241,239,234,0.65);
+  }
+  .compare-note-text strong { color:var(--off-white); font-weight:500; }
+
+  /* ════════════════════════════
+     MOBILE RESPONSIVENESS
+  ════════════════════════════ */
+  @media (max-width: 768px) {
+
+    .hero { padding: 48px 0 40px; }
+    .hero-inner { padding: 0 24px; }
+    .hero-headline { font-size: 36px; }
+    .hero-sub { font-size: 15px; }
+    .hero-blob { display: none; }
+
+    .plans { padding: 40px 0 60px; }
+    .plans-inner { padding: 0 24px; }
+    .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+    .plan-card.featured { transform: scale(1); }
+    .plan-card.featured:hover { transform: translateY(-4px); }
+    .plan-price { font-size: 36px; }
+
+    .included { padding: 72px 0; }
+    .included-inner { padding: 0 24px; }
+    .included-headline { font-size: 30px; }
+    .included-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    .perf { padding: 72px 0; }
+    .perf-inner { grid-template-columns: 1fr; padding: 0 24px; gap: 40px; }
+    .perf-headline { font-size: 30px; }
+
+    .compare { padding: 72px 0; }
+    .compare-inner { padding: 0 24px; }
+    .compare-headline { font-size: 28px; }
+    .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table { min-width: 560px; }
+
+    .faq { padding: 72px 0; }
+    .faq-inner { padding: 0 24px; }
+    .faq-headline { font-size: 30px; }
+
+    .cta { padding: 72px 0; }
+    .cta-inner { padding: 0 24px; }
+    .cta-headline { font-size: 32px; }
+    .cta-actions { flex-direction: column; align-items: center; gap: 14px; }
+
+    footer { padding: 32px 0; }
+    .footer-inner { padding: 0 24px; flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 28px; }
+    .plan-price { font-size: 32px; }
+    .included-headline { font-size: 26px; }
+    .perf-headline { font-size: 26px; }
+    .compare-headline { font-size: 24px; }
+    .faq-headline { font-size: 26px; }
+    .cta-headline { font-size: 26px; }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:sticky; top:0; z-index:100;
+    background:rgba(241,239,234,0.93);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(15,28,43,0.07);
+  }
+  .nav-inner {
+    max-width:1140px; margin:0 auto;
+    padding:22px 60px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .nav-logo-word { font-family:'Instrument Sans',serif; font-size:22px; font-weight:300; color:var(--ink); letter-spacing:0.04em; }
+  .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+  .nav-links a { font-size:14px; color:var(--ink); text-decoration:none; opacity:0.5; transition:opacity 0.2s; }
+  .nav-links a:hover { opacity:1; }
+  .nav-links a.active { opacity:1; font-weight:500; }
+  .btn-nav {
+    background:var(--sage); color:var(--white) !important;
+    opacity:1 !important; padding:10px 22px; border-radius:100px;
+    font-size:13px !important; font-weight:500 !important;
+    transition:background 0.2s !important;
+  }
+  .btn-nav:hover { background:var(--sage-dark) !important; }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display:none; flex-direction:column; justify-content:center;
+    gap:5px; width:36px; height:36px; cursor:pointer;
+    background:none; border:none; padding:4px;
+  }
+  .nav-hamburger span {
+    display:block; height:1.5px; width:100%;
+    background:var(--ink); border-radius:2px;
+    transition:transform 0.25s ease, opacity 0.2s ease;
+    transform-origin:center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity:0; }
+  .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .nav-drawer {
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--off-white); z-index:99;
+    flex-direction:column; padding:100px 36px 48px;
+    gap:0;
+  }
+  .nav-drawer.open { display:flex; }
+  .nav-drawer a {
+    font-family:'Instrument Sans',serif;
+    font-size:32px; font-weight:300; color:var(--ink);
+    text-decoration:none; padding:16px 0;
+    border-bottom:1px solid rgba(15,28,43,0.07);
+    display:block; opacity:0.7;
+    transition:opacity 0.2s;
+  }
+  .nav-drawer a:hover { opacity:1; }
+  .nav-drawer a.active { opacity:1; }
+  .nav-drawer-cta {
+    margin-top:32px;
+    background:var(--sage) !important;
+    color:var(--white) !important;
+    padding:16px 28px !important;
+    border-radius:100px !important;
+    text-align:center !important;
+    font-family:'Instrument Sans',sans-serif !important;
+    font-size:15px !important; font-weight:500 !important;
+    border-bottom:none !important;
+    opacity:1 !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #0F1C2B;
+    border-top: 1px solid rgba(30,58,95,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(241,239,234,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #C9A55C;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,165,92,0.3);
+  }
+  .cookie-text a:hover { border-color: #C9A55C; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #1E3A5F;
+    color: #F1EFEA;
+  }
+  .cookie-btn-accept:hover { background: #16283D; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(241,239,234,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(241,239,234,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Watermouse">
+    <meta property="og:title" content="Pricing, Watermouse">
+    <meta property="og:description" content="Transparente Pauschalpreise für Google-Ads-Betreuung europäischer Onlineshops. Ab 1.500 € pro Monat. Keine langen Vertragsbindungen.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/watermouse-preise.html">
+    <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing, Watermouse">
+    <meta name="twitter:description" content="Transparente Pauschalpreise für Google-Ads-Betreuung europäischer Onlineshops. Ab 1.500 € pro Monat. Keine langen Vertragsbindungen.">
+    <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Transparente Pauschalpreise für Google-Ads-Betreuung europäischer Onlineshops. Ab 1.500 € pro Monat. Keine langen Vertragsbindungen.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-preise.html">
+<link rel="alternate" hreflang="en" href="https://agency.thewatermouse.com/watermouse-pricing.html">
+<link rel="alternate" hreflang="nl-NL" href="https://agency.thewatermouse.com/watermouse-tarieven.html">
+<link rel="alternate" hreflang="de-DE" href="https://agency.thewatermouse.com/watermouse-preise.html">
+<link rel="alternate" hreflang="x-default" href="https://agency.thewatermouse.com/watermouse-pricing.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet die Betreuung von Google Ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Watermouse charges a flat monthly fee, not a percentage of ad spend, so the cost is predictable and incentives stay tied to results, not budget. Plans are €1,500/mo (Starter, up to €15k ad spend), €2,500/mo (Growth, up to €50k), and €4,000/mo (Scale, €50k+), with a 3-month minimum and no long-term lock-in. That is typically a fraction of a senior in-house hire or a traditional agency retainer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum 3 Monate Mindestlaufzeit? Ist das eine Bindung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Mindestlaufzeit von 3 Monaten hat einen Grund: So lange dauert es, aufzubauen, zu testen und Optimierung wirken zu lassen. Monat eins ist Audit und Neuaufbau, Monat zwei ist Testen, und in Monat drei beginnen sich Ergebnisse aufzubauen. In Woche vier Ergebnisse zu verlangen ist, als würde man einen Samen pflanzen und ihn zwei Wochen später wieder ausgraben. Danach können Sie jederzeit mit 30 Tagen Frist kündigen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was brauchen Sie von uns, um zu starten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zugang zu Ihrem Google-Ads-Konto, zu Google Analytics 4 und zum Google Merchant Center (für Shopping). Ein 60-minütiges Onboarding-Gespräch, um Ziele, Vorgaben, Margen und Botschaften abzustimmen. Mehr nicht, den Rest übernehmen wir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Übernehmen Sie Anzeigengestaltung und Texte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anzeigentexte sind in jedem Paket enthalten, wir schreiben, testen und verbessern sie. Für Display und YouTube liefern wir kreative Richtung und Briefings. Die finale Produktion der Assets (Video, Bildmaterial) liegt bei Ihrem Kreativteam oder einem Partner, aber wir sagen Ihnen genau, was zu erstellen ist und warum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wir arbeiten bereits mit einer Agentur. Können Sie übernehmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, und das kommt tatsächlich häufig vor. Wir führen zuerst ein vollständiges Audit des bestehenden Kontos durch, bestimmen, was bleibt und was repariert wird, und begleiten den Übergang sorgfältig, um Leistungseinbrüche zu vermeiden. Wir haben das schon oft gemacht und wissen, wie es sauber geht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mit welchen E-Commerce-Plattformen arbeiten Sie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shopify, WooCommerce, Magento und die meisten anderen großen Plattformen. Solange Sie einen Produktfeed und ein Google-Merchant-Center-Konto haben, können wir mit Ihnen arbeiten. Ist Ihr Setup individueller, prüfen wir das im Auditgespräch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich mein Paket erweitern oder verkleinern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, zum Ende jedes Monatszyklus. Wir empfehlen auch von uns aus einen Paketwechsel, wenn er zu Ihrer Wachstumsphase passt. Wir haben Sie lieber im richtigen als im teuersten Paket."
+      }
+    }
+  ]
+}
+</script>
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
+<style>.btn-nav,.nav-drawer-cta{white-space:nowrap}@media(max-width:1100px){.nav-links{gap:14px}}</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="watermouse-de.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
+    <ul class="nav-links">
+      <li><a href="watermouse-de.html#services">Leistungen</a></li>
+      <li><a href="watermouse-preise.html" class="active">Preise</a></li>
+      <li><a href="watermouse-case-studies.html">Referenzen</a></li>
+      <li><a href="watermouse-about.html">Über uns</a></li>
+      <li><a href="watermouse-lead-assessments.html">Analysen</a></li><li><a href="watermouse-guides.html">Ratgeber</a></li>
+      <li><a href="watermouse-book-a-call.html" class="btn-nav">Kostenloses Audit buchen</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="watermouse-de.html#services">Leistungen</a>
+  <a href="watermouse-preise.html" class="active">Preise</a>
+  <a href="watermouse-case-studies.html">Referenzen</a>
+  <a href="watermouse-about.html">Über uns</a>
+  <a href="watermouse-lead-assessments.html">Analysen</a>
+  <a href="watermouse-guides.html">Ratgeber</a>
+  <a href="watermouse-book-a-call.html" class="nav-drawer-cta">Kostenloses Audit buchen →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Einfache, transparente Preise</div>
+    <h1 class="hero-headline">Keine Überraschungen.<br><em>Nur Ergebnisse.</em></h1>
+    <p class="hero-sub">Drei Pakete, abgestimmt darauf, wo Sie stehen und wohin Sie wollen. Keine Einrichtungsgebühren, keine versteckten Kosten, keine langen Bindungen. <strong style="color:var(--ink);font-weight:500;">Gemacht für Marken, die mehr als 5.000 € pro Monat für Google Ads ausgeben.</strong></p>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans">
+  <div class="plans-inner">
+    <div class="plans-grid">
+
+      <!-- STARTER -->
+      <div class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">1.500 €</div>
+        <div class="plan-period">pro Monat</div>
+        <div class="plan-spend">Bis 15.000 € Werbebudget</div>
+        <div class="plan-desc">Für Marken, die Google Ads ernsthaft angehen wollen und ein solides, gut strukturiertes Fundament suchen.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Alle Kampagnentypen: Search, Shopping, PMax, YouTube und Demand Gen
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Vollständiges Konto-Audit beim Start
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Laufende Optimierung und Tests
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Monatliches Strategiegespräch
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Monatlicher Performance-Bericht
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Direkter Slack-Zugang
+          </li>
+        </ul>
+        <a href="https://calendar.app.google/bPKUfMpjKY8YGBr79" target="_blank" class="btn-plan btn-plan-outline">Kostenloses Audit buchen →</a>
+      </div>
+
+      <!-- GROWTH (featured) -->
+      <div class="plan-card featured">
+        <div class="plan-badge">Am beliebtesten</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price">2.500 €</div>
+        <div class="plan-period">pro Monat</div>
+        <div class="plan-spend">Bis 50.000 € Werbebudget</div>
+        <div class="plan-desc">Für Marken, die aktiv skalieren: tiefere Optimierung, schärferes Reporting und engere Abstimmung.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Alles aus Starter
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Strategiegespräch alle zwei Wochen
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Live-Performance-Dashboard
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Einblicke in Wettbewerb und Markt
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#C9A55C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Schnelleres Testen und Optimieren
+          </li>
+        </ul>
+        <a href="https://calendar.app.google/bPKUfMpjKY8YGBr79" target="_blank" class="btn-plan btn-plan-solid">Kostenloses Audit buchen →</a>
+      </div>
+
+      <!-- SCALE -->
+      <div class="plan-card">
+        <div class="plan-name">Scale</div>
+        <div class="plan-price">4.000 €</div>
+        <div class="plan-period">pro Monat</div>
+        <div class="plan-spend">Bis 150.000 € Werbebudget</div>
+        <div class="plan-desc">Für Marken, die in europäische Märkte expandieren und erfahrene strategische Tiefe sowie die Umsetzung in mehreren Märkten brauchen.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Alles aus Growth
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Kampagnen in mehreren Märkten (2+ Märkte)
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            CRO-Empfehlungen
+          </li>
+          <li class="plan-feature">
+            <span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Quartalsreview
+          </li>
+        </ul>
+        <a href="https://calendar.app.google/bPKUfMpjKY8YGBr79" target="_blank" class="btn-plan btn-plan-outline">Kostenloses Audit buchen →</a>
+      </div>
+
+    </div>
+
+    <!-- Commitment note -->
+    <div style="text-align:center; margin-top:32px;">
+      <p style="font-size:13px; color:rgba(15,28,43,0.38); font-weight:300;">
+        Für alle Pakete gilt eine Mindestlaufzeit von 3 Monaten. Das ist keine Knebelung, sondern die Mindestzeit, die man braucht, um sauber aufzubauen, zu testen und zu optimieren. · Keine Einrichtungsgebühren.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="included-inner">
+    <div class="included-header reveal">
+      <div class="section-label">Was jedes Paket enthält</div>
+      <h2 class="included-headline">Die Arbeit, die <em>alles andere funktionieren lässt.</em></h2>
+    </div>
+    <div class="included-grid">
+      <div class="included-item reveal">
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><line x1="15" y1="15" x2="20.5" y2="20.5"/></svg></div>
+        <div class="included-title">Vollständiges Konto-Audit</div>
+        <p class="included-body">Wir beginnen mit der Diagnose, was funktioniert, was Budget verschwendet und wo die echten Chancen liegen. Jede Zusammenarbeit beginnt hier.</p>
+      </div>
+      <div class="included-item reveal" style="transition-delay:0.08s">
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l8 4-8 4-8-4 8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/></svg></div>
+        <div class="included-title">Struktureller Aufbau oder Neuaufbau</div>
+        <p class="included-body">Saubere Kontoarchitektur, ordentliches Feed-Management, präzises Tracking und saubere Attribution. Die Grundlagen, die die meisten Agenturen überspringen.</p>
+      </div>
+      <div class="included-item reveal" style="transition-delay:0.16s">
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,16.5 9,11.5 13,14.5 20,7"/><polyline points="15,7 20,7 20,12"/></svg></div>
+        <div class="included-title">Kontinuierliche Optimierung</div>
+        <p class="included-body">Gebote, Budgets, Zielgruppen, Creatives, Feed. Wir optimieren jede Woche, nicht einmal im Monat, nachdem der Bericht verschickt wurde.</p>
+      </div>
+      <div class="included-item reveal" style="transition-delay:0.08s">
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4.5" width="12" height="16" rx="2"/><rect x="9" y="2.8" width="6" height="3.4" rx="1"/><line x1="9.5" y1="11" x2="14.5" y2="11"/><line x1="9.5" y1="15" x2="13.5" y2="15"/></svg></div>
+        <div class="included-title">Ehrliches Reporting</div>
+        <p class="included-body">Umsatz, ROAS, CAC. Keine Eitelkeitskennzahlen, keine Folien, die gut aussehen sollen. Wenn etwas nicht funktioniert, hören Sie es zuerst von uns.</p>
+      </div>
+      <div class="included-item reveal" style="transition-delay:0.16s">
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.3"/><circle cx="12" cy="12" r="1.1" fill="#1E3A5F" stroke="none"/></svg></div>
+        <div class="included-title">Erfahrene Aufsicht</div>
+        <p class="included-body">Ein erfahrener Stratege verantwortet Ihr Konto von Anfang bis Ende. Er ist in Ihren Gesprächen, in der Plattform und für die Ergebnisse verantwortlich.</p>
+      </div>
+      <div class="included-item reveal" style="transition-delay:0.24s">
+        <div class="included-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><ellipse cx="12" cy="12" rx="3.5" ry="8.2"/><line x1="3.8" y1="12" x2="20.2" y2="12"/></svg></div>
+        <div class="included-title">Marktübergreifendes Wissen</div>
+        <p class="included-body">Wir verstehen, wie sich europäische Märkte unterscheiden: Großbritannien, Niederlande, Deutschland und darüber hinaus. Wir bauen Kampagnen, die lokales Verhalten abbilden, keine Einheitslösung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE MODEL -->
+<section class="perf">
+  <div class="perf-inner">
+    <div class="reveal">
+      <div class="perf-label">Ein alternatives Modell</div>
+      <h2 class="perf-headline">Lieber nach <em>Leistung zahlen?</em></h2>
+      <div class="perf-body">
+        <p>Für die passenden Kunden bieten wir ein Modell aus Grundbetrag und Leistung an: ein niedrigerer fester Retainer kombiniert mit einem Prozentsatz des betreuten monatlichen Werbebudgets.</p>
+        <p>Dieses Modell eignet sich für Marken, die spüren wollen, dass wir ein eigenes Interesse am Ergebnis haben, und für Konten, bei denen wir sicher sind, das Budget effizient skalieren zu können.</p>
+        <p>Es ist nicht für jeden geeignet. Wir besprechen es im Auditgespräch, sobald wir Ihr Konto und Ihre Wachstumsphase verstehen.</p>
+      </div>
+    </div>
+    <div class="perf-card reveal" style="transition-delay:0.1s">
+      <div class="perf-card-label">Beispiel, 20.000 € Monatsbudget</div>
+      <div class="perf-formula">
+        <div class="formula-row">
+          <span class="formula-label">Grund-Retainer</span>
+          <span class="formula-val">900 € / Monat</span>
+        </div>
+        <div class="formula-op">+</div>
+        <div class="formula-row">
+          <span class="formula-label">4 % von 20.000 € Budget</span>
+          <span class="formula-val">800 € / Monat</span>
+        </div>
+      </div>
+      <div class="formula-total">
+        <span class="formula-total-label">Monatliche Gesamtgebühr</span>
+        <span class="formula-total-val">1.700 € / Monat</span>
+      </div>
+      <p class="perf-note">Unabhängig vom Budget gilt eine monatliche Mindestgebühr von 1.500 €. Ob das Leistungsmodell infrage kommt, beurteilen wir im Einzelfall im Auditgespräch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITOR COMPARISON -->
+<section class="compare">
+  <div class="compare-inner">
+    <div class="compare-header reveal">
+      <div class="section-label" style="color:var(--sage)">Wie wir uns vergleichen</div>
+      <h2 class="compare-headline">Was der Markt <em>tatsächlich verlangt.</em></h2>
+      <p class="compare-sub">Google-Ads-Betreuung bewegt sich in einer großen Preisspanne, von Offshore-Agenturen für 300 € im Monat bis zu Londoner Boutiquen für 8.000 € und mehr. Hier sehen Sie, wo Watermouse liegt und warum.</p>
+    </div>
+
+    <div class="compare-table-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:26%">Agenturtyp</th>
+            <th style="width:18%">Üblicher Rahmen</th>
+            <th>Erfahrene Aufsicht</th>
+            <th>Kenntnis des europäischen Marktes</th>
+            <th>E-Commerce-Spezialisierung</th>
+            <th>Preis-Leistung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="type-label">Große europäische Agentur</span>
+              <span class="type-sub">Amsterdam, London, Berlin</span>
+            </td>
+            <td><span class="range-pill pill-red">3.000–8.000 €/Monat</span></td>
+            <td><span class="cross-cell">~</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="cross-cell">~</span></td>
+            <td><span class="cross-cell">~</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="type-label">Europäischer Boutique-Spezialist</span>
+              <span class="type-sub">Nischenfokus, 5–15 Personen</span>
+            </td>
+            <td><span class="range-pill pill-amber">2.000–5.000 €/Monat</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="cross-cell">~</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="type-label">Europäischer Freelancer</span>
+              <span class="type-sub">Einzelkämpfer, kein Team</span>
+            </td>
+            <td><span class="range-pill pill-amber">800–2.000 €/Monat</span></td>
+            <td><span class="cross-cell">~</span></td>
+            <td><span class="cross-cell">~</span></td>
+            <td><span class="cross-cell">~</span></td>
+            <td><span class="check-cell">✓</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="type-label">Offshore-Agentur</span>
+              <span class="type-sub">Generalisten aus Indien, Südostasien und Lateinamerika</span>
+            </td>
+            <td><span class="range-pill pill-green">300–900 €/Monat</span></td>
+            <td><span class="cross-cell">✗</span></td>
+            <td><span class="cross-cell">✗</span></td>
+            <td><span class="cross-cell">✗</span></td>
+            <td><span class="cross-cell">~</span></td>
+          </tr>
+          <tr class="mira-row">
+            <td>
+              <span class="type-label">Watermouse</span>
+              <span class="type-sub">Erfahrener Spezialist, Europa-fokussiert, mit Sitz in Brasilien</span>
+            </td>
+            <td><span class="range-pill pill-mira">1.500–4.000 €/Monat</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="check-cell">✓</span></td>
+            <td><span class="check-cell">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="compare-note reveal">
+      <div class="compare-note-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15.5a5 5 0 1 1 6 0c-.8.6-1 1.3-1 2.2H10c0-.9-.2-1.6-1-2.2z"/><line x1="10" y1="20.5" x2="14" y2="20.5"/></svg></div>
+      <div class="compare-note-text">
+        <strong>Und was ist mit günstigeren Offshore-Agenturen?</strong> Die gibt es, und einige europäische Marken nutzen sie. Aber der eigentliche Unterschied ist nicht der Preis, sondern zu wissen, wie europäische Käufer tatsächlich kaufen, wie ausgereift jede Werbeplattform hier ist und wer ans Telefon geht, wenn etwas kaputtgeht. Eine Agentur für 400 € im Monat, die 30.000 € Werbebudget im Monat steuert, ist ein Risiko von 30.000 €, um 400 € zu sparen. Watermouse ist eine andere Kategorie: erfahrene Expertise, echte Erfahrung im europäischen Markt und eine Kostenstruktur, die dort ansetzt, wo wir arbeiten, nicht dort, wo unsere Kunden sitzen.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="section-label" style="color:var(--sage);">Häufige Fragen</div>
+      <h2 class="faq-headline">Alles, was Sie <em>wissen möchten.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Was kostet die Betreuung von Google Ads?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Watermouse berechnet eine monatliche Pauschale und keinen Prozentsatz Ihres Werbebudgets, damit die Kosten planbar sind und unsere Anreize an Ihr Ergebnis gebunden bleiben, nicht an Ihr Budget. Die Pakete kosten 1.500 €/Monat (Starter, bis 15.000 € Werbebudget), 2.500 €/Monat (Growth, bis 50.000 €) und 4.000 €/Monat (Scale, ab 50.000 €), bei einer Mindestlaufzeit von 3 Monaten und ohne lange Bindung. Das ist in der Regel ein Bruchteil einer erfahrenen Festanstellung oder eines klassischen Agentur-Retainers.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Warum 3 Monate Mindestlaufzeit? Ist das eine Bindung?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Die Mindestlaufzeit von 3 Monaten hat einen Grund: So lange dauert es, aufzubauen, zu testen und Optimierung wirken zu lassen. Monat eins ist Audit und Neuaufbau, Monat zwei ist Testen, und in Monat drei beginnen sich Ergebnisse aufzubauen. In Woche vier Ergebnisse zu verlangen ist, als würde man einen Samen pflanzen und ihn zwei Wochen später wieder ausgraben. Danach können Sie jederzeit mit 30 Tagen Frist kündigen.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Was brauchen Sie von uns, um zu starten?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Zugang zu Ihrem Google-Ads-Konto, zu Google Analytics 4 und zum Google Merchant Center (für Shopping). Ein 60-minütiges Onboarding-Gespräch, um Ziele, Vorgaben, Margen und Botschaften abzustimmen. Mehr nicht, den Rest übernehmen wir.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Übernehmen Sie Anzeigengestaltung und Texte?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Anzeigentexte sind in jedem Paket enthalten, wir schreiben, testen und verbessern sie. Für Display und YouTube liefern wir kreative Richtung und Briefings. Die finale Produktion der Assets (Video, Bildmaterial) liegt bei Ihrem Kreativteam oder einem Partner, aber wir sagen Ihnen genau, was zu erstellen ist und warum.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Wir arbeiten bereits mit einer Agentur. Können Sie übernehmen?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Ja, und das kommt tatsächlich häufig vor. Wir führen zuerst ein vollständiges Audit des bestehenden Kontos durch, bestimmen, was bleibt und was repariert wird, und begleiten den Übergang sorgfältig, um Leistungseinbrüche zu vermeiden. Wir haben das schon oft gemacht und wissen, wie es sauber geht.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Mit welchen E-Commerce-Plattformen arbeiten Sie?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Shopify, WooCommerce, Magento und die meisten anderen großen Plattformen. Solange Sie einen Produktfeed und ein Google-Merchant-Center-Konto haben, können wir mit Ihnen arbeiten. Ist Ihr Setup individueller, prüfen wir das im Auditgespräch.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span class="faq-q-text">Kann ich mein Paket erweitern oder verkleinern?</span>
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-a">Ja, zum Ende jedes Monatszyklus. Wir empfehlen auch von uns aus einen Paketwechsel, wenn er zu Ihrer Wachstumsphase passt. Wir haben Sie lieber im richtigen als im teuersten Paket.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner reveal">
+    <div class="cta-label">Noch unsicher?</div>
+    <h2 class="cta-headline">Beginnen Sie mit einem <em>kostenlosen Audit.</em></h2>
+    <p class="cta-sub">Buchen Sie ein 30-minütiges Gespräch. Wir sehen uns Ihr aktuelles Google-Ads-Setup an und sagen Ihnen ehrlich, was wir anders machen würden, ohne Verkaufsgespräch und ohne Verpflichtung.</p>
+    <div class="cta-actions">
+      <a href="https://calendar.app.google/bPKUfMpjKY8YGBr79" target="_blank" class="btn-light">
+        Kostenloses Audit buchen
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="watermouse-case-studies.html" class="btn-ghost-light">Unsere Referenzen ansehen (Englisch) →</a>
+    </div>
+    <p class="cta-note">Mindestlaufzeit 3 Monate · Keine Einrichtungsgebühren · Kündigung mit 30 Tagen Frist</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><svg class="wm-mark" width="28" height="28" viewBox="10 20 80 80" aria-hidden="true"><rect x="11" y="21" width="78" height="78" rx="9" fill="none" stroke="rgba(241,239,234,0.35)" stroke-width="2"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#C9A55C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="footer-logo-word">Watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="watermouse-de.html#services">Leistungen</a></li>
+      <li><a href="watermouse-preise.html">Preise</a></li>
+      <li><a href="watermouse-case-studies.html">Referenzen</a></li>
+      <li><a href="watermouse-about.html">Über uns</a></li>
+      <li><a href="https://calendar.app.google/bPKUfMpjKY8YGBr79" target="_blank">Kontakt</a></li>
+    <li><a href="watermouse-privacy.html">Datenschutz</a></li><li><a href="watermouse-terms.html">AGB</a></li><li class="lang-sw"><a href="watermouse-pricing.html" hreflang="en">English</a></li><li class="lang-sw"><a href="watermouse-tarieven.html" hreflang="nl">Nederlands</a></li></ul>
+    <span class="footer-copy">&copy; 2026 Watermouse. Alle Rechte vorbehalten.</span>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+<script>
+  // Mobile nav
+  function toggleNav() {
+    const btn = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+  }
+  // Close on escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      Wir verwenden Cookies, um zu verstehen, wie Besucher unsere Website nutzen, und um sie laufend zu verbessern. Es werden keine Daten an Dritte verkauft. Lesen Sie unsere
+      <a href="watermouse-privacy.html">Datenschutzerklärung</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Ablehnen</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Akzeptieren</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-book-a-call.html" class="wm-mcta" aria-label="Book a free audit">Kostenloses Audit buchen →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
+</body>
+</html>
