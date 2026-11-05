@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager com Consent Mode v2: consentimento NEGADO por padrao, sem cookies ate o aceite. GA4 e eventos ficam no container GTM. -->
+<script>
+(function(){
+  var GTM_ID = 'GTM-T665625S';
+  var ADVANCED = true; // true: GTM carrega sempre, com tudo negado (pings sem cookies); false: so depois do aceite
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var ok = false;
+  try { ok = localStorage.getItem('wm_cookie_consent') === 'accepted'; } catch(e){}
+  var g = ok ? 'granted' : 'denied';
+  gtag('consent', 'default', {ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g, wait_for_update: 500});
+  gtag('set', 'ads_data_redaction', true);
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(s);
+  };
+  window.wmConsentGrant = function(){
+    gtag('consent', 'update', {ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'});
+    window.loadWatermouseGA();
+  };
+  if (ADVANCED || ok) window.loadWatermouseGA();
+  document.addEventListener('DOMContentLoaded', function(){
+    var o1 = window.wmCookie;
+    if (typeof o1 === 'function') { window.wmCookie = function(a){ o1.apply(this, arguments); if (a) window.wmConsentGrant(); }; }
+    var o2 = window.cookieAccept;
+    if (typeof o2 === 'function') { window.cookieAccept = function(){ o2.apply(this, arguments); window.wmConsentGrant(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodrigo Kato, erfahrener Google-Ads-Berater für Onlineshops | Watermouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#1E3A5F;--sage-light:#C9A55C;--sage-pale:#E6E9EE;
+    --sage-dark:#16283D;--warm:#E3DED3;--warm-deep:#A9823A;
+    --warm-dark:#5A6878;--ink:#0F1C2B;--off-white:#F1EFEA;--white:#FFFFFF;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Instrument Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(241,239,234,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(15,28,43,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a.active{opacity:1;font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;transition:background 0.2s!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Instrument Sans',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(15,28,43,0.07);display:block;opacity:0.7;transition:opacity 0.2s;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'Instrument Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* HERO */
+  .hero{padding:88px 0 0;position:relative;overflow:hidden;}
+  .hero-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .hero-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;}
+  .hero-headline{font-family:'Instrument Sans',serif;font-size:64px;font-weight:300;line-height:1.0;color:var(--ink);margin-bottom:0;}
+  .hero-headline em{font-style:italic;color:var(--sage);}
+
+  /* SPLIT INTRO */
+  .intro{padding:64px 0 80px;}
+  .intro-inner{max-width:1060px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .intro-left{}
+  .intro-right{}
+  .intro-large{font-family:'Instrument Sans',serif;font-size:26px;font-weight:300;line-height:1.45;color:var(--ink);margin-bottom:32px;}
+  .intro-large em{font-style:italic;color:var(--sage);}
+  .intro-body{font-size:15px;font-weight:300;line-height:1.8;color:rgba(15,28,43,0.6);}
+  .intro-body p+p{margin-top:16px;}
+
+  .origin-card{background:var(--ink);border-radius:24px;padding:40px;color:var(--off-white);}
+  .origin-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.6;margin-bottom:20px;}
+  .origin-text{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;line-height:1.55;color:var(--off-white);}
+  .origin-text em{font-style:italic;color:var(--sage-light);}
+  .origin-foot{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;font-weight:300;color:rgba(241,239,234,0.35);line-height:1.6;}
+
+  /* BELIEFS */
+  .beliefs{background:var(--sage-dark);padding:96px 0;}
+  .beliefs-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .beliefs-header{margin-bottom:56px;}
+  .beliefs-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.6;margin-bottom:16px;}
+  .beliefs-headline{font-family:'Instrument Sans',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--off-white);}
+  .beliefs-headline em{font-style:italic;color:var(--sage-light);}
+  .beliefs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .belief-item{background:rgba(255,255,255,0.04);padding:40px;transition:background 0.2s;}
+  .belief-item:hover{background:rgba(255,255,255,0.07);}
+  .belief-num{font-family:'Instrument Sans',serif;font-size:13px;font-weight:300;color:var(--sage-light);opacity:0.4;margin-bottom:16px;}
+  .belief-title{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;color:var(--off-white);margin-bottom:12px;line-height:1.25;}
+  .belief-body{font-size:14px;font-weight:300;line-height:1.75;color:rgba(241,239,234,0.42);}
+
+  /* HOW WE WORK */
+  .how{padding:96px 0;}
+  .how-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .how-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:64px;align-items:end;}
+  .how-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .how-headline{font-family:'Instrument Sans',serif;font-size:44px;font-weight:300;line-height:1.1;color:var(--ink);}
+  .how-headline em{font-style:italic;color:var(--sage);}
+  .how-intro{font-size:15px;font-weight:300;line-height:1.8;color:rgba(15,28,43,0.55);align-self:end;}
+  .how-steps{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(15,28,43,0.07);}
+  .how-step{display:grid;grid-template-columns:80px 1fr 1fr;gap:40px;padding:40px 0;border-bottom:1px solid rgba(15,28,43,0.07);align-items:start;}
+  .how-step-num{font-family:'Instrument Sans',serif;font-size:36px;font-weight:300;color:var(--sage);opacity:0.25;line-height:1;}
+  .how-step-title{font-family:'Instrument Sans',serif;font-size:20px;font-weight:300;color:var(--ink);line-height:1.3;padding-top:6px;}
+  .how-step-body{font-size:14px;font-weight:300;line-height:1.75;color:rgba(15,28,43,0.55);padding-top:6px;}
+
+  /* RODRIGO */
+  .founder{padding:0 0 96px;}
+  .founder-inner{max-width:1060px;margin:0 auto;padding:0 60px;}
+  .founder-card{display:grid;grid-template-columns:1fr 360px;background:var(--warm);border-radius:28px;overflow:hidden;}
+  .founder-content{padding:52px;}
+  .founder-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-dark);opacity:0.6;margin-bottom:20px;}
+  .founder-name{font-family:'Instrument Sans',serif;font-size:36px;font-weight:300;color:var(--ink);margin-bottom:6px;}
+  .founder-role{font-size:13px;font-weight:300;color:rgba(15,28,43,0.45);margin-bottom:28px;letter-spacing:0.04em;}
+  .founder-bio{font-size:15px;font-weight:300;line-height:1.8;color:rgba(15,28,43,0.65);}
+  .founder-bio p+p{margin-top:14px;}
+  .founder-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+  .founder-tag{font-size:11px;font-weight:400;padding:6px 14px;border-radius:100px;background:rgba(15,28,43,0.07);color:rgba(15,28,43,0.55);}
+  .founder-visual{background:linear-gradient(160deg,var(--warm-deep) 0%,var(--warm-dark) 100%);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden;}
+  .founder-visual-pattern{position:absolute;inset:0;opacity:0.08;background-image:radial-gradient(circle,rgba(15,28,43,0.8) 1px,transparent 1px);background-size:24px 24px;}
+  .founder-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .founder-linkedin{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:13px;font-weight:500;color:var(--sage);text-decoration:none;transition:opacity .2s;}
+  .founder-linkedin:hover{opacity:0.7;}
+  .founder-linkedin svg{width:16px;height:16px;}
+
+
+  /* CTA */
+  .cta-section{background:var(--sage-dark);padding:100px 0;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(30,58,95,0.2) 0%,transparent 65%);}
+  .cta-inner{max-width:640px;margin:0 auto;padding:0 60px;text-align:center;position:relative;z-index:1;}
+  .cta-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);opacity:0.7;margin-bottom:14px;}
+  .cta-headline{font-family:'Instrument Sans',serif;font-size:44px;font-weight:300;line-height:1.15;color:var(--off-white);margin-bottom:16px;}
+  .cta-headline em{font-style:italic;color:var(--sage-light);}
+  .cta-sub{font-size:16px;font-weight:300;line-height:1.65;color:rgba(241,239,234,0.45);margin-bottom:40px;}
+  .btn-light{background:var(--off-white);color:var(--ink);padding:15px 30px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+  .btn-light:hover{background:var(--warm);}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Instrument Sans',serif;font-size:18px;font-weight:300;color:rgba(241,239,234,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(241,239,234,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(241,239,234,0.18);}
+
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .hero-label{animation:fadeUp 0.5s ease both;}
+  .hero-headline{animation:fadeUp 0.5s ease 0.07s both;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  .reveal-delay-1{transition-delay:0.08s;}
+  .reveal-delay-2{transition-delay:0.16s;}
+
+  @media(max-width:900px){
+    .intro-inner{grid-template-columns:1fr;}
+    .how-header{grid-template-columns:1fr;}
+    .how-step{grid-template-columns:48px 1fr;gap:24px;}
+    .how-step-body{grid-column:2;}
+    .founder-card{grid-template-columns:1fr;}
+    .founder-visual{min-height:200px;}
+    .beliefs-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .hero{padding:52px 0 0;}
+    .hero-inner{padding:0 24px;}
+    .hero-headline{font-size:40px;}
+    .intro{padding:40px 0 56px;}
+    .intro-inner{padding:0 24px;gap:40px;}
+    .intro-large{font-size:22px;}
+    .beliefs{padding:64px 0;}
+    .beliefs-inner{padding:0 24px;}
+    .beliefs-headline{font-size:32px;}
+    .belief-item{padding:28px 24px;}
+    .how{padding:64px 0;}
+    .how-inner{padding:0 24px;}
+    .how-headline{font-size:32px;}
+    .how-step{grid-template-columns:40px 1fr;gap:16px;padding:28px 0;}
+    .founder{padding:0 0 64px;}
+    .founder-inner{padding:0 24px;}
+    .founder-content{padding:32px;}
+    .cta-section{padding:72px 0;}
+    .cta-inner{padding:0 24px;}
+    .cta-headline{font-size:32px;}
+    footer{padding:32px 0;}
+    .footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hero-headline{font-size:32px;}
+    .beliefs-headline{font-size:26px;}
+    .how-headline{font-size:26px;}
+    .cta-headline{font-size:26px;}
+    .founder-name{font-size:28px;}
+  }
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #0F1C2B;
+    border-top: 1px solid rgba(30,58,95,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(241,239,234,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #C9A55C;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,165,92,0.3);
+  }
+  .cookie-text a:hover { border-color: #C9A55C; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #1E3A5F;
+    color: #F1EFEA;
+  }
+  .cookie-btn-accept:hover { background: #16283D; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(241,239,234,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(241,239,234,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Watermouse">
+    <meta property="og:title" content="About, Watermouse">
+    <meta property="og:description" content="Watermouse is senior Google Ads management for European eCommerce brands that want expert results without the agency overhead.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/watermouse-ueber-uns.html">
+    <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About, Watermouse">
+    <meta name="twitter:description" content="Watermouse is senior Google Ads management for European eCommerce brands that want expert results without the agency overhead.">
+    <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Rodrigo Kato ist erfahrener Google-Ads-Berater für europäische Onlineshops: ein Spezialist direkt auf Ihrem Konto, keine Übergaben an Junioren, kein Agentur-Overhead.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-ueber-uns.html">
+<link rel="alternate" hreflang="en" href="https://agency.thewatermouse.com/watermouse-about.html">
+<link rel="alternate" hreflang="nl-NL" href="https://agency.thewatermouse.com/watermouse-over-ons.html">
+<link rel="alternate" hreflang="de-DE" href="https://agency.thewatermouse.com/watermouse-ueber-uns.html">
+<link rel="alternate" hreflang="x-default" href="https://agency.thewatermouse.com/watermouse-about.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://agency.thewatermouse.com/watermouse-about.html#rodrigo",
+        "name": "Rodrigo Sanematsu Kato",
+        "alternateName": "Rodrigo Kato",
+        "jobTitle": "Senior Google Ads Consultant",
+        "description": "Senior Google Ads operator for European eCommerce brands, one person directly responsible for the account, with experience across the Netherlands, the UK, Germany and beyond. Founded in Brazil, built for Europe.",
+        "image": "https://agency.thewatermouse.com/media/rodrigo-kato.jpg",
+        "url": "https://agency.thewatermouse.com/watermouse-ueber-uns.html",
+        "worksFor": { "@type": "Organization", "name": "Watermouse", "url": "https://agency.thewatermouse.com/" },
+        "knowsAbout": ["Google Ads", "Performance Max", "Google Shopping", "eCommerce PPC", "Paid media", "European eCommerce"],
+        "sameAs": ["https://www.linkedin.com/in/rodrigo-sanematsu-kato/"]
+      }
+    }
+    </script>
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
+<style>.btn-nav,.nav-drawer-cta{white-space:nowrap}@media(max-width:1100px){.nav-links{gap:14px}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="watermouse-de.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
+    <ul class="nav-links">
+      <li><a href="watermouse-de.html#services">Leistungen</a></li>
+      <li><a href="watermouse-preise.html">Preise</a></li>
+      <li><a href="watermouse-referenzen.html">Referenzen</a></li>
+      <li><a href="watermouse-ueber-uns.html" class="active">Über uns</a></li>
+      <li><a href="watermouse-lead-assessments.html">Analysen</a></li><li><a href="watermouse-guides.html">Ratgeber</a></li>
+      <li><a href="watermouse-kostenloses-audit.html" class="btn-nav">Kostenloses Audit buchen</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="watermouse-de.html#services">Leistungen</a>
+  <a href="watermouse-preise.html">Preise</a>
+  <a href="watermouse-referenzen.html">Referenzen</a>
+  <a href="watermouse-ueber-uns.html" class="active">Über uns</a>
+  <a href="watermouse-lead-assessments.html">Analysen</a>
+  <a href="watermouse-guides.html">Ratgeber</a>
+  <a href="watermouse-kostenloses-audit.html" class="nav-drawer-cta">Kostenloses Audit buchen →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Über Watermouse</div>
+    <h1 class="hero-headline">Erfahrene Expertise.<br><em>Ohne Zwischenebenen.</em></h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-left reveal">
+      <p class="intro-large">Die meisten Agenturen verkaufen den Zugang zu einem Team. <em>Watermouse verkauft den Zugang zu der Person, die wirklich weiß, was sie tut.</em></p>
+      <div class="intro-body">
+        <p>Europäische Onlineshops, die mit großen Agenturen arbeiten, briefen oft Junior-Account-Manager, die erfahrene Strategen briefen, die gelegentlich bei Quartalsgesprächen auftauchen. Die Arbeit an ihrem Konto, das eigentliche Denken und die täglichen Entscheidungen, findet mehrere Stufen unterhalb der Person statt, mit der sie unterschrieben haben.</p>
+        <p>Watermouse ist anders aufgebaut. Ein erfahrener Spezialist, direkt verantwortlich für Ihr Konto, mit der passenden Erfahrung. Keine Übergaben. Keine Zwischenebenen. Niemand, der auf Ihrem Budget lernt.</p>
+      </div>
+    </div>
+    <div class="intro-right reveal reveal-delay-1">
+      <div class="origin-card">
+        <div class="origin-label">Der Name</div>
+        <p class="origin-text"><em>Watermouse</em>, klein, leise, präzise. Jede Kampagne hat ein klares Ziel, und jede Entscheidung zielt darauf. Der Name erinnert daran, dass bezahlte Medien ohne Ziel keine Strategie sind, sondern Geldausgeben.</p>
+        <div class="origin-foot">In Brasilien gegründet. Für Europa gebaut. Die Distanz ist ein Vorteil und kein Mangel: Die Betriebskosten bleiben niedrig, und diese Ersparnis fließt direkt in die Qualität der Arbeit, nicht in Agentur-Overhead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="beliefs">
+  <div class="beliefs-inner">
+    <div class="beliefs-header reveal">
+      <div class="beliefs-label">Woran wir glauben</div>
+      <h2 class="beliefs-headline">Ein paar Dinge, die man <em>klar aussprechen sollte.</em></h2>
+    </div>
+    <div class="beliefs-grid">
+      <div class="belief-item reveal">
+        <div class="belief-num">01</div>
+        <div class="belief-title">Performance-Marketing ist ein Handwerk, keine Vorlage.</div>
+        <p class="belief-body">Es gibt kein Playbook, das bei jedem Konto funktioniert. Was für eine Modemarke in Deutschland mit 200 € Warenkorbwert funktioniert, funktioniert nicht für einen Verbrauchsartikel für 50 € in den Niederlanden. Gute bezahlte Medien erfordern echtes Nachdenken über das konkrete Produkt, den konkreten Markt und den konkreten Moment, nicht das Kopieren der Struktur des letzten Quartals.</p>
+      </div>
+      <div class="belief-item reveal reveal-delay-1">
+        <div class="belief-num">02</div>
+        <div class="belief-title">Automatisierung soll Expertise vervielfachen, nicht ersetzen.</div>
+        <p class="belief-body">Googles maschinelles Lernen ist wirklich leistungsfähig. PMax, Smart Bidding, dynamische Creatives: Diese Werkzeuge funktionieren. Aber am besten dann, wenn jemand, der die zugrunde liegenden Mechanismen versteht, sie richtig einrichtet und ehrlich überwacht. Automatisierung ohne Urteilsvermögen erzeugt effiziente Mittelmäßigkeit.</p>
+      </div>
+      <div class="belief-item reveal">
+        <div class="belief-num">03</div>
+        <div class="belief-title">Reporting soll Ihnen etwas Nützliches sagen.</div>
+        <p class="belief-body">Ein Bericht, der zeigt, dass der ROAS gestiegen ist, ohne zu erklären warum, ist nur Rauschen. Gutes Reporting verbindet, was im Konto geschah, mit dem, was im Geschäft geschieht, und weist auf Probleme hin, bevor sie in den Zahlen auftauchen, die Ihr CFO sieht.</p>
+      </div>
+      <div class="belief-item reveal reveal-delay-1">
+        <div class="belief-num">04</div>
+        <div class="belief-title">Die besten Kundenbeziehungen sind direkte.</div>
+        <p class="belief-body">Keine Account-Manager zwischen Ihnen und der Arbeit. Niemand, der Ihr Feedback in ein Briefing übersetzt. Sie sprechen direkt mit der Person, die Ihre Kampagnen betreut. Das bedeutet schnellere Entscheidungen, weniger Missverständnisse und eine Zusammenarbeit, die auf echtem Vertrauen beruht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="how">
+  <div class="how-inner">
+    <div class="how-header reveal">
+      <div>
+        <div class="how-label">So arbeiten wir</div>
+        <h2 class="how-headline">Was Sie erwarten können, wenn Sie <em>mit Watermouse arbeiten.</em></h2>
+      </div>
+      <p class="how-intro">Wir halten die Zusammenarbeit bewusst einfach. Weniger bewegliche Teile bedeuten weniger Reibung und mehr Zeit für die Arbeit, auf die es ankommt.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">Zuerst ein ordentliches Audit</div>
+        <div class="how-step-body">Jede Zusammenarbeit beginnt mit einer gründlichen Prüfung Ihres Google-Ads-Kontos: Struktur, Gebotslogik, Feed-Qualität, Attribution und Effizienz der Ausgaben. Wir sagen Ihnen ehrlich, was wir finden, auch wenn das Konto besser dasteht als erwartet. Wir verkaufen keine Probleme, die es nicht gibt.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">Eine Strategie, die zu Ihrem Geschäft passt, keine Vorlage</div>
+        <div class="how-step-body">Auf Basis des Audits erstellen wir eine Roadmap für Ihre Ziele, sei es, ein strukturelles Problem zu beheben, in neue Märkte zu skalieren oder den ROAS zu verbessern, ohne zu kürzen. Sie wissen genau, was wir tun und warum, bevor wir das Konto anfassen.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">Monatliches Reporting, das wirklich etwas bedeutet</div>
+        <div class="how-step-body">Keine Dashboard-Abwürfe. Jeden Monat erhalten Sie eine klare Zusammenfassung dessen, was passiert ist, was wir gelernt haben und was wir als Nächstes tun. Wenn etwas nicht funktioniert, sagen wir es. Wenn etwas gut funktioniert, erklären wir, warum, damit Sie es verstehen und nicht nur darauf vertrauen.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-num">04</div>
+        <div class="how-step-title">Immer direkter Zugang</div>
+        <div class="how-step-body">Sie haben eine direkte Leitung zu der Person, die Ihr Konto betreut. Kein Support-Postfach. Kein Account-Manager. Wenn zwischen den Terminen etwas anfällt, ein Produktlaunch, eine Aktion, eine Budgetfrage, melden Sie sich und bekommen schnell eine echte Antwort.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="founder-inner">
+    <div class="founder-card reveal">
+      <div class="founder-content">
+        <div class="founder-label">Die Person dahinter</div>
+        <div class="founder-name">Rodrigo Kato</div>
+        <div class="founder-role">Gründer und erfahrener Performance-Marketer</div>
+        <div class="founder-bio">
+          <p>Rodrigo betreut seit über 6 Jahren bezahlte Medien für Marken in Europa, Amerika und darüber hinaus, verantwortete Budgets in Millionenhöhe und baute Performance-Infrastruktur auf, die skaliert, ohne zu brechen.</p>
+          <p>Er arbeitete festangestellt als Performance Marketing Manager, leitete Growth-Teams über verteilte Märkte hinweg und war als Spezialist im gesamten Google-Ads-Stack tätig: Search, Shopping, PMax und feedbasierte Automatisierung in großem Maßstab.</p>
+          <p>Watermouse baut auf diesem Fundament auf: tiefe, praktische Erfahrung mit der tatsächlichen Mechanik von Google Ads, direkt für europäische Onlineshops, die es mit dem Wachstum ernst meinen.</p>
+        </div>
+        <div class="founder-tags">
+          <span class="founder-tag">Google Ads</span>
+          <span class="founder-tag">Shopping und PMax</span>
+          <span class="founder-tag">Feed-Automatisierung</span>
+          <span class="founder-tag">Skalierung über mehrere Märkte</span>
+          <span class="founder-tag">E-Commerce-Wachstum</span>
+          <span class="founder-tag">6+ Jahre</span>
+        </div>
+        <a class="founder-linkedin" href="https://www.linkedin.com/in/rodrigo-sanematsu-kato/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Auf LinkedIn vernetzen
+        </a>
+      </div>
+      <div class="founder-visual">
+        <img src="media/rodrigo-kato.jpg" alt="Rodrigo Kato, founder of The Watermouse" class="founder-photo" onerror="this.style.display='none'">
+        <div class="founder-visual-pattern"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-label">Zusammenarbeit</div>
+    <h2 class="cta-headline">Beginnen Sie mit einem <em>kostenlosen Audit.</em></h2>
+    <p class="cta-sub">30 Minuten. Wir sehen uns Ihr echtes Google-Ads-Konto an und sagen Ihnen ehrlich, was wir sehen, ohne Verkaufsgespräch und ohne Druck.</p>
+    <a href="watermouse-kostenloses-audit.html" class="btn-light">
+      Kostenloses Audit buchen
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#0F1C2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><svg class="wm-mark" width="28" height="28" viewBox="10 20 80 80" aria-hidden="true"><rect x="11" y="21" width="78" height="78" rx="9" fill="none" stroke="rgba(241,239,234,0.35)" stroke-width="2"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#C9A55C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="footer-logo-word">Watermouse</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="watermouse-de.html#services">Leistungen</a></li>
+      <li><a href="watermouse-preise.html">Preise</a></li>
+      <li><a href="watermouse-referenzen.html">Referenzen</a></li>
+      <li><a href="watermouse-kostenloses-audit.html">Kontakt</a></li>
+    <li><a href="watermouse-privacy.html">Datenschutz</a></li><li><a href="watermouse-terms.html">AGB</a></li><li class="lang-sw"><a href="watermouse-about.html" hreflang="en">English</a></li><li class="lang-sw"><a href="watermouse-over-ons.html" hreflang="nl">Nederlands</a></li></ul>
+    <span class="footer-copy">&copy; 2026 Watermouse. Alle Rechte vorbehalten.</span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(){
+    const btn=document.getElementById('nav-hamburger');
+    const drawer=document.getElementById('nav-drawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.getElementById('nav-hamburger').classList.remove('open');
+      document.getElementById('nav-drawer').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      Wir verwenden Cookies, um zu verstehen, wie Besucher unsere Website nutzen, und um sie laufend zu verbessern. Es werden keine Daten an Dritte verkauft. Lesen Sie unsere
+      <a href="watermouse-privacy.html">Datenschutzerklärung</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Ablehnen</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Akzeptieren</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-kostenloses-audit.html" class="wm-mcta" aria-label="Book a free audit">Kostenloses Audit buchen →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
+</body>
+</html>

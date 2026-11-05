@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager com Consent Mode v2: consentimento NEGADO por padrao, sem cookies ate o aceite. GA4 e eventos ficam no container GTM. -->
+<script>
+(function(){
+  var GTM_ID = 'GTM-T665625S';
+  var ADVANCED = true; // true: GTM carrega sempre, com tudo negado (pings sem cookies); false: so depois do aceite
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var ok = false;
+  try { ok = localStorage.getItem('wm_cookie_consent') === 'accepted'; } catch(e){}
+  var g = ok ? 'granted' : 'denied';
+  gtag('consent', 'default', {ad_storage: g, ad_user_data: g, ad_personalization: g, analytics_storage: g, wait_for_update: 500});
+  gtag('set', 'ads_data_redaction', true);
+  window.loadWatermouseGA = function(){
+    if (window.__watermouseGA) return; window.__watermouseGA = true;
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(s);
+  };
+  window.wmConsentGrant = function(){
+    gtag('consent', 'update', {ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'});
+    window.loadWatermouseGA();
+  };
+  if (ADVANCED || ok) window.loadWatermouseGA();
+  document.addEventListener('DOMContentLoaded', function(){
+    var o1 = window.wmCookie;
+    if (typeof o1 === 'function') { window.wmCookie = function(a){ o1.apply(this, arguments); if (a) window.wmConsentGrant(); }; }
+    var o2 = window.cookieAccept;
+    if (typeof o2 === 'function') { window.cookieAccept = function(){ o2.apply(this, arguments); window.wmConsentGrant(); }; }
+  });
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TicketSwap: +60 % Abdeckung, −80 % Teamzeit | Google-Ads-Fallstudie</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--sage:#1E3A5F;--sage-light:#C9A55C;--sage-pale:#E6E9EE;--sage-dark:#16283D;--warm:#E3DED3;--warm-deep:#A9823A;--warm-dark:#5A6878;--ink:#0F1C2B;--off-white:#F1EFEA;--white:#FFFFFF;--brand:#1A5276;--brand-pale:#E8F4FF;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Instrument Sans',sans-serif;background:var(--off-white);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(241,239,234,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(15,28,43,0.07);}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo-word{font-family:'Instrument Sans',serif;font-size:22px;font-weight:300;color:var(--ink);letter-spacing:0.04em;}
+  .nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--ink);text-decoration:none;opacity:0.5;transition:opacity 0.2s;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;}
+  .nav-links a.active{font-weight:500;}
+  .btn-nav{background:var(--sage);color:var(--white)!important;opacity:1!important;padding:10px 22px;border-radius:100px;font-size:13px!important;font-weight:500!important;}
+  .btn-nav:hover{background:var(--sage-dark)!important;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--off-white);z-index:99;flex-direction:column;padding:100px 36px 48px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{font-family:'Instrument Sans',serif;font-size:32px;font-weight:300;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(15,28,43,0.07);display:block;opacity:0.7;}
+  .nav-drawer a:hover,.nav-drawer a.active{opacity:1;}
+  .nav-drawer-cta{margin-top:32px;background:var(--sage)!important;color:var(--white)!important;padding:16px 28px!important;border-radius:100px!important;text-align:center!important;font-family:'Instrument Sans',sans-serif!important;font-size:15px!important;font-weight:500!important;border-bottom:none!important;opacity:1!important;}
+
+  /* HERO */
+  .hero{background:var(--brand);padding:80px 0 0;position:relative;overflow:hidden;}
+  .hero-pattern{position:absolute;inset:0;opacity:0.05;background-image:radial-gradient(circle,white 1px,transparent 1px);background-size:32px 32px;}
+  .hero-inner{max-width:1060px;margin:0 auto;padding:0 60px;position:relative;z-index:1;}
+  .back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:40px;transition:color 0.2s;}
+  .back-link:hover{color:rgba(255,255,255,0.8);}
+  .hero-meta{display:flex;align-items:center;gap:10px;margin-bottom:24px;flex-wrap:wrap;}
+  .hero-tag{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);}
+  .hero-headline{font-family:'Instrument Sans',serif;font-size:52px;font-weight:300;line-height:1.1;color:white;margin-bottom:24px;max-width:720px;}
+  .hero-headline em{font-style:italic;color:rgba(255,255,255,0.65);}
+  .hero-sub{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.55);max-width:580px;margin-bottom:56px;}
+  .hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.1);border-radius:16px 16px 0 0;overflow:hidden;}
+  .hero-metric{background:rgba(255,255,255,0.06);padding:28px 24px;text-align:center;}
+  .hero-metric-val{font-family:'Instrument Sans',serif;font-size:36px;font-weight:300;color:white;line-height:1;margin-bottom:6px;}
+  .hero-metric-label{font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);letter-spacing:0.06em;}
+
+  /* CONTENT */
+  .content{max-width:1060px;margin:0 auto;padding:80px 60px 100px;}
+  .content-grid{display:grid;grid-template-columns:1fr 280px;gap:80px;align-items:start;}
+
+  /* MAIN */
+  .section-label{font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .section-headline{font-family:'Instrument Sans',serif;font-size:32px;font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:16px;}
+  .section-headline em{font-style:italic;color:var(--sage);}
+  .body-text{font-size:15px;font-weight:300;line-height:1.8;color:rgba(15,28,43,0.65);}
+  .body-text p+p{margin-top:16px;}
+
+  .content-section{margin-bottom:64px;}
+
+  /* Problem/Solution cards */
+  .ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
+  .ps-card{border-radius:16px;padding:28px;}
+  .ps-card.problem{background:#FDF0EF;border:1px solid rgba(192,84,74,0.12);}
+  .ps-card.solution{background:var(--sage-pale);border:1px solid rgba(30,58,95,0.12);}
+  .ps-card-label{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
+  .ps-card.problem .ps-card-label{color:#C0544A;}
+  .ps-card.solution .ps-card-label{color:var(--sage-dark);}
+  .ps-card-text{font-size:14px;font-weight:300;line-height:1.72;color:rgba(15,28,43,0.7);}
+
+  /* Process steps */
+  .process-steps{display:flex;flex-direction:column;gap:0;margin-top:24px;}
+  .process-step{display:grid;grid-template-columns:40px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid rgba(15,28,43,0.06);}
+  .process-step:last-child{border-bottom:none;}
+  .step-num{font-family:'Instrument Sans',serif;font-size:20px;font-weight:300;color:var(--sage);opacity:0.5;line-height:1.4;}
+  .step-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+  .step-body{font-size:13px;font-weight:300;line-height:1.65;color:rgba(15,28,43,0.55);}
+
+  /* Results */
+  .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+  .result-card{background:var(--white);border:1.5px solid rgba(15,28,43,0.07);border-radius:16px;padding:24px;text-align:center;}
+  .result-val{font-family:'Instrument Sans',serif;font-size:40px;font-weight:300;line-height:1;margin-bottom:6px;}
+  .result-val.green{color:var(--sage-dark);}
+  .result-val.green-neg{color:var(--sage-dark);}
+  .result-label{font-size:12px;font-weight:300;color:rgba(15,28,43,0.5);line-height:1.4;}
+
+  /* Sidebar */
+  .sidebar{position:sticky;top:100px;}
+  .sidebar-card{background:var(--white);border:1.5px solid rgba(15,28,43,0.07);border-radius:18px;padding:28px;margin-bottom:20px;}
+  .sidebar-label{font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,28,43,0.35);margin-bottom:16px;}
+  .sidebar-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(15,28,43,0.05);font-size:13px;}
+  .sidebar-row:last-child{border-bottom:none;}
+  .sidebar-key{color:rgba(15,28,43,0.45);font-weight:300;}
+  .sidebar-val{color:var(--ink);font-weight:500;text-align:right;max-width:55%;}
+
+  .sidebar-cta{background:var(--sage-dark);border-radius:18px;padding:28px;text-align:center;}
+  .sidebar-cta-text{font-family:'Instrument Sans',serif;font-size:18px;font-weight:300;color:var(--off-white);margin-bottom:8px;line-height:1.3;}
+  .sidebar-cta-sub{font-size:12px;color:rgba(241,239,234,0.45);margin-bottom:20px;line-height:1.5;}
+  .btn-cta-small{display:block;background:var(--off-white);color:var(--ink);padding:12px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;}
+  .btn-cta-small:hover{background:var(--warm);}
+
+  /* NEXT CASE */
+  .next-case{background:var(--ink);padding:80px 0;}
+  .next-inner{max-width:1060px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+  .next-label{font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(241,239,234,0.3);margin-bottom:10px;}
+  .next-title{font-family:'Instrument Sans',serif;font-size:28px;font-weight:300;color:var(--off-white);line-height:1.2;}
+  .next-title em{font-style:italic;color:var(--sage-light);}
+  .btn-next{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--off-white);padding:14px 24px;border-radius:100px;font-size:14px;font-weight:400;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background 0.2s;}
+  .btn-next:hover{background:rgba(255,255,255,0.12);}
+
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding:40px 0;}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{display:flex;align-items:center;gap:10px;}
+  .footer-logo-word{font-family:'Instrument Sans',serif;font-size:18px;font-weight:300;color:rgba(241,239,234,0.45);}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:12px;color:rgba(241,239,234,0.3);text-decoration:none;}
+  .footer-copy{font-size:12px;color:rgba(241,239,234,0.18);}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .hero-headline{animation:fadeUp 0.5s ease both;}
+  .hero-sub{animation:fadeUp 0.5s ease 0.1s both;}
+  .hero-metrics{animation:fadeUp 0.5s ease 0.2s both;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  @media(max-width:900px){.content-grid{grid-template-columns:1fr;}.sidebar{position:static;}.ps-grid{grid-template-columns:1fr;}}
+  @media(max-width:768px){
+    .nav-inner{padding:16px 24px;}.nav-links{display:none;}.nav-hamburger{display:flex;}
+    .hero{padding:48px 0 0;}.hero-inner{padding:0 24px;}.hero-headline{font-size:32px;}.hero-sub{font-size:15px;}
+    .hero-metrics{grid-template-columns:1fr 1fr;}.hero-metric-val{font-size:28px;}
+    .content{padding:48px 24px 60px;}
+    .results-grid{grid-template-columns:1fr 1fr;}
+    .next-inner{padding:0 24px;flex-direction:column;align-items:flex-start;gap:24px;}
+    footer{padding:32px 0;}.footer-inner{padding:0 24px;flex-direction:column;gap:20px;text-align:center;}
+    .footer-links{flex-wrap:wrap;justify-content:center;}
+  }
+  @media(max-width:480px){.hero-headline{font-size:26px;}.hero-metrics{grid-template-columns:1fr 1fr;gap:1px;}.result-val{font-size:32px;}}
+
+  /* ── Cookie Consent Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #0F1C2B;
+    border-top: 1px solid rgba(30,58,95,0.25);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  #cookie-banner.visible {
+    transform: translateY(0);
+  }
+  .cookie-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(241,239,234,0.55);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .cookie-text a {
+    color: #C9A55C;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,165,92,0.3);
+  }
+  .cookie-text a:hover { border-color: #C9A55C; }
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept {
+    background: #1E3A5F;
+    color: #F1EFEA;
+  }
+  .cookie-btn-accept:hover { background: #16283D; }
+  .cookie-btn-decline {
+    background: rgba(255,255,255,0.06);
+    color: rgba(241,239,234,0.5);
+  }
+  .cookie-btn-decline:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(241,239,234,0.8);
+  }
+  @media (max-width: 680px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px 24px;
+      gap: 16px;
+    }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
+  }
+
+</style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Watermouse">
+    <meta property="og:title" content="TicketSwap Case Study, Watermouse">
+    <meta property="og:description" content="Wie TicketSwap 500.000 Events abdeckte ohne eine einzige manuelle Kampagne. −15% unsold inventory, +60% campaign coverage.">
+    <meta property="og:url" content="https://agency.thewatermouse.com/watermouse-fallstudie-ticketswap.html">
+    <meta property="og:image" content="https://agency.thewatermouse.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TicketSwap Case Study, Watermouse">
+    <meta name="twitter:description" content="Wie TicketSwap 500.000 Events abdeckte ohne eine einzige manuelle Kampagne. −15% unsold inventory, +60% campaign coverage.">
+    <meta name="twitter:image" content="https://agency.thewatermouse.com/og-image.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Wie TicketSwap 500.000 Events abdeckte ohne eine einzige manuelle Kampagne. −15% unsold inventory, +60% campaign coverage.">
+    <link rel="canonical" href="https://agency.thewatermouse.com/watermouse-fallstudie-ticketswap.html">
+<link rel="alternate" hreflang="en" href="https://agency.thewatermouse.com/watermouse-case-ticketswap.html">
+<link rel="alternate" hreflang="nl-NL" href="https://agency.thewatermouse.com/watermouse-case-ticketswap-nl.html">
+<link rel="alternate" hreflang="de-DE" href="https://agency.thewatermouse.com/watermouse-fallstudie-ticketswap.html">
+<link rel="alternate" hreflang="x-default" href="https://agency.thewatermouse.com/watermouse-case-ticketswap.html">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<style>/* WM brand (agency) */
+body{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;}
+h1,h2,h3,h4{font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;}
+h1 em,h2 em,h3 em{font-style:normal !important;color:#A9823A !important;}
+.nav-logo,.footer-logo{gap:10px !important;align-items:center !important;}
+.nav-logo-word,.footer-logo-word{font-family:'Instrument Sans',sans-serif !important;font-weight:600 !important;letter-spacing:-0.03em !important;font-size:20px !important;}
+.nav-logo-word{color:#0F1C2B !important;}
+.wm-tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.28em;color:#5A6878;border-left:1px solid #A9823A;padding-left:10px;white-space:nowrap;}
+.wm-mark{flex-shrink:0;}
+.eyebrow,.section-label,.label,.tag,.kicker{font-family:'IBM Plex Mono',ui-monospace,monospace !important;letter-spacing:0.14em !important;}
+.btn-primary,.nav-cta,.btn{border-radius:4px !important;}
+::selection{background:#A9823A;color:#FFFFFF;}
+.hero-eyebrow,.metric-val,.step-tag{color:#7E6028 !important;}
+@media(max-width:560px){.wm-tag{display:none;}}
+</style>
+<style>.btn-nav,.nav-drawer-cta{white-space:nowrap}@media(max-width:1100px){.nav-links{gap:14px}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="watermouse-de.html" class="nav-logo"><svg class="wm-mark" width="30" height="30" viewBox="10 20 80 80" aria-hidden="true"><rect x="10" y="20" width="80" height="80" rx="9" fill="#0F1C2B"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#A9823A" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="nav-logo-word">Watermouse</span><span class="wm-tag">AGENCY</span></a>
+    <ul class="nav-links">
+      <li><a href="watermouse-de.html#services">Leistungen</a></li>
+      <li><a href="watermouse-preise.html">Preise</a></li>
+      <li><a href="watermouse-referenzen.html" class="active">Referenzen</a></li>
+      <li><a href="watermouse-ueber-uns.html">Über uns</a></li>
+      <li><a href="watermouse-lead-assessments.html">Analysen</a></li><li><a href="watermouse-guides.html">Ratgeber</a></li>
+      <li><a href="watermouse-kostenloses-audit.html" class="btn-nav">Kostenloses Audit buchen</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="watermouse-de.html#services">Leistungen</a>
+  <a href="watermouse-preise.html">Preise</a>
+  <a href="watermouse-referenzen.html" class="active">Referenzen</a>
+  <a href="watermouse-ueber-uns.html">Über uns</a>
+  <a href="watermouse-lead-assessments.html">Analysen</a>
+  <a href="watermouse-guides.html">Ratgeber</a>
+  <a href="watermouse-kostenloses-audit.html" class="nav-drawer-cta">Kostenloses Audit buchen →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <a href="watermouse-referenzen.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Alle Fallstudien
+    </a>
+    <div class="hero-meta">
+      <span class="hero-tag">Ticketing</span>
+      <span class="hero-tag">Google Ads</span>
+      <span class="hero-tag">Feed-Automatisierung</span>
+      <span class="hero-tag">Niederlande · 2022</span>
+    </div>
+    <h1 class="hero-headline">Wie TicketSwap 500.000 Events abdeckte <em>ohne eine einzige manuelle Kampagne.</em></h1>
+    <p class="hero-sub">Ein vollautomatisiertes, feedgesteuertes Paid-Media-System, das die Abdeckung um 60 % steigerte, die Teamzeit um 80 % senkte und den unverkauften Bestand in 36 Märkten reduzierte.</p>
+    <div class="hero-metrics">
+      <div class="hero-metric"><div class="hero-metric-val">−15 %</div><div class="hero-metric-label">Unverkaufter Bestand</div></div>
+      <div class="hero-metric"><div class="hero-metric-val">−10 %</div><div class="hero-metric-label">Kosten pro neuem Nutzer</div></div>
+      <div class="hero-metric"><div class="hero-metric-val">+60 %</div><div class="hero-metric-label">Kampagnenabdeckung</div></div>
+      <div class="hero-metric"><div class="hero-metric-val">−80 %</div><div class="hero-metric-label">Zeit für den Kampagnenaufbau</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+  <div class="content-grid">
+    <div class="main-content">
+
+      <!-- CONTEXT -->
+      <div class="content-section reveal">
+        <div class="section-label">Kontext</div>
+        <h2 class="section-headline">Der größte Marktplatz für den Ticket-Weiterverkauf in Europa, mit einem Skalierungsproblem.</h2>
+        <div class="body-text">
+          <p>TicketSwap ist die größte Plattform für den Ticket-Weiterverkauf in den Niederlanden und in 36 Ländern mit über 8 Millionen Fans aktiv. Das Modell beruht auf Fairness: Eine Preisobergrenze von maximal 120 % schützt Käufer, und der Ruf hängt davon ab, Bestand effizient zu bewegen.</p>
+          <p>2022 standen zu jedem Zeitpunkt 500.000 aktive Events auf der Plattform. Bei jedem Event verfallen die Tickets, sobald die Show endet. Unverkaufter Bestand ist keine verpasste Chance, sondern ein grundlegendes Scheitern am Kernversprechen der Plattform.</p>
+          <p>Mit einem kleinen Performance-Marketing-Team lag die Herausforderung nicht bei Budget oder Strategie. Sie lag in der Skalierung.</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM / SOLUTION -->
+      <div class="content-section reveal">
+        <div class="section-label">Die Herausforderung</div>
+        <h2 class="section-headline">500.000 Events. <em>Ein kleines Team.</em></h2>
+        <div class="body-text"><p>Kampagnen manuell aufzubauen, mit Keywords, Anzeigentexten und Targeting für jedes Event, war bei diesem Volumen unmöglich. Ohne hochspezifische, zur Suchintention passende Anzeigen waren die bezahlten Kampagnen aber zu generisch, um zu konvertieren. Generische Anzeigen für generische Events schnitten schlecht ab und verschwendeten Budget.</p></div>
+        <div class="ps-grid">
+          <div class="ps-card problem">
+            <div class="ps-card-label">Das Problem</div>
+            <p class="ps-card-text">500.000 aktive Events in 36 Märkten. Jedes einzigartig, mit anderem Künstler, anderer Location, Stadt und anderem Datum. Zielgerichtete Kampagnen manuell zu bauen war unmöglich. Die bestehenden generischen Kampagnen blieben unter ihren Möglichkeiten und ließen Bestand unverkauft.</p>
+          </div>
+          <div class="ps-card solution">
+            <div class="ps-card-label">Die Lösung</div>
+            <p class="ps-card-text">Ein vollautomatisiertes, feedgesteuertes System mit Channable, das Eventdaten (Künstler, Location, Ort, Datum) abrief und für jedes aktive Event hochspezifische Anzeigengruppen und Keywords erzeugte, dynamisch, in großem Maßstab und in allen Märkten.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROCESS -->
+      <div class="content-section reveal">
+        <div class="section-label">So sind wir vorgegangen</div>
+        <h2 class="section-headline">Automatisierung auf Basis <em>einer sauberen Architektur.</em></h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <div>
+              <div class="step-title">Feed-Architektur</div>
+              <p class="step-body">Wir bauten einen dynamischen Event-Feed mit allen relevanten Feldern: Eventname, Künstler, Location, Stadt, Land, Datum, Ticketverfügbarkeit und Kategorie. Der Feed wurde zur einzigen Datengrundlage für den gesamten Kampagnenaufbau.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <div>
+              <div class="step-title">Automatisierte Anzeigen- und Keyword-Erzeugung</div>
+              <p class="step-body">Mit Channable bauten wir Vorlagen, die für jedes Event dynamisch Anzeigengruppen, Überschriften, Beschreibungen und Keywords erzeugten. Ein Coldplay-Konzert in der Amsterdam Arena ergab Anzeigen, die speziell auf Coldplay, Amsterdam und das genaue Datum zugeschnitten waren, keine generische Anzeige im Stil von „Tickets kaufen“.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <div>
+              <div class="step-title">Ausrollen in mehrere Märkte</div>
+              <p class="step-body">Das System kannte Sprache und Markt. Großbritannien, Niederlande, Deutschland, Belgien: Jeder Markt erhielt lokalisierte Anzeigentexte aus dem Feed, ohne den manuellen Aufwand zu verdoppeln.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <div>
+              <div class="step-title">Gebotslogik nach Bestand</div>
+              <p class="step-body">Die Kampagnen waren an die aktuelle Verfügbarkeit gekoppelt. Events mit mehr verfügbaren Tickets erhielten anteilig höhere Gebote, sodass sich das Budget auf den Bestand konzentrierte, der am dringendsten bewegt werden musste, und sich automatisch anpasste, wenn Events ausverkauft waren.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="content-section reveal">
+        <div class="section-label">Ergebnisse</div>
+        <h2 class="section-headline">Mehr Abdeckung. Weniger Arbeit. <em>Bessere Ergebnisse.</em></h2>
+        <div class="body-text"><p>Das System startete zuerst im niederländischen Markt. Nachdem es seine Wirkung innerhalb des ersten Monats bewiesen hatte, wurde es in allen aktiven TicketSwap-Märkten ausgerollt. Die Ergebnisse waren überall konsistent.</p></div>
+        <div class="results-grid" style="margin-top:28px;">
+          <div class="result-card">
+            <div class="result-val green-neg">−15 %</div>
+            <div class="result-label">Rückgang des unverkauften Ticketbestands, der zentralen Geschäftskennzahl</div>
+          </div>
+          <div class="result-card">
+            <div class="result-val green-neg">−10 %</div>
+            <div class="result-label">Kosten pro neuem Nutzer: gleiches Budget, mehr Käufer</div>
+          </div>
+          <div class="result-card">
+            <div class="result-val green">+60 %</div>
+            <div class="result-label">Steigerung der Abdeckung über die bezahlten Kampagnen</div>
+          </div>
+          <div class="result-card">
+            <div class="result-val green-neg">−80 %</div>
+            <div class="result-label">Teamzeit für den Kampagnenaufbau, frei für Strategie geworden</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Projektdetails</div>
+        <div class="sidebar-row"><span class="sidebar-key">Kunde</span><span class="sidebar-val">TicketSwap</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Jahr</span><span class="sidebar-val">2022</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Branche</span><span class="sidebar-val">Ticket-Weiterverkauf</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Märkte</span><span class="sidebar-val">Niederlande + 36 Länder</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Kanäle</span><span class="sidebar-val">Google-Search-Anzeigen</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Tools</span><span class="sidebar-val">Channable, Google Ads</span></div>
+        <div class="sidebar-row"><span class="sidebar-key">Rolle</span><span class="sidebar-val">Performance Marketing Manager (festangestellt)</span></div>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-text">Wollen Sie solche Ergebnisse für Ihre Marke?</div>
+        <div class="sidebar-cta-sub">Buchen Sie ein kostenloses Auditgespräch: Wir sehen uns Ihr Konto an und sagen Ihnen, was möglich ist.</div>
+        <a href="watermouse-kostenloses-audit.html" class="btn-cta-small">Kostenloses Audit buchen →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT CASE -->
+<div class="next-case">
+  <div class="next-inner">
+    <div>
+      <div class="next-label">Nächste Fallstudie</div>
+      <div class="next-title">Von Meta-lastig zu <em>Google bei halbem Budget.</em></div>
+    </div>
+    <a href="watermouse-fallstudie-artipoppe.html" class="btn-next">Artipoppe → <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><svg class="wm-mark" width="28" height="28" viewBox="10 20 80 80" aria-hidden="true"><rect x="11" y="21" width="78" height="78" rx="9" fill="none" stroke="rgba(241,239,234,0.35)" stroke-width="2"/><path d="M50 34s-15 17.6-15 28a15 15 0 0 0 30 0c0-10.4-15-28-15-28z" fill="#F1EFEA"/><path d="M63.6 69.6c5 3 7.8 6.9 7.8 11.6" stroke="#C9A55C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg><span class="footer-logo-word">Watermouse</span></div>
+    <ul class="footer-links"><li><a href="watermouse-de.html#services">Leistungen</a></li><li><a href="watermouse-preise.html">Preise</a></li><li><a href="watermouse-referenzen.html">Referenzen</a></li><li><a href="watermouse-kostenloses-audit.html">Kontakt</a></li><li><a href="watermouse-privacy.html">Datenschutz</a></li><li><a href="watermouse-terms.html">AGB</a></li><li class="lang-sw"><a href="watermouse-case-ticketswap.html" hreflang="en">English</a></li><li class="lang-sw"><a href="watermouse-case-ticketswap-nl.html" hreflang="nl">Nederlands</a></li></ul>
+    <span class="footer-copy">&copy; 2026 Watermouse. Alle Rechte vorbehalten.</span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(){const btn=document.getElementById('nav-hamburger');const drawer=document.getElementById('nav-drawer');btn.classList.toggle('open');drawer.classList.toggle('open');document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('nav-hamburger').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');document.body.style.overflow='';}});
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text">
+      Wir verwenden Cookies, um zu verstehen, wie Besucher unsere Website nutzen, und um sie laufend zu verbessern. Es werden keine Daten an Dritte verkauft. Lesen Sie unsere
+      <a href="watermouse-privacy.html">Datenschutzerklärung</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Ablehnen</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Akzeptieren</button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      var consent = localStorage.getItem('wm_cookie_consent');
+      if (!consent) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+          // slight delay so page renders first
+          setTimeout(function() { banner.classList.add('visible'); }, 600);
+        }
+      }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('wm_cookie_consent', 'accepted');
+      hideCookieBanner();
+    }
+    function cookieDecline() {
+      localStorage.setItem('wm_cookie_consent', 'declined');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(function() { banner.style.display = 'none'; }, 450);
+      }
+    }
+  </script>
+
+
+<!-- Sticky mobile CTA -->
+<a href="watermouse-kostenloses-audit.html" class="wm-mcta" aria-label="Book a free audit">Kostenloses Audit buchen →</a>
+<style>.wm-mcta{display:none}@media(max-width:768px){.wm-mcta{display:flex;align-items:center;justify-content:center;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;background:#1E3A5F;color:#fff!important;text-decoration:none;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 20px;border-radius:100px;box-shadow:0 8px 24px rgba(15,28,43,.28);border:none}}</style>
+</body>
+</html>
